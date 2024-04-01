@@ -1,0 +1,1007 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "Microbial Experiment",
+    "properties": {
+        "_self": {
+            "$ref": "#/$defs/_self"
+        },
+        "LabCAS-DataAcquisitionDate": {
+            "description": "Date on which data were acquired according to eLabFTW record",
+            "$ref": "#/$defs/LabCAS-DataAcquisitionDate"
+        },
+        "LabCAS-Instrument": {
+            "$ref": "#/$defs/LabCAS-Instrument"
+        },
+        "LabCAS-MicrobialMaterialID": {
+            "$ref": "#/$defs/LabCAS-MicrobialMaterialID"
+        },
+        "LabCAS-Operator": {
+            "$ref": "#/$defs/LabCAS-Operator"
+        },
+        "LabCAS-Project": {
+            "description": "The project to which the experiment belongs",
+            "$ref": "#/$defs/LabCAS-Project"
+        },
+        "***REMOVED***CorePath": {
+            "$ref": "#/$defs/***REMOVED***CorePath"
+        },
+        "***REMOVED***SpecificPath": {
+            "$ref": "#/$defs/***REMOVED***SpecificPath"
+        },
+        "TemplateName": {
+            "description": "Read-only field used to indicate which template was used ",
+            "$ref": "#/$defs/TemplateName"
+        }
+    },
+    "additionalProperties": true,
+    "oneOf": [
+        {
+            "$ref": "#/$defs/CFU"
+        },
+        {
+            "$ref": "#/$defs/LogCOMET_SamplePrep"
+        },
+        {
+            "$ref": "#/$defs/BactoBox_Acquisition"
+        },
+        {
+            "$ref": "#/$defs/CytoFLEX Acquisition"
+        },
+        {
+            "$ref": "#/$defs/Coulter_Acquisition"
+        },
+        {
+            "$ref": "#/$defs/Cell Culture in Broth"
+        },
+        {
+            "$ref": "#/$defs/Microscopy_Acquisition"
+        },
+        {
+            "$ref": "#/$defs/SlideCleaning"
+        },
+        {
+            "$ref": "#/$defs/Initiate Growth of B. spizizenii"
+        },
+        {
+            "$ref": "#/$defs/Difco Amended Sporulation Agar (ASA) Protocol"
+        },
+        {
+            "$ref": "#/$defs/DNA Extraction"
+        }
+    ],
+    "required": [
+        "_self",
+        "LabCAS-MicrobialMaterialID",
+        "LabCAS-Operator",
+        "LabCAS-Project"
+    ],
+    "$defs": {
+        "_self": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "BactoBox_Acquisition": {
+            "type": "object",
+            "properties": {
+                "BeadLotNumber_ConcentrationQC": {
+                    "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
+                },
+                "BeadLotNumber_SizeQC": {
+                    "$ref": "#/$defs/BeadLotNumber_SizeQC"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "description": "Indicates if a known error appears in the dataset",
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "QCReagentLotNumber": {
+                    "$ref": "#/$defs/QCReagentLotNumber"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Cell Culture in Broth": {
+            "type": "object",
+            "properties": {
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "GrowthDuration": {
+                    "$ref": "#/$defs/GrowthDuration"
+                },
+                "GrowthMediaName": {
+                    "$ref": "#/$defs/GrowthMediaName"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "CFU": {
+            "type": "object",
+            "properties": {
+                "CFUMethod": {
+                    "$ref": "#/$defs/CFUMethod"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "description": "Indicates if a known error appears in the dataset",
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "GrowthDuration": {
+                    "$ref": "#/$defs/GrowthDuration"
+                },
+                "GrowthMediaName": {
+                    "$ref": "#/$defs/GrowthMediaName"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Coulter_Acquisition": {
+            "type": "object",
+            "properties": {
+                "BeadLotNumber_ConcentrationQC": {
+                    "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
+                },
+                "BeadLotNumber_SizeQC": {
+                    "$ref": "#/$defs/BeadLotNumber_SizeQC"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "CoulterAcquisitionTime": {
+                    "$ref": "#/$defs/CoulterAcquisitionTime"
+                },
+                "CoulterAcquistionVolume": {
+                    "$ref": "#/$defs/CoulterAcquistionVolume"
+                },
+                "CoulterAperatureSize": {
+                    "$ref": "#/$defs/CoulterAperatureSize"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "QCReagentLotNumber": {
+                    "$ref": "#/$defs/QCReagentLotNumber"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "CytoFLEX Acquisition": {
+            "$id": "CytoFLEX_Acquisition",
+            "type": "object",
+            "properties": {
+                "BeadLotNumber_ConcentrationQC": {
+                    "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
+                },
+                "BeadLotNumber_SizeQC": {
+                    "$ref": "#/$defs/BeadLotNumber_SizeQC"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FCAcquisitionCountTarget": {
+                    "$ref": "#/$defs/FCAcquisitionCountTarget"
+                },
+                "FCAcquisitionThresholdChannel": {
+                    "$ref": "#/$defs/FCAcquisitionThresholdChannel"
+                },
+                "FCAcquisitionThresholdValue": {
+                    "$ref": "#/$defs/FCAcquisitionThresholdValue"
+                },
+                "FCAcquisitionTime": {
+                    "$ref": "#/$defs/FCAcquisitionTime"
+                },
+                "FCFlowRateSetting": {
+                    "$ref": "#/$defs/FCFlowRateSetting"
+                },
+                "FCFluorescentChannels": {
+                    "description": "Channel names separated by semicolons",
+                    "$ref": "#/$defs/FCFluorescentChannels"
+                },
+                "FCInjectionMode": {
+                    "$ref": "#/$defs/FCInjectionMode"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "FluorescentProbe": {
+                    "$ref": "#/$defs/FluorescentProbe"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationDuration": {
+                    "$ref": "#/$defs/IncubationDuration"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "QCReagentLotNumber": {
+                    "$ref": "#/$defs/QCReagentLotNumber"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Difco Amended Sporulation Agar (ASA) Protocol": {
+            "type": "object",
+            "properties": {
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                }
+            },
+            "additionalProperties": false
+        },
+        "DNA Extraction": {
+            "type": "object",
+            "additionalProperties": false
+        },
+        "Initiate Growth of B. spizizenii": {
+            "type": "object",
+            "properties": {
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "GrowthDuration": {
+                    "$ref": "#/$defs/GrowthDuration"
+                },
+                "GrowthMediaName": {
+                    "$ref": "#/$defs/GrowthMediaName"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LogCOMET_SamplePrep": {
+            "type": "object",
+            "properties": {
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "ErrorFlag": {
+                    "description": "Indicates if a known error appears in the dataset",
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationDuration": {
+                    "$ref": "#/$defs/IncubationDuration"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Microscopy_Acquisition": {
+            "type": "object",
+            "properties": {
+                "BeadLotNumber_ConcentrationQC": {
+                    "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
+                },
+                "BeadLotNumber_SizeQC": {
+                    "$ref": "#/$defs/BeadLotNumber_SizeQC"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FluorescentProbe": {
+                    "$ref": "#/$defs/FluorescentProbe"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationDuration": {
+                    "$ref": "#/$defs/IncubationDuration"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "Objective(s)": {
+                    "$ref": "#/$defs/Objective(s)"
+                },
+                "QCReagentLotNumber": {
+                    "$ref": "#/$defs/QCReagentLotNumber"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TransmissionMode": {
+                    "$ref": "#/$defs/TransmissionMode"
+                }
+            },
+            "additionalProperties": false
+        },
+        "SlideCleaning": {
+            "type": "object",
+            "additionalProperties": false
+        },
+        "BeadLotNumber_ConcentrationQC": {
+            "type": "object",
+            "description": "Lot number of beads used for quality control of concentration measurements",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "BeadLotNumber_SizeQC": {
+            "type": "object",
+            "description": "Lot number of beads used for quality control of size measurements",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ErrorFlag": {
+            "description": "Indicates if a known error appears in the dataset",
+            "$ref": "#model/$defs/boolean_value"
+        },
+        "CellVolume": {
+            "type": "object",
+            "description": "Volume of cell stock added to acquisition vessel",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "uL"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "CFUMethod": {
+            "type": "object",
+            "description": "Describes deposition format of cells on agar plate",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 0,
+                    "prefixItems": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Plate spread",
+                                "Drip plate",
+                                "Spiral plater",
+                                "Droplet",
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "CoulterAcquisitionTime": {
+            "type": "object",
+            "description": "Set time of data acquisition on Coulter counter",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "sec"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "CoulterAcquistionVolume": {
+            "type": "object",
+            "description": "Set volume of data acquisition on Coulter counter",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "µL"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "CoulterAperatureSize": {
+            "type": "object",
+            "description": "Aperture installed on Coulter counter during measurement",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "µm"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "DiluentName": {
+            "type": "object",
+            "description": "Which diluent was used to suspend cells for acquisition (linked item)",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "DiluentVolume": {
+            "type": "object",
+            "description": "Volume of diluent added to acquisition vessel",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "mL"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "FCAcquisitionCountTarget": {
+            "type": "object",
+            "description": "Set number of events to acquire in a particular gate on flow cytometer",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "events"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "FCAcquisitionThresholdChannel": {
+            "description": "Which channel as named by the manufacturer was used to threshold the data acquisition?",
+            "$ref": "#model/$defs/string_value"
+        },
+        "FCAcquisitionThresholdValue": {
+            "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry",
+            "$ref": "#model/$defs/number_value"
+        },
+        "FCAcquisitionTime": {
+            "type": "object",
+            "description": "Set time of data acquisition on flow cytometer",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "sec"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "FCFlowRateSetting": {
+            "type": "object",
+            "description": "Set flow rate of data acquisition on flow cytometer",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "µL/min"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "$comment": "THIS SHOULD PROBABLY USE THE µ SYMBOL"
+        },
+        "FCFluorescentChannels": {
+            "description": "List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)",
+            "$ref": "#model/$defs/string_value"
+        },
+        "FCInjectionMode": {
+            "type": "object",
+            "description": "Sample acquisition format in flow cytometer",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Plate",
+                        "Tube",
+                        "NA"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "FixationMethod": {
+            "type": "object",
+            "description": "Specific treatment applied to cells to prevent future changes",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 0,
+                    "prefixItems": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Formaldehyde",
+                                "Heat",
+                                "Ethanol"
+                            ]
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "FluorescentProbe": {
+            "type": "object",
+            "description": "Fluorescent probe(s) used in experiment as named in the eLabFTW database (linked item)",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "prefixItems": [
+                        {
+                            "$ref": "#model/$defs/elab_item_link"
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "GrowthDuration": {
+            "type": "object",
+            "description": "Time in hours that cells were incubated to encourage growth",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "hr"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "GrowthMediaName": {
+            "type": "object",
+            "description": "Name of media used to culture cells (linked item)",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "IncubationAgitation": {
+            "type": "object",
+            "description": "Speed of agitation that cells were incubated during an experiment",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "rpm",
+                        "x g"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "IncubationAtmosphere": {
+            "type": "object",
+            "description": "Atmosphere that cells were incubated in to encourage growth",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "Atmospheric",
+                        "Atmospheric + 5% CO2",
+                        "Anaerobic"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "IncubationDuration": {
+            "type": "object",
+            "description": "Time in minutes that cells were incubated during an experiment",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "min"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "IncubationTemperature": {
+            "type": "object",
+            "description": "Temperature in oC that cells were incubated in during an experiment or culture",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "oC"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "$comment": "THIS SHOULD PROBABLY USE THE DEGREE SYMBOL (°)"
+        },
+        "KitLotNumber": {
+            "type": "object",
+            "description": "The lot number of any relevant kits",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LabCAS-DataAcquisitionDate": {
+            "description": "Date on which data were acquired according to eLabFTW record",
+            "$ref": "#model/$defs/date_value"
+        },
+        "LabCAS-Instrument": {
+            "type": "object",
+            "description": "Instrument short name (linked item)",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LabCAS-MicrobialMaterialID": {
+            "type": "object",
+            "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked item)",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "prefixItems": [
+                        {
+                            "$ref": "#model/$defs/elab_item_link"
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "LabCAS-Operator": {
+            "type": "object",
+            "description": "Instrument operator name (linked item)",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LabCAS-Project": {
+            "type": "object",
+            "description": "Name of project that experiment supports (linked item)",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LibraryPrep": {
+            "description": "Name of specific kit used for sequencing preparation steps",
+            "$ref": "#model/$defs/string_value"
+        },
+        "NucleicAcidType": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "RNA",
+                        "DNA"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "Objective(s)": {
+            "type": "object",
+            "description": "Which microscope objectives were used",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "prefixItems": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "5X",
+                                "10X"
+                            ]
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "QCReagentLotNumber": {
+            "type": "object",
+            "description": "The lot number if a QC reagent was used",
+            "properties": {
+                "value": {
+                    "$ref": "#model/$defs/elab_item_link"
+                }
+            },
+            "additionalProperties": false
+        },
+        "***REMOVED***CorePath": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "***REMOVED***SpecificPath": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "SamplePurposeCodes": {
+            "type": "object",
+            "description": "Generic types of controls contained in the dataset",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "prefixItems": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "Positive control",
+                                "Negative control",
+                                "Reference cell",
+                                "Reference fluorescence",
+                                "Reference scattering",
+                                "Reference size",
+                                "Reference concentration",
+                                "Quality control",
+                                "Compensation control",
+                                "Test",
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "TemplateName": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "enum": [
+                        "CFU",
+                        "LogCOMET_SamplePrep",
+                        "BactoBox_Acquisition",
+                        "CytoFLEX_Acquisition",
+                        "Coulter_Acquisition",
+                        "Cell Culture in Broth",
+                        "Microscopy_Acquisition",
+                        "SlideCleaning",
+                        "Initiate Growth of B. spizizenii",
+                        "Difco Amended Sporulation Agar (ASA) Protocol",
+                        "BSA + Bead Sample Prep",
+                        "FormaldehydeFixation"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "TransmissionMode": {
+            "type": "object",
+            "description": "Which microscope transmission modes were used",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "prefixItems": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "DIC",
+                                "Brightfield",
+                                "Phase"
+                            ]
+                        }
+                    ],
+                    "items": false
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

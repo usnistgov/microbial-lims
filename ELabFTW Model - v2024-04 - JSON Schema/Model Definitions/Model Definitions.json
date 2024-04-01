@@ -1,0 +1,149 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ELabFTW Model",
+    "type": "object",
+    "properties": {
+        "elab_item_link": {
+            "title": "eLabFTW item link",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "The integer identifier for this item used by this eLabFTW instance"
+                },
+                "elabid": {
+                    "type": "string",
+                    "description": "The unique \"eLabID\" for this item"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "A (resolvable) URL for accessing this item via a web browser"
+                },
+                "api_url": {
+                    "type": "string",
+                    "description": "A URL for accessing this item via the eLabFTW API",
+                    "format": "uri"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A short description of this item"
+                },
+                "category_title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "The name of the category for this item (called an \"item type\") in eLabFTW"
+                },
+                "status_title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Whether this item is a resource (database item) or an experiment",
+                    "enum": [
+                        "experiments",
+                        "items"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "description": "A data type representing a link to an item (experiment or resource) in an eLabFTW instance",
+            "required": [
+                "id",
+                "elabid",
+                "url",
+                "api_url",
+                "title",
+                "category_title",
+                "status_title",
+                "type"
+            ]
+        },
+        "elab_user_link": {
+            "title": "eLabFTW user",
+            "type": "object",
+            "properties": {
+                "userid": {
+                    "type": "integer",
+                    "description": "The identifier number for this user in the eLabFTW instance"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "The user's first (given) name"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "The user's last name (surname)"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The user's email address",
+                    "format": "email"
+                },
+                "base_url": {
+                    "type": "string",
+                    "description": "The URL of the ELabFTW instance in which the user is registered",
+                    "format": "uri",
+                    "examples": [
+                        "https://demo.elabftw.net"
+                    ]
+                },
+                "orcid": {
+                    "type": "string",
+                    "description": "The user's ORCID (if defined)",
+                    "pattern": "^(d{4}-){3}d{3}(d|X)$"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "userid",
+                "first_name",
+                "last_name",
+                "email",
+                "base_url"
+            ]
+        },
+        "boolean_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "number_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "number"
+                }
+            },
+            "additionalProperties": false
+        },
+        "string_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "date_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

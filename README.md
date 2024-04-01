@@ -9,7 +9,7 @@ experiment templates.
 
 ## Implementation
 
-Currently, @jat is using Hackolade Studio to design the data model in the file
+Currently, @jat is using [Hackolade Studio](https://hackolade.com/) to design the data model in the file
 [`Microbial Strain ELabFTW Model.hck.json`](Microbial Strain ELabFTW Model.hck.json) to
 generate the JSONSchema outputs via that tool's ["forward engineering"](https://hackolade.com/help/JSONSchema.html)
 feature. Tools such as Visual Studio Code or XML Developer also support JSON Schema modeling
@@ -22,7 +22,7 @@ in the `validation` folder to validate and export experiments generated in ELabF
 ## Documentation
 
 There are various tools that can be used to generate documentation from JSONSchema. Eventually
-this section should describe 
+this section should describe how to generate that documentation and where it can be viewed.
 
 ## Contributors:
 
