@@ -23,15 +23,11 @@
             "description": "The project to which the experiment belongs",
             "$ref": "#/$defs/LabCAS-Project"
         },
-        "***REMOVED***CorePath": {
-            "$ref": "#/$defs/***REMOVED***CorePath"
+        "CoreDataPath": {
+            "$ref": "#/$defs/CoreDataPath"
         },
-        "***REMOVED***SpecificPath": {
-            "$ref": "#/$defs/***REMOVED***SpecificPath"
-        },
-        "TemplateName": {
-            "description": "Read-only field used to indicate which template was used ",
-            "$ref": "#/$defs/TemplateName"
+        "SpecificDataPath": {
+            "$ref": "#/$defs/SpecificDataPath"
         }
     },
     "additionalProperties": true,
@@ -68,6 +64,12 @@
         },
         {
             "$ref": "#/$defs/DNA Extraction"
+        },
+        {
+            "$ref": "#/$defs/BSA + Bead Sample Prep"
+        },
+        {
+            "$ref": "#/$defs/FormaldehydeFixation"
         }
     ],
     "required": [
@@ -116,9 +118,90 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "BactoBox_Acquisition"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
+        },
+        "BSA + Bead Sample Prep": {
+            "type": "object",
+            "properties": {
+                "BeadLotNumber_ConcentrationQC": {
+                    "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
+                },
+                "BeadLotNumber_SizeQC": {
+                    "$ref": "#/$defs/BeadLotNumber_SizeQC"
+                },
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "DiluentVolume": {
+                    "$ref": "#/$defs/DiluentVolume"
+                },
+                "ErrorFlag": {
+                    "description": "Indicates if a known error appears in the dataset",
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "IncubationAgitation": {
+                    "$ref": "#/$defs/IncubationAgitation"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationDuration": {
+                    "$ref": "#/$defs/IncubationDuration"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "QCReagentLotNumber": {
+                    "$ref": "#/$defs/QCReagentLotNumber"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "BSA + Bead Sample Prep"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "Cell Culture in Broth": {
             "type": "object",
@@ -155,9 +238,28 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "Cell Culture in Broth"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "CFU": {
             "type": "object",
@@ -198,13 +300,38 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "CFU"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "Coulter_Acquisition": {
             "type": "object",
             "properties": {
+                "AcquisitionTime": {
+                    "$ref": "#/$defs/AcquisitionTime"
+                },
+                "AcquistionVolume": {
+                    "$ref": "#/$defs/AcquistionVolume"
+                },
                 "BeadLotNumber_ConcentrationQC": {
                     "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
                 },
@@ -213,12 +340,6 @@
                 },
                 "CellVolume": {
                     "$ref": "#/$defs/CellVolume"
-                },
-                "CoulterAcquisitionTime": {
-                    "$ref": "#/$defs/CoulterAcquisitionTime"
-                },
-                "CoulterAcquistionVolume": {
-                    "$ref": "#/$defs/CoulterAcquistionVolume"
                 },
                 "CoulterAperatureSize": {
                     "$ref": "#/$defs/CoulterAperatureSize"
@@ -240,14 +361,39 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "Coulter_Acquisition"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "CytoFLEX Acquisition": {
             "$id": "CytoFLEX_Acquisition",
             "type": "object",
             "properties": {
+                "AcquisitionTime": {
+                    "$ref": "#/$defs/AcquisitionTime"
+                },
+                "AcquistionVolume": {
+                    "$ref": "#/$defs/AcquistionVolume"
+                },
                 "BeadLotNumber_ConcentrationQC": {
                     "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
                 },
@@ -274,9 +420,6 @@
                 },
                 "FCAcquisitionThresholdValue": {
                     "$ref": "#/$defs/FCAcquisitionThresholdValue"
-                },
-                "FCAcquisitionTime": {
-                    "$ref": "#/$defs/FCAcquisitionTime"
                 },
                 "FCFlowRateSetting": {
                     "$ref": "#/$defs/FCFlowRateSetting"
@@ -311,22 +454,110 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "CytoFLEX_Acquisition"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "Difco Amended Sporulation Agar (ASA) Protocol": {
             "type": "object",
             "properties": {
                 "ErrorFlag": {
                     "$ref": "#/$defs/ErrorFlag"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "Difco Amended Sporulation Agar (ASA) Protocol"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "DNA Extraction": {
             "type": "object",
             "additionalProperties": false
+        },
+        "FormaldehydeFixation": {
+            "type": "object",
+            "properties": {
+                "CellVolume": {
+                    "$ref": "#/$defs/CellVolume"
+                },
+                "DiluentName": {
+                    "$ref": "#/$defs/DiluentName"
+                },
+                "ErrorFlag": {
+                    "description": "Indicates if a known error appears in the dataset",
+                    "$ref": "#/$defs/ErrorFlag"
+                },
+                "FixationMethod": {
+                    "$ref": "#/$defs/FixationMethod"
+                },
+                "IncubationAtmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphere"
+                },
+                "IncubationDuration": {
+                    "$ref": "#/$defs/IncubationDuration"
+                },
+                "IncubationTemperature": {
+                    "$ref": "#/$defs/IncubationTemperature"
+                },
+                "SamplePurposeCodes": {
+                    "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "FormaldehydeFixation"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "Initiate Growth of B. spizizenii": {
             "type": "object",
@@ -360,9 +591,28 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "Initiate Growth of B. spizizenii"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "LogCOMET_SamplePrep": {
             "type": "object",
@@ -394,9 +644,28 @@
                 },
                 "SamplePurposeCodes": {
                     "$ref": "#/$defs/SamplePurposeCodes"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "LogCOMET_SamplePrep"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
         },
         "Microscopy_Acquisition": {
             "type": "object",
@@ -445,12 +714,84 @@
                 },
                 "TransmissionMode": {
                     "$ref": "#/$defs/TransmissionMode"
+                },
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "Microscopy_Acquisition"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
+        },
+        "SlideCleaning": {
+            "type": "object",
+            "properties": {
+                "TemplateName": {
+                    "type": "object",
+                    "description": "Read-only field used to indicate which template was used",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "SlideCleaning"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "value"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "TemplateName"
+            ]
+        },
+        "AcquisitionTime": {
+            "type": "object",
+            "description": "Data acquisition time as set by instrument",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "sec"
+                    ]
                 }
             },
             "additionalProperties": false
         },
-        "SlideCleaning": {
+        "AcquistionVolume": {
             "type": "object",
+            "description": "Data acquisition volume as set by instrument",
+            "properties": {
+                "value": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string",
+                    "enum": [
+                        "µL"
+                    ]
+                }
+            },
             "additionalProperties": false
         },
         "BeadLotNumber_ConcentrationQC": {
@@ -518,33 +859,15 @@
             },
             "additionalProperties": false
         },
-        "CoulterAcquisitionTime": {
+        "CoreDataPath": {
             "type": "object",
-            "description": "Set time of data acquisition on Coulter counter",
+            "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)",
             "properties": {
                 "value": {
-                    "type": "number"
-                },
-                "unit": {
                     "type": "string",
-                    "enum": [
-                        "sec"
-                    ]
-                }
-            },
-            "additionalProperties": false
-        },
-        "CoulterAcquistionVolume": {
-            "type": "object",
-            "description": "Set volume of data acquisition on Coulter counter",
-            "properties": {
-                "value": {
-                    "type": "number"
-                },
-                "unit": {
-                    "type": "string",
-                    "enum": [
-                        "µL"
+                    "format": "uri-reference",
+                    "examples": [
+                        "\\\\***REMOVED***.nist.gov\\***REMOVED***\\InstrumentData\\CytoFLEX"
                     ]
                 }
             },
@@ -908,26 +1231,6 @@
             },
             "additionalProperties": false
         },
-        "***REMOVED***CorePath": {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "string",
-                    "format": "uri-reference"
-                }
-            },
-            "additionalProperties": false
-        },
-        "***REMOVED***SpecificPath": {
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": "string",
-                    "format": "uri-reference"
-                }
-            },
-            "additionalProperties": false
-        },
         "SamplePurposeCodes": {
             "type": "object",
             "description": "Generic types of controls contained in the dataset",
@@ -954,6 +1257,20 @@
                         }
                     ],
                     "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "SpecificDataPath": {
+            "type": "object",
+            "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "examples": [
+                        "user/project/date/"
+                    ]
                 }
             },
             "additionalProperties": false
