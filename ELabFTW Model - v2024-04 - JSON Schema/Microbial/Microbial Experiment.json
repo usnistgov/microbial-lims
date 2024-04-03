@@ -42,13 +42,13 @@
             "$ref": "#/$defs/BactoBox_Acquisition"
         },
         {
-            "$ref": "#/$defs/CytoFLEX Acquisition"
+            "$ref": "#/$defs/CytoFLEX_Acquisition"
         },
         {
             "$ref": "#/$defs/Coulter_Acquisition"
         },
         {
-            "$ref": "#/$defs/Cell Culture in Broth"
+            "$ref": "#/$defs/Cell_Culture_in_Broth"
         },
         {
             "$ref": "#/$defs/Microscopy_Acquisition"
@@ -57,16 +57,16 @@
             "$ref": "#/$defs/SlideCleaning"
         },
         {
-            "$ref": "#/$defs/Initiate Growth of B. spizizenii"
+            "$ref": "#/$defs/Initiate_Growth_of_B_spizizenii"
         },
         {
-            "$ref": "#/$defs/Difco Amended Sporulation Agar (ASA) Protocol"
+            "$ref": "#/$defs/Difco_Amended_Sporulation_Agar_ASA_Protocol"
         },
         {
-            "$ref": "#/$defs/DNA Extraction"
+            "$ref": "#/$defs/DNA_Extraction"
         },
         {
-            "$ref": "#/$defs/BSA + Bead Sample Prep"
+            "$ref": "#/$defs/BSA_and_Bead_Sample_Prep"
         },
         {
             "$ref": "#/$defs/FormaldehydeFixation"
@@ -90,6 +90,7 @@
         },
         "BactoBox_Acquisition": {
             "type": "object",
+            "title": "BactoBox Acquisition",
             "properties": {
                 "BeadLotNumber_ConcentrationQC": {
                     "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
@@ -141,8 +142,9 @@
                 "TemplateName"
             ]
         },
-        "BSA + Bead Sample Prep": {
+        "BSA_and_Bead_Sample_Prep": {
             "type": "object",
+            "title": "BSA + Bead Sample Prep",
             "properties": {
                 "BeadLotNumber_ConcentrationQC": {
                     "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"
@@ -203,8 +205,9 @@
                 "TemplateName"
             ]
         },
-        "Cell Culture in Broth": {
+        "Cell_Culture_in_Broth": {
             "type": "object",
+            "title": "Cell Culture in Broth",
             "properties": {
                 "CellVolume": {
                     "$ref": "#/$defs/CellVolume"
@@ -325,6 +328,7 @@
         },
         "Coulter_Acquisition": {
             "type": "object",
+            "title": "Coulter Acquisition",
             "properties": {
                 "AcquisitionTime": {
                     "$ref": "#/$defs/AcquisitionTime"
@@ -384,9 +388,10 @@
                 "TemplateName"
             ]
         },
-        "CytoFLEX Acquisition": {
+        "CytoFLEX_Acquisition": {
             "$id": "CytoFLEX_Acquisition",
             "type": "object",
+            "title": "CytoFLEX Acquisition",
             "properties": {
                 "AcquisitionTime": {
                     "$ref": "#/$defs/AcquisitionTime"
@@ -477,8 +482,9 @@
                 "TemplateName"
             ]
         },
-        "Difco Amended Sporulation Agar (ASA) Protocol": {
+        "Difco_Amended_Sporulation_Agar_ASA_Protocol": {
             "type": "object",
+            "title": "Difco Amended Sporulation Agar (ASA) Protocol",
             "properties": {
                 "ErrorFlag": {
                     "$ref": "#/$defs/ErrorFlag"
@@ -505,12 +511,14 @@
                 "TemplateName"
             ]
         },
-        "DNA Extraction": {
+        "DNA_Extraction": {
             "type": "object",
+            "title": "DNA Extraction",
             "additionalProperties": false
         },
         "FormaldehydeFixation": {
             "type": "object",
+            "title": "FormaldehydeFixation",
             "properties": {
                 "CellVolume": {
                     "$ref": "#/$defs/CellVolume"
@@ -559,8 +567,9 @@
                 "TemplateName"
             ]
         },
-        "Initiate Growth of B. spizizenii": {
+        "Initiate_Growth_of_B_spizizenii": {
             "type": "object",
+            "title": "Initiate Growth of B. spizizenii",
             "properties": {
                 "CellVolume": {
                     "$ref": "#/$defs/CellVolume"
@@ -616,6 +625,7 @@
         },
         "LogCOMET_SamplePrep": {
             "type": "object",
+            "title": "LogCOMET SamplePrep",
             "properties": {
                 "CellVolume": {
                     "$ref": "#/$defs/CellVolume"
@@ -669,6 +679,7 @@
         },
         "Microscopy_Acquisition": {
             "type": "object",
+            "title": "Microscopy Acquisition",
             "properties": {
                 "BeadLotNumber_ConcentrationQC": {
                     "$ref": "#/$defs/BeadLotNumber_ConcentrationQC"

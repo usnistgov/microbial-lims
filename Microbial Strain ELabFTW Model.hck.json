@@ -694,7 +694,8 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
-                        "name": "BactoBox_Acquisition",
+                        "name": "BactoBox Acquisition",
+                        "code": "BactoBox_Acquisition",
                         "error": {}
                     },
                     {
@@ -997,7 +998,11 @@
                         "foreignCollection": "",
                         "foreignField": [],
                         "name": "BSA + Bead Sample Prep",
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "BSA_and_Bead_Sample_Prep"
                     },
                     {
                         "isActivated": true,
@@ -1264,7 +1269,11 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "Cell_Culture_in_Broth"
                     },
                     {
                         "name": "CFU",
@@ -1828,7 +1837,6 @@
                             }
                         ],
                         "additionalProperties": false,
-                        "name": "Coulter_Acquisition",
                         "hackoladeMeta": {
                             "styles": {
                                 "color": "#00bcd5"
@@ -1843,6 +1851,8 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
+                        "code": "Coulter_Acquisition",
+                        "name": "Coulter Acquisition",
                         "error": {}
                     },
                     {
@@ -2275,7 +2285,8 @@
                         "error": {
                             "name": false,
                             "code": false
-                        }
+                        },
+                        "code": "CytoFLEX_Acquisition"
                     },
                     {
                         "isActivated": true,
@@ -2362,7 +2373,11 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "Difco_Amended_Sporulation_Agar_ASA_Protocol"
                     },
                     {
                         "isActivated": true,
@@ -2385,7 +2400,11 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "DNA_Extraction"
                     },
                     {
                         "hackoladeMeta": {
@@ -2607,7 +2626,11 @@
                         "foreignCollection": "",
                         "foreignField": [],
                         "name": "FormaldehydeFixation",
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "FormaldehydeFixation"
                     },
                     {
                         "isActivated": true,
@@ -2856,10 +2879,14 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
-                        "error": {}
+                        "error": {
+                            "name": false,
+                            "code": false
+                        },
+                        "code": "Initiate_Growth_of_B_spizizenii"
                     },
                     {
-                        "name": "LogCOMET_SamplePrep",
+                        "name": "LogCOMET SamplePrep",
                         "hackoladeMeta": {
                             "styles": {
                                 "color": "#00bcd5"
@@ -3092,6 +3119,7 @@
                                 "53427a6b-989b-4a2f-89e4-893ae947d485"
                             ]
                         ],
+                        "code": "LogCOMET_SamplePrep",
                         "error": {}
                     },
                     {
@@ -3423,7 +3451,7 @@
                             }
                         ],
                         "additionalProperties": false,
-                        "name": "Microscopy_Acquisition",
+                        "name": "Microscopy Acquisition",
                         "hackoladeMeta": {
                             "styles": {
                                 "color": "#00bcd5"
@@ -3438,6 +3466,7 @@
                         ],
                         "foreignCollection": "",
                         "foreignField": [],
+                        "code": "Microscopy_Acquisition",
                         "error": {}
                     },
                     {
@@ -5994,7 +6023,7 @@
         "62295bc2-3dcb-46a8-b6ba-3e27494b0477": "LabCAS-MicrobialMaterialID",
         "0496587a-5b6d-4a8a-ad46-e3f2c58f6749": "CoreDataPath",
         "849b6e22-f571-49bc-a69b-0785d77ccab5": "SpecificDataPath",
-        "4880f423-6eee-40d7-b162-938604bfd82a": "LogCOMET_SamplePrep",
+        "4880f423-6eee-40d7-b162-938604bfd82a": "LogCOMET SamplePrep",
         "29cffdcc-1afd-4b68-8bf6-d33d65b26dbb": "CellVolume",
         "35d50537-830b-406c-9570-3009f0c20350": "DiluentName",
         "804222c2-f18a-497d-a017-714c67904386": "ErrorFlag",
@@ -6004,16 +6033,16 @@
         "fbc03fcc-66b4-4fae-b7aa-ef543cc27745": "IncubationDuration",
         "5189e351-0718-483d-a739-f5364b44e7c7": "IncubationTemperature",
         "ade1829c-906e-4d5d-8247-d65237abfcd0": "SamplePurposeCodes",
-        "8673db5e-9255-4a5f-8aa0-90857314bc86": "BactoBox_Acquisition",
+        "8673db5e-9255-4a5f-8aa0-90857314bc86": "BactoBox Acquisition",
         "6702ca78-a032-4ba5-93f4-1d80ab2d3b13": "CFU",
         "a1616f8c-6270-413d-9818-7f04218d3d81": "BeadLotNumber_ConcentrationQC",
         "bb25e1a2-ef33-429e-b525-04ee16df718d": "BeadLotNumber_SizeQC",
         "02e8ea57-7942-4859-9b12-79f2fa26488a": "DiluentVolume",
         "d239e781-0a46-4a04-b11c-7ddb41b5bb12": "QCReagentLotNumber",
         "e9155a9c-241c-4c9c-b15b-126b08d02b2f": "DiluentName",
-        "0ab8768d-9e37-4bbc-9a88-6573f405b9dc": "Coulter_Acquisition",
+        "0ab8768d-9e37-4bbc-9a88-6573f405b9dc": "Coulter Acquisition",
         "4ac6cb0b-f904-4c27-b3ac-d5c367564146": "CoulterAperatureSize",
-        "12f3828b-17c7-4da4-8882-ac3f300e98df": "Microscopy_Acquisition",
+        "12f3828b-17c7-4da4-8882-ac3f300e98df": "Microscopy Acquisition",
         "b2a753dc-d851-4dec-be69-5ab7c347a8e8": "Cell Culture in Broth",
         "d94c8cad-9cc4-458b-a7e5-3cafc1d30c67": "BeadLotNumber_ConcentrationQC",
         "d12268eb-f7c8-4df4-aba2-6ede833cf235": "BeadLotNumber_SizeQC",
@@ -6612,7 +6641,7 @@
     "creationTS": "2024-03-15T19:10:15.686Z",
     "GUID": "1608e41c-f975-468f-8b5a-5cd627750980",
     "isLineageEnabled": false,
-    "lastModifTS": "2024-04-02T22:24:57.700Z",
+    "lastModifTS": "2024-04-03T15:10:23.270Z",
     "persistenceSchemaVersion": "7",
     "isCreatedByPlugin": true,
     "pluginInformation": {
@@ -8699,12 +8728,6 @@
                 [
                     "c717ad35-8259-4549-9957-68c7e76f4ec0",
                     "3c0ef694-b294-4a36-abf9-2563b848c425",
-                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
-                    "4df3f84a-9a03-45d9-9792-34e47d6e005c"
-                ],
-                [
-                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
-                    "3c0ef694-b294-4a36-abf9-2563b848c425",
                     "32aafb5f-092c-4235-90bc-ff9bcda532d5",
                     "b2a753dc-d851-4dec-be69-5ab7c347a8e8"
                 ],
@@ -10206,12 +10229,6 @@
                 [
                     "c717ad35-8259-4549-9957-68c7e76f4ec0",
                     "3c0ef694-b294-4a36-abf9-2563b848c425",
-                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
-                    "4df3f84a-9a03-45d9-9792-34e47d6e005c"
-                ],
-                [
-                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
-                    "3c0ef694-b294-4a36-abf9-2563b848c425",
                     "32aafb5f-092c-4235-90bc-ff9bcda532d5",
                     "b2a753dc-d851-4dec-be69-5ab7c347a8e8"
                 ],
@@ -10297,6 +10314,188 @@
                     "f67d6609-d425-4c5f-a939-6a6e201b11de",
                     "6478e830-6027-478f-a7bc-756998bad00d",
                     "af46cfbe-d4fd-4713-a2be-786f5cb531c9"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "d18bb710-feaa-44d8-91fa-9187e3d4a92e",
+                    "0ab8768d-9e37-4bbc-9a88-6573f405b9dc"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "93dc7592-db62-49b2-8adc-befb2ce95efb",
+                    "d9396e13-b0a8-4984-9ff3-46f8400172bd"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "a7a7be6c-7cce-46e2-841c-d61831d5f6d4",
+                    "4cb92868-fd69-4821-bed8-1e256bd44247"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "bed3b799-2910-4e09-9c7d-93bd04118845",
+                    "666440b2-7eaf-4396-a4f3-7712ade9843f"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "df5841ff-5a31-40aa-8984-f84fdc77bb0d",
+                    "4e2d7e4a-d5cb-4468-864a-7ad2dbcb5256"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "21c22749-d22f-4cca-9de5-26a8d9f21ac9",
+                    "9be4a068-5ee8-449a-a856-237f44e43de3"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "e9155a9c-241c-4c9c-b15b-126b08d02b2f",
+                    "e32f45ba-6869-451c-879e-eeea3af71400"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "7a5fa279-73ee-4c0e-b127-9b5adc47deb9",
+                    "41088207-5a0f-4812-8926-7739aa60d503"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "d20dac8b-d7f8-473e-97c4-c741bb1b38bf",
+                    "624b5894-6427-4959-8148-4b769b378f98"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "91aa6fb4-c04a-413d-afdc-6dd4dd1668c4",
+                    "c906e298-12ac-47ee-b518-f6e045ab3bdb"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "a2c9a9b9-3c03-457d-8679-9253278125f3",
+                    "b7612d51-4c7f-447a-849c-21ee664b1c7e"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "601e020b-7f06-4ad8-8a51-870241b5c907",
+                    "c2a3b931-394d-4286-b5cd-591e79b90289"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "ae621d6c-85f0-4ea3-a094-a3d736bcd1eb",
+                    "630f320c-d3d8-4311-91ff-4bff4f0e62eb"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "1331272f-4c3f-4f03-9e71-047d34813a79",
+                    "1942ee3f-f92d-4574-b522-c69068405d96"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "2e4db65a-65a9-438e-86eb-c297c46b96e2",
+                    "6f78c92a-914a-4627-975f-b1d81f261df1"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "322b7703-dd00-42fe-88a9-b6e53e9d811f",
+                    "052aaa7a-6bd7-4c28-b315-29138308ae9f"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "7babc0b5-6589-42eb-af90-f4355850286a",
+                    "ea084383-1ebd-43ea-8fe7-32ed053867fc"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "0701d40c-308f-4524-97cc-eeb94e01d9c7",
+                    "68821a91-fd40-44b6-a451-460f7b0653ff"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "3bb8a10c-f95a-4a90-8bde-43f4f605b66e",
+                    "405b9893-979e-46dc-a4cc-90b079bc25ec"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "fa864a53-7c40-4235-b9f9-90af24682899",
+                    "5c693587-5581-402e-b2a4-f578a2042ebe"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "a039a120-1a1c-4123-b6b8-e7001457d4b0",
+                    "8ea78dde-b6a4-43cb-b9a5-daccd007b836"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "64fd3e32-70f6-4727-806b-b5fdb74a1f87",
+                    "f67d6609-d425-4c5f-a939-6a6e201b11de"
+                ],
+                [
+                    "c717ad35-8259-4549-9957-68c7e76f4ec0",
+                    "3c0ef694-b294-4a36-abf9-2563b848c425",
+                    "1107ceee-3b13-4fa5-960a-b513f12823ac",
+                    "4df3f84a-9a03-45d9-9792-34e47d6e005c",
+                    "0070917d-f49c-4f98-91f5-2ed65f08d73b",
+                    "cdf27758-dde4-4cee-b60d-2ebed47379b6"
                 ]
             ],
             "shouldDistributeCollections": false
