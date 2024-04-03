@@ -389,7 +389,6 @@
             ]
         },
         "CytoFLEX_Acquisition": {
-            "$id": "CytoFLEX_Acquisition",
             "type": "object",
             "title": "CytoFLEX Acquisition",
             "properties": {
