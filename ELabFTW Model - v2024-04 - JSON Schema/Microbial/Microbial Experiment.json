@@ -30,7 +30,7 @@
             "$ref": "#/$defs/SpecificDataPath"
         }
     },
-    "additionalProperties": true,
+    "additionalProperties": false,
     "oneOf": [
         {
             "$ref": "#/$defs/CFU"
@@ -83,7 +83,7 @@
             "type": "object",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -799,7 +799,7 @@
             "description": "Lot number of beads used for quality control of concentration measurements",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -809,14 +809,14 @@
             "description": "Lot number of beads used for quality control of size measurements",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
         },
         "ErrorFlag": {
             "description": "Indicates if a known error appears in the dataset",
-            "$ref": "#model/$defs/boolean_value"
+            "$ref": "#/$defs/boolean_value"
         },
         "CellVolume": {
             "type": "object",
@@ -894,7 +894,7 @@
             "description": "Which diluent was used to suspend cells for acquisition (linked item)",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -933,11 +933,11 @@
         },
         "FCAcquisitionThresholdChannel": {
             "description": "Which channel as named by the manufacturer was used to threshold the data acquisition?",
-            "$ref": "#model/$defs/string_value"
+            "$ref": "#/$defs/string_value"
         },
         "FCAcquisitionThresholdValue": {
             "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry",
-            "$ref": "#model/$defs/number_value"
+            "$ref": "#/$defs/number_value"
         },
         "FCAcquisitionTime": {
             "type": "object",
@@ -974,7 +974,7 @@
         },
         "FCFluorescentChannels": {
             "description": "List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)",
-            "$ref": "#model/$defs/string_value"
+            "$ref": "#/$defs/string_value"
         },
         "FCInjectionMode": {
             "type": "object",
@@ -1023,7 +1023,7 @@
                     "uniqueItems": true,
                     "prefixItems": [
                         {
-                            "$ref": "#model/$defs/elab_item_link"
+                            "$ref": "#/$defs/elab_item_link"
                         }
                     ],
                     "items": false
@@ -1052,7 +1052,7 @@
             "description": "Name of media used to culture cells (linked item)",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -1127,21 +1127,21 @@
             "description": "The lot number of any relevant kits",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
         },
         "LabCAS-DataAcquisitionDate": {
             "description": "Date on which data were acquired according to eLabFTW record",
-            "$ref": "#model/$defs/date_value"
+            "$ref": "#/$defs/date_value"
         },
         "LabCAS-Instrument": {
             "type": "object",
             "description": "Instrument short name (linked item)",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -1155,7 +1155,7 @@
                     "uniqueItems": true,
                     "prefixItems": [
                         {
-                            "$ref": "#model/$defs/elab_item_link"
+                            "$ref": "#/$defs/elab_item_link"
                         }
                     ],
                     "items": false
@@ -1168,7 +1168,7 @@
             "description": "Instrument operator name (linked item)",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -1178,14 +1178,14 @@
             "description": "Name of project that experiment supports (linked item)",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
         },
         "LibraryPrep": {
             "description": "Name of specific kit used for sequencing preparation steps",
-            "$ref": "#model/$defs/string_value"
+            "$ref": "#/$defs/string_value"
         },
         "NucleicAcidType": {
             "type": "object",
@@ -1226,7 +1226,7 @@
             "description": "The lot number if a QC reagent was used",
             "properties": {
                 "value": {
-                    "$ref": "#model/$defs/elab_item_link"
+                    "$ref": "#/$defs/elab_item_link"
                 }
             },
             "additionalProperties": false
@@ -1316,6 +1316,148 @@
                         }
                     ],
                     "items": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "elab_item_link": {
+            "title": "eLabFTW item link",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "The integer identifier for this item used by this eLabFTW instance"
+                },
+                "elabid": {
+                    "type": "string",
+                    "description": "The unique \"eLabID\" for this item"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "A (resolvable) URL for accessing this item via a web browser"
+                },
+                "api_url": {
+                    "type": "string",
+                    "description": "A URL for accessing this item via the eLabFTW API",
+                    "format": "uri"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "A short description of this item"
+                },
+                "category_title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "The name of the category for this item (called an \"item type\") in eLabFTW"
+                },
+                "status_title": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Whether this item is a resource (database item) or an experiment",
+                    "enum": [
+                        "experiments",
+                        "items"
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "description": "A data type representing a link to an item (experiment or resource) in an eLabFTW instance",
+            "required": [
+                "id",
+                "elabid",
+                "url",
+                "api_url",
+                "title",
+                "category_title",
+                "status_title",
+                "type"
+            ]
+        },
+        "elab_user_link": {
+            "title": "eLabFTW user",
+            "type": "object",
+            "properties": {
+                "userid": {
+                    "type": "integer",
+                    "description": "The identifier number for this user in the eLabFTW instance"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "The user's first (given) name"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "The user's last name (surname)"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The user's email address",
+                    "format": "email"
+                },
+                "base_url": {
+                    "type": "string",
+                    "description": "The URL of the ELabFTW instance in which the user is registered",
+                    "format": "uri",
+                    "examples": [
+                        "https://demo.elabftw.net"
+                    ]
+                },
+                "orcid": {
+                    "type": "string",
+                    "description": "The user's ORCID (if defined)",
+                    "pattern": "^(d{4}-){3}d{3}(d|X)$"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "userid",
+                "first_name",
+                "last_name",
+                "email",
+                "base_url"
+            ]
+        },
+        "boolean_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "number_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "number"
+                }
+            },
+            "additionalProperties": false
+        },
+        "string_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "date_value": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "format": "date"
                 }
             },
             "additionalProperties": false
