@@ -9,43 +9,29 @@ experiment templates.
 
 ## Implementation
 
-Currently, @jat is using [Hackolade Studio](https://hackolade.com/) to design the data model in the file
-[`Microbial Strain ELabFTW Model.hck.json`](Microbial Strain ELabFTW Model.hck.json) to
-generate the JSONSchema outputs via that tool's ["forward engineering"](https://hackolade.com/help/JSONSchema.html)
-feature. Tools such as Visual Studio Code or XML Developer also support JSON Schema modeling
-directly.
+Currently, @jat is using [LinkML](https://linkml.io/) to implement the data model in the file
+[`microbial_experiment.yaml`](microbial_experiment.yaml), which allows for validation and
+generation of JSONSchema outputs via that tool's ["generators"](https://linkml.io/linkml/generators/json-schema.html)
+feature. Ther eis no GUI for this directly, but @jat uses Visual Studio Code with the following
+directive at the top of the file to make use of VSCode's YAML validation feature:
 
-The resulting JSON Schema files are used with the work in the 
+```
+# yaml-language-server: $schema=https://linkml.io/linkml-model/linkml_model/jsonschema/meta.schema.json
+```
+
+The resulting schema will be used with the work in the 
 [ELabFTW Python API](https://***REMOVED***/gitlab/mml-lims/elabftw-python-api) and the scripts
 in the `validation` folder to validate and export experiments generated in ELabFTW (still a WIP). 
 
 ## Documentation
 
-There are various tools that can be used to generate documentation from JSONSchema. Eventually
-this section should describe how to generate that documentation and where it can be viewed.
+Documentation for a LinkML model can be built using the `linkml generate doc` command.
+The following command will also use [mkdocs](https://www.mkdocs.org/) to serve the 
+site for local browsing:
 
-Some options:
-
-- [`json-schema-for-humans`](https://blog.programster.org/generating-html-docs-for-json-schemas) (static HTML) 
-	- ![](_static/json-schema-for-humans1.jpg)
-	- ![](_static/json-schema-for-humans2.jpg)
-- [`jsonschema2md`](https://github.com/adobe/jsonschema2md) (generates markdown, output with jekyll shown below)
-	- ![](_static/jsonschema2md-1.jpg)
-	- ![](_static/jsonschema2md-2.jpg)
-	- ![](_static/jsonschema2md-3.jpg)
-- [`wetzel`](https://github.com/CesiumGS/wetzel) (generates markdown or asciidoc)
-	- ![](_static/wetzel-md-1.jpg)
-	- ![](_static/wetzel-md-2.jpg)
-	- ![](_static/wetzel-md-3.jpg)
-- [`json-schema-static-docs`](https://tomcollins.github.io/json-schema-static-docs/) (markdown) ([does not currently support 2020-12](https://github.com/tomcollins/json-schema-static-docs/issues/124)) - result after converting to HTML with `jekyll` and `beautiful-jekyll-theme`:
-	- ![](_static/json-schema-static-docs-jekyll.jpg)
-- [`docusaurus-json-schema-plugin`](https://jy95.github.io/docusaurus-json-schema-plugin/docs/quick-start) (HTML):
-	- ![](_static/docusaurus_example.jpg)
-- [Hackolade](https://hackolade.com/help/Generatedocumentationandpictures.html) (HTML, markdown, or PDF - can't use as part of pipeline)
-	- ![](_static/hackolade_1.jpg)
-	- ![](_static/hackolade_2.jpg)
-- [Oxygen XML Developer](https://www.oxygenxml.com/json_editor/json_schema_tools.html#generate-json-schema-documentation) (can't use as part of pipeline)
-	- ![](_static/xml_developer.png)
+```bash
+$ linkml generate doc microbial_experiment.yaml -d docs && mkdocs serve
+```
 
 ## Contributors:
 
