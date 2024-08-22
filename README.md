@@ -24,6 +24,29 @@ in the `validation` folder to validate and export experiments generated in ELabF
 There are various tools that can be used to generate documentation from JSONSchema. Eventually
 this section should describe how to generate that documentation and where it can be viewed.
 
+Some options:
+
+- [`json-schema-for-humans`](https://blog.programster.org/generating-html-docs-for-json-schemas) (static HTML) 
+	- ![](_static/json-schema-for-humans1.jpg)
+	- ![](_static/json-schema-for-humans2.jpg)
+- [`jsonschema2md`](https://github.com/adobe/jsonschema2md) (generates markdown, output with jekyll shown below)
+	- ![](_static/jsonschema2md-1.jpg)
+	- ![](_static/jsonschema2md-2.jpg)
+	- ![](_static/jsonschema2md-3.jpg)
+- [`wetzel`](https://github.com/CesiumGS/wetzel) (generates markdown or asciidoc)
+	- ![](_static/wetzel-md-1.jpg)
+	- ![](_static/wetzel-md-2.jpg)
+	- ![](_static/wetzel-md-3.jpg)
+- [`json-schema-static-docs`](https://tomcollins.github.io/json-schema-static-docs/) (markdown) ([does not currently support 2020-12](https://github.com/tomcollins/json-schema-static-docs/issues/124)) - result after converting to HTML with `jekyll` and `beautiful-jekyll-theme`:
+	- ![](_static/json-schema-static-docs-jekyll.jpg)
+- [`docusaurus-json-schema-plugin`](https://jy95.github.io/docusaurus-json-schema-plugin/docs/quick-start) (HTML):
+	- ![](_static/docusaurus_example.jpg)
+- [Hackolade](https://hackolade.com/help/Generatedocumentationandpictures.html) (HTML, markdown, or PDF - can't use as part of pipeline)
+	- ![](_static/hackolade_1.jpg)
+	- ![](_static/hackolade_2.jpg)
+- [Oxygen XML Developer](https://www.oxygenxml.com/json_editor/json_schema_tools.html#generate-json-schema-documentation) (can't use as part of pipeline)
+	- ![](_static/xml_developer.png)
+
 ## Contributors:
 
 - ODI (641):

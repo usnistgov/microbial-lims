@@ -30,7 +30,7 @@
             "$ref": "#/$defs/SpecificDataPath"
         }
     },
-    "additionalProperties": false,
+    "additionalProperties": true,
     "oneOf": [
         {
             "$ref": "#/$defs/CFU"
@@ -81,6 +81,7 @@
     "$defs": {
         "_self": {
             "type": "object",
+            "title": "_self",
             "properties": {
                 "value": {
                     "$ref": "#/$defs/elab_item_link"
@@ -266,6 +267,7 @@
         },
         "CFU": {
             "type": "object",
+            "title": "CFU",
             "properties": {
                 "CFUMethod": {
                     "$ref": "#/$defs/CFUMethod"
@@ -749,6 +751,7 @@
         },
         "SlideCleaning": {
             "type": "object",
+            "title": "SlideCleaning",
             "properties": {
                 "TemplateName": {
                     "type": "object",
@@ -774,6 +777,7 @@
         },
         "AcquisitionTime": {
             "type": "object",
+            "title": "AcquisitionTime",
             "description": "Data acquisition time as set by instrument",
             "properties": {
                 "value": {
@@ -790,6 +794,7 @@
         },
         "AcquistionVolume": {
             "type": "object",
+            "title": "AcquistionVolume",
             "description": "Data acquisition volume as set by instrument",
             "properties": {
                 "value": {
@@ -806,6 +811,7 @@
         },
         "BeadLotNumber_ConcentrationQC": {
             "type": "object",
+            "title": "BeadLotNumber_ConcentrationQC",
             "description": "Lot number of beads used for quality control of concentration measurements",
             "properties": {
                 "value": {
@@ -816,6 +822,7 @@
         },
         "BeadLotNumber_SizeQC": {
             "type": "object",
+            "title": "BeadLotNumber_SizeQC",
             "description": "Lot number of beads used for quality control of size measurements",
             "properties": {
                 "value": {
@@ -825,11 +832,13 @@
             "additionalProperties": false
         },
         "ErrorFlag": {
+            "title": "ErrorFlag",
             "description": "Indicates if a known error appears in the dataset",
             "$ref": "#/$defs/boolean_value"
         },
         "CellVolume": {
             "type": "object",
+            "title": "CellVolume",
             "description": "Volume of cell stock added to acquisition vessel",
             "properties": {
                 "value": {
@@ -846,6 +855,7 @@
         },
         "CFUMethod": {
             "type": "object",
+            "title": "CFUMethod",
             "description": "Describes deposition format of cells on agar plate",
             "properties": {
                 "value": {
@@ -871,6 +881,7 @@
         },
         "CoreDataPath": {
             "type": "object",
+            "title": "CoreDataPath",
             "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)",
             "properties": {
                 "value": {
@@ -885,6 +896,7 @@
         },
         "CoulterAperatureSize": {
             "type": "object",
+            "title": "CoulterAperatureSize",
             "description": "Aperture installed on Coulter counter during measurement",
             "properties": {
                 "value": {
@@ -901,6 +913,7 @@
         },
         "DiluentName": {
             "type": "object",
+            "title": "DiluentName",
             "description": "Which diluent was used to suspend cells for acquisition (linked item)",
             "properties": {
                 "value": {
@@ -911,6 +924,7 @@
         },
         "DiluentVolume": {
             "type": "object",
+            "title": "DiluentVolume",
             "description": "Volume of diluent added to acquisition vessel",
             "properties": {
                 "value": {
@@ -927,6 +941,7 @@
         },
         "FCAcquisitionCountTarget": {
             "type": "object",
+            "title": "FCAcquisitionCountTarget",
             "description": "Set number of events to acquire in a particular gate on flow cytometer",
             "properties": {
                 "value": {
@@ -942,15 +957,18 @@
             "additionalProperties": false
         },
         "FCAcquisitionThresholdChannel": {
+            "title": "FCAcquisitionThresholdChannel",
             "description": "Which channel as named by the manufacturer was used to threshold the data acquisition?",
             "$ref": "#/$defs/string_value"
         },
         "FCAcquisitionThresholdValue": {
+            "title": "FCAcquisitionThresholdValue",
             "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry",
             "$ref": "#/$defs/number_value"
         },
         "FCAcquisitionTime": {
             "type": "object",
+            "title": "FCAcquisitionTime",
             "description": "Set time of data acquisition on flow cytometer",
             "properties": {
                 "value": {
@@ -967,6 +985,7 @@
         },
         "FCFlowRateSetting": {
             "type": "object",
+            "title": "FCFlowRateSetting",
             "description": "Set flow rate of data acquisition on flow cytometer",
             "properties": {
                 "value": {
@@ -983,11 +1002,13 @@
             "$comment": "THIS SHOULD PROBABLY USE THE µ SYMBOL"
         },
         "FCFluorescentChannels": {
+            "title": "FCFluorescentChannels",
             "description": "List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)",
             "$ref": "#/$defs/string_value"
         },
         "FCInjectionMode": {
             "type": "object",
+            "title": "FCInjectionMode",
             "description": "Sample acquisition format in flow cytometer",
             "properties": {
                 "value": {
@@ -1003,6 +1024,7 @@
         },
         "FixationMethod": {
             "type": "object",
+            "title": "FixationMethod",
             "description": "Specific treatment applied to cells to prevent future changes",
             "properties": {
                 "value": {
@@ -1026,6 +1048,7 @@
         },
         "FluorescentProbe": {
             "type": "object",
+            "title": "FluorescentProbe",
             "description": "Fluorescent probe(s) used in experiment as named in the eLabFTW database (linked item)",
             "properties": {
                 "value": {
@@ -1043,6 +1066,7 @@
         },
         "GrowthDuration": {
             "type": "object",
+            "title": "GrowthDuration",
             "description": "Time in hours that cells were incubated to encourage growth",
             "properties": {
                 "value": {
@@ -1059,6 +1083,7 @@
         },
         "GrowthMediaName": {
             "type": "object",
+            "title": "GrowthMediaName",
             "description": "Name of media used to culture cells (linked item)",
             "properties": {
                 "value": {
@@ -1069,6 +1094,7 @@
         },
         "IncubationAgitation": {
             "type": "object",
+            "title": "IncubationAgitation",
             "description": "Speed of agitation that cells were incubated during an experiment",
             "properties": {
                 "value": {
@@ -1086,6 +1112,7 @@
         },
         "IncubationAtmosphere": {
             "type": "object",
+            "title": "IncubationAtmosphere",
             "description": "Atmosphere that cells were incubated in to encourage growth",
             "properties": {
                 "value": {
@@ -1101,6 +1128,7 @@
         },
         "IncubationDuration": {
             "type": "object",
+            "title": "IncubationDuration",
             "description": "Time in minutes that cells were incubated during an experiment",
             "properties": {
                 "value": {
@@ -1117,6 +1145,7 @@
         },
         "IncubationTemperature": {
             "type": "object",
+            "title": "IncubationTemperature",
             "description": "Temperature in oC that cells were incubated in during an experiment or culture",
             "properties": {
                 "value": {
@@ -1134,6 +1163,7 @@
         },
         "KitLotNumber": {
             "type": "object",
+            "title": "KitLotNumber",
             "description": "The lot number of any relevant kits",
             "properties": {
                 "value": {
@@ -1143,11 +1173,13 @@
             "additionalProperties": false
         },
         "LabCAS-DataAcquisitionDate": {
+            "title": "LabCAS Data Acquisition Date",
             "description": "Date on which data were acquired according to eLabFTW record",
             "$ref": "#/$defs/date_value"
         },
         "LabCAS-Instrument": {
             "type": "object",
+            "title": "LabCAS Instrument",
             "description": "Instrument short name (linked item)",
             "properties": {
                 "value": {
@@ -1158,6 +1190,7 @@
         },
         "LabCAS-MicrobialMaterialID": {
             "type": "object",
+            "title": "LabCAS Microbial Material ID",
             "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked item)",
             "properties": {
                 "value": {
@@ -1175,6 +1208,7 @@
         },
         "LabCAS-Operator": {
             "type": "object",
+            "title": "LabCAS Operator",
             "description": "Instrument operator name (linked item)",
             "properties": {
                 "value": {
@@ -1185,6 +1219,7 @@
         },
         "LabCAS-Project": {
             "type": "object",
+            "title": "LabCAS Project",
             "description": "Name of project that experiment supports (linked item)",
             "properties": {
                 "value": {
@@ -1194,11 +1229,13 @@
             "additionalProperties": false
         },
         "LibraryPrep": {
+            "title": "LibraryPrep",
             "description": "Name of specific kit used for sequencing preparation steps",
             "$ref": "#/$defs/string_value"
         },
         "NucleicAcidType": {
             "type": "object",
+            "title": "NucleicAcidType",
             "properties": {
                 "value": {
                     "type": "string",
@@ -1212,6 +1249,7 @@
         },
         "Objective(s)": {
             "type": "object",
+            "title": "Objective(s)",
             "description": "Which microscope objectives were used",
             "properties": {
                 "value": {
@@ -1233,6 +1271,7 @@
         },
         "QCReagentLotNumber": {
             "type": "object",
+            "title": "QCReagentLotNumber",
             "description": "The lot number if a QC reagent was used",
             "properties": {
                 "value": {
@@ -1243,6 +1282,7 @@
         },
         "SamplePurposeCodes": {
             "type": "object",
+            "title": "SamplePurposeCodes",
             "description": "Generic types of controls contained in the dataset",
             "properties": {
                 "value": {
@@ -1273,6 +1313,7 @@
         },
         "SpecificDataPath": {
             "type": "object",
+            "title": "SpecificDataPath",
             "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)",
             "properties": {
                 "value": {
@@ -1287,6 +1328,7 @@
         },
         "TemplateName": {
             "type": "object",
+            "title": "TemplateName",
             "properties": {
                 "value": {
                     "type": "string",
@@ -1310,6 +1352,7 @@
         },
         "TransmissionMode": {
             "type": "object",
+            "title": "TransmissionMode",
             "description": "Which microscope transmission modes were used",
             "properties": {
                 "value": {
@@ -1436,6 +1479,7 @@
             ]
         },
         "boolean_value": {
+            "title": "boolean value",
             "type": "object",
             "properties": {
                 "value": {
@@ -1445,6 +1489,7 @@
             "additionalProperties": false
         },
         "number_value": {
+            "title": "number value",
             "type": "object",
             "properties": {
                 "value": {
@@ -1454,6 +1499,7 @@
             "additionalProperties": false
         },
         "string_value": {
+            "title": "string value",
             "type": "object",
             "properties": {
                 "value": {
@@ -1463,6 +1509,7 @@
             "additionalProperties": false
         },
         "date_value": {
+            "title": "date value",
             "type": "object",
             "properties": {
                 "value": {
