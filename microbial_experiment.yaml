@@ -1,0 +1,1247 @@
+# yaml-language-server: $schema=https://linkml.io/linkml-model/linkml_model/jsonschema/meta.schema.json
+
+# notes:
+#  this using a "container" attribute doesn't seem to be working (see https://github.com/linkml/linkml/issues/2283)
+---
+id: https://w3id.org/usnistgov/microbial-experiment-schema
+name: microbial-experiment-schema
+title: microbial-experiment-schema
+version: 2024-08
+description: Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project
+license: NIST Public License
+see_also:
+  - https://pages.nist.gov/microbial-experiment-schema
+
+prefixes:
+  microbial_experiment_schema: https://w3id.org/usnistgov/microbial-experiment-schema/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+default_prefix: microbial_experiment_schema
+default_range: string
+
+# imports:
+#   - linkml:types
+
+classes:
+
+  Experiment:
+    description: Holds information about a specific type of Microbial Strain experiment. The specific metadata for each type of experiment is controlled by "template data classes"
+    tree_root: true
+    name: Experiment
+    attributes:
+      elab_experiment:
+        description: A self-reference to this experiment record
+        exact_cardinality: 1
+        range: ELabExperiment
+        inlined_as_list: true
+      experiment_metadata:
+        description: The metadata entered by a user during experiment recording. Allowed fields are determined by implementing exactly one of the specific experiment templates. 
+        exactly_one_of:
+          - range: CytoFLEXAcquisition
+          - range: NucleicAcidExtraction
+          - range: CellCultureInBroth
+          - range: CytoFLEXVolumeCalibration
+          - range: FormaldehydeFixation
+          - range: MicroscopyAcquisition
+          - range: CoulterAcquisition
+          - range: BactoBoxAcquisition
+          - range: LogCOMETSamplePrep
+          - range: CFU
+          - range: DifcoAmendedSporulationAgarProtocol
+          - range: InitiateGrowthOfBSpizizenii
+          - range: SlideCleaning
+    mixins:
+      - CoreDataPath
+      - DataAcquisitionDate
+      - InstrumentID
+      - MicrobialMaterialID
+      - OperatorID
+      - ProjectID
+      - SpecificDataPath
+      - TemplateName
+
+  # definition of experiment template data classes
+  CytoFLEXAcquisition:
+    name: CytoFLEXAcquisition
+    is_a: Experiment
+    title: CytoFLEX_Acquisition
+    description: Metadata describing a data acquisition using the CytoFLEX instrument
+    mixins:
+      - FCAcquisitionThresholdChannel
+      - FCAcquisitionThresholdValue
+      - FCFlowRateSetting
+      - FCInjectionMode
+      - FixationMethod
+      - FluorescentProbe
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+  
+  NucleicAcidExtraction:
+    is_a: Experiment
+    title: NucleicAcidExtraction
+    description: Metadata describing a nucleic acid extraction experiment
+    mixins:
+      - KitLotNumber
+      - NucleicAcidType
+      - SamplePurposeCodes
+  
+  CellCultureInBroth:
+    is_a: Experiment
+    title: Cell Culture In Broth
+    description: Metadata describing a cell culture experiment
+    mixins:
+      - GrowthMediaName
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+
+  CytoFLEXVolumeCalibration:
+    is_a: Experiment
+    title: CytoFLEX_VolumeCalibration
+    description: Metadata describing a volume calibration using the CytoFLEX instrument
+    mixins:
+      - FCFlowRateSetting
+      - FCInjectionMode
+      - PassedVolumeCalibration
+      - PercentVolumeDeviation
+
+  GenericTemplateDeprecated:
+    is_a: Experiment
+    title: GenericTemplate_Deprecated
+    description: A retired version of a generic experiment template used to create other templates
+    deprecated: (2024 June) this is no longer used, use GenericTemplate instead
+    deprecated_element_has_exact_replacement: GenericTemplate
+    mixins:
+      - AcquisitionTime
+      - AcquisitionVolume
+      - BeadLotNumberConcentrationQC
+      - BeadLotNumberSizeQC
+      - CFUMethod
+      - CellVolume
+      - CoulterApertureSize
+      - DiluentName
+      - DiluentVolume
+      - ErrorFlag
+      - FCAcquisitionCountTarget
+      - FCAcquisitionThresholdChannel
+      - FCAcquisitionThresholdValue
+      - FCFlowRateSetting
+      - FCFluorescentChannels
+      - FCInjectionMode
+      - FixationMethod
+      - FluorescentProbe
+      - GrowthDuration
+      - GrowthMediaName
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - KitLotNumber
+      - LabCASDataAcquisitionDate
+      - LabCASInstrument
+      - LabCASMicrobialMaterialID
+      - LabCASOperator
+      - LabCASProject
+      - LibraryPrep
+      - NucleicAcidType
+      - Objective
+      - QCReagentLotNumber
+      - SamplePurposeCodes
+      - TransmissionMode
+
+  FormaldehydeFixation:
+    is_a: Experiment
+    name: FormaldehydeFixation
+    description: Metadata describing a formaldehyde fixation experiment
+    mixins:
+      - FixationMethod
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+
+  MicroscopyAcquisition:
+    is_a: Experiment
+    name: MicroscopyAcquisition
+    description: Metadata describing a microscopy acquisition experiment
+    mixins:
+      - FixationMethod
+      - FluorescentProbe
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - Modalities
+      - Objective
+      - SamplePurposeCodes
+      - SeriesImageTypes
+      - SeriesImages
+      - SingleImages
+
+  GenericTemplate:
+    is_a: Experiment
+    name: GenericTemplate
+    abstract: true
+    description: A generic experiment template used to help create more specific experiment templates. This template should not be used directly.
+    mixins:
+      - CFUMethod
+      - FCAcquisitionThresholdChannel
+      - FCAcquisitionThresholdValue
+      - FCFlowRateSetting
+      - FCInjectionMode
+      - FixationMethod
+      - FluorescentProbe
+      - GrowthMediaName
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - KitLotNumber
+      - LibraryPrep
+      - Modalities
+      - NucleicAcidType
+      - Objective
+      - PassedVolumeCalibration
+      - PercentVolumeDeviation
+      - SamplePurposeCodes
+      - SeriesImageTypes
+      - SeriesImages
+      - SingleImages
+  
+  CoulterAcquisition:
+    is_a: Experiment
+    title: Coulter_Acquisition
+    description: Metadata describing a Coulter counter acquisition experiment
+    mixins:
+      - FixationMethod
+      - SamplePurposeCodes
+
+  BactoBoxAcquisition:
+    is_a: Experiment
+    title: BactoBox_Acquisition
+    description: Metadata describing a data acquisition experiment using the BactoBox
+    mixins:
+      - FixationMethod
+      - SamplePurposeCodes
+
+  LogCOMETSamplePrep:
+    is_a: Experiment
+    title: LogCOMET_SamplePrep
+    description: Metadata describing a sample preparation process for a LOGComet experiment
+    mixins:
+      - FixationMethod
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+
+  CFU:
+    is_a: Experiment
+    name: CFU
+    description: Metadata describing a colony forming unit counting experiment
+    mixins:
+      - CFUMethod
+      - FixationMethod
+      - GrowthMediaName
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+
+  DifcoAmendedSporulationAgarProtocol:
+    is_a: Experiment
+    title: Difco Amended Sporulation Agar (ASA) Protocol
+    description: Metadata describing the preparation process for amended sporulation agar
+
+  InitiateGrowthOfBSpizizenii:
+    is_a: Experiment
+    title: Initiate Growth of B. spizizenii
+    description: Metadata describing an initiate growth experiment of B. spizizenii
+    mixins:
+      - GrowthMediaName
+      - IncubationAgitation
+      - IncubationAtmosphere
+      - IncubationDuration
+      - IncubationTemperature
+      - SamplePurposeCodes
+
+  SlideCleaning:
+    is_a: Experiment
+    name: SlideCleaning
+    description: Metadata describing an experiment preparing microscopy slides for microbial work
+
+  # base data-holding classes:
+  BooleanValue:
+    name: BooleanValue
+    description: A class to hold a boolean value
+    slots:
+      - value
+    slot_usage:
+      value:
+        range: boolean
+  NumberValue:
+    name: NumberValue
+    description: A class to hold a numerical value with a free-text string as a unit
+    slots:
+      - value
+      - unit
+    slot_usage:
+      value:
+        range: decimal
+      unit:
+        range: string
+  StringValue:
+    name: StringValue
+    description: A class to hold a string value
+    slots:
+      - value
+    slot_usage:
+      value:
+        range: string
+  UriValue:
+    name: UriValue
+    description: A class to hold a string value that is a URI
+    slots:
+      - value
+    slot_usage:
+      value:
+        range: uri
+  DateValue:
+    name: DateValue
+    description: A class to hold a date value
+    slots:
+      - value
+    slot_usage:
+      value:
+        range: date
+  ArrayValue:
+    name: ArrayValue
+    description: A class to hold an array of values
+    slots:
+      - value
+    slot_usage:
+      value:
+        multivalued: true
+        inlined: false
+  ELabItemValue:
+    name: ELabItemValue
+    description: A class to hold a reference to an item record in ELabFTW
+    slots:
+      - value
+    slot_usage:
+      value:
+        range: ELabItem
+        inlined: true
+  VolumeValue:
+    name: VolumeValue
+    description: A class to hold a numerical value representing a volumetric measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: VolumeUnitEnum
+        description: The volume unit corresponding to a metadata value
+  LengthValue:
+    name: LengthValue
+    description: A class to hold a numerical value representing a linear measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: LengthUnitEnum
+        description: The length unit corresponding to a metadata value
+  DurationValue:
+    name: DurationValue
+    description: A class to hold a numerical value representing a time duration measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: DurationUnitEnum
+        description: The time duration unit corresponding to a metadata value
+  TemperatureValue:
+    name: TemperatureValue
+    description: A class to hold a numerical value representing a temperature measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: TemperatureUnitEnum
+        description: The temperature unit corresponding to a metadata value
+  CountValue:
+    name: CountValue
+    description: A class to hold a numerical value representing a counting measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: CountUnitEnum
+        description: The count unit corresponding to a metadata value
+  FlowRateValue:
+    name: FlowRateValue
+    description: A class to hold a numerical value representing a flow rate measurement
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: FlowRateUnitEnum
+        description: The flow rate unit corresponding to a metadata value
+  AgitationValue:
+    name: AgitationValue
+    description: A class to hold a numerical value representing an agitation speed
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: AgitationEnum
+        description: The agitation speed unit corresponding to a metadata value
+  UnitlessValue:
+    name: UnitlessValue
+    description: A class to hold an explicitly unitless numerical value
+    is_a: NumberValue
+    slot_usage:
+      unit:
+        range: UnitlessEnum
+        description: The word "Unitless" corresponding to a unitless metadata value
+
+  # defining ELabItem, ELabExperiment, and ELabUser links:
+  ELabRecord:
+    abstract: true
+    name: ELabRecord
+    description: An abstract data type representing a link to an record (experiment or resource/item) in an eLabFTW instance. Use one of the ELabItem or ELabRecord classes that implement this one rather than using it directly.
+    attributes:
+      id:
+        identifier: true
+        description: The integer identifier for this item used by this eLabFTW instance
+        range: integer
+        required: true
+      elabid:
+        description: The unique "eLabID" for this item
+        range: string
+        required: true
+      url:
+        description: A (resolvable) URL for accessing this item via a web browser
+        range: uri
+        required: true
+      api_url:
+        description: A URL for accessing this item via the eLabFTW API
+        range: uri
+        required: true
+      title:
+        description: A short description of this item
+        range: string
+        required: true
+      category_title:
+        description: The name of the category for this item (called an "item type") in eLabFTW
+        required: true
+      status_title:
+        description: The status of this resource
+        required: true
+
+  ELabItem:
+    is_a: ELabRecord
+    name: ELabItem
+    description: A class to hold metadata sufficient to reference a resource (database item) record in an ELabFTW instance.
+    attributes:
+      type:
+        description: Whether this item is a resource (database item) or an experiment
+        range: ELabItemType
+        required: true
+
+  ELabExperiment:
+    is_a: ELabRecord
+    name: ELabExperiment
+    description: A class to hold metadata sufficient to reference an experiment record in an ELabFTW instance.
+    attributes:
+      type:
+        description: Whether this item is a resource (database item) or an experiment
+        range: ELabExperimentType
+        required: true
+  
+  ELabUser:
+    description: A data type representing a link to a user in an eLabFTW instance
+    attributes:
+      userid:
+        identifier: true
+        description: The "local" identifier number for this user in the eLabFTW instance
+        range: integer
+        required: true
+      first_name:
+        description: The user's first (given) name
+        required: true
+      last_name:
+        description: The user's last name (surname)
+        required: true
+      email:
+        description: The user's email address
+        pattern: ^\S+@[\S+\.]+\S+
+        required: true
+      base_url:
+        description: The URL of the ELabFTW instance in which the user is registered
+        range: uri
+        required: true
+      orcid:
+        description: The user's ORCID (if defined)
+        range: string
+        required: false
+        pattern: ^\d{4}-\d{4}-\d{4}-\d{3}(\d|X)$
+  
+  # definition of mixin classes that are used to build
+  # the overall experiment data classes above:
+  AcquisitionTime:
+    mixin: true
+    description: A class to hold the AcquisitionTime value
+    attributes:
+      acquisition_time:
+        title: AcquisitionTime
+        range: DurationValue
+        description: Data acquisition time as set by instrument
+
+  AcquisitionVolume:
+    mixin: true
+    description: A class to hold the AcquisitionVolume value
+    attributes:
+      acquisition_volume:
+        title: AcquisitionTime
+        range: VolumeValue
+        description: Data acquisition volume as set by instrument
+
+  BeadLotNumberConcentrationQC:
+    mixin: true
+    title: BeadLotNumber_ConcentrationQC
+    description: A class to hold the BeadLotNumber_ConcentrationQC value
+    attributes:
+      bead_lot_number_concentration_qc:
+        title: BeadLotNumber_ConcentrationQC
+        range: ELabItemValue
+        description: Lot number of beads used for quality control of concentration measurements
+
+  BeadLotNumberSizeQC:
+    mixin: true
+    title: BeadLotNumber_SizeQC
+    description: A class to hold the BeadLotNumber_SizeQC value
+    attributes:
+      bead_lot_number_size_qc:
+        title: BeadLotNumber_SizeQC
+        range: ELabItemValue
+        description: Lot number of beads used for quality control of size measurements
+
+  CellVolume:
+    mixin: true
+    description: A class to hold the CellVolume value
+    attributes:
+      cell_volume:
+        title: CellVolume
+        range: VolumeValue
+        description: Volume of cell stock added to acquisition vessel
+
+  CFUMethod:
+    mixin: true
+    description: A class to hold the CFUMethod value
+    attributes:
+      cfu_method:
+        title: CFUMethod
+        range: CFUMethodValue
+        description: Describes deposition format of cells on agar plate
+        
+  CFUMethodValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the CFUMethodEnum enum
+    slot_usage:
+      value:
+        range: CFUMethodEnum
+        description: Describes deposition format of cells on agar plate
+
+  CoreDataPath:
+    mixin: true
+    description: A class to hold the CoreDataPathValue
+    attributes:
+      core_data_path:
+        title: CoreDataPath
+        range: UriValue
+        description: Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
+
+  CoulterApertureSize:
+    mixin: true
+    description: A class to hold the CoulterApertureSize attribute
+    attributes:
+      coulter_aperture_size:
+        title: CoulterApertureSize
+        description: Aperture installed on Coulter counter during measurement
+        range: LengthValue
+
+  DataAcquisitionDate:
+    mixin: true
+    description: A class to hold the DataAcquisitionDate attribute
+    attributes:
+      data_acquisition_date:
+        title: DataAcquisitionDate
+        range: DateValue
+        description: Date on which data were acquired according to eLabFTW record
+  
+  DiluentName:
+    mixin: true
+    description: A class to hold the DiluentName attribute
+    attributes:
+      diluent_name:
+        title: DiluentName
+        range: ELabItemValue
+        description: Which diluent was used to suspend cells for acquisition (linked item)
+
+  DiluentVolume:
+    mixin: true
+    description: A class to hold the DiluentVolume attribute
+    attributes:
+      diluent_volume:
+        title: DiluentVolume
+        range: VolumeValue
+        description: Volume of diluent added to acquisition vessel
+  
+  ErrorFlag:
+    mixin: true
+    description: A class to hold the ErrorFlag attribute
+    attributes:
+      error_flag:
+        title: ErrorFlag
+        range: BooleanValue
+        description: Indicates if a known error appears in the dataset
+  
+  FCAcquisitionCountTarget:
+    mixin: true
+    description: A class to hold the FCAcquisitionCountTarget attribute
+    attributes:
+      fc_acquisition_count_target:
+        title: FCAcquisitionCountTarget
+        range: CountValue
+        description: Set number of events to acquire in a particular gate on flow cytometer
+  
+  FCAcquisitionThresholdChannel:
+    mixin: true
+    description: A class to hold the FCAcquisitionThresholdChannel attribute
+    attributes:
+      fc_acquisition_threshold_channel:
+        title: FCAcquisitionThresholdChannel
+        range: StringValue
+        description: Which channel as named by the manufacturer was used to threshold the data acquisition
+  
+  FCAcquisitionThresholdValue:
+    mixin: true
+    description: A class to hold the FCAcquisitionThresholdValue attribute
+    attributes:
+      fc_acquisition_threshold_value:
+        title: FCAcquisitionThresholdValue
+        range: NumberValue
+        description: Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry
+  
+  FCFlowRateSetting:
+    mixin: true
+    description: A class to hold the FCFlowRateSetting attribute
+    attributes:
+      fc_flow_rate_setting:
+        title: FCFlowRateSetting
+        range: FlowRateValue
+        description: Set flow rate of data acquisition on flow cytometer
+  
+  FCFluorescentChannels:
+    mixin: true
+    description: Channel names separated by semicolons
+    attributes:
+      fc_fluorescent_channels:
+        title: FCFluorescentChannels
+        range: StringValue
+        description: List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)
+  
+  FCInjectionMode:
+    mixin: true
+    description: A class to hold the FCInjectionMode attribute
+    attributes:
+      fc_injection_mode:
+        title: FCInjectionMode
+        range: FCInjectionModeValue
+        description: Sample acquisition format in flow cytometer
+
+  FCInjectionModeValue:
+    is_a: StringValue
+    description: An override of StringValue allowing only values from the FCInjectionModeEnum enum
+    attributes:
+      value:
+        description: The value attribute for FCInjectionMode
+        range: FCInjectionModeEnum
+
+  FixationMethod:
+    mixin: true
+    description: A class to hold the FixationMethod attribute
+    attributes:
+      fixation_method:
+        title: FixationMethod
+        description: Specific treatment applied to cells to prevent future changes
+        range: FixationMethodValue
+
+  FixationMethodValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the FixationMethodEnum enum
+    slot_usage:
+      value:
+        description: The value attribute for FixationMethod
+        range: FixationMethodEnum
+  
+  FluorescentProbe:
+    mixin: true
+    description: A mixin class to hold the FluorescentProbe attribute
+    attributes:
+      fluorescent_probe:
+        title: FluorescentProbe
+        description: Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)
+        range: FluorescentProbeValue
+
+  FluorescentProbeValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only ELabItem values
+    slot_usage:
+      value:
+        description: The value attribute for FluorescentProbe
+        range: ELabItem
+  
+  GrowthDuration:
+    mixin: true
+    description: A mixin class to hold the GrowthDuration attribute
+    attributes:
+      growth_duration:
+        title: GrowthDuration
+        description: Time that cells were incubated to encourage growth
+        range: DurationValue
+
+  GrowthMediaName:
+    mixin: true
+    description: A mixin class to hold the GrowthMediaName attribute
+    attributes:
+      growth_media_name:
+        title: GrowthMediaName
+        description: Name of media used to culture cells (linked item from ELabFTW)
+        range: ELabItemValue
+
+  IncubationAgitation:
+    mixin: true
+    description: A mixin class to hold the IncubationAgitation attribute
+    attributes:
+      incubation_agitation:
+        title: IncubationAgitation
+        description: Speed of agitation that cells were incubated during an experiment
+        range: AgitationValue
+      
+  IncubationAtmosphere:
+    mixin: true
+    description: A mixin class to hold the IncubationAtmosphere attribute
+    attributes:
+      incubation_atmosphere:
+        title: IncubationAtmosphere
+        description: Atmosphere that cells were incubated in to encourage growth
+        range: IncubationAtmosphereValue
+
+  IncubationAtmosphereValue:
+    is_a: StringValue
+    description: An override of StringValue allowing only values from the IncubationAtmosphereEnum enum
+    attributes:
+      value:
+        range: IncubationAtmosphereEnum
+  
+  IncubationDuration:
+    mixin: true
+    description: A mixin class to hold the IncubationDuration attribute
+    attributes:
+      incubation_duration:
+        title: IncubationDuration
+        description: Length of time that cells were incubated during an experiment
+        range: DurationValue
+  
+  IncubationTemperature:
+    mixin: true
+    description: A mixin class to hold the IncubationTemperature attribute
+    attributes:
+      incubation_temperature:
+        title: IncubationTemperature
+        description: Temperature at which cells were incubated during an experiment or culture
+        range: TemperatureValue
+
+  InstrumentID:
+    mixin: true
+    description: A mixin class to hold the InstrumentID attribute
+    attributes:
+      instrument_id:
+        title: InstrumentID
+        description: The instrument used to aquire the data in an experiment (linked item from ELabFTW)
+        range: ELabItemValue
+
+  KitLotNumber:
+    mixin: true
+    description: A mixin class to hold the KitLotNumber attribute
+    attributes:
+      kit_lot_number:
+        title: KitLotNumber
+        description: The lot number of any relevant kits (linked item from ELabFTW)
+        range: ELabItemValue
+
+  LabCASDataAcquisitionDate:
+    deprecated: (2024 June) this is too specifc, use DataAcquisitionDate instead
+    deprecated_element_has_exact_replacement: DataAcquisitionDate
+    mixin: true
+    title: LabCAS-DataAcquisitionDate
+    description: A mixin class to hold the LabCAS-DataAcquisitionDate attribute
+    attributes:
+      labcas_data_acquisition_date:
+        title: LabCAS-DataAcquisitionDate
+        description: Date on which data were acquired according to eLabFTW record
+        range: DateValue
+  
+  LabCASInstrument:
+    deprecated: (2024 June) this is too specifc, use InstrumentID instead
+    deprecated_element_has_exact_replacement: InstrumentID
+    mixin: true
+    title: LabCAS-Instrument
+    description: A mixin class to hold the LabCAS-Instrument attribute
+    attributes:
+      labcas_instrument:
+        title: LabCAS-Instrument
+        description: Date on which data were acquired according to eLabFTW record
+        range: LabCASInstrumentValue
+
+  LabCASInstrumentValue:
+    deprecated: (2024 June) this is too specifc, use InstrumentIDValue instead
+    deprecated_element_has_exact_replacement: InstrumentIDValue
+    is_a: ELabItemValue
+    title: LabCAS-InstrumentValue
+    description: A named sub-class of ELabItemValue to hold the instrument identifier
+
+  LabCASMicrobialMaterialID:
+    deprecated: (2024 June) this is too specifc, use MicrobialMaterialID instead
+    deprecated_element_has_exact_replacement: MicrobialMaterialID
+    mixin: true
+    title: LabCAS-MicrobialMaterialID
+    description: A mixin class to hold the LabCAS-MicrobialMaterialID attribute
+    attributes:
+      labcas_microbial_material_id:
+        title: LabCAS-MicrobialMaterialID
+        description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
+        range: LabCASMicrobialMaterialIDValue
+
+  LabCASMicrobialMaterialIDValue:
+    deprecated: (2024 June) this is too specifc, use MicrobialMaterialIDValue instead
+    deprecated_element_has_exact_replacement: MicrobialMaterialIDValue
+    is_a: ArrayValue
+    title: LabCAS-MicrobialMaterialIDValue
+    description: A named sub-class of ArrayValue to hold a list of microbial material links
+    slot_usage:
+      value:
+        range: ELabItem
+  
+  LabCASOperator:
+    deprecated: (2024 June) this is too specifc, use OperatorID instead
+    deprecated_element_has_exact_replacement: OperatorID
+    title: LabCAS-Operator
+    description: A mixin class to hold the LabCAS-Operator attribute
+    mixin: true
+    attributes:
+      labcas_operator:
+        title: LabCAS-Operator
+        description: Instrument operator during an experiment (a linked item from ELabFTW)
+        range: LabCASOperatorValue
+
+  LabCASOperatorValue:
+    deprecated: (2024 June) this is too specifc, use OperatorIDValue instead
+    deprecated_element_has_exact_replacement: OperatorIDValue
+    title: LabCAS-OperatorValue
+    description: A named sub-class of ELabItemValue to hold the operator identifier
+    is_a: ELabItemValue
+  
+  LabCASProject:
+    deprecated: (2024 June) this is too specifc, use ProjectID instead
+    deprecated_element_has_exact_replacement: ProjectID
+    mixin: true
+    title: LabCAS-Project
+    description: A mixin class to hold the LabCAS-Project attribute
+    attributes:
+      labcas_project:
+        title: LabCAS-Project
+        description: The project that an experiment supports (link to an ELabFTW item)
+        range: LabCASProjectValue
+
+  LabCASProjectValue:
+    deprecated: (2024 June) this is too specifc, use ProjectIDValue instead
+    deprecated_element_has_exact_replacement: ProjectIDValue
+    is_a: ELabItemValue
+    title: LabCAS-ProjectValue
+    description: A named sub-class of ELabItemValue to hold the project identifier
+  
+  LibraryPrep:
+    mixin: true
+    description: A mixin class to hold the LibraryPrep attribute
+    attributes:
+      library_prep:
+        title: LibraryPrep
+        description: The name of a specific kit used for sequencing preparation steps
+        range: StringValue
+  
+  MicrobialMaterialID:
+    mixin: true
+    description: A mixin class to hold the MicrobialMaterialID attribute
+    attributes:
+      microbial_material_id:
+        title: MicrobialMaterialID
+        description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
+        range: MicrobialMaterialIDValue
+
+  MicrobialMaterialIDValue:
+    is_a: ArrayValue
+    description: A named sub-class of ArrayValue to hold a list of microbial material links
+    slot_usage:
+      value:
+        range: ELabItem
+  
+  Modalities:
+    mixin: true
+    description: A mixin class to hold the Modalities attribute
+    attributes:
+      modalities:
+        title: Modalities
+        description: The type (modality) of a microscopy acquisition experiment
+        range: ModalitiesValue
+
+  ModalitiesValue:
+    is_a: ArrayValue
+    description: A named sub-class of ArrayValue to hold a list of modality types
+    slot_usage:
+      value:
+        range: ModalitiesEnum
+  
+  NucleicAcidType:
+    mixin: true
+    description: A mixin class to hold the NucleicAcidType attribute
+    attributes:
+      nucleic_acid_type:
+        title: NucleicAcidType
+        description: The type of nucleic acid used in an extraction experiment
+        range: NucleicAcidTypeValue
+  
+  NucleicAcidTypeValue:
+    is_a: StringValue
+    description: An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum
+    slot_usage:
+      value:
+        range: NucleicAcidTypeEnum
+  
+  Objective:
+    mixin: true
+    description: A mixin class to hold the Objective attribute
+    attributes:
+      objective:
+        title: Objective
+        description: The microscope objectives used in a microscopy acqusition experiment
+        range: ObjectivesValue
+
+  ObjectivesValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the ObjectivesEnum enum
+    slot_usage:
+      value:
+        range: ObjectivesEnum
+  
+  OperatorID:
+    mixin: true
+    description: A mixin class to hold the OperatorID attribute
+    attributes:
+      operator_id:
+        title: OperatorID
+        description: Instrument operator during an experiment (a linked item from ELabFTW)
+        range: OperatorIDValue
+
+  OperatorIDValue:
+    is_a: ELabItemValue
+    description: A named sub-class of ELabItemValue to hold an operator identifier value
+  
+  PassedVolumeCalibration:
+    mixin: true
+    description: A mixin class to hold the PassedVolumeCalibration attribute
+    attributes:
+      passed_volume_calibration:
+        title: PassedVolumeCalibration
+        description: (?) The volume that is passed during a volume calibration
+        range: BooleanValue
+
+  PercentVolumeDeviation:
+    mixin: true
+    description: A mixin class to hold the PercentVolumeDeviation attribute
+    attributes:
+      percent_volume_deviation:
+        title: PercentVolumeDeviation
+        description: The volume deviation (measured volume divided by target volume) from a calibration experiment
+        range: UnitlessValue
+
+  ProjectID:
+    mixin: true
+    description: A mixin class to hold the ProjectID attribute
+    attributes:
+      project_id:
+        title: ProjectID
+        description: The project that an experiment supports (link to an ELabFTW item)
+        range: ELabItemValue
+
+  QCReagentLotNumber:
+    deprecated: (2024 June) this metadata term was determined to be unneeded, do not use
+    mixin: true
+    description: A mixin class to hold the QCReagentLotNumber attribute
+    attributes:
+      qc_reagent_lot_number:
+        title: QCReagentLotNumber
+        description: The lot number for a QC reagent (link to an ELabFTW item)
+        range: ELabItemValue
+
+  SamplePurposeCodes:
+    mixin: true
+    description: A mixin class to hold the SamplePurposeCodes attribute
+    attributes:
+      sample_purpose_codes:
+        title: SamplePurposeCodes
+        description: The types of samples acquired in an experiment (from a controlled list)
+        range: SamplePurposeCodesValue
+
+  SamplePurposeCodesValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum
+    slot_usage:
+      value:
+        range: SamplePurposeCodeEnum
+  
+  SeriesImages:
+    mixin: true
+    description: A mixin class to hold the SeriesImages attribute
+    attributes:
+      series_images:
+        title: SeriesImages
+        description: Whether series images were acquired in an experiment
+        range: BooleanValue
+  
+  SeriesImageTypes:
+    mixin: true
+    description: A mixin class to hold the SeriesImageTypes attribute
+    attributes:
+      series_image_types:
+        title: SeriesImageTypes
+        description: The types of series images acquired in an experiment
+        range: SeriesImageTypesValue
+
+  SeriesImageTypesValue:
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the ImageTypeEnum enum
+    slot_usage:
+      value:
+        range: ImageTypeEnum
+
+  SingleImages:
+    mixin: true
+    description: A mixin class to hold the SingleImages attribute
+    attributes:
+      single_images:
+        title: SingleImages
+        description: Whether single images were acquired in an experiment
+        range: BooleanValue
+  
+  SpecificDataPath:
+    mixin: true
+    description: A mixin class to hold the SpecificDataPath attribute
+    attributes:
+      specific_data_path:
+        title: SpecificDataPath
+        description: Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)
+        range: UriValue
+
+  TemplateName:
+    mixin: true
+    description: A mixin class to hold the TemplateName attribute
+    attributes:
+      template_name:
+        title: TemplateName
+        description: The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.
+        range: TemplateNameValue
+  
+  TemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue allowing only values from the TemplateNameEnum enum
+    slot_usage:
+      value:
+        range: TemplateNameEnum
+  
+  TransmissionMode:
+    deprecated: (2024 June) this is too specifc, use Modalities instead
+    deprecated_element_has_exact_replacement: Modalities
+    mixin: true
+    description: A mixin class to hold the TransmissionMode attribute
+    attributes:
+      transmission_mode:
+        title: TransmissionMode
+        description: The type (modality) of a microscopy acquisition experiment
+        range: TransmissionModeValue
+
+  TransmissionModeValue:
+    deprecated: (2024 June) this is too specifc, use ModalitiesValue instead
+    deprecated_element_has_exact_replacement: ModalitiesValue
+    is_a: ArrayValue
+    description: An override of ArrayValue allowing only values from the TransmissionModeEnum enum
+    slot_usage:
+      value:
+        range: TransmissionModeEnum    
+
+slots:
+  value:
+    description: The actual metadata value for this attribute
+  unit:
+    description: The unit corresponding to a metadata value
+
+# optional: schema type extensions
+# types:
+  # AgeType:
+  #  ...
+
+# enumerations
+enums:
+  ELabItemType:
+    description: Allowed record type value for an ELabFTW item/resource
+    permissible_values:
+      items:
+        description: An ELabFTW item/resource record
+  ELabExperimentType:
+    description: Allowed record type value for an ELabFTW experiment
+    permissible_values:
+      experiments:
+        description: An ELabFTW experiment record
+  DurationUnitEnum:
+    description: Allowed time duration unit type values
+    permissible_values:
+      sec:
+      hr:
+      min:
+  VolumeUnitEnum:
+    description: Allowed volume unit type values
+    permissible_values:
+      mL:
+      µL:
+  LengthUnitEnum:
+    description: Allowed linear length unit type values
+    permissible_values:
+      µm:
+  CountUnitEnum:
+    description: Allowed count unit type values
+    permissible_values:
+      events:
+  FlowRateUnitEnum:
+    description: Allowed flow rate unit type values
+    permissible_values:
+      µL/min:
+  CFUMethodEnum:
+    description: Allowed colony forming unit count method values
+    permissible_values:
+      Plate spread:
+      Drip plate:
+      Spiral plater:
+      Droplet:
+      Other:
+  FCInjectionModeEnum:
+    description: Allowed flow cytometry injection mode values
+    permissible_values:
+      Plate:
+      Tube:
+      NA:
+  FixationMethodEnum:
+    description: Allowed fixation method values
+    permissible_values:
+      Formaldehyde:
+      Heat:
+      Ethanol:
+      None:
+  AgitationEnum:
+    description: Allowed agitation speed unit type values
+    permissible_values:
+      rpm:
+      x g:
+  IncubationAtmosphereEnum:
+    description: Allowed cell incubation atmosphere values
+    permissible_values:
+      Atmospheric:
+      Atmospheric + 5% CO2:
+      Anaerobic:
+  TemperatureUnitEnum:
+    description: Allowed temperature unit type values
+    permissible_values:
+      oC:
+      °C:
+      oF:
+      °F:
+  ModalitiesEnum:
+    description: Allowed microscopy modality values
+    permissible_values:
+      DIC:
+      Brightfield:
+      Phase Contrast:
+  NucleicAcidTypeEnum:
+    description: Allowed nucleic acid type values
+    permissible_values:
+      RNA:
+      DNA:
+  ObjectivesEnum:
+    description: Allowed microscopy objective values
+    permissible_values:
+      4X:
+      10X:
+      20X:
+      40X oil:
+      60X oil:
+      60X water:
+      100X oil:
+  UnitlessEnum:
+    description: Allowed value for "unitless" numerical values
+    permissible_values:
+      Unitless:
+  SamplePurposeCodeEnum:
+    description: Allowed sample purpose code values
+    permissible_values:
+      Positive control:
+      Negative control:
+      Reference cell:
+      Reference fluorescence:
+      Reference scattering:
+      Reference size:
+      Reference concentration:
+      Quality control:
+      Compensation control:
+      Test:
+      Other:
+  ImageTypeEnum:
+    description: Allowed microscopy image type values
+    permissible_values:
+      Time lapse:
+      Area scan:
+      z stack:
+      NA:
+  TemplateNameEnum:
+    description: Allowed template name values
+    permissible_values:
+      CytoFLEX_Acquisition:
+      Nucleic Acid Extraction:
+      Cell Culture in Broth:
+      CytoFLEX_VolumeCalibration:
+      FormaldehydeFixation:
+      Microscopy_Acquisition:
+      Coulter_Acquisition:
+      BactoBox_Acquisition:
+      LogCOMET_SamplePrep:
+      CFU:
+      Difco Amended Sporulation Agar Protocol:
+      Initiate Growth of B spizizenii:
+      SlideCleaning:
+  TransmissionModeEnum:
+    description: Allowed microscopy trasmission mode values
+    deprecated: (2024 June) this is too specifc, use ModalitiesEnum instead
+    deprecated_element_has_exact_replacement: ModalitiesEnum
+    permissible_values:
+      DIC:
+      Brightfield:
+      Phase Contrast:
