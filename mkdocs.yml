@@ -2,9 +2,9 @@
 site_name: "microbial-experiment-schema"
 theme:
   name: material
-  # palette:
-  #  scheme: slate
-  #  primary: cyan
+  palette:
+   scheme: slate
+   primary: cyan
   features:
     - content.tabs.link
 plugins:
@@ -19,6 +19,9 @@ nav:
 site_url: https://usnistgov.github.io/microbial-experiment-schema
 repo_url: https://github.com/usnistgov/microbial-experiment-schema
 
+markdown_extensions:
+  - pymdownx.tilde
+  
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.
 # extra:
