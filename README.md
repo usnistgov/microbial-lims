@@ -26,11 +26,13 @@ in the `validation` folder to validate and export experiments generated in ELabF
 ## Documentation
 
 Documentation for a LinkML model can be built using the `linkml generate doc` command.
+The custom template definitions in the `docgen_templates` folder will be used to generate
+the markdown that is then translated into HTML pages by `mkdocs`. 
 The following command will also use [mkdocs](https://www.mkdocs.org/) to serve the 
 site for local browsing:
 
 ```bash
-$ linkml generate doc microbial_experiment.yaml -d docs && mkdocs serve
+$ linkml generate doc microbial_experiment.yaml -d docs --template-directory docgen_templates && mkdocs serve
 ```
 
 ## Contributors:

@@ -610,32 +610,37 @@ slots:
     title: AcquisitionTime
     range: DurationValue
     description: Data acquisition time as set by instrument
+    deprecated: (2024 June) unnecessary and unused
 
   acquisition_volume:
     title: AcquisitionVolume
     range: VolumeValue
     description: Data acquisition volume as set by instrument
+    deprecated: (2024 June) unnecessary and unused
 
   bead_lot_number_concentration_qc:
     title: BeadLotNumber_ConcentrationQC
     range: ELabItemValue
     description: Lot number of beads used for quality control of concentration measurements
+    deprecated: (2024 June) unnecessary and unused
 
   bead_lot_number_size_qc:
     title: BeadLotNumber_SizeQC
     range: ELabItemValue
     description: Lot number of beads used for quality control of size measurements
-   
+    deprecated: (2024 June) unnecessary and unused
+
   cell_volume:
     title: CellVolume
     range: VolumeValue
     description: Volume of cell stock added to acquisition vessel
-   
+    deprecated: (2024 June) unnecessary and unused
+
   cfu_method:
     title: CFUMethod
     range: CFUMethodValue
     description: Describes deposition format of cells on agar plate
-
+    
   core_data_path:
     title: CoreDataPath
     range: UriValue
@@ -645,6 +650,7 @@ slots:
     title: CoulterApertureSize
     description: Aperture installed on Coulter counter during measurement
     range: LengthValue
+    deprecated: (2024 June) unnecessary and unused
 
   data_acquisition_date:
     title: DataAcquisitionDate
@@ -655,11 +661,13 @@ slots:
     title: DiluentName
     range: ELabItemValue
     description: Which diluent was used to suspend cells for acquisition (linked item)
+    deprecated: (2024 June) unnecessary and unused
 
   diluent_volume:
     title: DiluentVolume
     range: VolumeValue
     description: Volume of diluent added to acquisition vessel
+    deprecated: (2024 June) unnecessary and unused
 
   elab_experiment:
     description: A self-reference to this experiment record
@@ -671,11 +679,13 @@ slots:
     title: ErrorFlag
     range: BooleanValue
     description: Indicates if a known error appears in the dataset
+    deprecated: (2024 June) unnecessary and unused
 
   fc_acquisition_count_target:
     title: FCAcquisitionCountTarget
     range: CountValue
     description: Set number of events to acquire in a particular gate on flow cytometer
+    deprecated: (2024 June) unnecessary and unused
 
   fc_acquisition_threshold_channel:
     title: FCAcquisitionThresholdChannel
@@ -691,6 +701,7 @@ slots:
     title: FCFluorescentChannels
     range: StringValue
     description: List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)
+    deprecated: (2024 June) unnecessary and unused
 
   fc_flow_rate_setting:
     title: FCFlowRateSetting
@@ -716,6 +727,7 @@ slots:
     title: GrowthDuration
     description: Time that cells were incubated to encourage growth
     range: DurationValue
+    deprecated: (2024 June) unnecessary and unused
 
   growth_media_name:
     title: GrowthMediaName
