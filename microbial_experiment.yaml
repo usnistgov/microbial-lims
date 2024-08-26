@@ -58,6 +58,9 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: CytoFLEXAcquisitionTemplateNameValue
   
   NucleicAcidExtraction:
     is_a: Experiment
@@ -67,6 +70,9 @@ classes:
       - kit_lot_number
       - nucleic_acid_type
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: NucleicAcidExtractionTemplateNameValue
   
   CellCultureInBroth:
     is_a: Experiment
@@ -79,6 +85,9 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: CellCultureInBrothTemplateNameValue
 
   CytoFLEXVolumeCalibration:
     is_a: Experiment
@@ -89,10 +98,14 @@ classes:
       - fc_injection_mode
       - passed_volume_calibration
       - percent_volume_deviation
+    slot_usage:
+      template_name:
+        range: CytoFLEXVolumeCalibrationTemplateNameValue
 
   GenericTemplateDeprecated:
     is_a: Experiment
     title: GenericTemplate_Deprecated
+    abstract: true
     description: A retired version of a generic experiment template used to create other templates
     deprecated: (2024 June) this is no longer used, use GenericTemplate instead
     deprecated_element_has_exact_replacement: GenericTemplate
@@ -145,6 +158,9 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: FormaldehydeFixationTemplateNameValue
 
   MicroscopyAcquisition:
     is_a: Experiment
@@ -163,6 +179,9 @@ classes:
       - series_image_types
       - series_images
       - single_images
+    slot_usage:
+      template_name:
+        range: MicroscopyAcquisitionTemplateNameValue
 
   GenericTemplate:
     is_a: Experiment
@@ -201,6 +220,9 @@ classes:
     slots:
       - fixation_method
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: CoulterAcquisitionTemplateNameValue
 
   BactoBoxAcquisition:
     is_a: Experiment
@@ -209,6 +231,9 @@ classes:
     slots:
       - fixation_method
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: BactoBoxAcquisitionTemplateNameValue
 
   LogCOMETSamplePrep:
     is_a: Experiment
@@ -221,6 +246,9 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: LogCOMETSamplePrepTemplateNameValue
 
   CFU:
     is_a: Experiment
@@ -234,11 +262,17 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: CFUTemplateNameValue
 
   DifcoAmendedSporulationAgarProtocol:
     is_a: Experiment
     title: Difco Amended Sporulation Agar (ASA) Protocol
     description: Metadata describing the preparation process for amended sporulation agar
+    slot_usage:
+      template_name:
+        range: DifcoAmendedSporulationAgarProtocolTemplateNameValue
 
   InitiateGrowthOfBSpizizenii:
     is_a: Experiment
@@ -251,11 +285,17 @@ classes:
       - incubation_duration
       - incubation_temperature
       - sample_purpose_codes
+    slot_usage:
+      template_name:
+        range: InitiateGrowthOfBSpizizeniiTemplateNameValue
 
   SlideCleaning:
     is_a: Experiment
     name: SlideCleaning
     description: Metadata describing an experiment preparing microscopy slides for microbial work
+    slot_usage:
+      template_name:
+        range: SlideCleaningTemplateNameValue
 
   # base data-holding classes:
   BooleanValue:
@@ -507,14 +547,14 @@ classes:
         range: IncubationAtmosphereEnum
   
   LabCASInstrumentValue:
-    deprecated: (2024 June) this is too specifc, use InstrumentIDValue instead
+    deprecated: (2024 June) this is too specific, use InstrumentIDValue instead
     deprecated_element_has_exact_replacement: InstrumentIDValue
     is_a: ELabItemValue
     title: LabCAS-InstrumentValue
     description: A named sub-class of ELabItemValue to hold the instrument identifier
 
   LabCASMicrobialMaterialIDValue:
-    deprecated: (2024 June) this is too specifc, use MicrobialMaterialIDValue instead
+    deprecated: (2024 June) this is too specific, use MicrobialMaterialIDValue instead
     deprecated_element_has_exact_replacement: MicrobialMaterialIDValue
     is_a: ArrayValue
     title: LabCAS-MicrobialMaterialIDValue
@@ -524,14 +564,14 @@ classes:
         range: ELabItem
 
   LabCASOperatorValue:
-    deprecated: (2024 June) this is too specifc, use OperatorIDValue instead
+    deprecated: (2024 June) this is too specific, use OperatorIDValue instead
     deprecated_element_has_exact_replacement: OperatorIDValue
     title: LabCAS-OperatorValue
     description: A named sub-class of ELabItemValue to hold the operator identifier
     is_a: ELabItemValue
   
   LabCASProjectValue:
-    deprecated: (2024 June) this is too specifc, use ProjectIDValue instead
+    deprecated: (2024 June) this is too specific, use ProjectIDValue instead
     deprecated_element_has_exact_replacement: ProjectIDValue
     is_a: ELabItemValue
     title: LabCAS-ProjectValue
@@ -583,15 +623,115 @@ classes:
       value:
         range: ImageTypeEnum
  
-  TemplateNameValue:
+  # specific overrides for template name values
+
+  CytoFLEXAcquisitionTemplateNameValue:
     is_a: StringValue
-    description: An override of StringValue allowing only values from the TemplateNameEnum enum
+    description: An override of StringValue specified an allowed value for the template_name for a CytoFLEX_Acquisition experiment
     slot_usage:
       value:
-        range: TemplateNameEnum
+        range: string
+        pattern: "^CytoFLEX_Acquisition$"
+        required: true
+  NucleicAcidExtractionTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Nucleic Acid Extraction$"
+        required: true
+  CellCultureInBrothTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Cell Culture in Broth$"
+        required: true
+  CytoFLEXVolumeCalibrationTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^CytoFLEX_VolumeCalibration$"
+        required: true
+  FormaldehydeFixationTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^FormaldehydeFixation$"
+        required: true
+  MicroscopyAcquisitionTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Microscopy_Acquisition$"
+        required: true
+  CoulterAcquisitionTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Coulter_Acquisition$"
+        required: true
+  BactoBoxAcquisitionTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "BactoBox_Acquisition$"
+        required: true
+  LogCOMETSamplePrepTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^LogCOMET_SamplePrep$"
+        required: true
+  CFUTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a CFU experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^CFU$"
+        required: true
+  DifcoAmendedSporulationAgarProtocolTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Difco Amended Sporulation Agar Protocol$"
+        required: true
+  InitiateGrowthOfBSpizizeniiTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^Initiate Growth of B spizizenii$"
+        required: true
+  SlideCleaningTemplateNameValue:
+    is_a: StringValue
+    description: An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment
+    slot_usage:
+      value:
+        range: string
+        pattern: "^SlideCleaning$"
+        required: true
   
   TransmissionModeValue:
-    deprecated: (2024 June) this is too specifc, use ModalitiesValue instead
+    deprecated: (2024 June) this is too specific, use ModalitiesValue instead
     deprecated_element_has_exact_replacement: ModalitiesValue
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the TransmissionModeEnum enum
@@ -601,9 +741,11 @@ classes:
 
 slots:
   value:
+    required: true
     description: The actual metadata value for an attribute
 
   unit:
+    required: true
     description: The unit corresponding to a metadata value
 
   acquisition_time:
@@ -643,6 +785,7 @@ slots:
     
   core_data_path:
     title: CoreDataPath
+    required: true
     range: UriValue
     description: Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 
@@ -654,6 +797,7 @@ slots:
 
   data_acquisition_date:
     title: DataAcquisitionDate
+    required: true
     range: DateValue
     description: Date on which data were acquired according to eLabFTW record
 
@@ -758,6 +902,7 @@ slots:
     title: InstrumentID
     description: The instrument used to aquire the data in an experiment (linked item from ELabFTW)
     range: ELabItemValue
+    required: true
 
   kit_lot_number:
     title: KitLotNumber
@@ -767,37 +912,41 @@ slots:
   labcas_data_acquisition_date:
     title: LabCAS-DataAcquisitionDate
     description: Date on which data were acquired according to eLabFTW record
-    deprecated: (2024 June) this is too specifc, use data_acquisition_date instead
+    deprecated: (2024 June) this is too specific, use data_acquisition_date instead
     deprecated_element_has_exact_replacement: data_acquisition_date
     range: DateValue
+    required: true
 
   labcas_instrument:
     title: LabCAS-Instrument
     description: Date on which data were acquired according to eLabFTW record
-    deprecated: (2024 June) this is too specifc, use instrument_id instead
+    deprecated: (2024 June) this is too specific, use instrument_id instead
     deprecated_element_has_exact_replacement: instrument_id
     range: LabCASInstrumentValue
+    required: true
 
   labcas_microbial_material_id:
     title: LabCAS-MicrobialMaterialID
     description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
-    deprecated: (2024 June) this is too specifc, use microbial_material_id instead
+    deprecated: (2024 June) this is too specific, use microbial_material_id instead
     deprecated_element_has_exact_replacement: microbial_material_id
     range: LabCASMicrobialMaterialIDValue
 
   labcas_operator:
     title: LabCAS-Operator
     description: Instrument operator during an experiment (a linked item from ELabFTW)
-    deprecated: (2024 June) this is too specifc, use operator_id instead
+    deprecated: (2024 June) this is too specific, use operator_id instead
     deprecated_element_has_exact_replacement: operator_id
     range: LabCASOperatorValue
+    required: true
 
   labcas_project:
     title: LabCAS-Project
     description: The project that an experiment supports (link to an ELabFTW item)
-    deprecated: (2024 June) this is too specifc, use project_id instead
+    deprecated: (2024 June) this is too specific, use project_id instead
     deprecated_element_has_exact_replacement: project_id
     range: LabCASProjectValue
+    required: true
 
   library_prep:
     title: LibraryPrep
@@ -828,6 +977,7 @@ slots:
     title: OperatorID
     description: Instrument operator during an experiment (a linked item from ELabFTW)
     range: OperatorIDValue
+    required: true
 
   passed_volume_calibration:
     title: PassedVolumeCalibration
@@ -845,6 +995,7 @@ slots:
     title: ProjectID
     description: The project that an experiment supports (link to an ELabFTW item)
     range: ELabItemValue
+    required: true
 
   qc_reagent_lot_number:
     title: QCReagentLotNumber
@@ -874,18 +1025,20 @@ slots:
 
   specific_data_path:
     title: SpecificDataPath
+    required: true
     description: Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)
     range: UriValue
 
   template_name:
     title: TemplateName
+    required: true
     description: The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.
     range: TemplateNameValue
 
   transmission_mode:
     title: TransmissionMode
     description: The type (modality) of a microscopy acquisition experiment
-    deprecated: (2024 June) this is too specifc, use modalities instead
+    deprecated: (2024 June) this is too specific, use modalities instead
     deprecated_element_has_exact_replacement: modalities
     range: TransmissionModeValue
 
@@ -1014,25 +1167,9 @@ enums:
       Area scan:
       z stack:
       NA:
-  TemplateNameEnum:
-    description: Allowed template name values
-    permissible_values:
-      CytoFLEX_Acquisition:
-      Nucleic Acid Extraction:
-      Cell Culture in Broth:
-      CytoFLEX_VolumeCalibration:
-      FormaldehydeFixation:
-      Microscopy_Acquisition:
-      Coulter_Acquisition:
-      BactoBox_Acquisition:
-      LogCOMET_SamplePrep:
-      CFU:
-      Difco Amended Sporulation Agar Protocol:
-      Initiate Growth of B spizizenii:
-      SlideCleaning:
   TransmissionModeEnum:
     description: Allowed microscopy trasmission mode values
-    deprecated: (2024 June) this is too specifc, use ModalitiesEnum instead
+    deprecated: (2024 June) this is too specific, use ModalitiesEnum instead
     deprecated_element_has_exact_replacement: ModalitiesEnum
     permissible_values:
       DIC:

@@ -1,0 +1,30 @@
+{
+    "core_data_path": {
+      "value": "//***REMOVED***.nist.gov/InstrumentData"
+    },
+    "data_acquisition_date": {
+      "value": "2024-08-21"
+    },
+    "elab_experiment": {
+        "id": 1,
+        "type": "experiments",
+        "elabid": "testid",
+        "url": "https://elab.nist.gov/items/1",
+        "api_url": "https://elab.nist.gov/api/items/1",
+        "title": "A test item",
+        "category_title": "The Category",
+        "status_title": "the status"
+    },
+    "instrument_id": null,
+    "microbial_material_id": {
+      "value": null
+    },
+    "operator_id": null,
+    "project_id": null,
+    "specific_data_path": {
+      "value": "path/to/data"
+    },
+    "template_name": {
+        "value": "CytoFLEX_Acquisition"
+    }
+  }
