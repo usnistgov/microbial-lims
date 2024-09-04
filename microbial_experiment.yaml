@@ -2,6 +2,8 @@
 
 # notes:
 #  this using a "container" attribute doesn't seem to be working (see https://github.com/linkml/linkml/issues/2283)
+
+# TODO: can we add elab groups to the slots?
 ---
 id: https://w3id.org/usnistgov/microbial-experiment-schema
 name: microbial-experiment-schema
@@ -30,20 +32,41 @@ classes:
     abstract: true
     name: Experiment
     slots:
-      - core_data_path
       - data_acquisition_date
       - elab_experiment
-      - instrument_id
-      - microbial_material_id
       - operator_id
       - project_id
-      - specific_data_path
       - template_name
+
+  ExperimentWithData:
+    description: Holds information about a specific type of Microbial Strain experiment that results in the collection of data. The specific metadata for each type of experiment is controlled by "template data classes"
+    abstract: true
+    is_a: Experiment
+    name: ExperimentWithData
+    slots:
+      - core_data_path
+      - specific_data_path
+
+  ExperimentWithInstrument:
+    description: Holds information about a specific type of Microbial Strain experiment that uses an instrument. The specific metadata for each type of experiment is controlled by "template data classes"
+    abstract: true
+    is_a: ExperimentWithData
+    name: ExperimentWithInstrument
+    slots:
+      - instrument_id
+
+  ExperimentWithInstrumentNoData:
+    description: Holds information about a specific type of Microbial Strain experiment that uses an instrument but does not collect data. The specific metadata for each type of experiment is controlled by "template data classes"
+    abstract: true
+    is_a: Experiment
+    name: ExperimentWithInstrumentNoData
+    slots:
+      - instrument_id
 
   # definition of experiment template data classes
   CytoFLEXAcquisition:
     name: CytoFLEXAcquisition
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     title: CytoFLEX_Acquisition
     description: Metadata describing a data acquisition using the CytoFLEX instrument
     slots:
@@ -57,17 +80,19 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
         range: CytoFLEXAcquisitionTemplateNameValue
   
   NucleicAcidExtraction:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     title: NucleicAcidExtraction
     description: Metadata describing a nucleic acid extraction experiment
     slots:
       - kit_lot_number
+      - microbial_material_id
       - nucleic_acid_type
       - sample_purpose_codes
     slot_usage:
@@ -76,7 +101,7 @@ classes:
   
   CellCultureInBroth:
     is_a: Experiment
-    title: Cell Culture In Broth
+    title: Cell Culture in Broth
     description: Metadata describing a cell culture experiment
     slots:
       - growth_media_name
@@ -84,13 +109,14 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
         range: CellCultureInBrothTemplateNameValue
 
   CytoFLEXVolumeCalibration:
-    is_a: Experiment
+    is_a: ExperimentWithInstrumentNoData
     title: CytoFLEX_VolumeCalibration
     description: Metadata describing a volume calibration using the CytoFLEX instrument
     slots:
@@ -103,7 +129,7 @@ classes:
         range: CytoFLEXVolumeCalibrationTemplateNameValue
 
   GenericTemplateDeprecated:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     title: GenericTemplate_Deprecated
     abstract: true
     description: A retired version of a generic experiment template used to create other templates
@@ -141,6 +167,7 @@ classes:
       - labcas_operator
       - labcas_project
       - library_prep
+      - microbial_material_id
       - nucleic_acid_type
       - objective
       - qc_reagent_lot_number
@@ -150,6 +177,7 @@ classes:
   FormaldehydeFixation:
     is_a: Experiment
     name: FormaldehydeFixation
+    title: FormaldehydeFixation
     description: Metadata describing a formaldehyde fixation experiment
     slots:
       - fixation_method
@@ -157,15 +185,17 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
         range: FormaldehydeFixationTemplateNameValue
 
   MicroscopyAcquisition:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     name: MicroscopyAcquisition
     description: Metadata describing a microscopy acquisition experiment
+    title: Microscopy_Acquisition
     slots:
       - fixation_method
       - fluorescent_probe
@@ -173,6 +203,7 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - modalities
       - objective
       - sample_purpose_codes
@@ -184,9 +215,10 @@ classes:
         range: MicroscopyAcquisitionTemplateNameValue
 
   GenericTemplate:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     name: GenericTemplate
     abstract: true
+    title: GenericTemplate
     description: A generic experiment template used to help create more specific experiment templates. This template should not be used directly.
     slots:
       - cfu_method
@@ -203,6 +235,7 @@ classes:
       - incubation_temperature
       - kit_lot_number
       - library_prep
+      - microbial_material_id
       - modalities
       - nucleic_acid_type
       - objective
@@ -214,22 +247,24 @@ classes:
       - single_images
   
   CoulterAcquisition:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     title: Coulter_Acquisition
     description: Metadata describing a Coulter counter acquisition experiment
     slots:
       - fixation_method
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
         range: CoulterAcquisitionTemplateNameValue
 
   BactoBoxAcquisition:
-    is_a: Experiment
+    is_a: ExperimentWithInstrument
     title: BactoBox_Acquisition
     description: Metadata describing a data acquisition experiment using the BactoBox
     slots:
       - fixation_method
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
@@ -241,18 +276,20 @@ classes:
     description: Metadata describing a sample preparation process for a LOGComet experiment
     slots:
       - fixation_method
-      - incubation_agitation
-      - incubation_atmosphere
-      - incubation_duration
-      - incubation_temperature
+      # - incubation_agitation
+      # - incubation_atmosphere
+      # - incubation_duration
+      # - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
         range: LogCOMETSamplePrepTemplateNameValue
 
   CFU:
-    is_a: Experiment
+    is_a: ExperimentWithData
     name: CFU
+    title: CFU
     description: Metadata describing a colony forming unit counting experiment
     slots:
       - cfu_method
@@ -261,6 +298,7 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
@@ -284,6 +322,7 @@ classes:
       - incubation_atmosphere
       - incubation_duration
       - incubation_temperature
+      - microbial_material_id
       - sample_purpose_codes
     slot_usage:
       template_name:
@@ -293,6 +332,7 @@ classes:
     is_a: Experiment
     name: SlideCleaning
     description: Metadata describing an experiment preparing microscopy slides for microbial work
+    title: SlideCleaning
     slot_usage:
       template_name:
         range: SlideCleaningTemplateNameValue
@@ -317,6 +357,7 @@ classes:
         range: decimal
       unit:
         range: string
+        required: false
   StringValue:
     name: StringValue
     description: A class to hold a string value
@@ -367,6 +408,7 @@ classes:
       unit:
         range: VolumeUnitEnum
         description: The volume unit corresponding to a metadata value
+        required: true
   LengthValue:
     name: LengthValue
     description: A class to hold a numerical value representing a linear measurement
@@ -375,6 +417,7 @@ classes:
       unit:
         range: LengthUnitEnum
         description: The length unit corresponding to a metadata value
+        required: true
   DurationValue:
     name: DurationValue
     description: A class to hold a numerical value representing a time duration measurement
@@ -383,6 +426,7 @@ classes:
       unit:
         range: DurationUnitEnum
         description: The time duration unit corresponding to a metadata value
+        required: true
   TemperatureValue:
     name: TemperatureValue
     description: A class to hold a numerical value representing a temperature measurement
@@ -391,6 +435,7 @@ classes:
       unit:
         range: TemperatureUnitEnum
         description: The temperature unit corresponding to a metadata value
+        required: true
   CountValue:
     name: CountValue
     description: A class to hold a numerical value representing a counting measurement
@@ -399,6 +444,7 @@ classes:
       unit:
         range: CountUnitEnum
         description: The count unit corresponding to a metadata value
+        required: true
   FlowRateValue:
     name: FlowRateValue
     description: A class to hold a numerical value representing a flow rate measurement
@@ -407,6 +453,7 @@ classes:
       unit:
         range: FlowRateUnitEnum
         description: The flow rate unit corresponding to a metadata value
+        required: true
   AgitationValue:
     name: AgitationValue
     description: A class to hold a numerical value representing an agitation speed
@@ -415,6 +462,7 @@ classes:
       unit:
         range: AgitationEnum
         description: The agitation speed unit corresponding to a metadata value
+        required: true
   UnitlessValue:
     name: UnitlessValue
     description: A class to hold an explicitly unitless numerical value
@@ -423,6 +471,7 @@ classes:
       unit:
         range: UnitlessEnum
         description: The word "Unitless" corresponding to a unitless metadata value
+        required: true
 
   # defining ELabItem, ELabExperiment, and ELabUser links:
   ELabRecord:
@@ -467,6 +516,9 @@ classes:
         description: Whether this item is a resource (database item) or an experiment
         range: ELabItemType
         required: true
+    slot_usage:
+      status_title:
+        required: false
 
   ELabExperiment:
     is_a: ELabRecord
@@ -538,6 +590,8 @@ classes:
       value:
         description: The value attribute for FluorescentProbe
         range: ELabItem
+        inlined: true
+        inlined_as_list: true
   
   IncubationAtmosphereValue:
     is_a: StringValue
@@ -562,6 +616,8 @@ classes:
     slot_usage:
       value:
         range: ELabItem
+        inlined: true
+        inlined_as_list: true
 
   LabCASOperatorValue:
     deprecated: (2024 June) this is too specific, use OperatorIDValue instead
@@ -583,6 +639,8 @@ classes:
     slot_usage:
       value:
         range: ELabItem
+        inlined: true
+        inlined_as_list: true
 
   ModalitiesValue:
     is_a: ArrayValue
@@ -753,35 +811,41 @@ slots:
     range: DurationValue
     description: Data acquisition time as set by instrument
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   acquisition_volume:
     title: AcquisitionVolume
     range: VolumeValue
     description: Data acquisition volume as set by instrument
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   bead_lot_number_concentration_qc:
     title: BeadLotNumber_ConcentrationQC
     range: ELabItemValue
     description: Lot number of beads used for quality control of concentration measurements
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   bead_lot_number_size_qc:
     title: BeadLotNumber_SizeQC
     range: ELabItemValue
     description: Lot number of beads used for quality control of size measurements
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   cell_volume:
     title: CellVolume
     range: VolumeValue
     description: Volume of cell stock added to acquisition vessel
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   cfu_method:
     title: CFUMethod
     range: CFUMethodValue
     description: Describes deposition format of cells on agar plate
+    required: true
     
   core_data_path:
     title: CoreDataPath
@@ -794,6 +858,7 @@ slots:
     description: Aperture installed on Coulter counter during measurement
     range: LengthValue
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   data_acquisition_date:
     title: DataAcquisitionDate
@@ -806,12 +871,14 @@ slots:
     range: ELabItemValue
     description: Which diluent was used to suspend cells for acquisition (linked item)
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   diluent_volume:
     title: DiluentVolume
     range: VolumeValue
     description: Volume of diluent added to acquisition vessel
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   elab_experiment:
     description: A self-reference to this experiment record
@@ -824,79 +891,94 @@ slots:
     range: BooleanValue
     description: Indicates if a known error appears in the dataset
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   fc_acquisition_count_target:
     title: FCAcquisitionCountTarget
     range: CountValue
     description: Set number of events to acquire in a particular gate on flow cytometer
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   fc_acquisition_threshold_channel:
     title: FCAcquisitionThresholdChannel
     range: StringValue
     description: Which channel as named by the manufacturer was used to threshold the data acquisition
+    required: true
 
   fc_acquisition_threshold_value:
     title: FCAcquisitionThresholdValue
     range: NumberValue
     description: Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry
+    required: true
 
   fc_fluorescent_channels:
     title: FCFluorescentChannels
     range: StringValue
     description: List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   fc_flow_rate_setting:
     title: FCFlowRateSetting
     range: FlowRateValue
     description: Set flow rate of data acquisition on flow cytometer
+    required: true
 
   fc_injection_mode:
     title: FCInjectionMode
     range: FCInjectionModeValue
     description: Sample acquisition format in flow cytometer
+    required: true
 
   fixation_method:
     title: FixationMethod
     description: Specific treatment applied to cells to prevent future changes
     range: FixationMethodValue
+    required: true
   
   fluorescent_probe:
     title: FluorescentProbe
     description: Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)
     range: FluorescentProbeValue
+    required: true
 
   growth_duration:
     title: GrowthDuration
     description: Time that cells were incubated to encourage growth
     range: DurationValue
     deprecated: (2024 June) unnecessary and unused
+    required: true
 
   growth_media_name:
     title: GrowthMediaName
     description: Name of media used to culture cells (linked item from ELabFTW)
     range: ELabItemValue
+    required: true
 
   incubation_agitation:
     title: IncubationAgitation
     description: Speed of agitation that cells were incubated during an experiment
     range: AgitationValue
+    required: true
 
   incubation_atmosphere:
     title: IncubationAtmosphere
     description: Atmosphere that cells were incubated in to encourage growth
     range: IncubationAtmosphereValue
+    required: true
 
   incubation_duration:
     title: IncubationDuration
     description: Length of time that cells were incubated during an experiment
     range: DurationValue
+    required: true
 
   incubation_temperature:
     title: IncubationTemperature
     description: Temperature at which cells were incubated during an experiment or culture
     range: TemperatureValue
+    required: true
   
   instrument_id:
     title: InstrumentID
@@ -908,6 +990,7 @@ slots:
     title: KitLotNumber
     description: The lot number of any relevant kits (linked item from ELabFTW)
     range: ELabItemValue
+    required: true
 
   labcas_data_acquisition_date:
     title: LabCAS-DataAcquisitionDate
@@ -931,6 +1014,7 @@ slots:
     deprecated: (2024 June) this is too specific, use microbial_material_id instead
     deprecated_element_has_exact_replacement: microbial_material_id
     range: LabCASMicrobialMaterialIDValue
+    required: true
 
   labcas_operator:
     title: LabCAS-Operator
@@ -952,26 +1036,31 @@ slots:
     title: LibraryPrep
     description: The name of a specific kit used for sequencing preparation steps
     range: StringValue
+    required: true
 
   microbial_material_id:
     title: MicrobialMaterialID
     description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
     range: MicrobialMaterialIDValue
+    required: true
 
   modalities:
     title: Modalities
     description: The type (modality) of a microscopy acquisition experiment
     range: ModalitiesValue
+    required: true
 
   nucleic_acid_type:
     title: NucleicAcidType
     description: The type of nucleic acid used in an extraction experiment
     range: NucleicAcidTypeValue
+    required: true
 
   objective:
     title: Objective
     description: The microscope objectives used in a microscopy acqusition experiment
     range: ObjectivesValue
+    required: true
 
   operator_id:
     title: OperatorID
@@ -983,6 +1072,7 @@ slots:
     title: PassedVolumeCalibration
     description: (?) The volume that is passed during a volume calibration
     range: BooleanValue
+    required: true
     todos:
       - double check description
 
@@ -990,6 +1080,7 @@ slots:
     title: PercentVolumeDeviation
     description: The volume deviation (measured volume divided by target volume) from a calibration experiment
     range: UnitlessValue
+    required: true
   
   project_id:
     title: ProjectID
@@ -1002,26 +1093,31 @@ slots:
     description: The lot number for a QC reagent (link to an ELabFTW item)
     deprecated: (2024 June) this metadata term was determined to be unneeded, do not use
     range: ELabItemValue
+    required: true
 
   sample_purpose_codes:
     title: SamplePurposeCodes
     description: The types of samples acquired in an experiment (from a controlled list)
     range: SamplePurposeCodesValue
+    required: true
 
   series_image_types:
     title: SeriesImageTypes
     description: The types of series images acquired in an experiment
     range: SeriesImageTypesValue
+    required: true
 
   series_images:
     title: SeriesImages
     description: Whether series images were acquired in an experiment
     range: BooleanValue
+    required: true
 
   single_images:
     title: SingleImages
     description: Whether single images were acquired in an experiment
     range: BooleanValue
+    required: true
 
   specific_data_path:
     title: SpecificDataPath
@@ -1033,7 +1129,7 @@ slots:
     title: TemplateName
     required: true
     description: The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.
-    range: TemplateNameValue
+    range: StringValue
 
   transmission_mode:
     title: TransmissionMode
@@ -1041,6 +1137,7 @@ slots:
     deprecated: (2024 June) this is too specific, use modalities instead
     deprecated_element_has_exact_replacement: modalities
     range: TransmissionModeValue
+    required: true
 
 # optional: schema type extensions
 # types:
@@ -1102,7 +1199,7 @@ enums:
       Formaldehyde:
       Heat:
       Ethanol:
-      None:
+      NoFixation:
   AgitationEnum:
     description: Allowed agitation speed unit type values
     permissible_values:
