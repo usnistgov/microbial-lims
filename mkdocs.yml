@@ -34,8 +34,8 @@ nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
-site_url: https://usnistgov.github.io/microbial-experiment-schema
-repo_url: https://github.com/usnistgov/microbial-experiment-schema
+site_url: https://mml-lims.***REMOVED***.nist.gov/microbial-lims
+repo_url: https://***REMOVED***/mml-lims/microbial-lims
 
 markdown_extensions:
   - pymdownx.tilde

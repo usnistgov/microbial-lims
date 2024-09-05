@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "b2da87eb7835bfec748a76823d098cac85e8363a",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "microbial-experiment-schema",
+      "__project_slug": "microbial_experiment_schema",
+      "github_org": "usnistgov",
+      "__source_path": "src/microbial_experiment_schema/schema/microbial_experiment_schema.yaml",
+      "project_description": "Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project",
+      "full_name": "Joshua Taillon",
+      "email": "joshua.taillon@nist.gov",
+      "__author": "Joshua Taillon <joshua.taillon@nist.gov>",
+      "license": "MIT",
+      "main_schema_class": "Experiment",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}

@@ -23,6 +23,37 @@ The resulting schema will be used with the work in the
 [ELabFTW Python API](https://***REMOVED***/gitlab/mml-lims/elabftw-python-api) and the scripts
 in the `validation` folder to validate and export experiments generated in ELabFTW (still a WIP). 
 
+## Website/Documentation (WIP)
+
+[https://mml-lims.***REMOVED***.nist.gov/microbial-lims](https://mml-lims.***REMOVED***.nist.gov/microbial-lims)
+
+## Repository Structure
+
+* [examples/](examples/) - example data
+* [project/](project/) - auto-generated project files (do not edit these)
+* [src/](src/) - source files (edit these)
+  * [microbial_experiment_schema](src/microbial_experiment_schema)
+    * [schema](src/microbial_experiment_schema/schema) -- LinkML schema
+      (edit this)
+    * [datamodel](src/microbial_experiment_schema/datamodel) -- generated
+      Python datamodel
+* [tests/](tests/) - Python tests
+
+## Developer Documentation
+
+<details>
+Use the `make` command to generate project artefacts:
+
+* `make all`: make everything
+* `make deploy`: deploys site
+</details>
+
+## Credits
+
+This project was made with
+[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter).
+
+
 ## Documentation
 
 Documentation for a LinkML model can be built using the `linkml generate doc` command.
