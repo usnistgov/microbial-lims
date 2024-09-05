@@ -3,7 +3,7 @@
 This repository holds files that define a metadata schema for the terms collected during
 various research tasks in the Microbial Strain team. The primary use case for these schemata
 are to validate the metadata entered into eLabFTW (https://elab.nist.gov) experiment records
-and prepare bundles for export into LabCAS. In the future, they may be used to programatically
+and prepare bundles for export into LabCAS. In the future, they may be used to programmatically
 generate the ["extra fields" definitions](https://doc.elabftw.net/metadata.html) of eLabFTW
 experiment templates.
 
@@ -12,7 +12,7 @@ experiment templates.
 Currently, @jat is using [LinkML](https://linkml.io/) to implement the data model in the file
 [`microbial_experiment.yaml`](microbial_experiment.yaml), which allows for validation and
 generation of JSONSchema outputs via that tool's ["generators"](https://linkml.io/linkml/generators/json-schema.html)
-feature. Ther eis no GUI for this directly, but @jat uses Visual Studio Code with the following
+feature. There is no GUI for this directly, but @jat uses Visual Studio Code with the following
 directive at the top of the file to make use of VSCode's YAML validation feature:
 
 ```

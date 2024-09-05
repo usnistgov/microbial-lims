@@ -2,7 +2,6 @@
 # notes:
 
 # TODO: can we add elab groups to the slots?
-
 ---
 
 id: https://w3id.org/usnistgov/microbial-experiment-schema
@@ -478,6 +477,8 @@ classes:
     abstract: true
     name: ELabRecord
     description: An abstract data type representing a link to an record (experiment or resource/item) in an eLabFTW instance. Use one of the ELabItem or ELabRecord classes that implement this one rather than using it directly.
+    slots:
+      - status_title
     attributes:
       id:
         identifier: true
@@ -502,9 +503,6 @@ classes:
         required: true
       category_title:
         description: The name of the category for this item (called an "item type") in eLabFTW
-        required: true
-      status_title:
-        description: The status of this resource
         required: true
 
   ELabItem:
@@ -982,7 +980,7 @@ slots:
   
   instrument_id:
     title: InstrumentID
-    description: The instrument used to aquire the data in an experiment (linked item from ELabFTW)
+    description: The instrument used to acquire the data in an experiment (linked item from ELabFTW)
     range: ELabItemValue
     required: true
 
@@ -1058,7 +1056,7 @@ slots:
 
   objective:
     title: Objective
-    description: The microscope objectives used in a microscopy acqusition experiment
+    description: The microscope objectives used in a microscopy acquisition experiment
     range: ObjectivesValue
     required: true
 
@@ -1124,6 +1122,10 @@ slots:
     required: true
     description: Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)
     range: UriValue
+
+  status_title:
+    description: The status title of an ELabFTW resource
+    required: true
 
   template_name:
     title: TemplateName
@@ -1265,7 +1267,7 @@ enums:
       z stack:
       NA:
   TransmissionModeEnum:
-    description: Allowed microscopy trasmission mode values
+    description: Allowed microscopy transmission mode values
     deprecated: (2024 June) this is too specific, use ModalitiesEnum instead
     deprecated_element_has_exact_replacement: ModalitiesEnum
     permissible_values:

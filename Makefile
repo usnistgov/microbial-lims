@@ -20,13 +20,14 @@ SOURCE_SCHEMA_PATH = $(LINKML_SCHEMA_SOURCE_PATH)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))
 SRC = src
 DEST = project
-PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
+PYMODEL = $(SRC)/$(LINKML_SCHEMA_FOLDER_NAME)/datamodel
 DOCDIR = docs
 EXAMPLEDIR = examples
 SHEET_MODULE = personinfo_enums
 SHEET_ID = $(LINKML_SCHEMA_GOOGLE_SHEET_ID)
 SHEET_TABS = $(LINKML_SCHEMA_GOOGLE_SHEET_TABS)
 SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
+TEMPLATEDIR = doc-templates
 
 CONFIG_YAML =
 ifdef LINKML_GENERATORS_CONFIG_YAML
@@ -69,6 +70,7 @@ help: status
 	@echo "make testdoc -- builds docs and runs local test server"
 	@echo "make deploy -- deploys site"
 	@echo "make update -- updates linkml version"
+	@echo "make spell -- check spelling with codespell"
 	@echo "make help -- show this help"
 	@echo ""
 
@@ -119,11 +121,19 @@ compile-sheets:
 gen-examples:
 	cp src/data/examples/* $(EXAMPLEDIR)
 
+
+
+spell:
+	poetry run codespell
+
 # generates all project files
 
-gen-project: $(PYMODEL)
-	$(RUN) gen-project ${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+gen-project-and-pydantic: gen-project gen-pydantic
 
+gen-project: $(PYMODEL)
+	$(RUN) linkml generate project \
+		${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH)
+	mkdir -p $(DEST)/pydantic
 
 # non-empty arg triggers owl (workaround https://github.com/linkml/linkml/issues/1453)
 ifneq ($(strip ${GEN_OWL_ARGS}),)
@@ -140,10 +150,14 @@ ifneq ($(strip ${GEN_TS_ARGS}),)
 	$(RUN) gen-typescript ${GEN_TS_ARGS} $(SOURCE_SCHEMA_PATH) >${DEST}/typescript/${SCHEMA_NAME}.ts
 endif
 
-test: test-schema test-python test-examples
+gen-pydantic:
+	$(RUN) linkml generate pydantic $(SOURCE_SCHEMA_PATH) > $(DEST)/pydantic/$(SCHEMA_NAME).py
+	cp $(DEST)/pydantic/$(SCHEMA_NAME).py $(PYMODEL)/
+
+test: test-schema test-python test-examples lint spell
 
 test-schema:
-	$(RUN) gen-project ${CONFIG_YAML} -d tmp $(SOURCE_SCHEMA_PATH)
+	$(RUN) linkml generate project ${CONFIG_YAML} -d tmp $(SOURCE_SCHEMA_PATH)
 
 test-python:
 	$(RUN) python -m unittest discover

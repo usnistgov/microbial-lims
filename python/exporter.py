@@ -249,7 +249,7 @@ def parse_single_node(
             meta["value"].remove("None")
             meta["value"].append("NoFixation")
 
-        # dyamically build up the arguments to instantiate the class
+        # dynamically build up the arguments to instantiate the class
         args = {"value": meta["value"]}
         if "unit" in meta and meta["unit"]:
             # TODO: remove temporary workaround for IncubationDuration time unit
