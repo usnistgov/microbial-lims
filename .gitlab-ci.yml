@@ -1,0 +1,42 @@
+image: python:3.12-alpine
+
+stages:
+  - linting
+  - pages
+
+.env_setup:
+  before_script:
+    - apk add curl make bash
+    - curl -sSL https://install.python-poetry.org | python -
+    - export PATH="$HOME/.local/bin:${PATH}"
+    - poetry install --all-extras
+
+linting:
+    stage: linting
+    extends: .env_setup
+    rules:
+      - if: $CI_COMMIT_TAG
+        when: never 
+      - if: $CI_COMMIT_BRANCH == "public"
+        when: never
+      - if: $CI_COMMIT_BRANCH == "nist-pages"
+        when: never
+      - when: always
+    retry: 2
+    script:
+      - make test
+    needs: []
+
+pages:
+  stage: pages
+  script:
+    - make build-site
+    - mv site public
+  extends: .env_setup
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never 
+    - when: always
+  artifacts:
+    paths:
+      - public

@@ -27,12 +27,10 @@ theme:
     - content.tabs.link
 plugins:
   - search
-  - mermaid2
   - mermaid2:
       version: 10.9.0
 nav:
-  # - Home: home.md
-  - Index: index.md
+  - Home: index.md
   - Schema Visualization: schema_visualization.html
 site_url: https://mml-lims.***REMOVED***.nist.gov/microbial-lims
 repo_url: https://***REMOVED***/mml-lims/microbial-lims

@@ -23,6 +23,7 @@ SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(LINKML_SCHEMA_FOLDER_NAME)/datamodel
 DOCDIR = docs
+SITEDIR = site
 EXAMPLEDIR = examples
 # SHEET_MODULE = personinfo_enums
 # SHEET_ID = $(LINKML_SCHEMA_GOOGLE_SHEET_ID)
@@ -69,7 +70,8 @@ help: status
 	@echo "make test -- runs tests"
 	@echo "make lint -- perform linting"
 	@echo "make testdoc -- builds docs and runs local test server"
-	@echo "make deploy -- deploys site"
+	@echo "make gen-doc -- build markdown documentation in \"$(DOCDIR)\" folder"
+	@echo "make build-site -- build html pages from markdown"
 	@echo "make update -- updates linkml version"
 	@echo "make spell -- check spelling with codespell"
 	@echo "make help -- show this help"
@@ -218,6 +220,8 @@ gen-doc: $(DOCDIR)
 	cp $(SRC)/docs/*.js $(DOCDIR) ; \
 	$(RUN) linkml generate doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
 
+build-site: gen-doc
+	$(MKDOCS) build -f mkdocs.yml -d $(SITEDIR)
 
 testdoc: gen-doc serve
 
@@ -243,7 +247,9 @@ git-status:
 clean:
 	rm -rf $(DEST)
 	rm -rf tmp
-	rm -fr docs/*
+	rm -fr docs
 	rm -fr $(PYMODEL)/*
+	rm -rf site
+	rm -rf dist
 
 include project.Makefile
