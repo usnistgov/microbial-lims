@@ -41,10 +41,10 @@ URI: {{ gen.link(element) }}
 {% if element.permissible_values -%}
 ## Permissible Values
 
-| Value | Meaning | Description |
+| Name | Value | Description |
 | --- | --- | --- |
 {% for pv in element.permissible_values.values() -%}
-| {{pv.text}} | {{pv.meaning}} | {{pv.description|enshorten}} |
+| {{pv.text}} | `{{pv.title}}` | {{pv.description|enshorten}} |
 {% endfor %}
 {% else %}
 _This is a dynamic enum_

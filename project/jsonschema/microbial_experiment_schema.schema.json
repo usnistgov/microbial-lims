@@ -1,0 +1,2055 @@
+{
+    "$defs": {
+        "AgitationEnum": {
+            "description": "Allowed agitation speed unit type values",
+            "enum": [
+                "rpm",
+                "x_g"
+            ],
+            "title": "AgitationEnum",
+            "type": "string"
+        },
+        "AgitationValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing an agitation speed",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/AgitationEnum",
+                    "description": "The agitation speed unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "AgitationValue",
+            "type": "object"
+        },
+        "ArrayValue": {
+            "additionalProperties": false,
+            "description": "A class to hold an array of values",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "ArrayValue",
+            "type": "object"
+        },
+        "BactoBoxAcquisition": {
+            "additionalProperties": false,
+            "description": "Metadata describing a data acquisition experiment using the BactoBox",
+            "properties": {
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/BactoBoxAcquisitionTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fixation_method",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "instrument_id",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "BactoBoxAcquisition",
+            "type": "object"
+        },
+        "BactoBoxAcquisitionTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "BactoBox_Acquisition$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "BactoBoxAcquisitionTemplateNameValue",
+            "type": "object"
+        },
+        "BooleanValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a boolean value",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "BooleanValue",
+            "type": "object"
+        },
+        "CFU": {
+            "additionalProperties": false,
+            "description": "Metadata describing a colony forming unit counting experiment",
+            "properties": {
+                "cfu_method": {
+                    "$ref": "#/$defs/CFUMethodValue",
+                    "description": "Describes deposition format of cells on agar plate"
+                },
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "growth_media_name": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "Name of media used to culture cells (linked item from ELabFTW)"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/CFUTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "cfu_method",
+                "fixation_method",
+                "growth_media_name",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "CFU",
+            "type": "object"
+        },
+        "CFUMethodEnum": {
+            "description": "Allowed colony forming unit count method values",
+            "enum": [
+                "plate_spread",
+                "drip_plate",
+                "spiral_plater",
+                "droplet",
+                "other"
+            ],
+            "title": "CFUMethodEnum",
+            "type": "string"
+        },
+        "CFUMethodValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the CFUMethodEnum enum",
+            "properties": {
+                "value": {
+                    "description": "Describes deposition format of cells on agar plate",
+                    "items": {
+                        "$ref": "#/$defs/CFUMethodEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CFUMethodValue",
+            "type": "object"
+        },
+        "CFUTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a CFU experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^CFU$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CFUTemplateNameValue",
+            "type": "object"
+        },
+        "CellCultureInBroth": {
+            "additionalProperties": false,
+            "description": "Metadata describing a cell culture experiment",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "growth_media_name": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "Name of media used to culture cells (linked item from ELabFTW)"
+                },
+                "incubation_agitation": {
+                    "$ref": "#/$defs/AgitationValue",
+                    "description": "Speed of agitation that cells were incubated during an experiment"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/CellCultureInBrothTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "growth_media_name",
+                "incubation_agitation",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "CellCultureInBroth",
+            "type": "object"
+        },
+        "CellCultureInBrothTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Cell Culture in Broth$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CellCultureInBrothTemplateNameValue",
+            "type": "object"
+        },
+        "CoulterAcquisition": {
+            "additionalProperties": false,
+            "description": "Metadata describing a Coulter counter acquisition experiment",
+            "properties": {
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/CoulterAcquisitionTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fixation_method",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "instrument_id",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "CoulterAcquisition",
+            "type": "object"
+        },
+        "CoulterAcquisitionTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Coulter_Acquisition$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CoulterAcquisitionTemplateNameValue",
+            "type": "object"
+        },
+        "CountUnitEnum": {
+            "description": "Allowed count unit type values",
+            "enum": [
+                "events"
+            ],
+            "title": "CountUnitEnum",
+            "type": "string"
+        },
+        "CountValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a counting measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/CountUnitEnum",
+                    "description": "The count unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "CountValue",
+            "type": "object"
+        },
+        "CytoFLEXAcquisition": {
+            "additionalProperties": false,
+            "description": "Metadata describing a data acquisition using the CytoFLEX instrument",
+            "properties": {
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fc_acquisition_threshold_channel": {
+                    "$ref": "#/$defs/StringValue",
+                    "description": "Which channel as named by the manufacturer was used to threshold the data acquisition"
+                },
+                "fc_acquisition_threshold_value": {
+                    "$ref": "#/$defs/NumberValue",
+                    "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry"
+                },
+                "fc_flow_rate_setting": {
+                    "$ref": "#/$defs/FlowRateValue",
+                    "description": "Set flow rate of data acquisition on flow cytometer"
+                },
+                "fc_injection_mode": {
+                    "$ref": "#/$defs/FCInjectionModeValue",
+                    "description": "Sample acquisition format in flow cytometer"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "fluorescent_probe": {
+                    "$ref": "#/$defs/FluorescentProbeValue",
+                    "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
+                },
+                "incubation_agitation": {
+                    "$ref": "#/$defs/AgitationValue",
+                    "description": "Speed of agitation that cells were incubated during an experiment"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/CytoFLEXAcquisitionTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fc_acquisition_threshold_channel",
+                "fc_acquisition_threshold_value",
+                "fc_flow_rate_setting",
+                "fc_injection_mode",
+                "fixation_method",
+                "fluorescent_probe",
+                "incubation_agitation",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "instrument_id",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "CytoFLEXAcquisition",
+            "type": "object"
+        },
+        "CytoFLEXAcquisitionTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a CytoFLEX_Acquisition experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^CytoFLEX_Acquisition$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CytoFLEXAcquisitionTemplateNameValue",
+            "type": "object"
+        },
+        "CytoFLEXVolumeCalibration": {
+            "additionalProperties": false,
+            "description": "Metadata describing a volume calibration using the CytoFLEX instrument",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fc_flow_rate_setting": {
+                    "$ref": "#/$defs/FlowRateValue",
+                    "description": "Set flow rate of data acquisition on flow cytometer"
+                },
+                "fc_injection_mode": {
+                    "$ref": "#/$defs/FCInjectionModeValue",
+                    "description": "Sample acquisition format in flow cytometer"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "passed_volume_calibration": {
+                    "$ref": "#/$defs/BooleanValue",
+                    "description": "(?) The volume that is passed during a volume calibration"
+                },
+                "percent_volume_deviation": {
+                    "$ref": "#/$defs/UnitlessValue",
+                    "description": "The volume deviation (measured volume divided by target volume) from a calibration experiment"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/CytoFLEXVolumeCalibrationTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fc_flow_rate_setting",
+                "fc_injection_mode",
+                "passed_volume_calibration",
+                "percent_volume_deviation",
+                "instrument_id",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "CytoFLEXVolumeCalibration",
+            "type": "object"
+        },
+        "CytoFLEXVolumeCalibrationTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^CytoFLEX_VolumeCalibration$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "CytoFLEXVolumeCalibrationTemplateNameValue",
+            "type": "object"
+        },
+        "DateValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a date value",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "format": "date",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "DateValue",
+            "type": "object"
+        },
+        "DifcoAmendedSporulationAgarProtocol": {
+            "additionalProperties": false,
+            "description": "Metadata describing the preparation process for amended sporulation agar",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "DifcoAmendedSporulationAgarProtocol",
+            "type": "object"
+        },
+        "DifcoAmendedSporulationAgarProtocolTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Difco Amended Sporulation Agar Protocol$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+            "type": "object"
+        },
+        "DurationUnitEnum": {
+            "description": "Allowed time duration unit type values",
+            "enum": [
+                "sec",
+                "hr",
+                "min"
+            ],
+            "title": "DurationUnitEnum",
+            "type": "string"
+        },
+        "DurationValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a time duration measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/DurationUnitEnum",
+                    "description": "The time duration unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "DurationValue",
+            "type": "object"
+        },
+        "ELabExperiment": {
+            "additionalProperties": false,
+            "description": "A class to hold metadata sufficient to reference an experiment record in an ELabFTW instance.",
+            "properties": {
+                "api_url": {
+                    "description": "A URL for accessing this item via the eLabFTW API",
+                    "type": "string"
+                },
+                "category_title": {
+                    "description": "The name of the category for this item (called an \"item type\") in eLabFTW",
+                    "type": "string"
+                },
+                "elabid": {
+                    "description": "The unique \"eLabID\" for this item",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The integer identifier for this item used by this eLabFTW instance",
+                    "type": "integer"
+                },
+                "status_title": {
+                    "description": "The status title of an ELabFTW resource",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "A short description of this item",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/ELabExperimentType",
+                    "description": "Whether this item is a resource (database item) or an experiment"
+                },
+                "url": {
+                    "description": "A (resolvable) URL for accessing this item via a web browser",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "status_title",
+                "id",
+                "elabid",
+                "url",
+                "api_url",
+                "title",
+                "category_title"
+            ],
+            "title": "ELabExperiment",
+            "type": "object"
+        },
+        "ELabExperimentType": {
+            "description": "Allowed record type value for an ELabFTW experiment",
+            "enum": [
+                "experiments"
+            ],
+            "title": "ELabExperimentType",
+            "type": "string"
+        },
+        "ELabItem": {
+            "additionalProperties": false,
+            "description": "A class to hold metadata sufficient to reference a resource (database item) record in an ELabFTW instance.",
+            "properties": {
+                "api_url": {
+                    "description": "A URL for accessing this item via the eLabFTW API",
+                    "type": "string"
+                },
+                "category_title": {
+                    "description": "The name of the category for this item (called an \"item type\") in eLabFTW",
+                    "type": "string"
+                },
+                "elabid": {
+                    "description": "The unique \"eLabID\" for this item",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The integer identifier for this item used by this eLabFTW instance",
+                    "type": "integer"
+                },
+                "status_title": {
+                    "description": "The status title of an ELabFTW resource",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "title": {
+                    "description": "A short description of this item",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/ELabItemType",
+                    "description": "Whether this item is a resource (database item) or an experiment"
+                },
+                "url": {
+                    "description": "A (resolvable) URL for accessing this item via a web browser",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "id",
+                "elabid",
+                "url",
+                "api_url",
+                "title",
+                "category_title"
+            ],
+            "title": "ELabItem",
+            "type": "object"
+        },
+        "ELabItemType": {
+            "description": "Allowed record type value for an ELabFTW item/resource",
+            "enum": [
+                "items"
+            ],
+            "title": "ELabItemType",
+            "type": "string"
+        },
+        "ELabItemValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a reference to an item record in ELabFTW",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "ELabItemValue",
+            "type": "object"
+        },
+        "ELabUser": {
+            "additionalProperties": false,
+            "description": "A data type representing a link to a user in an eLabFTW instance",
+            "properties": {
+                "base_url": {
+                    "description": "The URL of the ELabFTW instance in which the user is registered",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The user's email address",
+                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                    "type": "string"
+                },
+                "first_name": {
+                    "description": "The user's first (given) name",
+                    "type": "string"
+                },
+                "last_name": {
+                    "description": "The user's last name (surname)",
+                    "type": "string"
+                },
+                "orcid": {
+                    "description": "The user's ORCID (if defined)",
+                    "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}(\\d|X)$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "userid": {
+                    "description": "The \"local\" identifier number for this user in the eLabFTW instance",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "userid",
+                "first_name",
+                "last_name",
+                "email",
+                "base_url"
+            ],
+            "title": "ELabUser",
+            "type": "object"
+        },
+        "FCInjectionModeEnum": {
+            "description": "Allowed flow cytometry injection mode values",
+            "enum": [
+                "plate",
+                "tube",
+                "na"
+            ],
+            "title": "FCInjectionModeEnum",
+            "type": "string"
+        },
+        "FCInjectionModeValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue allowing only values from the FCInjectionModeEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The value attribute for FCInjectionMode",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "FCInjectionModeValue",
+            "type": "object"
+        },
+        "FixationMethodEnum": {
+            "description": "Allowed fixation method values",
+            "enum": [
+                "formaldehyde",
+                "heat",
+                "ethanol",
+                "no_fixation"
+            ],
+            "title": "FixationMethodEnum",
+            "type": "string"
+        },
+        "FixationMethodValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the FixationMethodEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The value attribute for FixationMethod",
+                    "items": {
+                        "$ref": "#/$defs/FixationMethodEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "FixationMethodValue",
+            "type": "object"
+        },
+        "FlowRateUnitEnum": {
+            "description": "Allowed flow rate unit type values",
+            "enum": [
+                "microliter_per_minute"
+            ],
+            "title": "FlowRateUnitEnum",
+            "type": "string"
+        },
+        "FlowRateValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a flow rate measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/FlowRateUnitEnum",
+                    "description": "The flow rate unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "FlowRateValue",
+            "type": "object"
+        },
+        "FluorescentProbeValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only ELabItem values",
+            "properties": {
+                "value": {
+                    "description": "The value attribute for FluorescentProbe",
+                    "items": {
+                        "$ref": "#/$defs/ELabItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "FluorescentProbeValue",
+            "type": "object"
+        },
+        "FormaldehydeFixation": {
+            "additionalProperties": false,
+            "description": "Metadata describing a formaldehyde fixation experiment",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "incubation_agitation": {
+                    "$ref": "#/$defs/AgitationValue",
+                    "description": "Speed of agitation that cells were incubated during an experiment"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/FormaldehydeFixationTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fixation_method",
+                "incubation_agitation",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "FormaldehydeFixation",
+            "type": "object"
+        },
+        "FormaldehydeFixationTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^FormaldehydeFixation$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "FormaldehydeFixationTemplateNameValue",
+            "type": "object"
+        },
+        "ImageTypeEnum": {
+            "description": "Allowed microscopy image type values",
+            "enum": [
+                "time_lapse",
+                "area_scan",
+                "z_stack",
+                "na"
+            ],
+            "title": "ImageTypeEnum",
+            "type": "string"
+        },
+        "IncubationAtmosphereEnum": {
+            "description": "Allowed cell incubation atmosphere values",
+            "enum": [
+                "atmospheric",
+                "atmospheric_and_5_percent_co2",
+                "anaerobic"
+            ],
+            "title": "IncubationAtmosphereEnum",
+            "type": "string"
+        },
+        "IncubationAtmosphereValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue allowing only values from the IncubationAtmosphereEnum enum",
+            "properties": {
+                "value": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "IncubationAtmosphereValue",
+            "type": "object"
+        },
+        "InitiateGrowthOfBSpizizenii": {
+            "additionalProperties": false,
+            "description": "Metadata describing an initiate growth experiment of B. spizizenii",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "growth_media_name": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "Name of media used to culture cells (linked item from ELabFTW)"
+                },
+                "incubation_agitation": {
+                    "$ref": "#/$defs/AgitationValue",
+                    "description": "Speed of agitation that cells were incubated during an experiment"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/InitiateGrowthOfBSpizizeniiTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "growth_media_name",
+                "incubation_agitation",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "InitiateGrowthOfBSpizizenii",
+            "type": "object"
+        },
+        "InitiateGrowthOfBSpizizeniiTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Initiate Growth of B spizizenii$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "InitiateGrowthOfBSpizizeniiTemplateNameValue",
+            "type": "object"
+        },
+        "InstrumentIDValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold an instrument identifier value",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "InstrumentIDValue",
+            "type": "object"
+        },
+        "LabCASInstrumentValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold the instrument identifier",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "LabCASInstrumentValue",
+            "type": "object"
+        },
+        "LabCASMicrobialMaterialIDValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ArrayValue to hold a list of microbial material links",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/ELabItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "LabCASMicrobialMaterialIDValue",
+            "type": "object"
+        },
+        "LabCASOperatorValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold the operator identifier",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "LabCASOperatorValue",
+            "type": "object"
+        },
+        "LabCASProjectValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold the project identifier",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "LabCASProjectValue",
+            "type": "object"
+        },
+        "LengthUnitEnum": {
+            "description": "Allowed linear length unit type values",
+            "enum": [
+                "micrometer"
+            ],
+            "title": "LengthUnitEnum",
+            "type": "string"
+        },
+        "LengthValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a linear measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/LengthUnitEnum",
+                    "description": "The length unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "LengthValue",
+            "type": "object"
+        },
+        "LogCOMETSamplePrep": {
+            "additionalProperties": false,
+            "description": "Metadata describing a sample preparation process for a LOGComet experiment",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/LogCOMETSamplePrepTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fixation_method",
+                "microbial_material_id",
+                "sample_purpose_codes",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "LogCOMETSamplePrep",
+            "type": "object"
+        },
+        "LogCOMETSamplePrepTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^LogCOMET_SamplePrep$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "LogCOMETSamplePrepTemplateNameValue",
+            "type": "object"
+        },
+        "MicrobialMaterialIDValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ArrayValue to hold a list of microbial material links",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/ELabItem"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "MicrobialMaterialIDValue",
+            "type": "object"
+        },
+        "MicroscopyAcquisition": {
+            "additionalProperties": false,
+            "description": "Metadata describing a microscopy acquisition experiment",
+            "properties": {
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "fixation_method": {
+                    "$ref": "#/$defs/FixationMethodValue",
+                    "description": "Specific treatment applied to cells to prevent future changes"
+                },
+                "fluorescent_probe": {
+                    "$ref": "#/$defs/FluorescentProbeValue",
+                    "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
+                },
+                "incubation_agitation": {
+                    "$ref": "#/$defs/AgitationValue",
+                    "description": "Speed of agitation that cells were incubated during an experiment"
+                },
+                "incubation_atmosphere": {
+                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "description": "Atmosphere that cells were incubated in to encourage growth"
+                },
+                "incubation_duration": {
+                    "$ref": "#/$defs/DurationValue",
+                    "description": "Length of time that cells were incubated during an experiment"
+                },
+                "incubation_temperature": {
+                    "$ref": "#/$defs/TemperatureValue",
+                    "description": "Temperature at which cells were incubated during an experiment or culture"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "modalities": {
+                    "$ref": "#/$defs/ModalitiesValue",
+                    "description": "The type (modality) of a microscopy acquisition experiment"
+                },
+                "objective": {
+                    "$ref": "#/$defs/ObjectivesValue",
+                    "description": "The microscope objectives used in a microscopy acquisition experiment"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "series_image_types": {
+                    "$ref": "#/$defs/SeriesImageTypesValue",
+                    "description": "The types of series images acquired in an experiment"
+                },
+                "series_images": {
+                    "$ref": "#/$defs/BooleanValue",
+                    "description": "Whether series images were acquired in an experiment"
+                },
+                "single_images": {
+                    "$ref": "#/$defs/BooleanValue",
+                    "description": "Whether single images were acquired in an experiment"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/MicroscopyAcquisitionTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "fixation_method",
+                "fluorescent_probe",
+                "incubation_agitation",
+                "incubation_atmosphere",
+                "incubation_duration",
+                "incubation_temperature",
+                "microbial_material_id",
+                "modalities",
+                "objective",
+                "sample_purpose_codes",
+                "series_image_types",
+                "series_images",
+                "single_images",
+                "instrument_id",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "MicroscopyAcquisition",
+            "type": "object"
+        },
+        "MicroscopyAcquisitionTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Microscopy_Acquisition$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "MicroscopyAcquisitionTemplateNameValue",
+            "type": "object"
+        },
+        "MicroscopyModalitiesEnum": {
+            "description": "Allowed microscopy modality values",
+            "enum": [
+                "dic",
+                "brightfield",
+                "phase_contrast"
+            ],
+            "title": "MicroscopyModalitiesEnum",
+            "type": "string"
+        },
+        "ModalitiesValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ArrayValue to hold a list of modality types",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/MicroscopyModalitiesEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "ModalitiesValue",
+            "type": "object"
+        },
+        "NucleicAcidExtraction": {
+            "additionalProperties": false,
+            "description": "Metadata describing a nucleic acid extraction experiment",
+            "properties": {
+                "core_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                },
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "instrument_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
+                },
+                "kit_lot_number": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The lot number of any relevant kits (linked item from ELabFTW)"
+                },
+                "microbial_material_id": {
+                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
+                },
+                "nucleic_acid_type": {
+                    "$ref": "#/$defs/NucleicAcidTypeValue",
+                    "description": "The type of nucleic acid used in an extraction experiment"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "sample_purpose_codes": {
+                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "description": "The types of samples acquired in an experiment (from a controlled list)"
+                },
+                "specific_data_path": {
+                    "$ref": "#/$defs/UriValue",
+                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/NucleicAcidExtractionTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "kit_lot_number",
+                "microbial_material_id",
+                "nucleic_acid_type",
+                "sample_purpose_codes",
+                "instrument_id",
+                "core_data_path",
+                "specific_data_path",
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "NucleicAcidExtraction",
+            "type": "object"
+        },
+        "NucleicAcidExtractionTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^Nucleic Acid Extraction$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "NucleicAcidExtractionTemplateNameValue",
+            "type": "object"
+        },
+        "NucleicAcidTypeEnum": {
+            "description": "Allowed nucleic acid type values",
+            "enum": [
+                "rna",
+                "dna"
+            ],
+            "title": "NucleicAcidTypeEnum",
+            "type": "string"
+        },
+        "NucleicAcidTypeValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/NucleicAcidTypeEnum",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "NucleicAcidTypeValue",
+            "type": "object"
+        },
+        "NumberValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value with a free-text string as a unit",
+            "properties": {
+                "unit": {
+                    "description": "The unit corresponding to a metadata value",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "NumberValue",
+            "type": "object"
+        },
+        "ObjectivesEnum": {
+            "description": "Allowed microscopy objective values",
+            "enum": [
+                "four_x",
+                "ten_x",
+                "twenty_x",
+                "fourty_x_oil",
+                "sixty_x_oil",
+                "sixty_x_water",
+                "hundred_x_oil"
+            ],
+            "title": "ObjectivesEnum",
+            "type": "string"
+        },
+        "ObjectivesValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the ObjectivesEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/ObjectivesEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "ObjectivesValue",
+            "type": "object"
+        },
+        "OperatorIDValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold an operator identifier value",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "OperatorIDValue",
+            "type": "object"
+        },
+        "ProjectIDValue": {
+            "additionalProperties": false,
+            "description": "A named sub-class of ELabItemValue to hold a project identifier value",
+            "properties": {
+                "value": {
+                    "$ref": "#/$defs/ELabItem",
+                    "description": "The actual metadata value for an attribute"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "ProjectIDValue",
+            "type": "object"
+        },
+        "SamplePurposeCodeEnum": {
+            "description": "Allowed sample purpose code values",
+            "enum": [
+                "positive_control",
+                "negative_control",
+                "reference_cell",
+                "reference_fluorescence",
+                "reference_scattering",
+                "reference_size",
+                "reference_concentration",
+                "quality_control",
+                "compensation_control",
+                "test",
+                "other"
+            ],
+            "title": "SamplePurposeCodeEnum",
+            "type": "string"
+        },
+        "SamplePurposeCodesValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/SamplePurposeCodeEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "SamplePurposeCodesValue",
+            "type": "object"
+        },
+        "SeriesImageTypesValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the ImageTypeEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/ImageTypeEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "SeriesImageTypesValue",
+            "type": "object"
+        },
+        "SlideCleaning": {
+            "additionalProperties": false,
+            "description": "Metadata describing an experiment preparing microscopy slides for microbial work",
+            "properties": {
+                "data_acquisition_date": {
+                    "$ref": "#/$defs/DateValue",
+                    "description": "Date on which data were acquired according to eLabFTW record"
+                },
+                "elab_experiment": {
+                    "$ref": "#/$defs/ELabExperiment",
+                    "description": "A self-reference to this experiment record"
+                },
+                "operator_id": {
+                    "$ref": "#/$defs/OperatorIDValue",
+                    "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
+                },
+                "project_id": {
+                    "$ref": "#/$defs/ELabItemValue",
+                    "description": "The project that an experiment supports (link to an ELabFTW item)"
+                },
+                "template_name": {
+                    "$ref": "#/$defs/SlideCleaningTemplateNameValue",
+                    "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed."
+                }
+            },
+            "required": [
+                "data_acquisition_date",
+                "elab_experiment",
+                "operator_id",
+                "project_id",
+                "template_name"
+            ],
+            "title": "SlideCleaning",
+            "type": "object"
+        },
+        "SlideCleaningTemplateNameValue": {
+            "additionalProperties": false,
+            "description": "An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "pattern": "^SlideCleaning$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "SlideCleaningTemplateNameValue",
+            "type": "object"
+        },
+        "StringValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a string value",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "StringValue",
+            "type": "object"
+        },
+        "TemperatureUnitEnum": {
+            "description": "Allowed temperature unit type values",
+            "enum": [
+                "degrees_c",
+                "degrees_f"
+            ],
+            "title": "TemperatureUnitEnum",
+            "type": "string"
+        },
+        "TemperatureValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a temperature measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/TemperatureUnitEnum",
+                    "description": "The temperature unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "TemperatureValue",
+            "type": "object"
+        },
+        "TransmissionModeEnum": {
+            "description": "Allowed microscopy transmission mode values",
+            "enum": [
+                "dic",
+                "brightfield",
+                "phase_contrast"
+            ],
+            "title": "TransmissionModeEnum",
+            "type": "string"
+        },
+        "TransmissionModeValue": {
+            "additionalProperties": false,
+            "description": "An override of ArrayValue allowing only values from the TransmissionModeEnum enum",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "items": {
+                        "$ref": "#/$defs/TransmissionModeEnum"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "TransmissionModeValue",
+            "type": "object"
+        },
+        "UnitlessEnum": {
+            "description": "Allowed value for \"unitless\" numerical values",
+            "enum": [
+                "unitless"
+            ],
+            "title": "UnitlessEnum",
+            "type": "string"
+        },
+        "UnitlessValue": {
+            "additionalProperties": false,
+            "description": "A class to hold an explicitly unitless numerical value",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/UnitlessEnum",
+                    "description": "The word \"Unitless\" corresponding to a unitless metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "UnitlessValue",
+            "type": "object"
+        },
+        "UriValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a string value that is a URI",
+            "properties": {
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "UriValue",
+            "type": "object"
+        },
+        "VolumeUnitEnum": {
+            "description": "Allowed volume unit type values",
+            "enum": [
+                "mililiter",
+                "microliter"
+            ],
+            "title": "VolumeUnitEnum",
+            "type": "string"
+        },
+        "VolumeValue": {
+            "additionalProperties": false,
+            "description": "A class to hold a numerical value representing a volumetric measurement",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/VolumeUnitEnum",
+                    "description": "The volume unit corresponding to a metadata value"
+                },
+                "value": {
+                    "description": "The actual metadata value for an attribute",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
+            ],
+            "title": "VolumeValue",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/usnistgov/microbial-experiment-schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "microbial-experiment-schema",
+    "type": "object",
+    "version": "2024.09.04"
+}

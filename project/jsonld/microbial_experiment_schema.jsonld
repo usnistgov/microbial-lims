@@ -1,0 +1,4616 @@
+{
+  "name": "microbial-experiment-schema",
+  "description": "Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project",
+  "title": "Microbial Experiment Schema",
+  "see_also": [
+    "https://mml-lims.***REMOVED***.nist.gov/microbial-experiment-schema"
+  ],
+  "id": "https://w3id.org/usnistgov/microbial-experiment-schema",
+  "version": "2024.09.04",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "NIST Public License",
+  "prefixes": [
+    {
+      "prefix_prefix": "microbial_experiment_schema",
+      "prefix_reference": "https://w3id.org/usnistgov/microbial-experiment-schema/"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    {
+      "prefix_prefix": "qudt",
+      "prefix_reference": "http://qudt.org/schema/qudt/"
+    }
+  ],
+  "default_prefix": "microbial_experiment_schema",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#time",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpointer",
+      "definition_uri": "https://w3id.org/linkml/Jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpath",
+      "definition_uri": "https://w3id.org/linkml/Jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "sparqlpath",
+      "definition_uri": "https://w3id.org/linkml/Sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ELabItemType",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabItemType",
+      "description": "Allowed record type value for an ELabFTW item/resource",
+      "title": "ELabFTW Item Type",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "items",
+          "description": "An ELabFTW item/resource record",
+          "title": "items"
+        }
+      ]
+    },
+    {
+      "name": "ELabExperimentType",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabExperimentType",
+      "description": "Allowed record type value for an ELabFTW experiment",
+      "title": "ELabFTW Experiment Type",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "experiments",
+          "description": "An ELabFTW experiment record",
+          "title": "experiments"
+        }
+      ]
+    },
+    {
+      "name": "DurationUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DurationUnitEnum",
+      "description": "Allowed time duration unit type values",
+      "title": "Duration Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "sec",
+          "description": "seconds",
+          "title": "sec",
+          "exact_mappings": [
+            "qudt:SEC"
+          ]
+        },
+        {
+          "text": "hr",
+          "description": "hours",
+          "title": "hr",
+          "exact_mappings": [
+            "qudt:HR"
+          ]
+        },
+        {
+          "text": "min",
+          "description": "minutes",
+          "title": "min",
+          "exact_mappings": [
+            "qudt:MIN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VolumeUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/VolumeUnitEnum",
+      "description": "Allowed volume unit type values",
+      "title": "Volume Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "mililiter",
+          "description": "milliliters",
+          "title": "mL",
+          "exact_mappings": [
+            "qudt:MilliL"
+          ]
+        },
+        {
+          "text": "microliter",
+          "description": "microliters",
+          "title": "\u00b5L",
+          "exact_mappings": [
+            "qudt:microL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LengthUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LengthUnitEnum",
+      "description": "Allowed linear length unit type values",
+      "title": "Length Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "micrometer",
+          "description": "micrometers",
+          "title": "\u00b5m",
+          "exact_mappings": [
+            "qudt:MilliM"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CountUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CountUnitEnum",
+      "description": "Allowed count unit type values",
+      "title": "Count Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "events",
+          "description": "event count",
+          "title": "events"
+        }
+      ]
+    },
+    {
+      "name": "FlowRateUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FlowRateUnitEnum",
+      "description": "Allowed flow rate unit type values",
+      "title": "Flow Rate Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "microliter_per_minute",
+          "description": "microliters per minute",
+          "title": "\u00b5L/min"
+        }
+      ]
+    },
+    {
+      "name": "CFUMethodEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFUMethodEnum",
+      "description": "Allowed colony forming unit count method values",
+      "title": "CFU Method Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "plate_spread",
+          "description": "a plate spread",
+          "title": "Plate spread"
+        },
+        {
+          "text": "drip_plate",
+          "description": "a drip plate",
+          "title": "Drip plate"
+        },
+        {
+          "text": "spiral_plater",
+          "description": "a spiral plater",
+          "title": "Spiral plater"
+        },
+        {
+          "text": "droplet",
+          "description": "a droplet",
+          "title": "Droplet"
+        },
+        {
+          "text": "other",
+          "description": "all other CFU methods",
+          "title": "Other"
+        }
+      ]
+    },
+    {
+      "name": "FCInjectionModeEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FCInjectionModeEnum",
+      "description": "Allowed flow cytometry injection mode values",
+      "title": "Flow Cytometry Injection Mode Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "plate",
+          "description": "plate",
+          "title": "Plate"
+        },
+        {
+          "text": "tube",
+          "description": "tube",
+          "title": "Tube"
+        },
+        {
+          "text": "na",
+          "description": "not applicable",
+          "title": "NA"
+        }
+      ]
+    },
+    {
+      "name": "FixationMethodEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FixationMethodEnum",
+      "description": "Allowed fixation method values",
+      "title": "Fixation Method Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "formaldehyde",
+          "description": "formaldehyde fixation",
+          "title": "Formaldehyde"
+        },
+        {
+          "text": "heat",
+          "description": "heat fixation",
+          "title": "Heat"
+        },
+        {
+          "text": "ethanol",
+          "description": "ethanol fixation",
+          "title": "Ethanol"
+        },
+        {
+          "text": "no_fixation",
+          "description": "no fixation performed",
+          "title": "NoFixation"
+        }
+      ]
+    },
+    {
+      "name": "AgitationEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/AgitationEnum",
+      "description": "Allowed agitation speed unit type values",
+      "title": "Agitation Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "rpm",
+          "description": "revolutions per minute",
+          "title": "rpm"
+        },
+        {
+          "text": "x_g",
+          "description": "x g",
+          "title": "x g",
+          "todos": [
+            "Get better description of this value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IncubationAtmosphereEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/IncubationAtmosphereEnum",
+      "description": "Allowed cell incubation atmosphere values",
+      "title": "Incubation Atmosphere Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "atmospheric",
+          "description": "atmospheric conditions",
+          "title": "Atmospheric"
+        },
+        {
+          "text": "atmospheric_and_5_percent_co2",
+          "description": "atmospheric conditions with 5% carbon dioxide",
+          "title": "Atmospheric + 5% CO2"
+        },
+        {
+          "text": "anaerobic",
+          "description": "anaerobic conditions",
+          "title": "Anaerobic"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureUnitEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TemperatureUnitEnum",
+      "description": "Allowed temperature unit type values",
+      "title": "Temperature Unit Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "degrees_c",
+          "description": "degrees celsius",
+          "title": "\u00b0C",
+          "exact_mappings": [
+            "qudt:DEG_C"
+          ]
+        },
+        {
+          "text": "degrees_f",
+          "description": "degrees fahrenheit",
+          "title": "\u00b0F",
+          "exact_mappings": [
+            "qudt:DEG_F"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MicroscopyModalitiesEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyModalitiesEnum",
+      "description": "Allowed microscopy modality values",
+      "title": "Microscopy Modalities Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "dic",
+          "description": "Digital image correlation",
+          "title": "DIC"
+        },
+        {
+          "text": "brightfield",
+          "description": "Bright field imaging",
+          "title": "Brightfield"
+        },
+        {
+          "text": "phase_contrast",
+          "description": "Phase contrast imaging",
+          "title": "Phase Contrast"
+        }
+      ]
+    },
+    {
+      "name": "NucleicAcidTypeEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidTypeEnum",
+      "description": "Allowed nucleic acid type values",
+      "title": "Nucleic Acid Type Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "rna",
+          "description": "Ribonucleic acid",
+          "title": "RNA"
+        },
+        {
+          "text": "dna",
+          "description": "Deoxyribonucleic acid",
+          "title": "DNA"
+        }
+      ]
+    },
+    {
+      "name": "ObjectivesEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ObjectivesEnum",
+      "description": "Allowed microscopy objective values",
+      "title": "Objectives Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "four_x",
+          "description": "4 times magnification",
+          "title": "4X"
+        },
+        {
+          "text": "ten_x",
+          "description": "10 times magnification",
+          "title": "10X"
+        },
+        {
+          "text": "twenty_x",
+          "description": "20 times magnification",
+          "title": "20X"
+        },
+        {
+          "text": "fourty_x_oil",
+          "description": "40 times magnification with oil immersion",
+          "title": "40X oil"
+        },
+        {
+          "text": "sixty_x_oil",
+          "description": "60 times magnification with oil immersion",
+          "title": "60X oil"
+        },
+        {
+          "text": "sixty_x_water",
+          "description": "60 times magnification with water immersion",
+          "title": "60X water"
+        },
+        {
+          "text": "hundred_x_oil",
+          "description": "100 times magnification with oil immersion",
+          "title": "100X oil"
+        }
+      ]
+    },
+    {
+      "name": "UnitlessEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/UnitlessEnum",
+      "description": "Allowed value for \"unitless\" numerical values",
+      "title": "Unitless Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "unitless",
+          "description": "An explicitly unitless value",
+          "title": "Unitless"
+        }
+      ]
+    },
+    {
+      "name": "SamplePurposeCodeEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SamplePurposeCodeEnum",
+      "description": "Allowed sample purpose code values",
+      "title": "Sample Purpose Code Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "positive_control",
+          "description": "Positive control",
+          "title": "Positive control"
+        },
+        {
+          "text": "negative_control",
+          "description": "Negative control",
+          "title": "Negative control"
+        },
+        {
+          "text": "reference_cell",
+          "description": "Reference cell",
+          "title": "Reference cell"
+        },
+        {
+          "text": "reference_fluorescence",
+          "description": "Reference for fluorescence",
+          "title": "Reference fluorescence"
+        },
+        {
+          "text": "reference_scattering",
+          "description": "Reference for scattering",
+          "title": "Reference scattering"
+        },
+        {
+          "text": "reference_size",
+          "description": "Reference for size",
+          "title": "Reference size"
+        },
+        {
+          "text": "reference_concentration",
+          "description": "Reference for concentration",
+          "title": "Reference concentration"
+        },
+        {
+          "text": "quality_control",
+          "description": "Quality control",
+          "title": "Quality control"
+        },
+        {
+          "text": "compensation_control",
+          "description": "Compensation control",
+          "title": "Compensation control"
+        },
+        {
+          "text": "test",
+          "description": "A test sample",
+          "title": "Test"
+        },
+        {
+          "text": "other",
+          "description": "All other sample purposes",
+          "title": "Other"
+        }
+      ]
+    },
+    {
+      "name": "ImageTypeEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ImageTypeEnum",
+      "description": "Allowed microscopy image type values",
+      "title": "Image Type Enum",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "permissible_values": [
+        {
+          "text": "time_lapse",
+          "description": "Time lapse imagery",
+          "title": "Time lapse"
+        },
+        {
+          "text": "area_scan",
+          "description": "A scan of an area",
+          "title": "Area scan"
+        },
+        {
+          "text": "z_stack",
+          "description": "Z (focal) stack",
+          "title": "z stack"
+        },
+        {
+          "text": "na",
+          "description": "Not applicable",
+          "title": "NA"
+        }
+      ]
+    },
+    {
+      "name": "TransmissionModeEnum",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TransmissionModeEnum",
+      "description": "Allowed microscopy transmission mode values",
+      "title": "Transmission Mode Enum",
+      "deprecated": "(2024 June) this is too specific, use MicroscopyModalitiesEnum instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "MicroscopyModalitiesEnum",
+      "permissible_values": [
+        {
+          "text": "dic",
+          "description": "Digital Image Correlation",
+          "title": "DIC"
+        },
+        {
+          "text": "brightfield",
+          "description": "Brightfield imaging",
+          "title": "Brightfield"
+        },
+        {
+          "text": "phase_contrast",
+          "description": "Phase contrast imaging",
+          "title": "Phase Contrast"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "owner": "ELabItemValue",
+      "domain_of": [
+        "BooleanValue",
+        "NumberValue",
+        "StringValue",
+        "UriValue",
+        "DateValue",
+        "ArrayValue",
+        "ELabItemValue"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "owner": "NumberValue",
+      "domain_of": [
+        "NumberValue"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "acquisition_time",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/acquisition_time",
+      "description": "Data acquisition time as set by instrument",
+      "title": "AcquisitionTime",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/acquisition_time",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "DurationValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "acquisition_volume",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/acquisition_volume",
+      "description": "Data acquisition volume as set by instrument",
+      "title": "AcquisitionVolume",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/acquisition_volume",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "VolumeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bead_lot_number_concentration_qc",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/bead_lot_number_concentration_qc",
+      "description": "Lot number of beads used for quality control of concentration measurements",
+      "title": "BeadLotNumber_ConcentrationQC",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/bead_lot_number_concentration_qc",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bead_lot_number_size_qc",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/bead_lot_number_size_qc",
+      "description": "Lot number of beads used for quality control of size measurements",
+      "title": "BeadLotNumber_SizeQC",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/bead_lot_number_size_qc",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "cell_volume",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/cell_volume",
+      "description": "Volume of cell stock added to acquisition vessel",
+      "title": "CellVolume",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/cell_volume",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "VolumeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "cfu_method",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/cfu_method",
+      "description": "Describes deposition format of cells on agar plate",
+      "title": "CFUMethod",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/cfu_method",
+      "owner": "CFU",
+      "domain_of": [
+        "GenericTemplateDeprecated",
+        "GenericTemplate",
+        "CFU"
+      ],
+      "range": "CFUMethodValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "core_data_path",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/core_data_path",
+      "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)",
+      "title": "CoreDataPath",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/core_data_path",
+      "owner": "ExperimentWithData",
+      "domain_of": [
+        "ExperimentWithData"
+      ],
+      "range": "UriValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "coulter_aperture_size",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/coulter_aperture_size",
+      "description": "Aperture installed on Coulter counter during measurement",
+      "title": "CoulterApertureSize",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/coulter_aperture_size",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "LengthValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_acquisition_date",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/data_acquisition_date",
+      "description": "Date on which data were acquired according to eLabFTW record",
+      "title": "DataAcquisitionDate",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/data_acquisition_date",
+      "owner": "Experiment",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "DateValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "diluent_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/diluent_name",
+      "description": "Which diluent was used to suspend cells for acquisition (linked item)",
+      "title": "DiluentName",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/diluent_name",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "diluent_volume",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/diluent_volume",
+      "description": "Volume of diluent added to acquisition vessel",
+      "title": "DiluentVolume",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/diluent_volume",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "VolumeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "elab_experiment",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/elab_experiment",
+      "description": "A self-reference to this experiment record",
+      "title": "ELabFTW Experiment",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/elab_experiment",
+      "owner": "Experiment",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "ELabExperiment",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "error_flag",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/error_flag",
+      "description": "Indicates if a known error appears in the dataset",
+      "title": "ErrorFlag",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/error_flag",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "BooleanValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_acquisition_count_target",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_count_target",
+      "description": "Set number of events to acquire in a particular gate on flow cytometer",
+      "title": "FCAcquisitionCountTarget",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_count_target",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "CountValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_acquisition_threshold_channel",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_channel",
+      "description": "Which channel as named by the manufacturer was used to threshold the data acquisition",
+      "title": "FCAcquisitionThresholdChannel",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_channel",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "StringValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_acquisition_threshold_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_value",
+      "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry",
+      "title": "FCAcquisitionThresholdValue",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_value",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "NumberValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_fluorescent_channels",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_fluorescent_channels",
+      "description": "List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)",
+      "title": "FCFluorescentChannels",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_fluorescent_channels",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "StringValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_flow_rate_setting",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_flow_rate_setting",
+      "description": "Set flow rate of data acquisition on flow cytometer",
+      "title": "FCFlowRateSetting",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_flow_rate_setting",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CytoFLEXVolumeCalibration",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "FlowRateValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fc_injection_mode",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_injection_mode",
+      "description": "Sample acquisition format in flow cytometer",
+      "title": "FCInjectionMode",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_injection_mode",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CytoFLEXVolumeCalibration",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "FCInjectionModeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fixation_method",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fixation_method",
+      "description": "Specific treatment applied to cells to prevent future changes",
+      "title": "FixationMethod",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fixation_method",
+      "owner": "CFU",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CoulterAcquisition",
+        "BactoBoxAcquisition",
+        "LogCOMETSamplePrep",
+        "CFU"
+      ],
+      "range": "FixationMethodValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fluorescent_probe",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fluorescent_probe",
+      "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)",
+      "title": "FluorescentProbe",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fluorescent_probe",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "GenericTemplateDeprecated",
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "FluorescentProbeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "growth_duration",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/growth_duration",
+      "description": "Time that cells were incubated to encourage growth",
+      "title": "GrowthDuration",
+      "deprecated": "(2024 June) unnecessary and unused",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/growth_duration",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "DurationValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "growth_media_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/growth_media_name",
+      "description": "Name of media used to culture cells (linked item from ELabFTW)",
+      "title": "GrowthMediaName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/growth_media_name",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "GenericTemplate",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "incubation_agitation",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_agitation",
+      "description": "Speed of agitation that cells were incubated during an experiment",
+      "title": "IncubationAgitation",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_agitation",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "AgitationValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "incubation_atmosphere",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_atmosphere",
+      "description": "Atmosphere that cells were incubated in to encourage growth",
+      "title": "IncubationAtmosphere",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_atmosphere",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "IncubationAtmosphereValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "incubation_duration",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_duration",
+      "description": "Length of time that cells were incubated during an experiment",
+      "title": "IncubationDuration",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_duration",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "DurationValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "incubation_temperature",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_temperature",
+      "description": "Temperature at which cells were incubated during an experiment or culture",
+      "title": "IncubationTemperature",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_temperature",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "TemperatureValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "instrument_id",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/instrument_id",
+      "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)",
+      "title": "InstrumentID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/instrument_id",
+      "owner": "ExperimentWithInstrumentNoData",
+      "domain_of": [
+        "ExperimentWithInstrument",
+        "ExperimentWithInstrumentNoData"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "kit_lot_number",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/kit_lot_number",
+      "description": "The lot number of any relevant kits (linked item from ELabFTW)",
+      "title": "KitLotNumber",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/kit_lot_number",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "NucleicAcidExtraction",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labcas_data_acquisition_date",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_data_acquisition_date",
+      "description": "Date on which data were acquired according to eLabFTW record",
+      "title": "LabCAS-DataAcquisitionDate",
+      "deprecated": "(2024 June) this is too specific, use data_acquisition_date instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "data_acquisition_date",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_data_acquisition_date",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "DateValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labcas_instrument",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_instrument",
+      "description": "Date on which data were acquired according to eLabFTW record",
+      "title": "LabCAS-Instrument",
+      "deprecated": "(2024 June) this is too specific, use instrument_id instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "instrument_id",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_instrument",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "LabCASInstrumentValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labcas_microbial_material_id",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_microbial_material_id",
+      "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)",
+      "title": "LabCAS-MicrobialMaterialID",
+      "deprecated": "(2024 June) this is too specific, use microbial_material_id instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "microbial_material_id",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_microbial_material_id",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "LabCASMicrobialMaterialIDValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labcas_operator",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_operator",
+      "description": "Instrument operator during an experiment (a linked item from ELabFTW)",
+      "title": "LabCAS-Operator",
+      "deprecated": "(2024 June) this is too specific, use operator_id instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "operator_id",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_operator",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "LabCASOperatorValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labcas_project",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_project",
+      "description": "The project that an experiment supports (link to an ELabFTW item)",
+      "title": "LabCAS-Project",
+      "deprecated": "(2024 June) this is too specific, use project_id instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "project_id",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/labcas_project",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "LabCASProjectValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "library_prep",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/library_prep",
+      "description": "The name of a specific kit used for sequencing preparation steps",
+      "title": "LibraryPrep",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/library_prep",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "StringValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microbial_material_id",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/microbial_material_id",
+      "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)",
+      "title": "MicrobialMaterialID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/microbial_material_id",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "NucleicAcidExtraction",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CoulterAcquisition",
+        "BactoBoxAcquisition",
+        "LogCOMETSamplePrep",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "MicrobialMaterialIDValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "modalities",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/modalities",
+      "description": "The type (modality) of a microscopy acquisition experiment",
+      "title": "Modalities",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/modalities",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "ModalitiesValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nucleic_acid_type",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/nucleic_acid_type",
+      "description": "The type of nucleic acid used in an extraction experiment",
+      "title": "NucleicAcidType",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/nucleic_acid_type",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "NucleicAcidExtraction",
+        "GenericTemplateDeprecated",
+        "GenericTemplate"
+      ],
+      "range": "NucleicAcidTypeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "objective",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/objective",
+      "description": "The microscope objectives used in a microscopy acquisition experiment",
+      "title": "Objective",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/objective",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "GenericTemplateDeprecated",
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "ObjectivesValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "operator_id",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/operator_id",
+      "description": "Instrument operator during an experiment (a linked item from ELabFTW)",
+      "title": "OperatorID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/operator_id",
+      "owner": "Experiment",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "OperatorIDValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "passed_volume_calibration",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/passed_volume_calibration",
+      "description": "(?) The volume that is passed during a volume calibration",
+      "title": "PassedVolumeCalibration",
+      "todos": [
+        "double check description"
+      ],
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/passed_volume_calibration",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXVolumeCalibration",
+        "GenericTemplate"
+      ],
+      "range": "BooleanValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "percent_volume_deviation",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/percent_volume_deviation",
+      "description": "The volume deviation (measured volume divided by target volume) from a calibration experiment",
+      "title": "PercentVolumeDeviation",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/percent_volume_deviation",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "CytoFLEXVolumeCalibration",
+        "GenericTemplate"
+      ],
+      "range": "UnitlessValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "project_id",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/project_id",
+      "description": "The project that an experiment supports (link to an ELabFTW item)",
+      "title": "ProjectID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/project_id",
+      "owner": "Experiment",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "qc_reagent_lot_number",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/qc_reagent_lot_number",
+      "description": "The lot number for a QC reagent (link to an ELabFTW item)",
+      "title": "QCReagentLotNumber",
+      "deprecated": "(2024 June) this metadata term was determined to be unneeded, do not use",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/qc_reagent_lot_number",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "ELabItemValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sample_purpose_codes",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/sample_purpose_codes",
+      "description": "The types of samples acquired in an experiment (from a controlled list)",
+      "title": "SamplePurposeCodes",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/sample_purpose_codes",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "CytoFLEXAcquisition",
+        "NucleicAcidExtraction",
+        "CellCultureInBroth",
+        "GenericTemplateDeprecated",
+        "FormaldehydeFixation",
+        "MicroscopyAcquisition",
+        "GenericTemplate",
+        "CoulterAcquisition",
+        "BactoBoxAcquisition",
+        "LogCOMETSamplePrep",
+        "CFU",
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "range": "SamplePurposeCodesValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "series_image_types",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/series_image_types",
+      "description": "The types of series images acquired in an experiment",
+      "title": "SeriesImageTypes",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/series_image_types",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "SeriesImageTypesValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "series_images",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/series_images",
+      "description": "Whether series images were acquired in an experiment",
+      "title": "SeriesImages",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/series_images",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "BooleanValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "single_images",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/single_images",
+      "description": "Whether single images were acquired in an experiment",
+      "title": "SingleImages",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/single_images",
+      "owner": "GenericTemplate",
+      "domain_of": [
+        "MicroscopyAcquisition",
+        "GenericTemplate"
+      ],
+      "range": "BooleanValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "specific_data_path",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/specific_data_path",
+      "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)",
+      "title": "SpecificDataPath",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/specific_data_path",
+      "owner": "ExperimentWithData",
+      "domain_of": [
+        "ExperimentWithData"
+      ],
+      "range": "UriValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "status_title",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/status_title",
+      "description": "The status title of an ELabFTW resource",
+      "title": "StatusTitle",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/status_title",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "owner": "Experiment",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "StringValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "transmission_mode",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/transmission_mode",
+      "description": "The type (modality) of a microscopy acquisition experiment",
+      "title": "TransmissionMode",
+      "deprecated": "(2024 June) this is too specific, use modalities instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "modalities",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/transmission_mode",
+      "owner": "GenericTemplateDeprecated",
+      "domain_of": [
+        "GenericTemplateDeprecated"
+      ],
+      "range": "TransmissionModeValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__id",
+      "description": "The integer identifier for this item used by this eLabFTW instance",
+      "title": "id",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__elabid",
+      "description": "The unique \"eLabID\" for this item",
+      "title": "eLabID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/elabid",
+      "alias": "elabid",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__url",
+      "description": "A (resolvable) URL for accessing this item via a web browser",
+      "title": "url",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/url",
+      "alias": "url",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__api_url",
+      "description": "A URL for accessing this item via the eLabFTW API",
+      "title": "API url",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/api_url",
+      "alias": "api_url",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__title",
+      "description": "A short description of this item",
+      "title": "Title",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/title",
+      "alias": "title",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabRecord__category_title",
+      "description": "The name of the category for this item (called an \"item type\") in eLabFTW",
+      "title": "Category Title",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/category_title",
+      "alias": "category_title",
+      "owner": "ELabRecord",
+      "domain_of": [
+        "ELabRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabItem__type",
+      "description": "Whether this item is a resource (database item) or an experiment",
+      "title": "Type",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/type",
+      "alias": "type",
+      "owner": "ELabItem",
+      "domain_of": [
+        "ELabItem"
+      ],
+      "range": "ELabItemType",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabExperiment__type",
+      "description": "Whether this item is a resource (database item) or an experiment",
+      "title": "Type",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/type",
+      "alias": "type",
+      "owner": "ELabExperiment",
+      "domain_of": [
+        "ELabExperiment"
+      ],
+      "range": "ELabExperimentType",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__userid",
+      "description": "The \"local\" identifier number for this user in the eLabFTW instance",
+      "title": "User ID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/userid",
+      "identifier": true,
+      "alias": "userid",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__first_name",
+      "description": "The user's first (given) name",
+      "title": "First Name",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/first_name",
+      "alias": "first_name",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__last_name",
+      "description": "The user's last name (surname)",
+      "title": "Last Name",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/last_name",
+      "alias": "last_name",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__email",
+      "description": "The user's email address",
+      "title": "Email",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/email",
+      "alias": "email",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "string",
+      "required": true,
+      "pattern": "^\\S+@[\\S+\\.]+\\S+",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__base_url",
+      "description": "The URL of the ELabFTW instance in which the user is registered",
+      "title": "ELabFTW Base URL",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/base_url",
+      "alias": "base_url",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "eLabUser__orcid",
+      "description": "The user's ORCID (if defined)",
+      "title": "ORCID",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/orcid",
+      "alias": "orcid",
+      "owner": "ELabUser",
+      "domain_of": [
+        "ELabUser"
+      ],
+      "range": "string",
+      "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}(\\d|X)$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fCInjectionModeValue__value",
+      "description": "The value attribute for FCInjectionMode",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "FCInjectionModeValue",
+      "domain_of": [
+        "FCInjectionModeValue"
+      ],
+      "range": "FCInjectionModeEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "incubationAtmosphereValue__value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "IncubationAtmosphereValue",
+      "domain_of": [
+        "IncubationAtmosphereValue"
+      ],
+      "range": "IncubationAtmosphereEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytoFLEXAcquisition_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "CytoFLEXAcquisition",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "CytoFLEXAcquisition",
+      "domain_of": [
+        "CytoFLEXAcquisition"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "CytoFLEXAcquisitionTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NucleicAcidExtraction_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "NucleicAcidExtraction",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "NucleicAcidExtraction",
+      "domain_of": [
+        "NucleicAcidExtraction"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "NucleicAcidExtractionTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CellCultureInBroth_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "CellCultureInBroth",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "CellCultureInBroth",
+      "domain_of": [
+        "CellCultureInBroth"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "CellCultureInBrothTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytoFLEXVolumeCalibration_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "CytoFLEXVolumeCalibration",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "CytoFLEXVolumeCalibration",
+      "domain_of": [
+        "CytoFLEXVolumeCalibration"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "CytoFLEXVolumeCalibrationTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FormaldehydeFixation_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "FormaldehydeFixation",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "FormaldehydeFixation",
+      "domain_of": [
+        "FormaldehydeFixation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "FormaldehydeFixationTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MicroscopyAcquisition_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "MicroscopyAcquisition",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "MicroscopyAcquisition",
+      "domain_of": [
+        "MicroscopyAcquisition"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "MicroscopyAcquisitionTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CoulterAcquisition_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "CoulterAcquisition",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "CoulterAcquisition",
+      "domain_of": [
+        "CoulterAcquisition"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "CoulterAcquisitionTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "BactoBoxAcquisition_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "BactoBoxAcquisition",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "BactoBoxAcquisition",
+      "domain_of": [
+        "BactoBoxAcquisition"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "BactoBoxAcquisitionTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LogCOMETSamplePrep_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "LogCOMETSamplePrep",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "LogCOMETSamplePrep",
+      "domain_of": [
+        "LogCOMETSamplePrep"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "LogCOMETSamplePrepTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CFU_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "CFU",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "CFU",
+      "domain_of": [
+        "CFU"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "CFUTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DifcoAmendedSporulationAgarProtocol_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "DifcoAmendedSporulationAgarProtocol",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "DifcoAmendedSporulationAgarProtocol",
+      "domain_of": [
+        "DifcoAmendedSporulationAgarProtocol"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "InitiateGrowthOfBSpizizenii_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "InitiateGrowthOfBSpizizenii",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "InitiateGrowthOfBSpizizenii",
+      "domain_of": [
+        "InitiateGrowthOfBSpizizenii"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SlideCleaning_template_name",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
+      "title": "TemplateName",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "template_name",
+      "domain": "SlideCleaning",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "alias": "template_name",
+      "owner": "SlideCleaning",
+      "domain_of": [
+        "SlideCleaning"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "template_name",
+      "range": "SlideCleaningTemplateNameValue",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "BooleanValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "BooleanValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "BooleanValue",
+      "domain_of": [
+        "BooleanValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NumberValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "NumberValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "NumberValue",
+      "domain_of": [
+        "NumberValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "decimal",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NumberValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "unit",
+      "domain": "NumberValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "NumberValue",
+      "domain_of": [
+        "NumberValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "StringValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "StringValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "StringValue",
+      "domain_of": [
+        "StringValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "UriValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "UriValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "UriValue",
+      "domain_of": [
+        "UriValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "uri",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DateValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "DateValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "DateValue",
+      "domain_of": [
+        "DateValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ArrayValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "ArrayValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "ArrayValue",
+      "domain_of": [
+        "ArrayValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ELabItemValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "value",
+      "domain": "ELabItemValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "ELabItemValue",
+      "domain_of": [
+        "ELabItemValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ELabItem",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VolumeValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The volume unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "VolumeValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "VolumeValue",
+      "domain_of": [
+        "VolumeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "VolumeUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LengthValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The length unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "LengthValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "LengthValue",
+      "domain_of": [
+        "LengthValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "LengthUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DurationValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The time duration unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "DurationValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "DurationValue",
+      "domain_of": [
+        "DurationValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "DurationUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TemperatureValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The temperature unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "TemperatureValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "TemperatureValue",
+      "domain_of": [
+        "TemperatureValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "TemperatureUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CountValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The count unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "CountValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "CountValue",
+      "domain_of": [
+        "CountValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "CountUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FlowRateValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The flow rate unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "FlowRateValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "FlowRateValue",
+      "domain_of": [
+        "FlowRateValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "FlowRateUnitEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "AgitationValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The agitation speed unit corresponding to a metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "AgitationValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "AgitationValue",
+      "domain_of": [
+        "AgitationValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "AgitationEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "UnitlessValue_unit",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "description": "The word \"Unitless\" corresponding to a unitless metadata value",
+      "title": "unit",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue_unit",
+      "domain": "UnitlessValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/unit",
+      "alias": "unit",
+      "owner": "UnitlessValue",
+      "domain_of": [
+        "UnitlessValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "unit",
+      "range": "UnitlessEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ELabItem_status_title",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/status_title",
+      "description": "The status title of an ELabFTW resource",
+      "title": "StatusTitle",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "status_title",
+      "domain": "ELabItem",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/status_title",
+      "alias": "status_title",
+      "owner": "ELabItem",
+      "domain_of": [
+        "ELabItem"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "status_title",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CFUMethodValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "Describes deposition format of cells on agar plate",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "CFUMethodValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CFUMethodValue",
+      "domain_of": [
+        "CFUMethodValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "CFUMethodEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FixationMethodValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The value attribute for FixationMethod",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "FixationMethodValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "FixationMethodValue",
+      "domain_of": [
+        "FixationMethodValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "FixationMethodEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FluorescentProbeValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The value attribute for FluorescentProbe",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "FluorescentProbeValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "FluorescentProbeValue",
+      "domain_of": [
+        "FluorescentProbeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ELabItem",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LabCASMicrobialMaterialIDValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "LabCASMicrobialMaterialIDValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "LabCASMicrobialMaterialIDValue",
+      "domain_of": [
+        "LabCASMicrobialMaterialIDValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ELabItem",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MicrobialMaterialIDValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "MicrobialMaterialIDValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "MicrobialMaterialIDValue",
+      "domain_of": [
+        "MicrobialMaterialIDValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ELabItem",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ModalitiesValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "ModalitiesValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "ModalitiesValue",
+      "domain_of": [
+        "ModalitiesValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "MicroscopyModalitiesEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NucleicAcidTypeValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "NucleicAcidTypeValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "NucleicAcidTypeValue",
+      "domain_of": [
+        "NucleicAcidTypeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "NucleicAcidTypeEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ObjectivesValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "ObjectivesValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "ObjectivesValue",
+      "domain_of": [
+        "ObjectivesValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ObjectivesEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SamplePurposeCodesValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "SamplePurposeCodesValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "SamplePurposeCodesValue",
+      "domain_of": [
+        "SamplePurposeCodesValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "SamplePurposeCodeEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SeriesImageTypesValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "SeriesImageTypesValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "SeriesImageTypesValue",
+      "domain_of": [
+        "SeriesImageTypesValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "ImageTypeEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytoFLEXAcquisitionTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "CytoFLEXAcquisitionTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CytoFLEXAcquisitionTemplateNameValue",
+      "domain_of": [
+        "CytoFLEXAcquisitionTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^CytoFLEX_Acquisition$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "NucleicAcidExtractionTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "NucleicAcidExtractionTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "NucleicAcidExtractionTemplateNameValue",
+      "domain_of": [
+        "NucleicAcidExtractionTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Nucleic Acid Extraction$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CellCultureInBrothTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "CellCultureInBrothTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CellCultureInBrothTemplateNameValue",
+      "domain_of": [
+        "CellCultureInBrothTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Cell Culture in Broth$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytoFLEXVolumeCalibrationTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "CytoFLEXVolumeCalibrationTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CytoFLEXVolumeCalibrationTemplateNameValue",
+      "domain_of": [
+        "CytoFLEXVolumeCalibrationTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^CytoFLEX_VolumeCalibration$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "FormaldehydeFixationTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "FormaldehydeFixationTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "FormaldehydeFixationTemplateNameValue",
+      "domain_of": [
+        "FormaldehydeFixationTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^FormaldehydeFixation$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "MicroscopyAcquisitionTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "MicroscopyAcquisitionTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "MicroscopyAcquisitionTemplateNameValue",
+      "domain_of": [
+        "MicroscopyAcquisitionTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Microscopy_Acquisition$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CoulterAcquisitionTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "CoulterAcquisitionTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CoulterAcquisitionTemplateNameValue",
+      "domain_of": [
+        "CoulterAcquisitionTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Coulter_Acquisition$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "BactoBoxAcquisitionTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "BactoBoxAcquisitionTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "BactoBoxAcquisitionTemplateNameValue",
+      "domain_of": [
+        "BactoBoxAcquisitionTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "BactoBox_Acquisition$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LogCOMETSamplePrepTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "LogCOMETSamplePrepTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "LogCOMETSamplePrepTemplateNameValue",
+      "domain_of": [
+        "LogCOMETSamplePrepTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^LogCOMET_SamplePrep$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CFUTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "CFUTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "CFUTemplateNameValue",
+      "domain_of": [
+        "CFUTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^CFU$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DifcoAmendedSporulationAgarProtocolTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "domain_of": [
+        "DifcoAmendedSporulationAgarProtocolTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Difco Amended Sporulation Agar Protocol$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "InitiateGrowthOfBSpizizeniiTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "domain_of": [
+        "InitiateGrowthOfBSpizizeniiTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^Initiate Growth of B spizizenii$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SlideCleaningTemplateNameValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue_value",
+      "domain": "SlideCleaningTemplateNameValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "SlideCleaningTemplateNameValue",
+      "domain_of": [
+        "SlideCleaningTemplateNameValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "string",
+      "required": true,
+      "pattern": "^SlideCleaning$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "TransmissionModeValue_value",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "description": "The actual metadata value for an attribute",
+      "title": "value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue_value",
+      "domain": "TransmissionModeValue",
+      "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "alias": "value",
+      "owner": "TransmissionModeValue",
+      "domain_of": [
+        "TransmissionModeValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "TransmissionModeEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Experiment",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/Experiment",
+      "description": "Holds information about a specific type of Microbial Strain experiment. The specific metadata for each type of experiment is controlled by \"template data classes\"",
+      "title": "Experiment",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/Experiment",
+      "tree_root": true,
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ExperimentWithData",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithData",
+      "description": "Holds information about a specific type of Microbial Strain experiment that results in the collection of data. The specific metadata for each type of experiment is controlled by \"template data classes\"",
+      "title": "Experiment with Data",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name",
+        "core_data_path",
+        "specific_data_path"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ExperimentWithInstrument",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithInstrument",
+      "description": "Holds information about a specific type of Microbial Strain experiment that uses an instrument. The specific metadata for each type of experiment is controlled by \"template data classes\"",
+      "title": "Experiment with Instrument",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithData",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithInstrument",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ExperimentWithInstrumentNoData",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithInstrumentNoData",
+      "description": "Holds information about a specific type of Microbial Strain experiment that uses an instrument but does not collect data. The specific metadata for each type of experiment is controlled by \"template data classes\"",
+      "title": "Experiment with Insrument and No Data",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name",
+        "instrument_id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithInstrumentNoData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CytoFLEXAcquisition",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXAcquisition",
+      "description": "Metadata describing a data acquisition using the CytoFLEX instrument",
+      "title": "CytoFLEX_Acquisition",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "fc_acquisition_threshold_channel",
+        "fc_acquisition_threshold_value",
+        "fc_flow_rate_setting",
+        "fc_injection_mode",
+        "fixation_method",
+        "fluorescent_probe",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "CytoFLEXAcquisition_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXAcquisition",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NucleicAcidExtraction",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidExtraction",
+      "description": "Metadata describing a nucleic acid extraction experiment",
+      "title": "NucleicAcidExtraction",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "kit_lot_number",
+        "microbial_material_id",
+        "nucleic_acid_type",
+        "sample_purpose_codes",
+        "NucleicAcidExtraction_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidExtraction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CellCultureInBroth",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CellCultureInBroth",
+      "description": "Metadata describing a cell culture experiment",
+      "title": "Cell Culture in Broth",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "growth_media_name",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "CellCultureInBroth_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CellCultureInBroth",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CytoFLEXVolumeCalibration",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXVolumeCalibration",
+      "description": "Metadata describing a volume calibration using the CytoFLEX instrument",
+      "title": "CytoFLEX_VolumeCalibration",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrumentNoData",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "instrument_id",
+        "fc_flow_rate_setting",
+        "fc_injection_mode",
+        "passed_volume_calibration",
+        "percent_volume_deviation",
+        "CytoFLEXVolumeCalibration_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXVolumeCalibration",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GenericTemplateDeprecated",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/GenericTemplateDeprecated",
+      "description": "A retired version of a generic experiment template used to create other templates",
+      "title": "GenericTemplate_Deprecated",
+      "deprecated": "(2024 June) this is no longer used, use GenericTemplate instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "GenericTemplate",
+      "is_a": "ExperimentWithInstrument",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "acquisition_time",
+        "acquisition_volume",
+        "bead_lot_number_concentration_qc",
+        "bead_lot_number_size_qc",
+        "cell_volume",
+        "cfu_method",
+        "coulter_aperture_size",
+        "diluent_name",
+        "diluent_volume",
+        "error_flag",
+        "fc_acquisition_count_target",
+        "fc_acquisition_threshold_channel",
+        "fc_acquisition_threshold_value",
+        "fc_flow_rate_setting",
+        "fc_fluorescent_channels",
+        "fc_injection_mode",
+        "fixation_method",
+        "fluorescent_probe",
+        "growth_duration",
+        "growth_media_name",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "kit_lot_number",
+        "labcas_data_acquisition_date",
+        "labcas_instrument",
+        "labcas_microbial_material_id",
+        "labcas_operator",
+        "labcas_project",
+        "library_prep",
+        "microbial_material_id",
+        "nucleic_acid_type",
+        "objective",
+        "qc_reagent_lot_number",
+        "sample_purpose_codes",
+        "transmission_mode"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/GenericTemplateDeprecated",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FormaldehydeFixation",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FormaldehydeFixation",
+      "description": "Metadata describing a formaldehyde fixation experiment",
+      "title": "FormaldehydeFixation",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "fixation_method",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "FormaldehydeFixation_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FormaldehydeFixation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MicroscopyAcquisition",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyAcquisition",
+      "description": "Metadata describing a microscopy acquisition experiment",
+      "title": "Microscopy_Acquisition",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "fixation_method",
+        "fluorescent_probe",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "modalities",
+        "objective",
+        "sample_purpose_codes",
+        "series_image_types",
+        "series_images",
+        "single_images",
+        "MicroscopyAcquisition_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyAcquisition",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "GenericTemplate",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/GenericTemplate",
+      "description": "A generic experiment template used to help create more specific experiment templates. This template should not be used directly.",
+      "title": "GenericTemplate",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "abstract": true,
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "template_name",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "cfu_method",
+        "fc_acquisition_threshold_channel",
+        "fc_acquisition_threshold_value",
+        "fc_flow_rate_setting",
+        "fc_injection_mode",
+        "fixation_method",
+        "fluorescent_probe",
+        "growth_media_name",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "kit_lot_number",
+        "library_prep",
+        "microbial_material_id",
+        "modalities",
+        "nucleic_acid_type",
+        "objective",
+        "passed_volume_calibration",
+        "percent_volume_deviation",
+        "sample_purpose_codes",
+        "series_image_types",
+        "series_images",
+        "single_images"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/GenericTemplate",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CoulterAcquisition",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CoulterAcquisition",
+      "description": "Metadata describing a Coulter counter acquisition experiment",
+      "title": "Coulter_Acquisition",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "fixation_method",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "CoulterAcquisition_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CoulterAcquisition",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BactoBoxAcquisition",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BactoBoxAcquisition",
+      "description": "Metadata describing a data acquisition experiment using the BactoBox",
+      "title": "BactoBox_Acquisition",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithInstrument",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "instrument_id",
+        "fixation_method",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "BactoBoxAcquisition_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BactoBoxAcquisition",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LogCOMETSamplePrep",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LogCOMETSamplePrep",
+      "description": "Metadata describing a sample preparation process for a LOGComet experiment",
+      "title": "LogCOMET_SamplePrep",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "fixation_method",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "LogCOMETSamplePrep_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LogCOMETSamplePrep",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CFU",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFU",
+      "description": "Metadata describing a colony forming unit counting experiment",
+      "title": "CFU",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ExperimentWithData",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "core_data_path",
+        "specific_data_path",
+        "cfu_method",
+        "fixation_method",
+        "growth_media_name",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "CFU_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFU",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DifcoAmendedSporulationAgarProtocol",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DifcoAmendedSporulationAgarProtocol",
+      "description": "Metadata describing the preparation process for amended sporulation agar",
+      "title": "Difco Amended Sporulation Agar (ASA) Protocol",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "DifcoAmendedSporulationAgarProtocol_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DifcoAmendedSporulationAgarProtocol",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "InitiateGrowthOfBSpizizenii",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InitiateGrowthOfBSpizizenii",
+      "description": "Metadata describing an initiate growth experiment of B. spizizenii",
+      "title": "Initiate Growth of B. spizizenii",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "growth_media_name",
+        "incubation_agitation",
+        "incubation_atmosphere",
+        "incubation_duration",
+        "incubation_temperature",
+        "microbial_material_id",
+        "sample_purpose_codes",
+        "InitiateGrowthOfBSpizizenii_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InitiateGrowthOfBSpizizenii",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SlideCleaning",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SlideCleaning",
+      "description": "Metadata describing an experiment preparing microscopy slides for microbial work",
+      "title": "SlideCleaning",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "Experiment",
+      "slots": [
+        "data_acquisition_date",
+        "elab_experiment",
+        "operator_id",
+        "project_id",
+        "SlideCleaning_template_name"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SlideCleaning",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BooleanValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BooleanValue",
+      "description": "A class to hold a boolean value",
+      "title": "Boolean Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "BooleanValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BooleanValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NumberValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NumberValue",
+      "description": "A class to hold a numerical value with a free-text string as a unit",
+      "title": "Number Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "NumberValue_value",
+        "NumberValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NumberValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "StringValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/StringValue",
+      "description": "A class to hold a string value",
+      "title": "String Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "StringValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/StringValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "UriValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/UriValue",
+      "description": "A class to hold a string value that is a URI",
+      "title": "Uri Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "UriValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/UriValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DateValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DateValue",
+      "description": "A class to hold a date value",
+      "title": "Date Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "DateValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DateValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ArrayValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ArrayValue",
+      "description": "A class to hold an array of values",
+      "title": "Array Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "ArrayValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ArrayValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ELabItemValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabItemValue",
+      "description": "A class to hold a reference to an item record in ELabFTW",
+      "title": "ELabFTW Item Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabItemValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VolumeValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/VolumeValue",
+      "description": "A class to hold a numerical value representing a volumetric measurement",
+      "title": "Volume Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "VolumeValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/VolumeValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LengthValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LengthValue",
+      "description": "A class to hold a numerical value representing a linear measurement",
+      "title": "Length Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "LengthValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LengthValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DurationValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DurationValue",
+      "description": "A class to hold a numerical value representing a time duration measurement",
+      "title": "Duration Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "DurationValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DurationValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "TemperatureValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TemperatureValue",
+      "description": "A class to hold a numerical value representing a temperature measurement",
+      "title": "Temperature Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "TemperatureValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TemperatureValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CountValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CountValue",
+      "description": "A class to hold a numerical value representing a counting measurement",
+      "title": "Count Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "CountValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CountValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FlowRateValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FlowRateValue",
+      "description": "A class to hold a numerical value representing a flow rate measurement",
+      "title": "Flow Rate Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "FlowRateValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FlowRateValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AgitationValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/AgitationValue",
+      "description": "A class to hold a numerical value representing an agitation speed",
+      "title": "Agitation Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "AgitationValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/AgitationValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "UnitlessValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/UnitlessValue",
+      "description": "A class to hold an explicitly unitless numerical value",
+      "title": "Unitless Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "NumberValue",
+      "slots": [
+        "NumberValue_value",
+        "UnitlessValue_unit"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/UnitlessValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ELabRecord",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabRecord",
+      "description": "An abstract data type representing a link to an record (experiment or resource/item) in an eLabFTW instance. Use one of the ELabItem or ELabRecord classes that implement this one rather than using it directly.",
+      "title": "ELabFTW Record",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "abstract": true,
+      "slots": [
+        "status_title",
+        "eLabRecord__id",
+        "eLabRecord__elabid",
+        "eLabRecord__url",
+        "eLabRecord__api_url",
+        "eLabRecord__title",
+        "eLabRecord__category_title"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "id",
+          "description": "The integer identifier for this item used by this eLabFTW instance",
+          "title": "id",
+          "identifier": true,
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "elabid",
+          "description": "The unique \"eLabID\" for this item",
+          "title": "eLabID",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "url",
+          "description": "A (resolvable) URL for accessing this item via a web browser",
+          "title": "url",
+          "range": "uri",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "api_url",
+          "description": "A URL for accessing this item via the eLabFTW API",
+          "title": "API url",
+          "range": "uri",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "title",
+          "description": "A short description of this item",
+          "title": "Title",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "category_title",
+          "description": "The name of the category for this item (called an \"item type\") in eLabFTW",
+          "title": "Category Title",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabRecord",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ELabItem",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabItem",
+      "description": "A class to hold metadata sufficient to reference a resource (database item) record in an ELabFTW instance.",
+      "title": "ELabFTW Item",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ELabRecord",
+      "slots": [
+        "eLabRecord__id",
+        "eLabRecord__elabid",
+        "eLabRecord__url",
+        "eLabRecord__api_url",
+        "eLabRecord__title",
+        "eLabRecord__category_title",
+        "eLabItem__type",
+        "ELabItem_status_title"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "type",
+          "description": "Whether this item is a resource (database item) or an experiment",
+          "title": "Type",
+          "range": "ELabItemType",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabItem",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ELabExperiment",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabExperiment",
+      "description": "A class to hold metadata sufficient to reference an experiment record in an ELabFTW instance.",
+      "title": "ELabFTW Experiment",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ELabRecord",
+      "slots": [
+        "status_title",
+        "eLabRecord__id",
+        "eLabRecord__elabid",
+        "eLabRecord__url",
+        "eLabRecord__api_url",
+        "eLabRecord__title",
+        "eLabRecord__category_title",
+        "eLabExperiment__type"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "type",
+          "description": "Whether this item is a resource (database item) or an experiment",
+          "title": "Type",
+          "range": "ELabExperimentType",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabExperiment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ELabUser",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabUser",
+      "description": "A data type representing a link to a user in an eLabFTW instance",
+      "title": "ELabFTW User",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "slots": [
+        "eLabUser__userid",
+        "eLabUser__first_name",
+        "eLabUser__last_name",
+        "eLabUser__email",
+        "eLabUser__base_url",
+        "eLabUser__orcid"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "userid",
+          "description": "The \"local\" identifier number for this user in the eLabFTW instance",
+          "title": "User ID",
+          "identifier": true,
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "first_name",
+          "description": "The user's first (given) name",
+          "title": "First Name",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "last_name",
+          "description": "The user's last name (surname)",
+          "title": "Last Name",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "email",
+          "description": "The user's email address",
+          "title": "Email",
+          "required": true,
+          "pattern": "^\\S+@[\\S+\\.]+\\S+",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "base_url",
+          "description": "The URL of the ELabFTW instance in which the user is registered",
+          "title": "ELabFTW Base URL",
+          "range": "uri",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "orcid",
+          "description": "The user's ORCID (if defined)",
+          "title": "ORCID",
+          "range": "string",
+          "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{3}(\\d|X)$",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ELabUser",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CFUMethodValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFUMethodValue",
+      "description": "An override of ArrayValue allowing only values from the CFUMethodEnum enum",
+      "title": "CFU Method Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "CFUMethodValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFUMethodValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FCInjectionModeValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FCInjectionModeValue",
+      "description": "An override of StringValue allowing only values from the FCInjectionModeEnum enum",
+      "title": "Flow Cytometry Injection Mode Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "fCInjectionModeValue__value"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "value",
+          "description": "The value attribute for FCInjectionMode",
+          "range": "FCInjectionModeEnum",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FCInjectionModeValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FixationMethodValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FixationMethodValue",
+      "description": "An override of ArrayValue allowing only values from the FixationMethodEnum enum",
+      "title": "Fixation Method Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "FixationMethodValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FixationMethodValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FluorescentProbeValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FluorescentProbeValue",
+      "description": "An override of ArrayValue allowing only ELabItem values",
+      "title": "Fluorescent Probe Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "FluorescentProbeValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FluorescentProbeValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "IncubationAtmosphereValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/IncubationAtmosphereValue",
+      "description": "An override of StringValue allowing only values from the IncubationAtmosphereEnum enum",
+      "title": "Incubation Atmosphere Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "incubationAtmosphereValue__value"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "value",
+          "range": "IncubationAtmosphereEnum",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/IncubationAtmosphereValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "InstrumentIDValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InstrumentIDValue",
+      "description": "A named sub-class of ELabItemValue to hold an instrument identifier value",
+      "title": "Instrument ID Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InstrumentIDValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LabCASInstrumentValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASInstrumentValue",
+      "description": "A named sub-class of ELabItemValue to hold the instrument identifier",
+      "title": "LabCAS-InstrumentValue",
+      "deprecated": "(2024 June) this is too specific, use InstrumentIDValue instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "InstrumentIDValue",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASInstrumentValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LabCASMicrobialMaterialIDValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASMicrobialMaterialIDValue",
+      "description": "A named sub-class of ArrayValue to hold a list of microbial material links",
+      "title": "LabCAS-MicrobialMaterialIDValue",
+      "deprecated": "(2024 June) this is too specific, use MicrobialMaterialIDValue instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "MicrobialMaterialIDValue",
+      "is_a": "ArrayValue",
+      "slots": [
+        "LabCASMicrobialMaterialIDValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASMicrobialMaterialIDValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LabCASOperatorValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASOperatorValue",
+      "description": "A named sub-class of ELabItemValue to hold the operator identifier",
+      "title": "LabCAS-OperatorValue",
+      "deprecated": "(2024 June) this is too specific, use OperatorIDValue instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "OperatorIDValue",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASOperatorValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LabCASProjectValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASProjectValue",
+      "description": "A named sub-class of ELabItemValue to hold the project identifier",
+      "title": "LabCAS-ProjectValue",
+      "deprecated": "(2024 June) this is too specific, use ProjectIDValue instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "ProjectIDValue",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LabCASProjectValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MicrobialMaterialIDValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicrobialMaterialIDValue",
+      "description": "A named sub-class of ArrayValue to hold a list of microbial material links",
+      "title": "Microbial Material ID Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "MicrobialMaterialIDValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicrobialMaterialIDValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ModalitiesValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ModalitiesValue",
+      "description": "A named sub-class of ArrayValue to hold a list of modality types",
+      "title": "Modalities Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "ModalitiesValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ModalitiesValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NucleicAcidTypeValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidTypeValue",
+      "description": "An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum",
+      "title": "Nucleic Acid Type Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "NucleicAcidTypeValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidTypeValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ObjectivesValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ObjectivesValue",
+      "description": "An override of ArrayValue allowing only values from the ObjectivesEnum enum",
+      "title": "Objectives Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "ObjectivesValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ObjectivesValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "OperatorIDValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/OperatorIDValue",
+      "description": "A named sub-class of ELabItemValue to hold an operator identifier value",
+      "title": "Operator ID Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/OperatorIDValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProjectIDValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ProjectIDValue",
+      "description": "A named sub-class of ELabItemValue to hold a project identifier value",
+      "title": "Project ID Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ELabItemValue",
+      "slots": [
+        "ELabItemValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ProjectIDValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SamplePurposeCodesValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SamplePurposeCodesValue",
+      "description": "An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum",
+      "title": "Sample Purpose Codes Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "SamplePurposeCodesValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SamplePurposeCodesValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SeriesImageTypesValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SeriesImageTypesValue",
+      "description": "An override of ArrayValue allowing only values from the ImageTypeEnum enum",
+      "title": "Series Image Types Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "ArrayValue",
+      "slots": [
+        "SeriesImageTypesValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SeriesImageTypesValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CytoFLEXAcquisitionTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXAcquisitionTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a CytoFLEX_Acquisition experiment",
+      "title": "CytoFLEX Acquisition Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "CytoFLEXAcquisitionTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXAcquisitionTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NucleicAcidExtractionTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidExtractionTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment",
+      "title": "Nucleic Acid Extraction Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "NucleicAcidExtractionTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidExtractionTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CellCultureInBrothTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CellCultureInBrothTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment",
+      "title": "Cell Culture In Broth Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "CellCultureInBrothTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CellCultureInBrothTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CytoFLEXVolumeCalibrationTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXVolumeCalibrationTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment",
+      "title": "CytoFLEX Volume Calibration Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "CytoFLEXVolumeCalibrationTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXVolumeCalibrationTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FormaldehydeFixationTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FormaldehydeFixationTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment",
+      "title": "Formaldehyde Fixation Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "FormaldehydeFixationTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FormaldehydeFixationTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MicroscopyAcquisitionTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyAcquisitionTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment",
+      "title": "Microscopy Acquisition Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "MicroscopyAcquisitionTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyAcquisitionTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CoulterAcquisitionTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CoulterAcquisitionTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment",
+      "title": "Coulter Acquisition Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "CoulterAcquisitionTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CoulterAcquisitionTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "BactoBoxAcquisitionTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BactoBoxAcquisitionTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment",
+      "title": "BactoBox Acquisition Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "BactoBoxAcquisitionTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BactoBoxAcquisitionTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LogCOMETSamplePrepTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LogCOMETSamplePrepTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment",
+      "title": "LogCOMET Sample Prep Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "LogCOMETSamplePrepTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LogCOMETSamplePrepTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CFUTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFUTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a CFU experiment",
+      "title": "CFU Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "CFUTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFUTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment",
+      "title": "Difco Amended Sporulation Agar Protocol Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "DifcoAmendedSporulationAgarProtocolTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DifcoAmendedSporulationAgarProtocolTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment",
+      "title": "Initiate Growth of B spizizenii Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "InitiateGrowthOfBSpizizeniiTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InitiateGrowthOfBSpizizeniiTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SlideCleaningTemplateNameValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SlideCleaningTemplateNameValue",
+      "description": "An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment",
+      "title": "Slide Cleaning Template Name Value",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "is_a": "StringValue",
+      "slots": [
+        "SlideCleaningTemplateNameValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SlideCleaningTemplateNameValue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "TransmissionModeValue",
+      "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TransmissionModeValue",
+      "description": "An override of ArrayValue allowing only values from the TransmissionModeEnum enum",
+      "title": "Transmission Mode Value",
+      "deprecated": "(2024 June) this is too specific, use ModalitiesValue instead",
+      "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
+      "deprecated_element_has_exact_replacement": "ModalitiesValue",
+      "is_a": "ArrayValue",
+      "slots": [
+        "TransmissionModeValue_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/TransmissionModeValue",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "microbial_experiment_schema.yaml",
+  "source_file_date": "2024-09-10T14:00:16",
+  "source_file_size": 47499,
+  "generation_date": "2024-09-10T14:00:20",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/microbial_experiment_schema.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/usnistgov/microbial-experiment-schema/"
+    }
+  ]
+}

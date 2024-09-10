@@ -17,6 +17,7 @@ prefixes:
   microbial_experiment_schema: https://w3id.org/usnistgov/microbial-experiment-schema/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
+  qudt: http://qudt.org/schema/qudt/
 default_prefix: microbial_experiment_schema
 default_range: string
 
@@ -26,6 +27,7 @@ imports:
 classes:
 
   Experiment:
+    title: Experiment
     description: Holds information about a specific type of Microbial Strain experiment. The specific metadata for each type of experiment is controlled by "template data classes"
     tree_root: true
     abstract: true
@@ -38,6 +40,7 @@ classes:
       - template_name
 
   ExperimentWithData:
+    title: Experiment with Data
     description: Holds information about a specific type of Microbial Strain experiment that results in the collection of data. The specific metadata for each type of experiment is controlled by "template data classes"
     abstract: true
     is_a: Experiment
@@ -47,6 +50,7 @@ classes:
       - specific_data_path
 
   ExperimentWithInstrument:
+    title: Experiment with Instrument
     description: Holds information about a specific type of Microbial Strain experiment that uses an instrument. The specific metadata for each type of experiment is controlled by "template data classes"
     abstract: true
     is_a: ExperimentWithData
@@ -55,6 +59,7 @@ classes:
       - instrument_id
 
   ExperimentWithInstrumentNoData:
+    title: Experiment with Insrument and No Data
     description: Holds information about a specific type of Microbial Strain experiment that uses an instrument but does not collect data. The specific metadata for each type of experiment is controlled by "template data classes"
     abstract: true
     is_a: Experiment
@@ -338,7 +343,7 @@ classes:
 
   # base data-holding classes:
   BooleanValue:
-    name: BooleanValue
+    title: Boolean Value
     description: A class to hold a boolean value
     slots:
       - value
@@ -346,7 +351,7 @@ classes:
       value:
         range: boolean
   NumberValue:
-    name: NumberValue
+    title: Number Value
     description: A class to hold a numerical value with a free-text string as a unit
     slots:
       - value
@@ -358,7 +363,7 @@ classes:
         range: string
         required: false
   StringValue:
-    name: StringValue
+    title: String Value
     description: A class to hold a string value
     slots:
       - value
@@ -366,7 +371,7 @@ classes:
       value:
         range: string
   UriValue:
-    name: UriValue
+    title: Uri Value
     description: A class to hold a string value that is a URI
     slots:
       - value
@@ -374,7 +379,7 @@ classes:
       value:
         range: uri
   DateValue:
-    name: DateValue
+    title: Date Value
     description: A class to hold a date value
     slots:
       - value
@@ -382,7 +387,7 @@ classes:
       value:
         range: date
   ArrayValue:
-    name: ArrayValue
+    title: Array Value
     description: A class to hold an array of values
     slots:
       - value
@@ -391,7 +396,7 @@ classes:
         multivalued: true
         inlined: false
   ELabItemValue:
-    name: ELabItemValue
+    title: ELabFTW Item Value
     description: A class to hold a reference to an item record in ELabFTW
     slots:
       - value
@@ -400,7 +405,7 @@ classes:
         range: ELabItem
         inlined: true
   VolumeValue:
-    name: VolumeValue
+    title: Volume Value
     description: A class to hold a numerical value representing a volumetric measurement
     is_a: NumberValue
     slot_usage:
@@ -409,7 +414,7 @@ classes:
         description: The volume unit corresponding to a metadata value
         required: true
   LengthValue:
-    name: LengthValue
+    title: Length Value
     description: A class to hold a numerical value representing a linear measurement
     is_a: NumberValue
     slot_usage:
@@ -418,7 +423,7 @@ classes:
         description: The length unit corresponding to a metadata value
         required: true
   DurationValue:
-    name: DurationValue
+    title: Duration Value
     description: A class to hold a numerical value representing a time duration measurement
     is_a: NumberValue
     slot_usage:
@@ -427,7 +432,7 @@ classes:
         description: The time duration unit corresponding to a metadata value
         required: true
   TemperatureValue:
-    name: TemperatureValue
+    title: Temperature Value
     description: A class to hold a numerical value representing a temperature measurement
     is_a: NumberValue
     slot_usage:
@@ -436,7 +441,7 @@ classes:
         description: The temperature unit corresponding to a metadata value
         required: true
   CountValue:
-    name: CountValue
+    title: Count Value
     description: A class to hold a numerical value representing a counting measurement
     is_a: NumberValue
     slot_usage:
@@ -445,7 +450,7 @@ classes:
         description: The count unit corresponding to a metadata value
         required: true
   FlowRateValue:
-    name: FlowRateValue
+    title: Flow Rate Value
     description: A class to hold a numerical value representing a flow rate measurement
     is_a: NumberValue
     slot_usage:
@@ -454,7 +459,7 @@ classes:
         description: The flow rate unit corresponding to a metadata value
         required: true
   AgitationValue:
-    name: AgitationValue
+    title: Agitation Value
     description: A class to hold a numerical value representing an agitation speed
     is_a: NumberValue
     slot_usage:
@@ -463,7 +468,7 @@ classes:
         description: The agitation speed unit corresponding to a metadata value
         required: true
   UnitlessValue:
-    name: UnitlessValue
+    title: Unitless Value
     description: A class to hold an explicitly unitless numerical value
     is_a: NumberValue
     slot_usage:
@@ -475,42 +480,49 @@ classes:
   # defining ELabItem, ELabExperiment, and ELabUser links:
   ELabRecord:
     abstract: true
-    name: ELabRecord
+    title: ELabFTW Record
     description: An abstract data type representing a link to an record (experiment or resource/item) in an eLabFTW instance. Use one of the ELabItem or ELabRecord classes that implement this one rather than using it directly.
     slots:
       - status_title
     attributes:
       id:
+        title: id
         identifier: true
         description: The integer identifier for this item used by this eLabFTW instance
         range: integer
         required: true
       elabid:
+        title: eLabID
         description: The unique "eLabID" for this item
         range: string
         required: true
       url:
+        title: url
         description: A (resolvable) URL for accessing this item via a web browser
         range: uri
         required: true
       api_url:
+        title: API url
         description: A URL for accessing this item via the eLabFTW API
         range: uri
         required: true
       title:
+        title: Title
         description: A short description of this item
         range: string
         required: true
       category_title:
+        title: Category Title
         description: The name of the category for this item (called an "item type") in eLabFTW
         required: true
 
   ELabItem:
     is_a: ELabRecord
-    name: ELabItem
+    title: ELabFTW Item
     description: A class to hold metadata sufficient to reference a resource (database item) record in an ELabFTW instance.
     attributes:
       type:
+        title: Type
         description: Whether this item is a resource (database item) or an experiment
         range: ELabItemType
         required: true
@@ -520,37 +532,45 @@ classes:
 
   ELabExperiment:
     is_a: ELabRecord
-    name: ELabExperiment
+    title: ELabFTW Experiment
     description: A class to hold metadata sufficient to reference an experiment record in an ELabFTW instance.
     attributes:
       type:
+        title: Type
         description: Whether this item is a resource (database item) or an experiment
         range: ELabExperimentType
         required: true
   
   ELabUser:
+    title: ELabFTW User
     description: A data type representing a link to a user in an eLabFTW instance
     attributes:
       userid:
+        title: User ID
         identifier: true
         description: The "local" identifier number for this user in the eLabFTW instance
         range: integer
         required: true
       first_name:
+        title: First Name
         description: The user's first (given) name
         required: true
       last_name:
+        title: Last Name
         description: The user's last name (surname)
         required: true
       email:
+        title: Email
         description: The user's email address
         pattern: ^\S+@[\S+\.]+\S+
         required: true
       base_url:
+        title: ELabFTW Base URL
         description: The URL of the ELabFTW instance in which the user is registered
         range: uri
         required: true
       orcid:
+        title: ORCID
         description: The user's ORCID (if defined)
         range: string
         required: false
@@ -558,6 +578,7 @@ classes:
   
   # definition of specific value override classes
   CFUMethodValue:
+    title: CFU Method Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the CFUMethodEnum enum
     slot_usage:
@@ -566,6 +587,7 @@ classes:
         description: Describes deposition format of cells on agar plate
 
   FCInjectionModeValue:
+    title: Flow Cytometry Injection Mode Value
     is_a: StringValue
     description: An override of StringValue allowing only values from the FCInjectionModeEnum enum
     attributes:
@@ -574,6 +596,7 @@ classes:
         range: FCInjectionModeEnum
 
   FixationMethodValue:
+    title: Fixation Method Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the FixationMethodEnum enum
     slot_usage:
@@ -582,6 +605,7 @@ classes:
         range: FixationMethodEnum
 
   FluorescentProbeValue:
+    title: Fluorescent Probe Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only ELabItem values
     slot_usage:
@@ -592,6 +616,7 @@ classes:
         inlined_as_list: true
   
   IncubationAtmosphereValue:
+    title: Incubation Atmosphere Value
     is_a: StringValue
     description: An override of StringValue allowing only values from the IncubationAtmosphereEnum enum
     attributes:
@@ -599,6 +624,7 @@ classes:
         range: IncubationAtmosphereEnum
 
   InstrumentIDValue:
+    title: Instrument ID Value
     is_a: ELabItemValue
     description: A named sub-class of ELabItemValue to hold an instrument identifier value
 
@@ -636,6 +662,7 @@ classes:
     description: A named sub-class of ELabItemValue to hold the project identifier
 
   MicrobialMaterialIDValue:
+    title: Microbial Material ID Value
     is_a: ArrayValue
     description: A named sub-class of ArrayValue to hold a list of microbial material links
     slot_usage:
@@ -645,13 +672,15 @@ classes:
         inlined_as_list: true
 
   ModalitiesValue:
+    title: Modalities Value
     is_a: ArrayValue
     description: A named sub-class of ArrayValue to hold a list of modality types
     slot_usage:
       value:
-        range: ModalitiesEnum
+        range: MicroscopyModalitiesEnum
   
   NucleicAcidTypeValue:
+    title: Nucleic Acid Type Value
     is_a: StringValue
     description: An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum
     slot_usage:
@@ -659,6 +688,7 @@ classes:
         range: NucleicAcidTypeEnum
 
   ObjectivesValue:
+    title: Objectives Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the ObjectivesEnum enum
     slot_usage:
@@ -666,14 +696,17 @@ classes:
         range: ObjectivesEnum
   
   OperatorIDValue:
+    title: Operator ID Value
     is_a: ELabItemValue
     description: A named sub-class of ELabItemValue to hold an operator identifier value
 
   ProjectIDValue:
+    title: Project ID Value
     is_a: ELabItemValue
     description: A named sub-class of ELabItemValue to hold a project identifier value
 
   SamplePurposeCodesValue:
+    title: Sample Purpose Codes Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum
     slot_usage:
@@ -681,6 +714,7 @@ classes:
         range: SamplePurposeCodeEnum
   
   SeriesImageTypesValue:
+    title: Series Image Types Value
     is_a: ArrayValue
     description: An override of ArrayValue allowing only values from the ImageTypeEnum enum
     slot_usage:
@@ -690,6 +724,7 @@ classes:
   # specific overrides for template name values
 
   CytoFLEXAcquisitionTemplateNameValue:
+    title: CytoFLEX Acquisition Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a CytoFLEX_Acquisition experiment
     slot_usage:
@@ -698,6 +733,7 @@ classes:
         pattern: "^CytoFLEX_Acquisition$"
         required: true
   NucleicAcidExtractionTemplateNameValue:
+    title: Nucleic Acid Extraction Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment
     slot_usage:
@@ -706,6 +742,7 @@ classes:
         pattern: "^Nucleic Acid Extraction$"
         required: true
   CellCultureInBrothTemplateNameValue:
+    title: Cell Culture In Broth Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment
     slot_usage:
@@ -714,6 +751,7 @@ classes:
         pattern: "^Cell Culture in Broth$"
         required: true
   CytoFLEXVolumeCalibrationTemplateNameValue:
+    title: CytoFLEX Volume Calibration Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment
     slot_usage:
@@ -722,6 +760,7 @@ classes:
         pattern: "^CytoFLEX_VolumeCalibration$"
         required: true
   FormaldehydeFixationTemplateNameValue:
+    title: Formaldehyde Fixation Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment
     slot_usage:
@@ -730,6 +769,7 @@ classes:
         pattern: "^FormaldehydeFixation$"
         required: true
   MicroscopyAcquisitionTemplateNameValue:
+    title: Microscopy Acquisition Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment
     slot_usage:
@@ -738,6 +778,7 @@ classes:
         pattern: "^Microscopy_Acquisition$"
         required: true
   CoulterAcquisitionTemplateNameValue:
+    title: Coulter Acquisition Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment
     slot_usage:
@@ -746,6 +787,7 @@ classes:
         pattern: "^Coulter_Acquisition$"
         required: true
   BactoBoxAcquisitionTemplateNameValue:
+    title: BactoBox Acquisition Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment
     slot_usage:
@@ -754,6 +796,7 @@ classes:
         pattern: "BactoBox_Acquisition$"
         required: true
   LogCOMETSamplePrepTemplateNameValue:
+    title: LogCOMET Sample Prep Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment
     slot_usage:
@@ -762,6 +805,7 @@ classes:
         pattern: "^LogCOMET_SamplePrep$"
         required: true
   CFUTemplateNameValue:
+    title: CFU Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a CFU experiment
     slot_usage:
@@ -770,6 +814,7 @@ classes:
         pattern: "^CFU$"
         required: true
   DifcoAmendedSporulationAgarProtocolTemplateNameValue:
+    title: Difco Amended Sporulation Agar Protocol Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment
     slot_usage:
@@ -778,6 +823,7 @@ classes:
         pattern: "^Difco Amended Sporulation Agar Protocol$"
         required: true
   InitiateGrowthOfBSpizizeniiTemplateNameValue:
+    title: Initiate Growth of B spizizenii Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment
     slot_usage:
@@ -786,6 +832,7 @@ classes:
         pattern: "^Initiate Growth of B spizizenii$"
         required: true
   SlideCleaningTemplateNameValue:
+    title: Slide Cleaning Template Name Value
     is_a: StringValue
     description: An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment
     slot_usage:
@@ -795,6 +842,7 @@ classes:
         required: true
   
   TransmissionModeValue:
+    title: Transmission Mode Value
     deprecated: (2024 June) this is too specific, use ModalitiesValue instead
     deprecated_element_has_exact_replacement: ModalitiesValue
     is_a: ArrayValue
@@ -805,10 +853,12 @@ classes:
 
 slots:
   value:
+    title: value
     required: true
     description: The actual metadata value for an attribute
 
   unit:
+    title: unit
     required: true
     description: The unit corresponding to a metadata value
 
@@ -887,6 +937,7 @@ slots:
     required: true
 
   elab_experiment:
+    title: ELabFTW Experiment
     description: A self-reference to this experiment record
     required: true
     range: ELabExperiment
@@ -1132,6 +1183,7 @@ slots:
     range: UriValue
 
   status_title:
+    title: StatusTitle
     description: The status title of an ELabFTW resource
     required: true
 
@@ -1155,130 +1207,287 @@ slots:
   #  ...
 
 # enumerations
+# NOTE: the `name`` of the enum's permissible_values should be "snake_case", and the
+#       `title` for each value should be the value entered into a metadata form when
+#       creating an ELab record
 enums:
   ELabItemType:
+    title: ELabFTW Item Type
     description: Allowed record type value for an ELabFTW item/resource
     permissible_values:
       items:
         description: An ELabFTW item/resource record
+        title: items
   ELabExperimentType:
+    title: ELabFTW Experiment Type
     description: Allowed record type value for an ELabFTW experiment
     permissible_values:
       experiments:
         description: An ELabFTW experiment record
+        title: experiments
   DurationUnitEnum:
+    title: Duration Unit Enum
     description: Allowed time duration unit type values
     permissible_values:
       sec:
+        description: seconds
+        title: sec
+        exact_mappings:
+          - qudt:SEC
       hr:
+        description: hours
+        title: hr
+        exact_mappings:
+          - qudt:HR
       min:
+        description: minutes
+        title: min
+        exact_mappings:
+          - qudt:MIN
   VolumeUnitEnum:
+    title: Volume Unit Enum
     description: Allowed volume unit type values
     permissible_values:
-      mL:
-      µL:
+      mililiter:
+        description: milliliters
+        title: mL
+        exact_mappings:
+          - qudt:MilliL
+      microliter:
+        description: microliters
+        title: µL
+        exact_mappings:
+          - qudt:microL
   LengthUnitEnum:
+    title: Length Unit Enum
     description: Allowed linear length unit type values
     permissible_values:
-      µm:
+      micrometer:
+        description: micrometers
+        title: µm
+        exact_mappings:
+          - qudt:MilliM
   CountUnitEnum:
+    title: Count Unit Enum
     description: Allowed count unit type values
     permissible_values:
       events:
+        description: event count
+        title: events
   FlowRateUnitEnum:
+    title: Flow Rate Unit Enum
     description: Allowed flow rate unit type values
     permissible_values:
-      µL/min:
+      microliter_per_minute:
+        description: microliters per minute
+        title: µL/min
   CFUMethodEnum:
+    title: CFU Method Enum
     description: Allowed colony forming unit count method values
     permissible_values:
-      Plate spread:
-      Drip plate:
-      Spiral plater:
-      Droplet:
-      Other:
+      plate_spread:
+        description: a plate spread
+        title: Plate spread
+      drip_plate:
+        description: a drip plate
+        title: Drip plate
+      spiral_plater:
+        description: a spiral plater
+        title: Spiral plater
+      droplet:
+        description: a droplet
+        title: Droplet
+      other:
+        description: all other CFU methods
+        title: Other
   FCInjectionModeEnum:
+    title: Flow Cytometry Injection Mode Enum
     description: Allowed flow cytometry injection mode values
     permissible_values:
-      Plate:
-      Tube:
-      NA:
+      plate:
+        description: plate
+        title: Plate
+      tube:
+        description: tube
+        title: Tube
+      na:
+        description: not applicable
+        title: NA
   FixationMethodEnum:
+    title: Fixation Method Enum
     description: Allowed fixation method values
     permissible_values:
-      Formaldehyde:
-      Heat:
-      Ethanol:
-      NoFixation:
+      formaldehyde:
+        description: formaldehyde fixation
+        title: Formaldehyde
+      heat:
+        description: heat fixation
+        title: Heat
+      ethanol:
+        description: ethanol fixation
+        title: Ethanol
+      no_fixation:
+        description: no fixation performed
+        title: NoFixation
   AgitationEnum:
+    title: Agitation Enum
     description: Allowed agitation speed unit type values
     permissible_values:
       rpm:
-      x g:
+        description: revolutions per minute
+        title: rpm
+      x_g:
+        description: x g
+        todos:
+          - Get better description of this value
+        title: x g
   IncubationAtmosphereEnum:
+    title: Incubation Atmosphere Enum
     description: Allowed cell incubation atmosphere values
     permissible_values:
-      Atmospheric:
-      Atmospheric + 5% CO2:
-      Anaerobic:
+      atmospheric:
+        description: atmospheric conditions
+        title: Atmospheric
+      atmospheric_and_5_percent_co2:
+        description: atmospheric conditions with 5% carbon dioxide
+        title: Atmospheric + 5% CO2
+      anaerobic:
+        description: anaerobic conditions
+        title: Anaerobic
   TemperatureUnitEnum:
+    title: Temperature Unit Enum
     description: Allowed temperature unit type values
     permissible_values:
-      oC:
-      °C:
-      oF:
-      °F:
-  ModalitiesEnum:
+      degrees_c:
+        description: degrees celsius
+        title: °C
+        exact_mappings:
+          - qudt:DEG_C
+      degrees_f:
+        description: degrees fahrenheit
+        title: °F
+        exact_mappings:
+          - qudt:DEG_F
+  MicroscopyModalitiesEnum:
+    title: Microscopy Modalities Enum
     description: Allowed microscopy modality values
     permissible_values:
-      DIC:
-      Brightfield:
-      Phase Contrast:
+      dic:
+        description: Digital image correlation
+        title: DIC
+      brightfield:
+        description: Bright field imaging
+        title: Brightfield
+      phase_contrast:
+        description: Phase contrast imaging
+        title: Phase Contrast
   NucleicAcidTypeEnum:
+    title: Nucleic Acid Type Enum
     description: Allowed nucleic acid type values
     permissible_values:
-      RNA:
-      DNA:
+      rna:
+        description: Ribonucleic acid
+        title: RNA
+      dna:
+        description: Deoxyribonucleic acid
+        title: DNA
   ObjectivesEnum:
+    title: Objectives Enum
     description: Allowed microscopy objective values
     permissible_values:
-      4X:
-      10X:
-      20X:
-      40X oil:
-      60X oil:
-      60X water:
-      100X oil:
+      four_x:
+        description: 4 times magnification
+        title: 4X
+      ten_x:
+        description: 10 times magnification
+        title: 10X
+      twenty_x:
+        description: 20 times magnification
+        title: 20X
+      fourty_x_oil:
+        description: 40 times magnification with oil immersion
+        title: 40X oil
+      sixty_x_oil:
+        description: 60 times magnification with oil immersion
+        title: 60X oil
+      sixty_x_water:
+        description: 60 times magnification with water immersion
+        title: 60X water
+      hundred_x_oil:
+        description: 100 times magnification with oil immersion
+        title: 100X oil
   UnitlessEnum:
+    title: Unitless Enum
     description: Allowed value for "unitless" numerical values
     permissible_values:
-      Unitless:
+      unitless:
+        description: An explicitly unitless value
+        title: Unitless
   SamplePurposeCodeEnum:
+    title: Sample Purpose Code Enum
     description: Allowed sample purpose code values
     permissible_values:
-      Positive control:
-      Negative control:
-      Reference cell:
-      Reference fluorescence:
-      Reference scattering:
-      Reference size:
-      Reference concentration:
-      Quality control:
-      Compensation control:
-      Test:
-      Other:
+      positive_control:
+        description: Positive control
+        title: Positive control
+      negative_control: 
+        description: Negative control
+        title: Negative control
+      reference_cell:
+        description: Reference cell
+        title: Reference cell
+      reference_fluorescence:
+        description: Reference for fluorescence
+        title: Reference fluorescence
+      reference_scattering:
+        description: Reference for scattering
+        title: Reference scattering
+      reference_size:
+        description: Reference for size
+        title: Reference size
+      reference_concentration:
+        description: Reference for concentration
+        title: Reference concentration
+      quality_control:
+        description: Quality control
+        title: Quality control
+      compensation_control:
+        description: Compensation control
+        title: Compensation control
+      test:
+        description: A test sample
+        title: Test
+      other:
+        description: All other sample purposes
+        title: Other 
   ImageTypeEnum:
+    title: Image Type Enum
     description: Allowed microscopy image type values
     permissible_values:
-      Time lapse:
-      Area scan:
-      z stack:
-      NA:
+      time_lapse:
+        description: Time lapse imagery
+        title: Time lapse
+      area_scan:
+        description: A scan of an area
+        title: Area scan
+      z_stack:
+        description: Z (focal) stack
+        title: z stack
+      na:
+        description: Not applicable
+        title: NA
   TransmissionModeEnum:
+    title: Transmission Mode Enum
     description: Allowed microscopy transmission mode values
-    deprecated: (2024 June) this is too specific, use ModalitiesEnum instead
-    deprecated_element_has_exact_replacement: ModalitiesEnum
+    deprecated: (2024 June) this is too specific, use MicroscopyModalitiesEnum instead
+    deprecated_element_has_exact_replacement: MicroscopyModalitiesEnum
     permissible_values:
-      DIC:
-      Brightfield:
-      Phase Contrast:
+      dic:
+        description: Digital Image Correlation
+        title: DIC
+      brightfield:
+        description: Brightfield imaging
+        title: Brightfield
+      phase_contrast:
+        description: Phase contrast imaging
+        title: Phase Contrast

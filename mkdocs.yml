@@ -33,7 +33,7 @@ plugins:
 nav:
   # - Home: home.md
   - Index: index.md
-  - About: about.md
+  - Schema Visualization: schema_visualization.html
 site_url: https://mml-lims.***REMOVED***.nist.gov/microbial-lims
 repo_url: https://***REMOVED***/mml-lims/microbial-lims
 

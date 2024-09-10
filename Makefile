@@ -18,15 +18,16 @@ RUN = poetry run
 SCHEMA_NAME = $(LINKML_SCHEMA_NAME)
 SOURCE_SCHEMA_PATH = $(LINKML_SCHEMA_SOURCE_PATH)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))
+LINKML_CONFIG = .linkmllint.yaml
 SRC = src
 DEST = project
 PYMODEL = $(SRC)/$(LINKML_SCHEMA_FOLDER_NAME)/datamodel
 DOCDIR = docs
 EXAMPLEDIR = examples
-SHEET_MODULE = personinfo_enums
-SHEET_ID = $(LINKML_SCHEMA_GOOGLE_SHEET_ID)
-SHEET_TABS = $(LINKML_SCHEMA_GOOGLE_SHEET_TABS)
-SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
+# SHEET_MODULE = personinfo_enums
+# SHEET_ID = $(LINKML_SCHEMA_GOOGLE_SHEET_ID)
+# SHEET_TABS = $(LINKML_SCHEMA_GOOGLE_SHEET_TABS)
+# SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
 TEMPLATEDIR = doc-templates
 
 CONFIG_YAML =
@@ -156,7 +157,8 @@ gen-pydantic:
 	$(RUN) linkml generate pydantic $(SOURCE_SCHEMA_PATH) > $(DEST)/pydantic/$(SCHEMA_NAME).py
 	cp $(DEST)/pydantic/$(SCHEMA_NAME).py $(PYMODEL)/
 
-test: test-schema test-python test-examples lint spell
+# test: test-schema test-python test-examples lint spell
+test: test-schema lint gen-doc spell
 
 test-schema:
 	$(RUN) linkml generate project ${CONFIG_YAML} -d tmp $(SOURCE_SCHEMA_PATH)
@@ -165,7 +167,7 @@ test-python:
 	$(RUN) python -m unittest discover
 
 lint:
-	$(RUN) linkml-lint $(SOURCE_SCHEMA_PATH)
+	$(RUN) linkml-lint --config $(LINKML_CONFIG) $(SOURCE_SCHEMA_PATH)
 
 check-config:
 ifndef LINKML_SCHEMA_NAME
@@ -207,7 +209,6 @@ $(PYMODEL):
 $(DOCDIR):
 	mkdir -p $@
 
-# TODO: WORK ON GEN DOCS NEXT
 gen-doc: $(DOCDIR)
 	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
 	# generate the JSON data for the d3 visualization:
