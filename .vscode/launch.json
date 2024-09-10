@@ -5,6 +5,32 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug Visualization",
+            "request": "launch",
+            "type": "chrome",
+            "file": "${workspaceFolder}/src/docs/schema_visualization.html"
+        },
+        {
+            "name": "Generate docs",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "linkml.generators.docgen",
+            "justMyCode": false,
+            "args": [
+                "-d",
+                "docs",
+                "--template-directory",
+                "src/doc-templates",
+                "src/microbial_experiment_schema/schema/microbial_experiment_schema.yaml"
+            ]
+        },
+        {
+            "name": "Generate Visualization JSON",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.microbial_experiment_schema.scripts.generate_json"
+        },
+        {
             // for debugging of ERD/docs generation
             "name": "ERD Diagram Generator",
             "type": "debugpy",

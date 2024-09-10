@@ -7,6 +7,9 @@ license = "MIT"
 readme = "README.md"
 include = ["README.md", "src/microbial_experiment_schema/schema", "project"]
 
+[tool.poetry.scripts]
+generate_viz_json = "src.microbial_experiment_schema.scripts.generate_json:generate_viz_json"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 linkml-runtime = "^1.8.2"

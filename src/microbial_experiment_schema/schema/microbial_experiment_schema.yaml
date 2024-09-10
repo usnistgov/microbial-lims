@@ -6,7 +6,7 @@
 
 id: https://w3id.org/usnistgov/microbial-experiment-schema
 name: microbial-experiment-schema
-title: microbial-experiment-schema
+title: Microbial Experiment Schema
 version: "2024.09.04"
 description: Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project
 license: NIST Public License
@@ -597,7 +597,11 @@ classes:
     attributes:
       value:
         range: IncubationAtmosphereEnum
-  
+
+  InstrumentIDValue:
+    is_a: ELabItemValue
+    description: A named sub-class of ELabItemValue to hold an instrument identifier value
+
   LabCASInstrumentValue:
     deprecated: (2024 June) this is too specific, use InstrumentIDValue instead
     deprecated_element_has_exact_replacement: InstrumentIDValue
@@ -664,6 +668,10 @@ classes:
   OperatorIDValue:
     is_a: ELabItemValue
     description: A named sub-class of ELabItemValue to hold an operator identifier value
+
+  ProjectIDValue:
+    is_a: ELabItemValue
+    description: A named sub-class of ELabItemValue to hold a project identifier value
 
   SamplePurposeCodesValue:
     is_a: ArrayValue

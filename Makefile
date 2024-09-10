@@ -56,7 +56,7 @@ endif
 
 
 # basename of a YAML file in model/
-.PHONY: all clean setup gen-project gen-examples gendoc git-init-add git-init git-add git-commit git-status
+.PHONY: all clean setup gen-project gen-examples gen-doc git-init-add git-init git-add git-commit git-status
 
 # note: "help" MUST be the first target in the file,
 # when the user types "make" they should get help info
@@ -79,7 +79,7 @@ status: check-config
 	@echo "Source: $(SOURCE_SCHEMA_PATH)"
 
 # generate products and add everything to github
-setup: check-config git-init install gen-project gen-examples gendoc git-add git-commit
+setup: check-config git-init install gen-project gen-examples gen-doc git-add git-commit
 
 # install any dependencies required for building
 install:
@@ -110,7 +110,7 @@ create-data-harmonizer:
 	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
 
 all: site
-site: gen-project gendoc
+site: gen-project gen-doc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 
@@ -130,6 +130,8 @@ spell:
 
 gen-project-and-pydantic: gen-project gen-pydantic
 
+# use `linkml generate project` to generate jsonschema and jsonld
+# generate pydantic separately since `project` doesn't include pydantic (as of Sept. '24)
 gen-project: $(PYMODEL)
 	$(RUN) linkml generate project \
 		${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH)
@@ -205,11 +207,18 @@ $(PYMODEL):
 $(DOCDIR):
 	mkdir -p $@
 
-gendoc: $(DOCDIR)
+# TODO: WORK ON GEN DOCS NEXT
+gen-doc: $(DOCDIR)
 	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	# generate the JSON data for the d3 visualization:
+	$(RUN) generate_viz_json ; \
+	cp $(SRC)/docs/*.json $(DOCDIR) ; \
+	cp $(SRC)/docs/*.html $(DOCDIR) ; \
+	cp $(SRC)/docs/*.js $(DOCDIR) ; \
+	$(RUN) linkml generate doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
 
-testdoc: gendoc serve
+
+testdoc: gen-doc serve
 
 MKDOCS = $(RUN) mkdocs
 mkd-%:

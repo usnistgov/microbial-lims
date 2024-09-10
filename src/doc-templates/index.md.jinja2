@@ -1,19 +1,19 @@
-# {% if schema.title %}{{ schema.title }}{% else %}{{ schema.name }}{% endif %}
+# **{{ schema.title }}** <br>a data model for microbial strain experimental metadata.
 
-{% if schema.description %}{{ schema.description }}{% endif %}
+The Microbial Experiment Schema is a data model (expressed in
+[LinkML](https://linkml.io)) used by microbial strain researchers in the
+[Biosystems and Biomaterials Division](https://www.nist.gov/mml/bbd) at NIST.
 
-URI: {{ schema.id }}
+The top-level representation of an experiment is contained in the abstract
+{{ gen.link(schemaview.get_class('Experiment')) }} class. The expected specific metadata
+for each type of experiment are contained in sub-classes of 
+{{ gen.link(schemaview.get_class('Experiment')) }}, which correspond to experimental
+templates in the ELabFTW Electronic Lab Notebook software. Researchers enter metadata
+using an ELabFTW template, which is validated against this schema to ensure data
+integrity.
 
-Name: {{ schema.name }}
-
-{% if include_top_level_diagram %}
-
-## Schema Diagram
-
-```{{ gen.mermaid_directive() }}
-{{ gen.mermaid_diagram() }}
-```
-{% endif %}
+For a graphical overview of the schema structure, please see the following
+[interactive visualization](schema_visualization.html).
 
 ## Classes
 
