@@ -30,7 +30,7 @@ In particular, the following people have contributed to the project:
 This project makes heavy use of the [LinkML](https://linkml.io/) data modeling framework
 and the tooling it provides. It also relies on the [ELabFTW](https://elabftw.net)
 electronic laboratory notebook platform for data entry and user interaction. The efforts
-and assitance provided by the developers of both of these platforms are greatly
+and assistance provided by the developers of both of these platforms are greatly
 appreciated, including [Sierra Moxon](https://github.com/sierra-moxon),
 [Chris Mungall](https://github.com/cmungall), and
 [Nicolas Carpi](https://github.com/NicolasCARPi). 

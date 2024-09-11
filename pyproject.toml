@@ -36,4 +36,4 @@ build-backend = "poetry_dynamic_versioning.backend"
 docs = ["linkml", "mkdocs-material"]
 
 [tool.codespell]
-skip = './python/experiments.json'
+skip = './python/experiments.json,./site/*'
