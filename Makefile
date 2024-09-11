@@ -215,9 +215,9 @@ gen-doc: $(DOCDIR)
 	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
 	# generate the JSON data for the d3 visualization:
 	$(RUN) generate_viz_json ; \
-	cp $(SRC)/docs/*.json $(DOCDIR) ; \
-	cp $(SRC)/docs/*.html $(DOCDIR) ; \
-	cp $(SRC)/docs/*.js $(DOCDIR) ; \
+	cp $(SRC)/docs/*.json $(DOCDIR) || true ; \
+	cp $(SRC)/docs/*.html $(DOCDIR) || true ; \
+	cp $(SRC)/docs/*.js $(DOCDIR) || true ; \
 	$(RUN) linkml generate doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
 
 build-site: gen-doc

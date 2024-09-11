@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
 h1,h2,h3,h4,h5,h6,footer,p {
     font-family: Helvetica,sans-serif;
   }
@@ -45,29 +49,31 @@ h1,h2,h3,h4,h5,h6,footer,p {
   }
   .node text {
     font: 12px sans-serif;
-    text-shadow:-2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
   }
+  .node text.class-name {
+    font-weight: bold;
+  }
+
   .link {
-    fill: none; !important;
-    stroke: rgba(100, 100, 100, 0.4); !important;
-    stroke-width: 1.5px; !important;
+    fill: none !important;
+    stroke: rgba(100, 100, 100, 0.4) !important;
+    stroke-width: 1.5px !important;
   }
   .small-text {
       font-size: 0.8em;
   }
-  .highlight-box {
-      background-color: #f5f5f5; /* Very light grey background */
-      padding: 10px; /* Adds space around the content */
-      border: 1px solid #ddd; /* Light grey border */
-      border-radius: 5px; /* Rounded corners for the border */
-      margin: 10px 0; /* Adds some space above and below the box */
-  }
   
-  .highlight-box a {
-      color: #007bff; /* Link color (blue) */
-      text-decoration: underline; /* Underline links */
+.md-link {
+  font-weight: normal;
+}
+
+/* light theme colors */
+@media (prefers-color-scheme: light) { /* light system preference */
+  .node text {
+    fill: black;
+    text-shadow:-2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
   }
-  
+
   .md-link {
     fill: blue;  /* Sets the text color to blue */
   }
@@ -85,4 +91,92 @@ h1,h2,h3,h4,h5,h6,footer,p {
   }
   text.inherited-slot {
     fill: indianred;
+  }
+}
+
+[data-md-color-media="(prefers-color-scheme: light)"] { /* explicit choice of light theme */
+  .node text {
+    fill: black;
+    text-shadow:-2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+  }
+
+  .md-link {
+    fill: blue;  /* Sets the text color to blue */
+  }
+  
+  .md-link:visited {
+    fill: purple;  /* Changes the color to purple once visited */
+  }
+  
+  .md-link:hover {
+    fill: darkblue;  /* Changes the color on hover for visual feedback */
+  }
+
+  text.slot {
+    fill: darkslateblue;
+  }
+  text.inherited-slot {
+    fill: indianred;
+  }
+ }
+
+/* dark theme colors */
+@media (prefers-color-scheme: dark) {  /* dark system preference */
+  .node text {
+    fill: white;
+    text-shadow:-2px -2px 0 #222, 2px -2px 0 #222, -2px 2px 0 #222, 2px 2px 0 #222;
+  }
+
+  .md-link {
+    fill: rgb(129, 129, 166);  /* Sets the text color to blue */
+  }
+  
+  .md-link:visited {
+    fill: rgb(207, 159, 207);  /* Changes the color to purple once visited */
+  }
+  
+  .md-link:hover {
+    fill: rgb(147, 147, 203);  /* Changes the color on hover for visual feedback */
+  }
+
+  text.slot {
+    fill: rgb(191, 187, 217);
+  }
+  text.inherited-slot {
+    fill: rgb(215, 175, 175);
+  }
+}
+
+[data-md-color-media="(prefers-color-scheme: dark)"] {  /* explicit choice of dark theme */
+  .node text {
+    fill: white;
+    text-shadow:-2px -2px 0 #222, 2px -2px 0 #222, -2px 2px 0 #222, 2px 2px 0 #222;
+  }
+
+  .md-link {
+    fill: rgb(129, 129, 166);  /* Sets the text color to blue */
+  }
+  
+  .md-link:visited {
+    fill: rgb(207, 159, 207);  /* Changes the color to purple once visited */
+  }
+  
+  .md-link:hover {
+    fill: rgb(147, 147, 203);  /* Changes the color on hover for visual feedback */
+  }
+
+  text.slot {
+    fill: rgb(191, 187, 217);
+  }
+  text.inherited-slot {
+    fill: rgb(215, 175, 175);
+  }
+}
+
+  /* these help with placing the SVG in the mkdocs-material theme */
+  .md-grid {
+    max-width: 100%;
+  }
+  .md-content {
+    overflow-x: auto;
   }

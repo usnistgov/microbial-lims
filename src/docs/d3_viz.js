@@ -1,4 +1,4 @@
-function generateD3Tree(jsonFile, marginSettings) {
+function generateD3Tree(jsonFile, marginSettings, svg_figure) {
     d3.json(jsonFile, function (error, jsonData) {
         if (error) {
             console.log("Error loading JSON data:", error);
@@ -6,12 +6,8 @@ function generateD3Tree(jsonFile, marginSettings) {
         }
         var treeData = jsonData;
 
-        // D3 expects "children" in its structure, so need to rework JSON so that the
-        // slots are put under children with "name" and "parent" keys
-
-        // Shared code here...
         var margin = marginSettings,
-            width = 1600 - margin.right - margin.left,
+            width = 1200 - margin.right - margin.left,
             height = 2000 - margin.top - margin.bottom;
 
         var i = 0,
@@ -26,7 +22,7 @@ function generateD3Tree(jsonFile, marginSettings) {
                 return [d.y, d.x];
             });
 
-        var svg = d3.select("body").append("svg")
+        var svg = svg_figure
             .attr("width", width + margin.right + margin.left)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -66,7 +62,7 @@ function generateD3Tree(jsonFile, marginSettings) {
 
             // Enter any new nodes at the parent's previous position.
             var nodeEnter = node.enter().append("g")
-                .attr("class", "node")
+                .classed("node", true)
                 .attr("transform", function (d) {
                     return "translate(" + source.y0 + "," + source.x0 + ")";
                 })
@@ -102,21 +98,25 @@ function generateD3Tree(jsonFile, marginSettings) {
                     // if matched, then this is an inherited slot so link should be just to the first group
                     let matched = re.exec(nodeName);
                     linkName = matched ? matched[1] : nodeName
+                    linkName = `../${linkName}`
                     linkText = matched ? " (slot doc)" : " (class doc)"
 
                     // add styling for slots
                     if ( matched ) {
-                        nodeText.attr("class", "inherited-slot")
+                        nodeText.classed("inherited-slot", true)
                     } else {
                         // test if this is still a slot, but not inherited
                         if ( /^[a-z_]+$/.exec(nodeName) ) {
-                            nodeText.attr("class", "slot");
+                            nodeText.classed("slot", true);
                             linkText = " (slot doc)";
+                        }
+                        else {
+                            nodeText.classed("class-name", true)
                         }
                     }
 
                     nodeText.append("a")
-                        .attr("class", "md-link")  // Class for styling
+                        .classed("md-link", true)  // Class for styling
                         .attr("xlink:href", linkName)  // Set the hyperlink reference
                         .text(linkText);
                 })

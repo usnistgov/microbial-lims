@@ -1,5 +1,5 @@
 ---
-site_name: "microbial-experiment-schema"
+site_name: "Microbial Experiment Schema"
 theme:
   name: material
   palette:
@@ -21,7 +21,7 @@ theme:
       scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to system preference theme
       primary: light blue
   features:
     - content.tabs.link
@@ -31,7 +31,8 @@ plugins:
       version: 10.9.0
 nav:
   - Home: index.md
-  - Schema Visualization: schema_visualization.html
+  - Schema Visualization: schema_visualization.md
+  - Credits, Authorship, etc.: credits.md
 site_url: https://mml-lims.***REMOVED***.nist.gov/microbial-lims
 repo_url: https://***REMOVED***/mml-lims/microbial-lims
 
