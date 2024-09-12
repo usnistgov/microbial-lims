@@ -4604,7 +4604,7 @@
   "source_file": "microbial_experiment_schema.yaml",
   "source_file_date": "2024-09-10T14:00:16",
   "source_file_size": 47499,
-  "generation_date": "2024-09-10T14:00:20",
+  "generation_date": "2024-09-12T15:26:01",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",
