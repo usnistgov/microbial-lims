@@ -12,9 +12,9 @@ hide:
 -->
     
 <!-- load the d3.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="../d3.v7.min.js"></script>
 <script src="../d3_viz.js"></script>
-<svg id="d3_legend" height=26 width=400></svg>
+<svg id="d3_legend" height=26 width='100%'></svg>
 <svg id="d3_figure" style="height: 2000 !important; max-width: max-content"></svg>
 <!-- create a simple legend for slot colors -->
 <script>
