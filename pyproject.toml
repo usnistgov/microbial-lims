@@ -1,18 +1,23 @@
-[tool.poetry]
+[project]
 name = "microbial_experiment_schema"
 version = "0.0.0"
 description = "Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project"
-authors = ["Joshua Taillon <joshua.taillon@nist.gov>"]
+authors = [{name = "Joshua Taillon", email = "joshua.taillon@nist.gov>"}]
 license = "MIT"
 readme = "README.md"
-include = ["README.md", "src/microbial_experiment_schema/schema", "src/microbial_experiment_schema/datamodel", "project"]
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "linkml-runtime (>1.8.2)"
+]
 
-[tool.poetry.scripts]
+[project.optional-dependencies]
+docs = ["linkml", "mkdocs-material"]
+
+[project.scripts]
 generate_viz_json = "src.microbial_experiment_schema.scripts.generate_json:generate_viz_json"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-linkml-runtime = "^1.8.2"
+[tool.poetry]
+include = ["README.md", "src/microbial_experiment_schema/schema", "src/microbial_experiment_schema/datamodel", "project"]
 
 [tool.poetry.group.dev.dependencies]
 linkml = "^1.8.3"
@@ -31,9 +36,6 @@ style = "semver"
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
-
-[tool.poetry.extras]
-docs = ["linkml", "mkdocs-material"]
 
 [tool.codespell]
 skip = './python/experiments.json,./site/*,./**/d3.v7.min.js'
