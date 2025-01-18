@@ -59,7 +59,7 @@ classes:
       - instrument_id
 
   ExperimentWithInstrumentNoData:
-    title: Experiment with Insrument and No Data
+    title: Experiment with Instrument and No Data
     description: Holds information about a specific type of Microbial Strain experiment that uses an instrument but does not collect data. The specific metadata for each type of experiment is controlled by "template data classes"
     abstract: true
     is_a: Experiment
@@ -1217,54 +1217,46 @@ enums:
     permissible_values:
       items:
         description: An ELabFTW item/resource record
-        title: items
   ELabExperimentType:
     title: ELabFTW Experiment Type
     description: Allowed record type value for an ELabFTW experiment
     permissible_values:
       experiments:
         description: An ELabFTW experiment record
-        title: experiments
   DurationUnitEnum:
     title: Duration Unit Enum
     description: Allowed time duration unit type values
     permissible_values:
       sec:
         description: seconds
-        title: sec
         exact_mappings:
           - qudt:SEC
       hr:
         description: hours
-        title: hr
         exact_mappings:
           - qudt:HR
       min:
         description: minutes
-        title: min
         exact_mappings:
           - qudt:MIN
   VolumeUnitEnum:
     title: Volume Unit Enum
     description: Allowed volume unit type values
     permissible_values:
-      mililiter:
+      mL:
         description: milliliters
-        title: mL
         exact_mappings:
           - qudt:MilliL
-      microliter:
+      µL:
         description: microliters
-        title: µL
         exact_mappings:
           - qudt:microL
   LengthUnitEnum:
     title: Length Unit Enum
     description: Allowed linear length unit type values
     permissible_values:
-      micrometer:
+      µm:
         description: micrometers
-        title: µm
         exact_mappings:
           - qudt:MilliM
   CountUnitEnum:
@@ -1273,97 +1265,79 @@ enums:
     permissible_values:
       events:
         description: event count
-        title: events
   FlowRateUnitEnum:
     title: Flow Rate Unit Enum
     description: Allowed flow rate unit type values
     permissible_values:
-      microliter_per_minute:
+      µL/min:
         description: microliters per minute
-        title: µL/min
   CFUMethodEnum:
     title: CFU Method Enum
     description: Allowed colony forming unit count method values
     permissible_values:
-      plate_spread:
+      Plate spread:
         description: a plate spread
-        title: Plate spread
-      drip_plate:
+      Drip plate:
         description: a drip plate
-        title: Drip plate
-      spiral_plater:
+      Spiral plater:
         description: a spiral plater
-        title: Spiral plater
-      droplet:
+      Droplet:
         description: a droplet
-        title: Droplet
-      other:
+      Other:
         description: all other CFU methods
-        title: Other
   FCInjectionModeEnum:
     title: Flow Cytometry Injection Mode Enum
     description: Allowed flow cytometry injection mode values
     permissible_values:
-      plate:
+      Plate:
         description: plate
-        title: Plate
-      tube:
+      Tube:
         description: tube
-        title: Tube
-      na:
+      NA:
         description: not applicable
-        title: NA
   FixationMethodEnum:
     title: Fixation Method Enum
     description: Allowed fixation method values
     permissible_values:
-      formaldehyde:
+      Formaldehyde:
         description: formaldehyde fixation
-        title: Formaldehyde
-      heat:
+      Heat:
         description: heat fixation
-        title: Heat
-      ethanol:
+      Ethanol:
         description: ethanol fixation
-        title: Ethanol
-      no_fixation:
+      None:
         description: no fixation performed
-        title: NoFixation
+        title: No Fixation
   AgitationEnum:
     title: Agitation Enum
     description: Allowed agitation speed unit type values
     permissible_values:
       rpm:
         description: revolutions per minute
-        title: rpm
-      x_g:
+      x g:
         description: x g
         todos:
           - Get better description of this value
-        title: x g
   IncubationAtmosphereEnum:
     title: Incubation Atmosphere Enum
     description: Allowed cell incubation atmosphere values
     permissible_values:
-      atmospheric:
+      Atmospheric:
         description: atmospheric conditions
-        title: Atmospheric
-      atmospheric_and_5_percent_co2:
+      Atmospheric + 5% CO2:
         description: atmospheric conditions with 5% carbon dioxide
-        title: Atmospheric + 5% CO2
-      anaerobic:
+      Anaerobic:
         description: anaerobic conditions
-        title: Anaerobic
   TemperatureUnitEnum:
     title: Temperature Unit Enum
     description: Allowed temperature unit type values
     permissible_values:
-      degrees_c:
+      oC:
         description: degrees celsius
         title: °C
         exact_mappings:
           - qudt:DEG_C
-      degrees_f:
+      oF:
         description: degrees fahrenheit
         title: °F
         exact_mappings:
@@ -1372,122 +1346,91 @@ enums:
     title: Microscopy Modalities Enum
     description: Allowed microscopy modality values
     permissible_values:
-      dic:
+      DIC:
         description: Digital image correlation
-        title: DIC
-      brightfield:
+      Brightfield:
         description: Bright field imaging
-        title: Brightfield
-      phase_contrast:
+      Phase Contrast:
         description: Phase contrast imaging
-        title: Phase Contrast
   NucleicAcidTypeEnum:
     title: Nucleic Acid Type Enum
     description: Allowed nucleic acid type values
     permissible_values:
-      rna:
+      RNA:
         description: Ribonucleic acid
-        title: RNA
-      dna:
+      DNA:
         description: Deoxyribonucleic acid
-        title: DNA
   ObjectivesEnum:
     title: Objectives Enum
     description: Allowed microscopy objective values
     permissible_values:
-      four_x:
+      4X:
         description: 4 times magnification
-        title: 4X
-      ten_x:
+      10X:
         description: 10 times magnification
-        title: 10X
-      twenty_x:
+      20X:
         description: 20 times magnification
-        title: 20X
-      fourty_x_oil:
+      40X oil:
         description: 40 times magnification with oil immersion
-        title: 40X oil
-      sixty_x_oil:
+      60X oil:
         description: 60 times magnification with oil immersion
-        title: 60X oil
-      sixty_x_water:
+      60X water:
         description: 60 times magnification with water immersion
-        title: 60X water
-      hundred_x_oil:
+      100X oil:
         description: 100 times magnification with oil immersion
-        title: 100X oil
   UnitlessEnum:
     title: Unitless Enum
     description: Allowed value for "unitless" numerical values
     permissible_values:
-      unitless:
+      Unitless:
         description: An explicitly unitless value
-        title: Unitless
   SamplePurposeCodeEnum:
     title: Sample Purpose Code Enum
     description: Allowed sample purpose code values
     permissible_values:
-      positive_control:
+      Positive control:
         description: Positive control
-        title: Positive control
-      negative_control: 
+      Negative control: 
         description: Negative control
-        title: Negative control
-      reference_cell:
+      Reference cell:
         description: Reference cell
-        title: Reference cell
-      reference_fluorescence:
+      Reference fluorescence:
         description: Reference for fluorescence
-        title: Reference fluorescence
-      reference_scattering:
+      Reference scattering:
         description: Reference for scattering
-        title: Reference scattering
-      reference_size:
+      Reference size:
         description: Reference for size
-        title: Reference size
-      reference_concentration:
+      Reference concentration:
         description: Reference for concentration
-        title: Reference concentration
-      quality_control:
+      Quality control:
         description: Quality control
-        title: Quality control
-      compensation_control:
+      Compensation control:
         description: Compensation control
-        title: Compensation control
-      test:
+      Test:
         description: A test sample
-        title: Test
-      other:
+      Other:
         description: All other sample purposes
-        title: Other 
   ImageTypeEnum:
     title: Image Type Enum
     description: Allowed microscopy image type values
     permissible_values:
-      time_lapse:
+      Time lapse:
         description: Time lapse imagery
-        title: Time lapse
-      area_scan:
+      Area scan:
         description: A scan of an area
-        title: Area scan
-      z_stack:
+      z stack:
         description: Z (focal) stack
-        title: z stack
-      na:
+      NA:
         description: Not applicable
-        title: NA
   TransmissionModeEnum:
     title: Transmission Mode Enum
     description: Allowed microscopy transmission mode values
     deprecated: (2024 June) this is too specific, use MicroscopyModalitiesEnum instead
     deprecated_element_has_exact_replacement: MicroscopyModalitiesEnum
     permissible_values:
-      dic:
+      DIC:
         description: Digital Image Correlation
-        title: DIC
-      brightfield:
+      Brightfield:
         description: Brightfield imaging
-        title: Brightfield
-      phase_contrast:
+      Phase Contrast:
         description: Phase contrast imaging
-        title: Phase Contrast

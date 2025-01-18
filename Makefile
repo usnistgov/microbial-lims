@@ -16,6 +16,7 @@ endif
 
 RUN = poetry run
 SCHEMA_NAME = $(LINKML_SCHEMA_NAME)
+PYDANTIC_NAME = $(LINKML_PYDANTIC_FILENAME)
 SOURCE_SCHEMA_PATH = $(LINKML_SCHEMA_SOURCE_PATH)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))
 LINKML_CONFIG = .linkmllint.yaml
@@ -74,6 +75,7 @@ help: status
 	@echo "make build-site -- build html pages from markdown"
 	@echo "make update -- updates linkml version"
 	@echo "make spell -- check spelling with codespell"
+	@echo "make gen-project-and-pydantic -- general project artifacts"
 	@echo "make help -- show this help"
 	@echo ""
 
@@ -117,14 +119,12 @@ site: gen-project gen-doc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 
-compile-sheets:
-	$(RUN) sheets2linkml --gsheet-id $(SHEET_ID) $(SHEET_TABS) > $(SHEET_MODULE_PATH).tmp && mv $(SHEET_MODULE_PATH).tmp $(SHEET_MODULE_PATH)
+# compile-sheets:
+# 	$(RUN) sheets2linkml --gsheet-id $(SHEET_ID) $(SHEET_TABS) > $(SHEET_MODULE_PATH).tmp && mv $(SHEET_MODULE_PATH).tmp $(SHEET_MODULE_PATH)
 
-# In future this will be done by conversion
-gen-examples:
-	cp src/data/examples/* $(EXAMPLEDIR)
-
-
+# # In future this will be done by conversion
+# gen-examples:
+# 	cp src/data/examples/* $(EXAMPLEDIR)
 
 spell:
 	poetry run codespell
@@ -156,8 +156,9 @@ ifneq ($(strip ${GEN_TS_ARGS}),)
 endif
 
 gen-pydantic:
-	$(RUN) linkml generate pydantic $(SOURCE_SCHEMA_PATH) > $(DEST)/pydantic/$(SCHEMA_NAME).py
-	cp $(DEST)/pydantic/$(SCHEMA_NAME).py $(PYMODEL)/
+	$(RUN) linkml generate pydantic $(SOURCE_SCHEMA_PATH) > $(DEST)/pydantic/$(PYDANTIC_NAME)
+	touch $(DEST)/pydantic/__init__.py
+	cp $(DEST)/pydantic/$(PYDANTIC_NAME) $(PYMODEL)/
 
 # test: test-schema test-python test-examples lint spell
 test: test-schema lint gen-doc spell
@@ -178,27 +179,27 @@ else
 	$(info Ok)
 endif
 
-convert-examples-to-%:
-	$(patsubst %, $(RUN) linkml-convert  % -s $(SOURCE_SCHEMA_PATH) -C Person, $(shell ${SHELL} find src/data/examples -name "*.yaml"))
+# convert-examples-to-%:
+# 	$(patsubst %, $(RUN) linkml-convert  % -s $(SOURCE_SCHEMA_PATH) -C Person, $(shell ${SHELL} find src/data/examples -name "*.yaml"))
 
-examples/%.yaml: src/data/examples/%.yaml
-	$(RUN) linkml-convert -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
-examples/%.json: src/data/examples/%.yaml
-	$(RUN) linkml-convert -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
-examples/%.ttl: src/data/examples/%.yaml
-	$(RUN) linkml-convert -P EXAMPLE=http://example.org/ -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
+# examples/%.yaml: src/data/examples/%.yaml
+# 	$(RUN) linkml-convert -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
+# examples/%.json: src/data/examples/%.yaml
+# 	$(RUN) linkml-convert -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
+# examples/%.ttl: src/data/examples/%.yaml
+# 	$(RUN) linkml-convert -P EXAMPLE=http://example.org/ -s $(SOURCE_SCHEMA_PATH) -C Person $< -o $@
 
-test-examples: examples/output
+# test-examples: examples/output
 
-examples/output: src/microbial_experiment_schema/schema/microbial_experiment_schema.yaml
-	mkdir -p $@
-	$(RUN) linkml-run-examples \
-		--output-formats json \
-		--output-formats yaml \
-		--counter-example-input-directory src/data/examples/invalid \
-		--input-directory src/data/examples/valid \
-		--output-directory $@ \
-		--schema $< > $@/README.md
+# examples/output: src/microbial_experiment_schema/schema/microbial_experiment_schema.yaml
+# 	mkdir -p $@
+# 	$(RUN) linkml-run-examples \
+# 		--output-formats json \
+# 		--output-formats yaml \
+# 		--counter-example-input-directory src/data/examples/invalid \
+# 		--input-directory src/data/examples/valid \
+# 		--output-directory $@ \
+# 		--schema $< > $@/README.md
 
 # Test documentation locally
 serve: mkd-serve

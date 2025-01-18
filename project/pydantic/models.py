@@ -112,9 +112,9 @@ class VolumeUnitEnum(str, Enum):
     Allowed volume unit type values
     """
     # milliliters
-    mL = "mililiter"
+    mL = "mL"
     # microliters
-    µL = "microliter"
+    µL = "µL"
 
 
 class LengthUnitEnum(str, Enum):
@@ -122,7 +122,7 @@ class LengthUnitEnum(str, Enum):
     Allowed linear length unit type values
     """
     # micrometers
-    µm = "micrometer"
+    µm = "µm"
 
 
 class CountUnitEnum(str, Enum):
@@ -138,7 +138,7 @@ class FlowRateUnitEnum(str, Enum):
     Allowed flow rate unit type values
     """
     # microliters per minute
-    µLSOLIDUSmin = "microliter_per_minute"
+    µLSOLIDUSmin = "µL/min"
 
 
 class CFUMethodEnum(str, Enum):
@@ -146,15 +146,15 @@ class CFUMethodEnum(str, Enum):
     Allowed colony forming unit count method values
     """
     # a plate spread
-    Plate_spread = "plate_spread"
+    Plate_spread = "Plate spread"
     # a drip plate
-    Drip_plate = "drip_plate"
+    Drip_plate = "Drip plate"
     # a spiral plater
-    Spiral_plater = "spiral_plater"
+    Spiral_plater = "Spiral plater"
     # a droplet
-    Droplet = "droplet"
+    Droplet = "Droplet"
     # all other CFU methods
-    Other = "other"
+    Other = "Other"
 
 
 class FCInjectionModeEnum(str, Enum):
@@ -162,11 +162,11 @@ class FCInjectionModeEnum(str, Enum):
     Allowed flow cytometry injection mode values
     """
     # plate
-    Plate = "plate"
+    Plate = "Plate"
     # tube
-    Tube = "tube"
+    Tube = "Tube"
     # not applicable
-    NA = "na"
+    NA = "NA"
 
 
 class FixationMethodEnum(str, Enum):
@@ -174,13 +174,13 @@ class FixationMethodEnum(str, Enum):
     Allowed fixation method values
     """
     # formaldehyde fixation
-    Formaldehyde = "formaldehyde"
+    Formaldehyde = "Formaldehyde"
     # heat fixation
-    Heat = "heat"
+    Heat = "Heat"
     # ethanol fixation
-    Ethanol = "ethanol"
+    Ethanol = "Ethanol"
     # no fixation performed
-    NoFixation = "no_fixation"
+    No_Fixation = "None"
 
 
 class AgitationEnum(str, Enum):
@@ -190,7 +190,7 @@ class AgitationEnum(str, Enum):
     # revolutions per minute
     rpm = "rpm"
     # x g
-    x_g = "x_g"
+    x_g = "x g"
 
 
 class IncubationAtmosphereEnum(str, Enum):
@@ -198,11 +198,11 @@ class IncubationAtmosphereEnum(str, Enum):
     Allowed cell incubation atmosphere values
     """
     # atmospheric conditions
-    Atmospheric = "atmospheric"
+    Atmospheric = "Atmospheric"
     # atmospheric conditions with 5% carbon dioxide
-    Atmospheric_PLUS_SIGN_5PERCENT_SIGN_CO2 = "atmospheric_and_5_percent_co2"
+    Atmospheric_PLUS_SIGN_5PERCENT_SIGN_CO2 = "Atmospheric + 5% CO2"
     # anaerobic conditions
-    Anaerobic = "anaerobic"
+    Anaerobic = "Anaerobic"
 
 
 class TemperatureUnitEnum(str, Enum):
@@ -210,9 +210,9 @@ class TemperatureUnitEnum(str, Enum):
     Allowed temperature unit type values
     """
     # degrees celsius
-    DEGREE_SIGNC = "degrees_c"
+    DEGREE_SIGNC = "oC"
     # degrees fahrenheit
-    DEGREE_SIGNF = "degrees_f"
+    DEGREE_SIGNF = "oF"
 
 
 class MicroscopyModalitiesEnum(str, Enum):
@@ -220,11 +220,11 @@ class MicroscopyModalitiesEnum(str, Enum):
     Allowed microscopy modality values
     """
     # Digital image correlation
-    DIC = "dic"
+    DIC = "DIC"
     # Bright field imaging
-    Brightfield = "brightfield"
+    Brightfield = "Brightfield"
     # Phase contrast imaging
-    Phase_Contrast = "phase_contrast"
+    Phase_Contrast = "Phase Contrast"
 
 
 class NucleicAcidTypeEnum(str, Enum):
@@ -232,9 +232,9 @@ class NucleicAcidTypeEnum(str, Enum):
     Allowed nucleic acid type values
     """
     # Ribonucleic acid
-    RNA = "rna"
+    RNA = "RNA"
     # Deoxyribonucleic acid
-    DNA = "dna"
+    DNA = "DNA"
 
 
 class ObjectivesEnum(str, Enum):
@@ -242,19 +242,19 @@ class ObjectivesEnum(str, Enum):
     Allowed microscopy objective values
     """
     # 4 times magnification
-    number_4X = "four_x"
+    number_4X = "4X"
     # 10 times magnification
-    number_10X = "ten_x"
+    number_10X = "10X"
     # 20 times magnification
-    number_20X = "twenty_x"
+    number_20X = "20X"
     # 40 times magnification with oil immersion
-    number_40X_oil = "fourty_x_oil"
+    number_40X_oil = "40X oil"
     # 60 times magnification with oil immersion
-    number_60X_oil = "sixty_x_oil"
+    number_60X_oil = "60X oil"
     # 60 times magnification with water immersion
-    number_60X_water = "sixty_x_water"
+    number_60X_water = "60X water"
     # 100 times magnification with oil immersion
-    number_100X_oil = "hundred_x_oil"
+    number_100X_oil = "100X oil"
 
 
 class UnitlessEnum(str, Enum):
@@ -262,7 +262,7 @@ class UnitlessEnum(str, Enum):
     Allowed value for "unitless" numerical values
     """
     # An explicitly unitless value
-    Unitless = "unitless"
+    Unitless = "Unitless"
 
 
 class SamplePurposeCodeEnum(str, Enum):
@@ -270,27 +270,27 @@ class SamplePurposeCodeEnum(str, Enum):
     Allowed sample purpose code values
     """
     # Positive control
-    Positive_control = "positive_control"
+    Positive_control = "Positive control"
     # Negative control
-    Negative_control = "negative_control"
+    Negative_control = "Negative control"
     # Reference cell
-    Reference_cell = "reference_cell"
+    Reference_cell = "Reference cell"
     # Reference for fluorescence
-    Reference_fluorescence = "reference_fluorescence"
+    Reference_fluorescence = "Reference fluorescence"
     # Reference for scattering
-    Reference_scattering = "reference_scattering"
+    Reference_scattering = "Reference scattering"
     # Reference for size
-    Reference_size = "reference_size"
+    Reference_size = "Reference size"
     # Reference for concentration
-    Reference_concentration = "reference_concentration"
+    Reference_concentration = "Reference concentration"
     # Quality control
-    Quality_control = "quality_control"
+    Quality_control = "Quality control"
     # Compensation control
-    Compensation_control = "compensation_control"
+    Compensation_control = "Compensation control"
     # A test sample
-    Test = "test"
+    Test = "Test"
     # All other sample purposes
-    Other = "other"
+    Other = "Other"
 
 
 class ImageTypeEnum(str, Enum):
@@ -298,13 +298,13 @@ class ImageTypeEnum(str, Enum):
     Allowed microscopy image type values
     """
     # Time lapse imagery
-    Time_lapse = "time_lapse"
+    Time_lapse = "Time lapse"
     # A scan of an area
-    Area_scan = "area_scan"
+    Area_scan = "Area scan"
     # Z (focal) stack
-    z_stack = "z_stack"
+    z_stack = "z stack"
     # Not applicable
-    NA = "na"
+    NA = "NA"
 
 
 class TransmissionModeEnum(str, Enum):
@@ -312,11 +312,11 @@ class TransmissionModeEnum(str, Enum):
     Allowed microscopy transmission mode values
     """
     # Digital Image Correlation
-    DIC = "dic"
+    DIC = "DIC"
     # Brightfield imaging
-    Brightfield = "brightfield"
+    Brightfield = "Brightfield"
     # Phase contrast imaging
-    Phase_Contrast = "phase_contrast"
+    Phase_Contrast = "Phase Contrast"
 
 
 
@@ -378,7 +378,7 @@ class ExperimentWithInstrumentNoData(Experiment):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
-         'title': 'Experiment with Insrument and No Data'})
+         'title': 'Experiment with Instrument and No Data'})
 
     instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })

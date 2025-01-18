@@ -351,8 +351,7 @@
       "permissible_values": [
         {
           "text": "items",
-          "description": "An ELabFTW item/resource record",
-          "title": "items"
+          "description": "An ELabFTW item/resource record"
         }
       ]
     },
@@ -365,8 +364,7 @@
       "permissible_values": [
         {
           "text": "experiments",
-          "description": "An ELabFTW experiment record",
-          "title": "experiments"
+          "description": "An ELabFTW experiment record"
         }
       ]
     },
@@ -380,7 +378,6 @@
         {
           "text": "sec",
           "description": "seconds",
-          "title": "sec",
           "exact_mappings": [
             "qudt:SEC"
           ]
@@ -388,7 +385,6 @@
         {
           "text": "hr",
           "description": "hours",
-          "title": "hr",
           "exact_mappings": [
             "qudt:HR"
           ]
@@ -396,7 +392,6 @@
         {
           "text": "min",
           "description": "minutes",
-          "title": "min",
           "exact_mappings": [
             "qudt:MIN"
           ]
@@ -411,17 +406,15 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "mililiter",
+          "text": "mL",
           "description": "milliliters",
-          "title": "mL",
           "exact_mappings": [
             "qudt:MilliL"
           ]
         },
         {
-          "text": "microliter",
+          "text": "\u00b5L",
           "description": "microliters",
-          "title": "\u00b5L",
           "exact_mappings": [
             "qudt:microL"
           ]
@@ -436,9 +429,8 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "micrometer",
+          "text": "\u00b5m",
           "description": "micrometers",
-          "title": "\u00b5m",
           "exact_mappings": [
             "qudt:MilliM"
           ]
@@ -454,8 +446,7 @@
       "permissible_values": [
         {
           "text": "events",
-          "description": "event count",
-          "title": "events"
+          "description": "event count"
         }
       ]
     },
@@ -467,9 +458,8 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "microliter_per_minute",
-          "description": "microliters per minute",
-          "title": "\u00b5L/min"
+          "text": "\u00b5L/min",
+          "description": "microliters per minute"
         }
       ]
     },
@@ -481,29 +471,24 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "plate_spread",
-          "description": "a plate spread",
-          "title": "Plate spread"
+          "text": "Plate spread",
+          "description": "a plate spread"
         },
         {
-          "text": "drip_plate",
-          "description": "a drip plate",
-          "title": "Drip plate"
+          "text": "Drip plate",
+          "description": "a drip plate"
         },
         {
-          "text": "spiral_plater",
-          "description": "a spiral plater",
-          "title": "Spiral plater"
+          "text": "Spiral plater",
+          "description": "a spiral plater"
         },
         {
-          "text": "droplet",
-          "description": "a droplet",
-          "title": "Droplet"
+          "text": "Droplet",
+          "description": "a droplet"
         },
         {
-          "text": "other",
-          "description": "all other CFU methods",
-          "title": "Other"
+          "text": "Other",
+          "description": "all other CFU methods"
         }
       ]
     },
@@ -515,19 +500,16 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "plate",
-          "description": "plate",
-          "title": "Plate"
+          "text": "Plate",
+          "description": "plate"
         },
         {
-          "text": "tube",
-          "description": "tube",
-          "title": "Tube"
+          "text": "Tube",
+          "description": "tube"
         },
         {
-          "text": "na",
-          "description": "not applicable",
-          "title": "NA"
+          "text": "NA",
+          "description": "not applicable"
         }
       ]
     },
@@ -539,24 +521,21 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "formaldehyde",
-          "description": "formaldehyde fixation",
-          "title": "Formaldehyde"
+          "text": "Formaldehyde",
+          "description": "formaldehyde fixation"
         },
         {
-          "text": "heat",
-          "description": "heat fixation",
-          "title": "Heat"
+          "text": "Heat",
+          "description": "heat fixation"
         },
         {
-          "text": "ethanol",
-          "description": "ethanol fixation",
-          "title": "Ethanol"
+          "text": "Ethanol",
+          "description": "ethanol fixation"
         },
         {
-          "text": "no_fixation",
+          "text": "None",
           "description": "no fixation performed",
-          "title": "NoFixation"
+          "title": "No Fixation"
         }
       ]
     },
@@ -569,13 +548,11 @@
       "permissible_values": [
         {
           "text": "rpm",
-          "description": "revolutions per minute",
-          "title": "rpm"
+          "description": "revolutions per minute"
         },
         {
-          "text": "x_g",
+          "text": "x g",
           "description": "x g",
-          "title": "x g",
           "todos": [
             "Get better description of this value"
           ]
@@ -590,19 +567,16 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "atmospheric",
-          "description": "atmospheric conditions",
-          "title": "Atmospheric"
+          "text": "Atmospheric",
+          "description": "atmospheric conditions"
         },
         {
-          "text": "atmospheric_and_5_percent_co2",
-          "description": "atmospheric conditions with 5% carbon dioxide",
-          "title": "Atmospheric + 5% CO2"
+          "text": "Atmospheric + 5% CO2",
+          "description": "atmospheric conditions with 5% carbon dioxide"
         },
         {
-          "text": "anaerobic",
-          "description": "anaerobic conditions",
-          "title": "Anaerobic"
+          "text": "Anaerobic",
+          "description": "anaerobic conditions"
         }
       ]
     },
@@ -614,7 +588,7 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "degrees_c",
+          "text": "oC",
           "description": "degrees celsius",
           "title": "\u00b0C",
           "exact_mappings": [
@@ -622,7 +596,7 @@
           ]
         },
         {
-          "text": "degrees_f",
+          "text": "oF",
           "description": "degrees fahrenheit",
           "title": "\u00b0F",
           "exact_mappings": [
@@ -639,19 +613,16 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "dic",
-          "description": "Digital image correlation",
-          "title": "DIC"
+          "text": "DIC",
+          "description": "Digital image correlation"
         },
         {
-          "text": "brightfield",
-          "description": "Bright field imaging",
-          "title": "Brightfield"
+          "text": "Brightfield",
+          "description": "Bright field imaging"
         },
         {
-          "text": "phase_contrast",
-          "description": "Phase contrast imaging",
-          "title": "Phase Contrast"
+          "text": "Phase Contrast",
+          "description": "Phase contrast imaging"
         }
       ]
     },
@@ -663,14 +634,12 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "rna",
-          "description": "Ribonucleic acid",
-          "title": "RNA"
+          "text": "RNA",
+          "description": "Ribonucleic acid"
         },
         {
-          "text": "dna",
-          "description": "Deoxyribonucleic acid",
-          "title": "DNA"
+          "text": "DNA",
+          "description": "Deoxyribonucleic acid"
         }
       ]
     },
@@ -682,39 +651,32 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "four_x",
-          "description": "4 times magnification",
-          "title": "4X"
+          "text": "4X",
+          "description": "4 times magnification"
         },
         {
-          "text": "ten_x",
-          "description": "10 times magnification",
-          "title": "10X"
+          "text": "10X",
+          "description": "10 times magnification"
         },
         {
-          "text": "twenty_x",
-          "description": "20 times magnification",
-          "title": "20X"
+          "text": "20X",
+          "description": "20 times magnification"
         },
         {
-          "text": "fourty_x_oil",
-          "description": "40 times magnification with oil immersion",
-          "title": "40X oil"
+          "text": "40X oil",
+          "description": "40 times magnification with oil immersion"
         },
         {
-          "text": "sixty_x_oil",
-          "description": "60 times magnification with oil immersion",
-          "title": "60X oil"
+          "text": "60X oil",
+          "description": "60 times magnification with oil immersion"
         },
         {
-          "text": "sixty_x_water",
-          "description": "60 times magnification with water immersion",
-          "title": "60X water"
+          "text": "60X water",
+          "description": "60 times magnification with water immersion"
         },
         {
-          "text": "hundred_x_oil",
-          "description": "100 times magnification with oil immersion",
-          "title": "100X oil"
+          "text": "100X oil",
+          "description": "100 times magnification with oil immersion"
         }
       ]
     },
@@ -726,9 +688,8 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "unitless",
-          "description": "An explicitly unitless value",
-          "title": "Unitless"
+          "text": "Unitless",
+          "description": "An explicitly unitless value"
         }
       ]
     },
@@ -740,59 +701,48 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "positive_control",
-          "description": "Positive control",
-          "title": "Positive control"
+          "text": "Positive control",
+          "description": "Positive control"
         },
         {
-          "text": "negative_control",
-          "description": "Negative control",
-          "title": "Negative control"
+          "text": "Negative control",
+          "description": "Negative control"
         },
         {
-          "text": "reference_cell",
-          "description": "Reference cell",
-          "title": "Reference cell"
+          "text": "Reference cell",
+          "description": "Reference cell"
         },
         {
-          "text": "reference_fluorescence",
-          "description": "Reference for fluorescence",
-          "title": "Reference fluorescence"
+          "text": "Reference fluorescence",
+          "description": "Reference for fluorescence"
         },
         {
-          "text": "reference_scattering",
-          "description": "Reference for scattering",
-          "title": "Reference scattering"
+          "text": "Reference scattering",
+          "description": "Reference for scattering"
         },
         {
-          "text": "reference_size",
-          "description": "Reference for size",
-          "title": "Reference size"
+          "text": "Reference size",
+          "description": "Reference for size"
         },
         {
-          "text": "reference_concentration",
-          "description": "Reference for concentration",
-          "title": "Reference concentration"
+          "text": "Reference concentration",
+          "description": "Reference for concentration"
         },
         {
-          "text": "quality_control",
-          "description": "Quality control",
-          "title": "Quality control"
+          "text": "Quality control",
+          "description": "Quality control"
         },
         {
-          "text": "compensation_control",
-          "description": "Compensation control",
-          "title": "Compensation control"
+          "text": "Compensation control",
+          "description": "Compensation control"
         },
         {
-          "text": "test",
-          "description": "A test sample",
-          "title": "Test"
+          "text": "Test",
+          "description": "A test sample"
         },
         {
-          "text": "other",
-          "description": "All other sample purposes",
-          "title": "Other"
+          "text": "Other",
+          "description": "All other sample purposes"
         }
       ]
     },
@@ -804,24 +754,20 @@
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "permissible_values": [
         {
-          "text": "time_lapse",
-          "description": "Time lapse imagery",
-          "title": "Time lapse"
+          "text": "Time lapse",
+          "description": "Time lapse imagery"
         },
         {
-          "text": "area_scan",
-          "description": "A scan of an area",
-          "title": "Area scan"
+          "text": "Area scan",
+          "description": "A scan of an area"
         },
         {
-          "text": "z_stack",
-          "description": "Z (focal) stack",
-          "title": "z stack"
+          "text": "z stack",
+          "description": "Z (focal) stack"
         },
         {
-          "text": "na",
-          "description": "Not applicable",
-          "title": "NA"
+          "text": "NA",
+          "description": "Not applicable"
         }
       ]
     },
@@ -835,19 +781,16 @@
       "deprecated_element_has_exact_replacement": "MicroscopyModalitiesEnum",
       "permissible_values": [
         {
-          "text": "dic",
-          "description": "Digital Image Correlation",
-          "title": "DIC"
+          "text": "DIC",
+          "description": "Digital Image Correlation"
         },
         {
-          "text": "brightfield",
-          "description": "Brightfield imaging",
-          "title": "Brightfield"
+          "text": "Brightfield",
+          "description": "Brightfield imaging"
         },
         {
-          "text": "phase_contrast",
-          "description": "Phase contrast imaging",
-          "title": "Phase Contrast"
+          "text": "Phase Contrast",
+          "description": "Phase contrast imaging"
         }
       ]
     }
@@ -3269,7 +3212,7 @@
       "name": "ExperimentWithInstrumentNoData",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/ExperimentWithInstrumentNoData",
       "description": "Holds information about a specific type of Microbial Strain experiment that uses an instrument but does not collect data. The specific metadata for each type of experiment is controlled by \"template data classes\"",
-      "title": "Experiment with Insrument and No Data",
+      "title": "Experiment with Instrument and No Data",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "is_a": "Experiment",
       "abstract": true,
@@ -4602,9 +4545,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2024-09-10T14:00:16",
-  "source_file_size": 47499,
-  "generation_date": "2024-09-12T15:26:01",
+  "source_file_date": "2025-01-16T14:31:35",
+  "source_file_size": 46017,
+  "generation_date": "2025-01-17T13:53:54",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",

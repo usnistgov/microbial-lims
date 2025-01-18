@@ -4,7 +4,7 @@
             "description": "Allowed agitation speed unit type values",
             "enum": [
                 "rpm",
-                "x_g"
+                "x g"
             ],
             "title": "AgitationEnum",
             "type": "string"
@@ -231,11 +231,11 @@
         "CFUMethodEnum": {
             "description": "Allowed colony forming unit count method values",
             "enum": [
-                "plate_spread",
-                "drip_plate",
-                "spiral_plater",
-                "droplet",
-                "other"
+                "Plate spread",
+                "Drip plate",
+                "Spiral plater",
+                "Droplet",
+                "Other"
             ],
             "title": "CFUMethodEnum",
             "type": "string"
@@ -948,9 +948,9 @@
         "FCInjectionModeEnum": {
             "description": "Allowed flow cytometry injection mode values",
             "enum": [
-                "plate",
-                "tube",
-                "na"
+                "Plate",
+                "Tube",
+                "NA"
             ],
             "title": "FCInjectionModeEnum",
             "type": "string"
@@ -973,10 +973,10 @@
         "FixationMethodEnum": {
             "description": "Allowed fixation method values",
             "enum": [
-                "formaldehyde",
-                "heat",
-                "ethanol",
-                "no_fixation"
+                "Formaldehyde",
+                "Heat",
+                "Ethanol",
+                "None"
             ],
             "title": "FixationMethodEnum",
             "type": "string"
@@ -1002,7 +1002,7 @@
         "FlowRateUnitEnum": {
             "description": "Allowed flow rate unit type values",
             "enum": [
-                "microliter_per_minute"
+                "\u00b5L/min"
             ],
             "title": "FlowRateUnitEnum",
             "type": "string"
@@ -1134,10 +1134,10 @@
         "ImageTypeEnum": {
             "description": "Allowed microscopy image type values",
             "enum": [
-                "time_lapse",
-                "area_scan",
-                "z_stack",
-                "na"
+                "Time lapse",
+                "Area scan",
+                "z stack",
+                "NA"
             ],
             "title": "ImageTypeEnum",
             "type": "string"
@@ -1145,9 +1145,9 @@
         "IncubationAtmosphereEnum": {
             "description": "Allowed cell incubation atmosphere values",
             "enum": [
-                "atmospheric",
-                "atmospheric_and_5_percent_co2",
-                "anaerobic"
+                "Atmospheric",
+                "Atmospheric + 5% CO2",
+                "Anaerobic"
             ],
             "title": "IncubationAtmosphereEnum",
             "type": "string"
@@ -1333,7 +1333,7 @@
         "LengthUnitEnum": {
             "description": "Allowed linear length unit type values",
             "enum": [
-                "micrometer"
+                "\u00b5m"
             ],
             "title": "LengthUnitEnum",
             "type": "string"
@@ -1576,9 +1576,9 @@
         "MicroscopyModalitiesEnum": {
             "description": "Allowed microscopy modality values",
             "enum": [
-                "dic",
-                "brightfield",
-                "phase_contrast"
+                "DIC",
+                "Brightfield",
+                "Phase Contrast"
             ],
             "title": "MicroscopyModalitiesEnum",
             "type": "string"
@@ -1690,8 +1690,8 @@
         "NucleicAcidTypeEnum": {
             "description": "Allowed nucleic acid type values",
             "enum": [
-                "rna",
-                "dna"
+                "RNA",
+                "DNA"
             ],
             "title": "NucleicAcidTypeEnum",
             "type": "string"
@@ -1736,13 +1736,13 @@
         "ObjectivesEnum": {
             "description": "Allowed microscopy objective values",
             "enum": [
-                "four_x",
-                "ten_x",
-                "twenty_x",
-                "fourty_x_oil",
-                "sixty_x_oil",
-                "sixty_x_water",
-                "hundred_x_oil"
+                "4X",
+                "10X",
+                "20X",
+                "40X oil",
+                "60X oil",
+                "60X water",
+                "100X oil"
             ],
             "title": "ObjectivesEnum",
             "type": "string"
@@ -1798,17 +1798,17 @@
         "SamplePurposeCodeEnum": {
             "description": "Allowed sample purpose code values",
             "enum": [
-                "positive_control",
-                "negative_control",
-                "reference_cell",
-                "reference_fluorescence",
-                "reference_scattering",
-                "reference_size",
-                "reference_concentration",
-                "quality_control",
-                "compensation_control",
-                "test",
-                "other"
+                "Positive control",
+                "Negative control",
+                "Reference cell",
+                "Reference fluorescence",
+                "Reference scattering",
+                "Reference size",
+                "Reference concentration",
+                "Quality control",
+                "Compensation control",
+                "Test",
+                "Other"
             ],
             "title": "SamplePurposeCodeEnum",
             "type": "string"
@@ -1918,8 +1918,8 @@
         "TemperatureUnitEnum": {
             "description": "Allowed temperature unit type values",
             "enum": [
-                "degrees_c",
-                "degrees_f"
+                "oC",
+                "oF"
             ],
             "title": "TemperatureUnitEnum",
             "type": "string"
@@ -1947,9 +1947,9 @@
         "TransmissionModeEnum": {
             "description": "Allowed microscopy transmission mode values",
             "enum": [
-                "dic",
-                "brightfield",
-                "phase_contrast"
+                "DIC",
+                "Brightfield",
+                "Phase Contrast"
             ],
             "title": "TransmissionModeEnum",
             "type": "string"
@@ -1975,7 +1975,7 @@
         "UnitlessEnum": {
             "description": "Allowed value for \"unitless\" numerical values",
             "enum": [
-                "unitless"
+                "Unitless"
             ],
             "title": "UnitlessEnum",
             "type": "string"
@@ -2018,8 +2018,8 @@
         "VolumeUnitEnum": {
             "description": "Allowed volume unit type values",
             "enum": [
-                "mililiter",
-                "microliter"
+                "mL",
+                "\u00b5L"
             ],
             "title": "VolumeUnitEnum",
             "type": "string"

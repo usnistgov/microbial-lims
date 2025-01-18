@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "microbial_experiment_schema"
-version = "0.1.0"
+version = "0.0.0"
 description = "Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project"
 authors = ["Joshua Taillon <joshua.taillon@nist.gov>"]
 license = "MIT"
 readme = "README.md"
-include = ["README.md", "src/microbial_experiment_schema/schema", "project"]
+include = ["README.md", "src/microbial_experiment_schema/schema", "src/microbial_experiment_schema/datamodel", "project"]
 
 [tool.poetry.scripts]
 generate_viz_json = "src.microbial_experiment_schema.scripts.generate_json:generate_viz_json"
@@ -26,7 +26,7 @@ tomli = "^2.0.1"
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
-style = "pep440"
+style = "semver"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
