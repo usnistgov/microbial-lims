@@ -14,7 +14,7 @@ dependencies = [
 docs = ["linkml", "mkdocs-material"]
 
 [project.scripts]
-generate_viz_json = "src.microbial_experiment_schema.scripts.generate_json:generate_viz_json"
+generate_viz_json = "microbial_experiment_schema.scripts.generate_json:generate_viz_json"
 
 [tool.poetry]
 include = ["README.md", "src/microbial_experiment_schema/schema", "src/microbial_experiment_schema/datamodel", "project"]

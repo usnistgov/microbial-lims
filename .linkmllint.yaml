@@ -2,7 +2,7 @@
 extends: recommended
 rules:
   standard_naming:
-    level: warning
+    level: disabled
   permissible_values_format:
     level: disabled
   no_empty_title:
