@@ -878,14 +878,14 @@ slots:
 
   bead_lot_number_concentration_qc:
     title: BeadLotNumber_ConcentrationQC
-    range: ELabItemValue
+    range: StringValue
     description: Lot number of beads used for quality control of concentration measurements
     deprecated: (2024 June) unnecessary and unused
     required: false
 
   bead_lot_number_size_qc:
     title: BeadLotNumber_SizeQC
-    range: ELabItemValue
+    range: StringValue
     description: Lot number of beads used for quality control of size measurements
     deprecated: (2024 June) unnecessary and unused
     required: false
@@ -1149,7 +1149,7 @@ slots:
     title: QCReagentLotNumber
     description: The lot number for a QC reagent (link to an ELabFTW item)
     deprecated: (2024 June) this metadata term was determined to be unneeded, do not use
-    range: ELabItemValue
+    range: StringValue
     required: false
 
   sample_purpose_codes:

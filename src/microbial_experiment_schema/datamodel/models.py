@@ -690,10 +690,10 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
     acquisition_volume: Optional[VolumeValue] = Field(None, title="AcquisitionVolume", description="""Data acquisition volume as set by instrument""", json_schema_extra = { "linkml_meta": {'alias': 'acquisition_volume',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    bead_lot_number_concentration_qc: Optional[ELabItemValue] = Field(None, title="BeadLotNumber_ConcentrationQC", description="""Lot number of beads used for quality control of concentration measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_concentration_qc',
+    bead_lot_number_concentration_qc: Optional[StringValue] = Field(None, title="BeadLotNumber_ConcentrationQC", description="""Lot number of beads used for quality control of concentration measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_concentration_qc',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    bead_lot_number_size_qc: Optional[ELabItemValue] = Field(None, title="BeadLotNumber_SizeQC", description="""Lot number of beads used for quality control of size measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_size_qc',
+    bead_lot_number_size_qc: Optional[StringValue] = Field(None, title="BeadLotNumber_SizeQC", description="""Lot number of beads used for quality control of size measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_size_qc',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
     cell_volume: Optional[VolumeValue] = Field(None, title="CellVolume", description="""Volume of cell stock added to acquisition vessel""", json_schema_extra = { "linkml_meta": {'alias': 'cell_volume',
@@ -845,7 +845,7 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'domain_of': ['GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    qc_reagent_lot_number: Optional[ELabItemValue] = Field(None, title="QCReagentLotNumber", description="""The lot number for a QC reagent (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'qc_reagent_lot_number',
+    qc_reagent_lot_number: Optional[StringValue] = Field(None, title="QCReagentLotNumber", description="""The lot number for a QC reagent (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'qc_reagent_lot_number',
          'deprecated': '(2024 June) this metadata term was determined to be unneeded, '
                        'do not use',
          'domain_of': ['GenericTemplateDeprecated']} })

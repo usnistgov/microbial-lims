@@ -876,7 +876,7 @@
       "domain_of": [
         "GenericTemplateDeprecated"
       ],
-      "range": "ELabItemValue",
+      "range": "StringValue",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -892,7 +892,7 @@
       "domain_of": [
         "GenericTemplateDeprecated"
       ],
-      "range": "ELabItemValue",
+      "range": "StringValue",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1596,7 +1596,7 @@
       "domain_of": [
         "GenericTemplateDeprecated"
       ],
-      "range": "ELabItemValue",
+      "range": "StringValue",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4501,9 +4501,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2025-02-12T21:40:32",
-  "source_file_size": 46061,
-  "generation_date": "2025-02-12T21:47:23",
+  "source_file_date": "2025-02-12T22:20:18",
+  "source_file_size": 46055,
+  "generation_date": "2025-02-12T22:22:58",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",
