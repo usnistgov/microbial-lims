@@ -845,7 +845,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "DurationValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -862,7 +861,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "VolumeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -879,7 +877,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -896,7 +893,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -913,7 +909,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "VolumeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -931,7 +926,6 @@
         "CFU"
       ],
       "range": "CFUMethodValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -964,7 +958,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "LengthValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -997,7 +990,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1014,7 +1006,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "VolumeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1048,7 +1039,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "BooleanValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1065,7 +1055,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "CountValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1083,7 +1072,6 @@
         "GenericTemplate"
       ],
       "range": "StringValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1101,7 +1089,6 @@
         "GenericTemplate"
       ],
       "range": "NumberValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1118,7 +1105,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "StringValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1137,7 +1123,6 @@
         "GenericTemplate"
       ],
       "range": "FlowRateValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1156,7 +1141,6 @@
         "GenericTemplate"
       ],
       "range": "FCInjectionModeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1180,7 +1164,6 @@
         "CFU"
       ],
       "range": "FixationMethodValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1199,7 +1182,6 @@
         "GenericTemplate"
       ],
       "range": "FluorescentProbeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1216,7 +1198,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "DurationValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1236,7 +1217,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1258,7 +1238,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "AgitationValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1281,7 +1260,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "IncubationAtmosphereValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1304,7 +1282,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "DurationValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1327,7 +1304,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "TemperatureValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1344,7 +1320,6 @@
         "ExperimentWithInstrumentNoData"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1362,7 +1337,6 @@
         "GenericTemplate"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1380,7 +1354,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "DateValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1398,7 +1371,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "LabCASInstrumentValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1416,7 +1388,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "LabCASMicrobialMaterialIDValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1434,7 +1405,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "LabCASOperatorValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1452,7 +1422,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "LabCASProjectValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1469,7 +1438,6 @@
         "GenericTemplate"
       ],
       "range": "StringValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1496,7 +1464,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "MicrobialMaterialIDValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1513,7 +1480,6 @@
         "GenericTemplate"
       ],
       "range": "ModalitiesValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1531,7 +1497,6 @@
         "GenericTemplate"
       ],
       "range": "NucleicAcidTypeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1549,7 +1514,6 @@
         "GenericTemplate"
       ],
       "range": "ObjectivesValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1585,7 +1549,6 @@
         "GenericTemplate"
       ],
       "range": "BooleanValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1602,7 +1565,6 @@
         "GenericTemplate"
       ],
       "range": "UnitlessValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1635,7 +1597,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "ELabItemValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1662,7 +1623,6 @@
         "InitiateGrowthOfBSpizizenii"
       ],
       "range": "SamplePurposeCodesValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1679,7 +1639,6 @@
         "GenericTemplate"
       ],
       "range": "SeriesImageTypesValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1696,7 +1655,6 @@
         "GenericTemplate"
       ],
       "range": "BooleanValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1713,7 +1671,6 @@
         "GenericTemplate"
       ],
       "range": "BooleanValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1778,7 +1735,6 @@
         "GenericTemplateDeprecated"
       ],
       "range": "TransmissionModeValue",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4545,9 +4501,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2025-01-16T14:31:35",
-  "source_file_size": 46017,
-  "generation_date": "2025-01-17T13:53:54",
+  "source_file_date": "2025-02-12T21:40:32",
+  "source_file_size": 46061,
+  "generation_date": "2025-02-12T21:47:23",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",

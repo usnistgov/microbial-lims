@@ -361,7 +361,7 @@ class ExperimentWithInstrument(ExperimentWithData):
          'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'title': 'Experiment with Instrument'})
 
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -380,7 +380,7 @@ class ExperimentWithInstrumentNoData(Experiment):
          'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'title': 'Experiment with Instrument and No Data'})
 
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date', 'domain_of': ['Experiment']} })
     elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
@@ -398,25 +398,25 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                                           'range': 'CytoFLEXAcquisitionTemplateNameValue'}},
          'title': 'CytoFLEX_Acquisition'})
 
-    fc_acquisition_threshold_channel: StringValue = Field(..., title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
+    fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_acquisition_threshold_value: NumberValue = Field(..., title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
+    fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_flow_rate_setting: FlowRateValue = Field(..., title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CytoFLEXVolumeCalibration',
-                       'GenericTemplateDeprecated',
-                       'GenericTemplate']} })
-    fc_injection_mode: FCInjectionModeValue = Field(..., title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+    fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CytoFLEXVolumeCalibration',
+                       'GenericTemplateDeprecated',
+                       'GenericTemplate']} })
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -426,12 +426,12 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: FluorescentProbeValue = Field(..., title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -439,16 +439,7 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -457,7 +448,7 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -466,7 +457,16 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -479,7 +479,7 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -492,7 +492,7 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -512,11 +512,11 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                                           'range': 'NucleicAcidExtractionTemplateNameValue'}},
          'title': 'NucleicAcidExtraction'})
 
-    kit_lot_number: ELabItemValue = Field(..., title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
+    kit_lot_number: Optional[ELabItemValue] = Field(None, title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -529,11 +529,11 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    nucleic_acid_type: NucleicAcidTypeValue = Field(..., title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
+    nucleic_acid_type: Optional[NucleicAcidTypeValue] = Field(None, title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -546,7 +546,7 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -566,13 +566,13 @@ class CellCultureInBroth(Experiment):
                                           'range': 'CellCultureInBrothTemplateNameValue'}},
          'title': 'Cell Culture in Broth'})
 
-    growth_media_name: ELabItemValue = Field(..., title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
+    growth_media_name: Optional[ELabItemValue] = Field(None, title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
          'domain_of': ['CellCultureInBroth',
                        'GenericTemplateDeprecated',
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -580,16 +580,7 @@ class CellCultureInBroth(Experiment):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -598,7 +589,7 @@ class CellCultureInBroth(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -607,7 +598,16 @@ class CellCultureInBroth(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -620,7 +620,7 @@ class CellCultureInBroth(Experiment):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -649,22 +649,22 @@ class CytoFLEXVolumeCalibration(ExperimentWithInstrumentNoData):
                                           'range': 'CytoFLEXVolumeCalibrationTemplateNameValue'}},
          'title': 'CytoFLEX_VolumeCalibration'})
 
-    fc_flow_rate_setting: FlowRateValue = Field(..., title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
+    fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_injection_mode: FCInjectionModeValue = Field(..., title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+    fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    passed_volume_calibration: BooleanValue = Field(..., title="PassedVolumeCalibration", description="""(?) The volume that is passed during a volume calibration""", json_schema_extra = { "linkml_meta": {'alias': 'passed_volume_calibration',
+    passed_volume_calibration: Optional[BooleanValue] = Field(None, title="PassedVolumeCalibration", description="""(?) The volume that is passed during a volume calibration""", json_schema_extra = { "linkml_meta": {'alias': 'passed_volume_calibration',
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate'],
          'todos': ['double check description']} })
-    percent_volume_deviation: UnitlessValue = Field(..., title="PercentVolumeDeviation", description="""The volume deviation (measured volume divided by target volume) from a calibration experiment""", json_schema_extra = { "linkml_meta": {'alias': 'percent_volume_deviation',
+    percent_volume_deviation: Optional[UnitlessValue] = Field(None, title="PercentVolumeDeviation", description="""The volume deviation (measured volume divided by target volume) from a calibration experiment""", json_schema_extra = { "linkml_meta": {'alias': 'percent_volume_deviation',
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date', 'domain_of': ['Experiment']} })
     elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
@@ -684,60 +684,60 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'title': 'GenericTemplate_Deprecated'})
 
-    acquisition_time: DurationValue = Field(..., title="AcquisitionTime", description="""Data acquisition time as set by instrument""", json_schema_extra = { "linkml_meta": {'alias': 'acquisition_time',
+    acquisition_time: Optional[DurationValue] = Field(None, title="AcquisitionTime", description="""Data acquisition time as set by instrument""", json_schema_extra = { "linkml_meta": {'alias': 'acquisition_time',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    acquisition_volume: VolumeValue = Field(..., title="AcquisitionVolume", description="""Data acquisition volume as set by instrument""", json_schema_extra = { "linkml_meta": {'alias': 'acquisition_volume',
+    acquisition_volume: Optional[VolumeValue] = Field(None, title="AcquisitionVolume", description="""Data acquisition volume as set by instrument""", json_schema_extra = { "linkml_meta": {'alias': 'acquisition_volume',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    bead_lot_number_concentration_qc: ELabItemValue = Field(..., title="BeadLotNumber_ConcentrationQC", description="""Lot number of beads used for quality control of concentration measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_concentration_qc',
+    bead_lot_number_concentration_qc: Optional[ELabItemValue] = Field(None, title="BeadLotNumber_ConcentrationQC", description="""Lot number of beads used for quality control of concentration measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_concentration_qc',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    bead_lot_number_size_qc: ELabItemValue = Field(..., title="BeadLotNumber_SizeQC", description="""Lot number of beads used for quality control of size measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_size_qc',
+    bead_lot_number_size_qc: Optional[ELabItemValue] = Field(None, title="BeadLotNumber_SizeQC", description="""Lot number of beads used for quality control of size measurements""", json_schema_extra = { "linkml_meta": {'alias': 'bead_lot_number_size_qc',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    cell_volume: VolumeValue = Field(..., title="CellVolume", description="""Volume of cell stock added to acquisition vessel""", json_schema_extra = { "linkml_meta": {'alias': 'cell_volume',
+    cell_volume: Optional[VolumeValue] = Field(None, title="CellVolume", description="""Volume of cell stock added to acquisition vessel""", json_schema_extra = { "linkml_meta": {'alias': 'cell_volume',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    cfu_method: CFUMethodValue = Field(..., title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
+    cfu_method: Optional[CFUMethodValue] = Field(None, title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate', 'CFU']} })
-    coulter_aperture_size: LengthValue = Field(..., title="CoulterApertureSize", description="""Aperture installed on Coulter counter during measurement""", json_schema_extra = { "linkml_meta": {'alias': 'coulter_aperture_size',
+    coulter_aperture_size: Optional[LengthValue] = Field(None, title="CoulterApertureSize", description="""Aperture installed on Coulter counter during measurement""", json_schema_extra = { "linkml_meta": {'alias': 'coulter_aperture_size',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    diluent_name: ELabItemValue = Field(..., title="DiluentName", description="""Which diluent was used to suspend cells for acquisition (linked item)""", json_schema_extra = { "linkml_meta": {'alias': 'diluent_name',
+    diluent_name: Optional[ELabItemValue] = Field(None, title="DiluentName", description="""Which diluent was used to suspend cells for acquisition (linked item)""", json_schema_extra = { "linkml_meta": {'alias': 'diluent_name',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    diluent_volume: VolumeValue = Field(..., title="DiluentVolume", description="""Volume of diluent added to acquisition vessel""", json_schema_extra = { "linkml_meta": {'alias': 'diluent_volume',
+    diluent_volume: Optional[VolumeValue] = Field(None, title="DiluentVolume", description="""Volume of diluent added to acquisition vessel""", json_schema_extra = { "linkml_meta": {'alias': 'diluent_volume',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    error_flag: BooleanValue = Field(..., title="ErrorFlag", description="""Indicates if a known error appears in the dataset""", json_schema_extra = { "linkml_meta": {'alias': 'error_flag',
+    error_flag: Optional[BooleanValue] = Field(None, title="ErrorFlag", description="""Indicates if a known error appears in the dataset""", json_schema_extra = { "linkml_meta": {'alias': 'error_flag',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    fc_acquisition_count_target: CountValue = Field(..., title="FCAcquisitionCountTarget", description="""Set number of events to acquire in a particular gate on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_count_target',
+    fc_acquisition_count_target: Optional[CountValue] = Field(None, title="FCAcquisitionCountTarget", description="""Set number of events to acquire in a particular gate on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_count_target',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    fc_acquisition_threshold_channel: StringValue = Field(..., title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
+    fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_acquisition_threshold_value: NumberValue = Field(..., title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
+    fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_flow_rate_setting: FlowRateValue = Field(..., title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CytoFLEXVolumeCalibration',
-                       'GenericTemplateDeprecated',
-                       'GenericTemplate']} })
-    fc_fluorescent_channels: StringValue = Field(..., title="FCFluorescentChannels", description="""List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)""", json_schema_extra = { "linkml_meta": {'alias': 'fc_fluorescent_channels',
-         'deprecated': '(2024 June) unnecessary and unused',
-         'domain_of': ['GenericTemplateDeprecated']} })
-    fc_injection_mode: FCInjectionModeValue = Field(..., title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+    fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fc_fluorescent_channels: Optional[StringValue] = Field(None, title="FCFluorescentChannels", description="""List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)""", json_schema_extra = { "linkml_meta": {'alias': 'fc_fluorescent_channels',
+         'deprecated': '(2024 June) unnecessary and unused',
+         'domain_of': ['GenericTemplateDeprecated']} })
+    fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CytoFLEXVolumeCalibration',
+                       'GenericTemplateDeprecated',
+                       'GenericTemplate']} })
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -747,21 +747,21 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: FluorescentProbeValue = Field(..., title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    growth_duration: DurationValue = Field(..., title="GrowthDuration", description="""Time that cells were incubated to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'growth_duration',
+    growth_duration: Optional[DurationValue] = Field(None, title="GrowthDuration", description="""Time that cells were incubated to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'growth_duration',
          'deprecated': '(2024 June) unnecessary and unused',
          'domain_of': ['GenericTemplateDeprecated']} })
-    growth_media_name: ELabItemValue = Field(..., title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
+    growth_media_name: Optional[ELabItemValue] = Field(None, title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
          'domain_of': ['CellCultureInBroth',
                        'GenericTemplateDeprecated',
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -769,16 +769,7 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -787,7 +778,7 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -796,35 +787,44 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    kit_lot_number: ELabItemValue = Field(..., title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    kit_lot_number: Optional[ELabItemValue] = Field(None, title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    labcas_data_acquisition_date: DateValue = Field(..., title="LabCAS-DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_data_acquisition_date',
+    labcas_data_acquisition_date: Optional[DateValue] = Field(None, title="LabCAS-DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_data_acquisition_date',
          'deprecated': '(2024 June) this is too specific, use data_acquisition_date '
                        'instead',
          'deprecated_element_has_exact_replacement': 'data_acquisition_date',
          'domain_of': ['GenericTemplateDeprecated']} })
-    labcas_instrument: LabCASInstrumentValue = Field(..., title="LabCAS-Instrument", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_instrument',
+    labcas_instrument: Optional[LabCASInstrumentValue] = Field(None, title="LabCAS-Instrument", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_instrument',
          'deprecated': '(2024 June) this is too specific, use instrument_id instead',
          'deprecated_element_has_exact_replacement': 'instrument_id',
          'domain_of': ['GenericTemplateDeprecated']} })
-    labcas_microbial_material_id: LabCASMicrobialMaterialIDValue = Field(..., title="LabCAS-MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_microbial_material_id',
+    labcas_microbial_material_id: Optional[LabCASMicrobialMaterialIDValue] = Field(None, title="LabCAS-MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_microbial_material_id',
          'deprecated': '(2024 June) this is too specific, use microbial_material_id '
                        'instead',
          'deprecated_element_has_exact_replacement': 'microbial_material_id',
          'domain_of': ['GenericTemplateDeprecated']} })
-    labcas_operator: LabCASOperatorValue = Field(..., title="LabCAS-Operator", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_operator',
+    labcas_operator: Optional[LabCASOperatorValue] = Field(None, title="LabCAS-Operator", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_operator',
          'deprecated': '(2024 June) this is too specific, use operator_id instead',
          'deprecated_element_has_exact_replacement': 'operator_id',
          'domain_of': ['GenericTemplateDeprecated']} })
-    labcas_project: LabCASProjectValue = Field(..., title="LabCAS-Project", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_project',
+    labcas_project: Optional[LabCASProjectValue] = Field(None, title="LabCAS-Project", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'labcas_project',
          'deprecated': '(2024 June) this is too specific, use project_id instead',
          'deprecated_element_has_exact_replacement': 'project_id',
          'domain_of': ['GenericTemplateDeprecated']} })
-    library_prep: StringValue = Field(..., title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
+    library_prep: Optional[StringValue] = Field(None, title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -837,19 +837,19 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    nucleic_acid_type: NucleicAcidTypeValue = Field(..., title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
+    nucleic_acid_type: Optional[NucleicAcidTypeValue] = Field(None, title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    objective: ObjectivesValue = Field(..., title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
+    objective: Optional[ObjectivesValue] = Field(None, title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
          'domain_of': ['GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    qc_reagent_lot_number: ELabItemValue = Field(..., title="QCReagentLotNumber", description="""The lot number for a QC reagent (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'qc_reagent_lot_number',
+    qc_reagent_lot_number: Optional[ELabItemValue] = Field(None, title="QCReagentLotNumber", description="""The lot number for a QC reagent (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'qc_reagent_lot_number',
          'deprecated': '(2024 June) this metadata term was determined to be unneeded, '
                        'do not use',
          'domain_of': ['GenericTemplateDeprecated']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -862,11 +862,11 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    transmission_mode: TransmissionModeValue = Field(..., title="TransmissionMode", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'transmission_mode',
+    transmission_mode: Optional[TransmissionModeValue] = Field(None, title="TransmissionMode", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'transmission_mode',
          'deprecated': '(2024 June) this is too specific, use modalities instead',
          'deprecated_element_has_exact_replacement': 'modalities',
          'domain_of': ['GenericTemplateDeprecated']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -886,7 +886,7 @@ class FormaldehydeFixation(Experiment):
                                           'range': 'FormaldehydeFixationTemplateNameValue'}},
          'title': 'FormaldehydeFixation'})
 
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -896,7 +896,7 @@ class FormaldehydeFixation(Experiment):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -904,16 +904,7 @@ class FormaldehydeFixation(Experiment):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -922,7 +913,7 @@ class FormaldehydeFixation(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -931,7 +922,16 @@ class FormaldehydeFixation(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -944,7 +944,7 @@ class FormaldehydeFixation(Experiment):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -973,7 +973,7 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                                           'range': 'MicroscopyAcquisitionTemplateNameValue'}},
          'title': 'Microscopy_Acquisition'})
 
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -983,12 +983,12 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: FluorescentProbeValue = Field(..., title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -996,16 +996,7 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1014,7 +1005,7 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1023,7 +1014,16 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1036,13 +1036,13 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    modalities: ModalitiesValue = Field(..., title="Modalities", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'modalities',
+    modalities: Optional[ModalitiesValue] = Field(None, title="Modalities", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'modalities',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    objective: ObjectivesValue = Field(..., title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
+    objective: Optional[ObjectivesValue] = Field(None, title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
          'domain_of': ['GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1055,13 +1055,13 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    series_image_types: SeriesImageTypesValue = Field(..., title="SeriesImageTypes", description="""The types of series images acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_image_types',
+    series_image_types: Optional[SeriesImageTypesValue] = Field(None, title="SeriesImageTypes", description="""The types of series images acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_image_types',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    series_images: BooleanValue = Field(..., title="SeriesImages", description="""Whether series images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_images',
+    series_images: Optional[BooleanValue] = Field(None, title="SeriesImages", description="""Whether series images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    single_images: BooleanValue = Field(..., title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
+    single_images: Optional[BooleanValue] = Field(None, title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -1080,27 +1080,27 @@ class GenericTemplate(ExperimentWithInstrument):
          'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'title': 'GenericTemplate'})
 
-    cfu_method: CFUMethodValue = Field(..., title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
+    cfu_method: Optional[CFUMethodValue] = Field(None, title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate', 'CFU']} })
-    fc_acquisition_threshold_channel: StringValue = Field(..., title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
+    fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_acquisition_threshold_value: NumberValue = Field(..., title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
+    fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fc_flow_rate_setting: FlowRateValue = Field(..., title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CytoFLEXVolumeCalibration',
-                       'GenericTemplateDeprecated',
-                       'GenericTemplate']} })
-    fc_injection_mode: FCInjectionModeValue = Field(..., title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+    fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CytoFLEXVolumeCalibration',
+                       'GenericTemplateDeprecated',
+                       'GenericTemplate']} })
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1110,18 +1110,18 @@ class GenericTemplate(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: FluorescentProbeValue = Field(..., title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    growth_media_name: ELabItemValue = Field(..., title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
+    growth_media_name: Optional[ELabItemValue] = Field(None, title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
          'domain_of': ['CellCultureInBroth',
                        'GenericTemplateDeprecated',
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1129,16 +1129,7 @@ class GenericTemplate(ExperimentWithInstrument):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1147,7 +1138,7 @@ class GenericTemplate(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1156,13 +1147,22 @@ class GenericTemplate(ExperimentWithInstrument):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    kit_lot_number: ELabItemValue = Field(..., title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    kit_lot_number: Optional[ELabItemValue] = Field(None, title="KitLotNumber", description="""The lot number of any relevant kits (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'kit_lot_number',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    library_prep: StringValue = Field(..., title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
+    library_prep: Optional[StringValue] = Field(None, title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1175,22 +1175,22 @@ class GenericTemplate(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    modalities: ModalitiesValue = Field(..., title="Modalities", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'modalities',
+    modalities: Optional[ModalitiesValue] = Field(None, title="Modalities", description="""The type (modality) of a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'modalities',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    nucleic_acid_type: NucleicAcidTypeValue = Field(..., title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
+    nucleic_acid_type: Optional[NucleicAcidTypeValue] = Field(None, title="NucleicAcidType", description="""The type of nucleic acid used in an extraction experiment""", json_schema_extra = { "linkml_meta": {'alias': 'nucleic_acid_type',
          'domain_of': ['NucleicAcidExtraction',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
-    objective: ObjectivesValue = Field(..., title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
+    objective: Optional[ObjectivesValue] = Field(None, title="Objective", description="""The microscope objectives used in a microscopy acquisition experiment""", json_schema_extra = { "linkml_meta": {'alias': 'objective',
          'domain_of': ['GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
-    passed_volume_calibration: BooleanValue = Field(..., title="PassedVolumeCalibration", description="""(?) The volume that is passed during a volume calibration""", json_schema_extra = { "linkml_meta": {'alias': 'passed_volume_calibration',
+    passed_volume_calibration: Optional[BooleanValue] = Field(None, title="PassedVolumeCalibration", description="""(?) The volume that is passed during a volume calibration""", json_schema_extra = { "linkml_meta": {'alias': 'passed_volume_calibration',
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate'],
          'todos': ['double check description']} })
-    percent_volume_deviation: UnitlessValue = Field(..., title="PercentVolumeDeviation", description="""The volume deviation (measured volume divided by target volume) from a calibration experiment""", json_schema_extra = { "linkml_meta": {'alias': 'percent_volume_deviation',
+    percent_volume_deviation: Optional[UnitlessValue] = Field(None, title="PercentVolumeDeviation", description="""The volume deviation (measured volume divided by target volume) from a calibration experiment""", json_schema_extra = { "linkml_meta": {'alias': 'percent_volume_deviation',
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1203,13 +1203,13 @@ class GenericTemplate(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    series_image_types: SeriesImageTypesValue = Field(..., title="SeriesImageTypes", description="""The types of series images acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_image_types',
+    series_image_types: Optional[SeriesImageTypesValue] = Field(None, title="SeriesImageTypes", description="""The types of series images acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_image_types',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    series_images: BooleanValue = Field(..., title="SeriesImages", description="""Whether series images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_images',
+    series_images: Optional[BooleanValue] = Field(None, title="SeriesImages", description="""Whether series images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'series_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    single_images: BooleanValue = Field(..., title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
+    single_images: Optional[BooleanValue] = Field(None, title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -1229,7 +1229,7 @@ class CoulterAcquisition(ExperimentWithInstrument):
                                           'range': 'CoulterAcquisitionTemplateNameValue'}},
          'title': 'Coulter_Acquisition'})
 
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1239,7 +1239,7 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1252,7 +1252,7 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1265,7 +1265,7 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -1285,7 +1285,7 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                                           'range': 'BactoBoxAcquisitionTemplateNameValue'}},
          'title': 'BactoBox_Acquisition'})
 
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1295,7 +1295,7 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1308,7 +1308,7 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1321,7 +1321,7 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    instrument_id: ELabItemValue = Field(..., title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
+    instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)""", json_schema_extra = { "linkml_meta": {'alias': 'core_data_path', 'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)""", json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path', 'domain_of': ['ExperimentWithData']} })
@@ -1341,7 +1341,7 @@ class LogCOMETSamplePrep(Experiment):
                                           'range': 'LogCOMETSamplePrepTemplateNameValue'}},
          'title': 'LogCOMET_SamplePrep'})
 
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1351,7 +1351,7 @@ class LogCOMETSamplePrep(Experiment):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1364,7 +1364,7 @@ class LogCOMETSamplePrep(Experiment):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1393,9 +1393,9 @@ class CFU(ExperimentWithData):
                                           'range': 'CFUTemplateNameValue'}},
          'title': 'CFU'})
 
-    cfu_method: CFUMethodValue = Field(..., title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
+    cfu_method: Optional[CFUMethodValue] = Field(None, title="CFUMethod", description="""Describes deposition format of cells on agar plate""", json_schema_extra = { "linkml_meta": {'alias': 'cfu_method',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate', 'CFU']} })
-    fixation_method: FixationMethodValue = Field(..., title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
+    fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1405,13 +1405,13 @@ class CFU(ExperimentWithData):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    growth_media_name: ELabItemValue = Field(..., title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
+    growth_media_name: Optional[ELabItemValue] = Field(None, title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
          'domain_of': ['CellCultureInBroth',
                        'GenericTemplateDeprecated',
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1420,7 +1420,7 @@ class CFU(ExperimentWithData):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1429,7 +1429,7 @@ class CFU(ExperimentWithData):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1438,7 +1438,7 @@ class CFU(ExperimentWithData):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1451,7 +1451,7 @@ class CFU(ExperimentWithData):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1498,13 +1498,13 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                                           'range': 'InitiateGrowthOfBSpizizeniiTemplateNameValue'}},
          'title': 'Initiate Growth of B. spizizenii'})
 
-    growth_media_name: ELabItemValue = Field(..., title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
+    growth_media_name: Optional[ELabItemValue] = Field(None, title="GrowthMediaName", description="""Name of media used to culture cells (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'growth_media_name',
          'domain_of': ['CellCultureInBroth',
                        'GenericTemplateDeprecated',
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_agitation: AgitationValue = Field(..., title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
+    incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1512,16 +1512,7 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'MicroscopyAcquisition',
                        'GenericTemplate',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_atmosphere: IncubationAtmosphereValue = Field(..., title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
-         'domain_of': ['CytoFLEXAcquisition',
-                       'CellCultureInBroth',
-                       'GenericTemplateDeprecated',
-                       'FormaldehydeFixation',
-                       'MicroscopyAcquisition',
-                       'GenericTemplate',
-                       'CFU',
-                       'InitiateGrowthOfBSpizizenii']} })
-    incubation_duration: DurationValue = Field(..., title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
+    incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1530,7 +1521,7 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    incubation_temperature: TemperatureValue = Field(..., title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+    incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1539,7 +1530,16 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'GenericTemplate',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    microbial_material_id: MicrobialMaterialIDValue = Field(..., title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
+    incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
+         'domain_of': ['CytoFLEXAcquisition',
+                       'CellCultureInBroth',
+                       'GenericTemplateDeprecated',
+                       'FormaldehydeFixation',
+                       'MicroscopyAcquisition',
+                       'GenericTemplate',
+                       'CFU',
+                       'InitiateGrowthOfBSpizizenii']} })
+    microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1552,7 +1552,7 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'LogCOMETSamplePrep',
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
-    sample_purpose_codes: SamplePurposeCodesValue = Field(..., title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
+    sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',

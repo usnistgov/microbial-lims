@@ -64,15 +64,36 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -84,7 +105,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "specific_data_path": {
@@ -97,10 +125,6 @@
                 }
             },
             "required": [
-                "fixation_method",
-                "microbial_material_id",
-                "sample_purpose_codes",
-                "instrument_id",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
@@ -148,7 +172,14 @@
             "description": "Metadata describing a colony forming unit counting experiment",
             "properties": {
                 "cfu_method": {
-                    "$ref": "#/$defs/CFUMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CFUMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Describes deposition format of cells on agar plate"
                 },
                 "core_data_path": {
@@ -164,27 +195,69 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "growth_media_name": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Name of media used to culture cells (linked item from ELabFTW)"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -196,7 +269,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "specific_data_path": {
@@ -209,14 +289,6 @@
                 }
             },
             "required": [
-                "cfu_method",
-                "fixation_method",
-                "growth_media_name",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "sample_purpose_codes",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
@@ -287,27 +359,69 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "growth_media_name": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Name of media used to culture cells (linked item from ELabFTW)"
                 },
                 "incubation_agitation": {
-                    "$ref": "#/$defs/AgitationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgitationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Speed of agitation that cells were incubated during an experiment"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -319,7 +433,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "template_name": {
@@ -328,13 +449,6 @@
                 }
             },
             "required": [
-                "growth_media_name",
-                "incubation_agitation",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "sample_purpose_codes",
                 "data_acquisition_date",
                 "elab_experiment",
                 "operator_id",
@@ -377,15 +491,36 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -397,7 +532,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "specific_data_path": {
@@ -410,10 +552,6 @@
                 }
             },
             "required": [
-                "fixation_method",
-                "microbial_material_id",
-                "sample_purpose_codes",
-                "instrument_id",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
@@ -486,51 +624,135 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fc_acquisition_threshold_channel": {
-                    "$ref": "#/$defs/StringValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/StringValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Which channel as named by the manufacturer was used to threshold the data acquisition"
                 },
                 "fc_acquisition_threshold_value": {
-                    "$ref": "#/$defs/NumberValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/NumberValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry"
                 },
                 "fc_flow_rate_setting": {
-                    "$ref": "#/$defs/FlowRateValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FlowRateValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Set flow rate of data acquisition on flow cytometer"
                 },
                 "fc_injection_mode": {
-                    "$ref": "#/$defs/FCInjectionModeValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FCInjectionModeValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Sample acquisition format in flow cytometer"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "fluorescent_probe": {
-                    "$ref": "#/$defs/FluorescentProbeValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FluorescentProbeValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
                 },
                 "incubation_agitation": {
-                    "$ref": "#/$defs/AgitationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgitationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Speed of agitation that cells were incubated during an experiment"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -542,7 +764,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "specific_data_path": {
@@ -555,19 +784,6 @@
                 }
             },
             "required": [
-                "fc_acquisition_threshold_channel",
-                "fc_acquisition_threshold_value",
-                "fc_flow_rate_setting",
-                "fc_injection_mode",
-                "fixation_method",
-                "fluorescent_probe",
-                "incubation_agitation",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "sample_purpose_codes",
-                "instrument_id",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
@@ -608,15 +824,36 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fc_flow_rate_setting": {
-                    "$ref": "#/$defs/FlowRateValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FlowRateValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Set flow rate of data acquisition on flow cytometer"
                 },
                 "fc_injection_mode": {
-                    "$ref": "#/$defs/FCInjectionModeValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FCInjectionModeValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Sample acquisition format in flow cytometer"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "operator_id": {
@@ -624,11 +861,25 @@
                     "description": "Instrument operator during an experiment (a linked item from ELabFTW)"
                 },
                 "passed_volume_calibration": {
-                    "$ref": "#/$defs/BooleanValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BooleanValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "(?) The volume that is passed during a volume calibration"
                 },
                 "percent_volume_deviation": {
-                    "$ref": "#/$defs/UnitlessValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/UnitlessValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The volume deviation (measured volume divided by target volume) from a calibration experiment"
                 },
                 "project_id": {
@@ -641,11 +892,6 @@
                 }
             },
             "required": [
-                "fc_flow_rate_setting",
-                "fc_injection_mode",
-                "passed_volume_calibration",
-                "percent_volume_deviation",
-                "instrument_id",
                 "data_acquisition_date",
                 "elab_experiment",
                 "operator_id",
@@ -1058,27 +1304,69 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "incubation_agitation": {
-                    "$ref": "#/$defs/AgitationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgitationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Speed of agitation that cells were incubated during an experiment"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -1090,7 +1378,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "template_name": {
@@ -1099,13 +1394,6 @@
                 }
             },
             "required": [
-                "fixation_method",
-                "incubation_agitation",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "sample_purpose_codes",
                 "data_acquisition_date",
                 "elab_experiment",
                 "operator_id",
@@ -1179,27 +1467,69 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "growth_media_name": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Name of media used to culture cells (linked item from ELabFTW)"
                 },
                 "incubation_agitation": {
-                    "$ref": "#/$defs/AgitationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgitationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Speed of agitation that cells were incubated during an experiment"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -1211,7 +1541,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "template_name": {
@@ -1220,13 +1557,6 @@
                 }
             },
             "required": [
-                "growth_media_name",
-                "incubation_agitation",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "sample_purpose_codes",
                 "data_acquisition_date",
                 "elab_experiment",
                 "operator_id",
@@ -1371,11 +1701,25 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "operator_id": {
@@ -1387,7 +1731,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "template_name": {
@@ -1396,9 +1747,6 @@
                 }
             },
             "required": [
-                "fixation_method",
-                "microbial_material_id",
-                "sample_purpose_codes",
                 "data_acquisition_date",
                 "elab_experiment",
                 "operator_id",
@@ -1459,43 +1807,113 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "fixation_method": {
-                    "$ref": "#/$defs/FixationMethodValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FixationMethodValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Specific treatment applied to cells to prevent future changes"
                 },
                 "fluorescent_probe": {
-                    "$ref": "#/$defs/FluorescentProbeValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/FluorescentProbeValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
                 },
                 "incubation_agitation": {
-                    "$ref": "#/$defs/AgitationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgitationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Speed of agitation that cells were incubated during an experiment"
                 },
                 "incubation_atmosphere": {
-                    "$ref": "#/$defs/IncubationAtmosphereValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IncubationAtmosphereValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Atmosphere that cells were incubated in to encourage growth"
                 },
                 "incubation_duration": {
-                    "$ref": "#/$defs/DurationValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DurationValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Length of time that cells were incubated during an experiment"
                 },
                 "incubation_temperature": {
-                    "$ref": "#/$defs/TemperatureValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/TemperatureValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Temperature at which cells were incubated during an experiment or culture"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "modalities": {
-                    "$ref": "#/$defs/ModalitiesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ModalitiesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The type (modality) of a microscopy acquisition experiment"
                 },
                 "objective": {
-                    "$ref": "#/$defs/ObjectivesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ObjectivesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The microscope objectives used in a microscopy acquisition experiment"
                 },
                 "operator_id": {
@@ -1507,19 +1925,47 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "series_image_types": {
-                    "$ref": "#/$defs/SeriesImageTypesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SeriesImageTypesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of series images acquired in an experiment"
                 },
                 "series_images": {
-                    "$ref": "#/$defs/BooleanValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BooleanValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Whether series images were acquired in an experiment"
                 },
                 "single_images": {
-                    "$ref": "#/$defs/BooleanValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BooleanValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Whether single images were acquired in an experiment"
                 },
                 "specific_data_path": {
@@ -1532,20 +1978,6 @@
                 }
             },
             "required": [
-                "fixation_method",
-                "fluorescent_probe",
-                "incubation_agitation",
-                "incubation_atmosphere",
-                "incubation_duration",
-                "incubation_temperature",
-                "microbial_material_id",
-                "modalities",
-                "objective",
-                "sample_purpose_codes",
-                "series_image_types",
-                "series_images",
-                "single_images",
-                "instrument_id",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
@@ -1618,19 +2050,47 @@
                     "description": "A self-reference to this experiment record"
                 },
                 "instrument_id": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)"
                 },
                 "kit_lot_number": {
-                    "$ref": "#/$defs/ELabItemValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ELabItemValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The lot number of any relevant kits (linked item from ELabFTW)"
                 },
                 "microbial_material_id": {
-                    "$ref": "#/$defs/MicrobialMaterialIDValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MicrobialMaterialIDValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)"
                 },
                 "nucleic_acid_type": {
-                    "$ref": "#/$defs/NucleicAcidTypeValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/NucleicAcidTypeValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The type of nucleic acid used in an extraction experiment"
                 },
                 "operator_id": {
@@ -1642,7 +2102,14 @@
                     "description": "The project that an experiment supports (link to an ELabFTW item)"
                 },
                 "sample_purpose_codes": {
-                    "$ref": "#/$defs/SamplePurposeCodesValue",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SamplePurposeCodesValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
                     "description": "The types of samples acquired in an experiment (from a controlled list)"
                 },
                 "specific_data_path": {
@@ -1655,11 +2122,6 @@
                 }
             },
             "required": [
-                "kit_lot_number",
-                "microbial_material_id",
-                "nucleic_acid_type",
-                "sample_purpose_codes",
-                "instrument_id",
                 "core_data_path",
                 "specific_data_path",
                 "data_acquisition_date",
