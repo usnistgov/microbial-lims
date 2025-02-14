@@ -53,7 +53,7 @@
             "properties": {
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -117,7 +117,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/BactoBoxAcquisitionTemplateNameValue",
@@ -184,7 +184,7 @@
                 },
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -281,7 +281,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/CFUTemplateNameValue",
@@ -480,7 +480,7 @@
             "properties": {
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -544,7 +544,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/CoulterAcquisitionTemplateNameValue",
@@ -613,7 +613,7 @@
             "properties": {
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -776,7 +776,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/CytoFLEXAcquisitionTemplateNameValue",
@@ -1796,7 +1796,7 @@
             "properties": {
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -1970,7 +1970,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/MicroscopyAcquisitionTemplateNameValue",
@@ -2039,7 +2039,7 @@
             "properties": {
                 "core_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)"
+                    "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n"
                 },
                 "data_acquisition_date": {
                     "$ref": "#/$defs/DateValue",
@@ -2114,7 +2114,7 @@
                 },
                 "specific_data_path": {
                     "$ref": "#/$defs/UriValue",
-                    "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)"
+                    "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n"
                 },
                 "template_name": {
                     "$ref": "#/$defs/NucleicAcidExtractionTemplateNameValue",
@@ -2513,5 +2513,5 @@
     "metamodel_version": "1.7.0",
     "title": "microbial-experiment-schema",
     "type": "object",
-    "version": "2024.09.04"
+    "version": "2025.02.14"
 }

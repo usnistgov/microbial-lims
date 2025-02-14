@@ -6,7 +6,7 @@
     "https://mml-lims.***REMOVED***.nist.gov/microbial-experiment-schema"
   ],
   "id": "https://w3id.org/usnistgov/microbial-experiment-schema",
-  "version": "2024.09.04",
+  "version": "2025.02.14",
   "imports": [
     "linkml:types"
   ],
@@ -932,7 +932,14 @@
     {
       "name": "core_data_path",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/core_data_path",
-      "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n",
       "title": "CoreDataPath",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/core_data_path",
@@ -964,6 +971,13 @@
     {
       "name": "data_acquisition_date",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/data_acquisition_date",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Date on which data were acquired according to eLabFTW record",
       "title": "DataAcquisitionDate",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1061,6 +1075,13 @@
     {
       "name": "fc_acquisition_threshold_channel",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_channel",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Fluorescence FC",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Which channel as named by the manufacturer was used to threshold the data acquisition",
       "title": "FCAcquisitionThresholdChannel",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1078,6 +1099,13 @@
     {
       "name": "fc_acquisition_threshold_value",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_acquisition_threshold_value",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Fluorescence FC",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry",
       "title": "FCAcquisitionThresholdValue",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1111,6 +1139,13 @@
     {
       "name": "fc_flow_rate_setting",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_flow_rate_setting",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Fluorescence FC",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Set flow rate of data acquisition on flow cytometer",
       "title": "FCFlowRateSetting",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1129,6 +1164,13 @@
     {
       "name": "fc_injection_mode",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fc_injection_mode",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Fluorescence FC",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Sample acquisition format in flow cytometer",
       "title": "FCInjectionMode",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1147,6 +1189,13 @@
     {
       "name": "fixation_method",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fixation_method",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Specific treatment applied to cells to prevent future changes",
       "title": "FixationMethod",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1170,6 +1219,13 @@
     {
       "name": "fluorescent_probe",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fluorescent_probe",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)",
       "title": "FluorescentProbe",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1223,6 +1279,13 @@
     {
       "name": "incubation_agitation",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_agitation",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Speed of agitation that cells were incubated during an experiment",
       "title": "IncubationAgitation",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1244,6 +1307,13 @@
     {
       "name": "incubation_atmosphere",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_atmosphere",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Atmosphere that cells were incubated in to encourage growth",
       "title": "IncubationAtmosphere",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1266,6 +1336,13 @@
     {
       "name": "incubation_duration",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_duration",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Length of time that cells were incubated during an experiment",
       "title": "IncubationDuration",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1288,6 +1365,13 @@
     {
       "name": "incubation_temperature",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/incubation_temperature",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Temperature at which cells were incubated during an experiment or culture",
       "title": "IncubationTemperature",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1310,6 +1394,13 @@
     {
       "name": "instrument_id",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/instrument_id",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
       "description": "The instrument used to acquire the data in an experiment (linked item from ELabFTW)",
       "title": "InstrumentID",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1444,6 +1535,13 @@
     {
       "name": "microbial_material_id",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/microbial_material_id",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)",
       "title": "MicrobialMaterialID",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1520,6 +1618,13 @@
     {
       "name": "operator_id",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/operator_id",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
       "description": "Instrument operator during an experiment (a linked item from ELabFTW)",
       "title": "OperatorID",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1571,6 +1676,13 @@
     {
       "name": "project_id",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/project_id",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
       "description": "The project that an experiment supports (link to an ELabFTW item)",
       "title": "ProjectID",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1603,6 +1715,13 @@
     {
       "name": "sample_purpose_codes",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/sample_purpose_codes",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "Generic Microbial",
+          "@type": "Annotation"
+        }
+      ],
       "description": "The types of samples acquired in an experiment (from a controlled list)",
       "title": "SamplePurposeCodes",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1677,7 +1796,14 @@
     {
       "name": "specific_data_path",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/specific_data_path",
-      "description": "Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        }
+      ],
+      "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n",
       "title": "SpecificDataPath",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/specific_data_path",
@@ -1708,6 +1834,18 @@
     {
       "name": "template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": [
+        {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "read_only",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1979,6 +2117,20 @@
     {
       "name": "CytoFLEXAcquisition_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2000,6 +2152,20 @@
     {
       "name": "NucleicAcidExtraction_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2021,6 +2187,20 @@
     {
       "name": "CellCultureInBroth_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2042,6 +2222,20 @@
     {
       "name": "CytoFLEXVolumeCalibration_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2063,6 +2257,20 @@
     {
       "name": "FormaldehydeFixation_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2084,6 +2292,20 @@
     {
       "name": "MicroscopyAcquisition_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2105,6 +2327,20 @@
     {
       "name": "CoulterAcquisition_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2126,6 +2362,20 @@
     {
       "name": "BactoBoxAcquisition_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2147,6 +2397,20 @@
     {
       "name": "LogCOMETSamplePrep_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2168,6 +2432,20 @@
     {
       "name": "CFU_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2189,6 +2467,20 @@
     {
       "name": "DifcoAmendedSporulationAgarProtocol_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2210,6 +2502,20 @@
     {
       "name": "InitiateGrowthOfBSpizizenii_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -2231,6 +2537,20 @@
     {
       "name": "SlideCleaning_template_name",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/template_name",
+      "annotations": {
+        "elabftw_group": {
+          "tag": "elabftw_group",
+          "value": "LabCAS",
+          "extensions": {},
+          "annotations": {}
+        },
+        "read_only": {
+          "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        }
+      },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
       "title": "TemplateName",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4501,9 +4821,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2025-02-12T22:20:18",
-  "source_file_size": 46055,
-  "generation_date": "2025-02-12T22:22:58",
+  "source_file_date": "2025-02-14T13:09:34",
+  "source_file_size": 47074,
+  "generation_date": "2025-02-14T13:09:40",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",

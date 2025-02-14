@@ -7,7 +7,7 @@
 id: https://w3id.org/usnistgov/microbial-experiment-schema
 name: microbial-experiment-schema
 title: Microbial Experiment Schema
-version: "2024.09.04"
+version: "2025.02.14"
 description: Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project
 license: NIST Public License
 see_also:
@@ -907,7 +907,11 @@ slots:
     title: CoreDataPath
     required: true
     range: UriValue
-    description: Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
+    description: >
+      Portion of the data pathway that will not change as the template is used to
+      generate experimental records (should be network-resolvable)
+    annotations:
+      elabftw_group: LabCAS
 
   coulter_aperture_size:
     title: CoulterApertureSize
@@ -921,6 +925,8 @@ slots:
     required: true
     range: DateValue
     description: Date on which data were acquired according to eLabFTW record
+    annotations:
+      elabftw_group: LabCAS
 
   diluent_name:
     title: DiluentName
@@ -962,12 +968,16 @@ slots:
     range: StringValue
     description: Which channel as named by the manufacturer was used to threshold the data acquisition
     required: false
+    annotations:
+      elabftw_group: Fluorescence FC
 
   fc_acquisition_threshold_value:
     title: FCAcquisitionThresholdValue
     range: NumberValue
     description: Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry
     required: false
+    annotations:
+      elabftw_group: Fluorescence FC
 
   fc_fluorescent_channels:
     title: FCFluorescentChannels
@@ -981,24 +991,32 @@ slots:
     range: FlowRateValue
     description: Set flow rate of data acquisition on flow cytometer
     required: false
+    annotations:
+      elabftw_group: Fluorescence FC
 
   fc_injection_mode:
     title: FCInjectionMode
     range: FCInjectionModeValue
     description: Sample acquisition format in flow cytometer
     required: false
+    annotations:
+      elabftw_group: Fluorescence FC
 
   fixation_method:
     title: FixationMethod
     description: Specific treatment applied to cells to prevent future changes
     range: FixationMethodValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
   
   fluorescent_probe:
     title: FluorescentProbe
     description: Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)
     range: FluorescentProbeValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
 
   growth_duration:
     title: GrowthDuration
@@ -1018,30 +1036,40 @@ slots:
     description: Speed of agitation that cells were incubated during an experiment
     range: AgitationValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
 
   incubation_atmosphere:
     title: IncubationAtmosphere
     description: Atmosphere that cells were incubated in to encourage growth
     range: IncubationAtmosphereValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
 
   incubation_duration:
     title: IncubationDuration
     description: Length of time that cells were incubated during an experiment
     range: DurationValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
 
   incubation_temperature:
     title: IncubationTemperature
     description: Temperature at which cells were incubated during an experiment or culture
     range: TemperatureValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
   
   instrument_id:
     title: InstrumentID
     description: The instrument used to acquire the data in an experiment (linked item from ELabFTW)
     range: ELabItemValue
     required: false
+    annotations:
+      elabftw_group: LabCAS
 
   kit_lot_number:
     title: KitLotNumber
@@ -1100,6 +1128,8 @@ slots:
     description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
     range: MicrobialMaterialIDValue
     required: false
+    annotations:
+      elabftw_group: LabCAS
 
   modalities:
     title: Modalities
@@ -1124,6 +1154,8 @@ slots:
     description: Instrument operator during an experiment (a linked item from ELabFTW)
     range: OperatorIDValue
     required: true
+    annotations:
+      elabftw_group: LabCAS
 
   passed_volume_calibration:
     title: PassedVolumeCalibration
@@ -1144,6 +1176,8 @@ slots:
     description: The project that an experiment supports (link to an ELabFTW item)
     range: ELabItemValue
     required: true
+    annotations:
+      elabftw_group: LabCAS
 
   qc_reagent_lot_number:
     title: QCReagentLotNumber
@@ -1157,6 +1191,8 @@ slots:
     description: The types of samples acquired in an experiment (from a controlled list)
     range: SamplePurposeCodesValue
     required: false
+    annotations:
+      elabftw_group: Generic Microbial
 
   series_image_types:
     title: SeriesImageTypes
@@ -1179,8 +1215,12 @@ slots:
   specific_data_path:
     title: SpecificDataPath
     required: true
-    description: Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)
+    description: >
+      Portion of the data pathway specific to data from a given experimental record 
+      (should be a sub-path of the location specified by `CoreDataPath`)
     range: UriValue
+    annotations:
+      elabftw_group: LabCAS
 
   status_title:
     title: StatusTitle
@@ -1192,6 +1232,9 @@ slots:
     required: true
     description: The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.
     range: StringValue
+    annotations:
+      elabftw_group: LabCAS
+      read_only: true
 
   transmission_mode:
     title: TransmissionMode
