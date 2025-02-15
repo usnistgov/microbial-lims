@@ -7,7 +7,7 @@
 id: https://w3id.org/usnistgov/microbial-experiment-schema
 name: microbial-experiment-schema
 title: Microbial Experiment Schema
-version: "2024.09.04"
+version: "2025.02.14"
 description: Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project
 license: NIST Public License
 see_also:
@@ -867,74 +867,82 @@ slots:
     range: DurationValue
     description: Data acquisition time as set by instrument
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   acquisition_volume:
     title: AcquisitionVolume
     range: VolumeValue
     description: Data acquisition volume as set by instrument
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   bead_lot_number_concentration_qc:
     title: BeadLotNumber_ConcentrationQC
-    range: ELabItemValue
+    range: StringValue
     description: Lot number of beads used for quality control of concentration measurements
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   bead_lot_number_size_qc:
     title: BeadLotNumber_SizeQC
-    range: ELabItemValue
+    range: StringValue
     description: Lot number of beads used for quality control of size measurements
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   cell_volume:
     title: CellVolume
     range: VolumeValue
     description: Volume of cell stock added to acquisition vessel
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   cfu_method:
     title: CFUMethod
     range: CFUMethodValue
     description: Describes deposition format of cells on agar plate
-    required: true
+    required: false
     
   core_data_path:
     title: CoreDataPath
     required: true
     range: UriValue
-    description: Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
+    description: >
+      Portion of the data pathway that will not change as the template is used to
+      generate experimental records (should be network-resolvable)
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   coulter_aperture_size:
     title: CoulterApertureSize
     description: Aperture installed on Coulter counter during measurement
     range: LengthValue
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   data_acquisition_date:
     title: DataAcquisitionDate
     required: true
     range: DateValue
     description: Date on which data were acquired according to eLabFTW record
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   diluent_name:
     title: DiluentName
     range: ELabItemValue
     description: Which diluent was used to suspend cells for acquisition (linked item)
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   diluent_volume:
     title: DiluentVolume
     range: VolumeValue
     description: Volume of diluent added to acquisition vessel
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   elab_experiment:
     title: ELabFTW Experiment
@@ -942,112 +950,147 @@ slots:
     required: true
     range: ELabExperiment
     inlined_as_list: true
+    annotations:
+      elabftw_user_input: false
 
   error_flag:
     title: ErrorFlag
     range: BooleanValue
     description: Indicates if a known error appears in the dataset
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   fc_acquisition_count_target:
     title: FCAcquisitionCountTarget
     range: CountValue
     description: Set number of events to acquire in a particular gate on flow cytometer
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   fc_acquisition_threshold_channel:
     title: FCAcquisitionThresholdChannel
     range: StringValue
     description: Which channel as named by the manufacturer was used to threshold the data acquisition
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_acquisition_threshold_value:
     title: FCAcquisitionThresholdValue
     range: NumberValue
     description: Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_fluorescent_channels:
     title: FCFluorescentChannels
     range: StringValue
     description: List of fluorescent channels acquired during a flow cytometry experiment as named by the manufacturer (separated by semicolons)
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   fc_flow_rate_setting:
     title: FCFlowRateSetting
     range: FlowRateValue
     description: Set flow rate of data acquisition on flow cytometer
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_injection_mode:
     title: FCInjectionMode
     range: FCInjectionModeValue
     description: Sample acquisition format in flow cytometer
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fixation_method:
     title: FixationMethod
     description: Specific treatment applied to cells to prevent future changes
     range: FixationMethodValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
   
   fluorescent_probe:
     title: FluorescentProbe
     description: Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)
     range: FluorescentProbeValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   growth_duration:
     title: GrowthDuration
     description: Time that cells were incubated to encourage growth
     range: DurationValue
     deprecated: (2024 June) unnecessary and unused
-    required: true
+    required: false
 
   growth_media_name:
     title: GrowthMediaName
     description: Name of media used to culture cells (linked item from ELabFTW)
     range: ELabItemValue
-    required: true
+    required: false
 
   incubation_agitation:
     title: IncubationAgitation
     description: Speed of agitation that cells were incubated during an experiment
     range: AgitationValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_atmosphere:
     title: IncubationAtmosphere
     description: Atmosphere that cells were incubated in to encourage growth
     range: IncubationAtmosphereValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_duration:
     title: IncubationDuration
     description: Length of time that cells were incubated during an experiment
     range: DurationValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_temperature:
     title: IncubationTemperature
     description: Temperature at which cells were incubated during an experiment or culture
     range: TemperatureValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
   
   instrument_id:
     title: InstrumentID
     description: The instrument used to acquire the data in an experiment (linked item from ELabFTW)
     range: ELabItemValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   kit_lot_number:
     title: KitLotNumber
     description: The lot number of any relevant kits (linked item from ELabFTW)
     range: ELabItemValue
-    required: true
+    required: false
 
   labcas_data_acquisition_date:
     title: LabCAS-DataAcquisitionDate
@@ -1055,7 +1098,7 @@ slots:
     deprecated: (2024 June) this is too specific, use data_acquisition_date instead
     deprecated_element_has_exact_replacement: data_acquisition_date
     range: DateValue
-    required: true
+    required: false
 
   labcas_instrument:
     title: LabCAS-Instrument
@@ -1063,7 +1106,7 @@ slots:
     deprecated: (2024 June) this is too specific, use instrument_id instead
     deprecated_element_has_exact_replacement: instrument_id
     range: LabCASInstrumentValue
-    required: true
+    required: false
 
   labcas_microbial_material_id:
     title: LabCAS-MicrobialMaterialID
@@ -1071,7 +1114,7 @@ slots:
     deprecated: (2024 June) this is too specific, use microbial_material_id instead
     deprecated_element_has_exact_replacement: microbial_material_id
     range: LabCASMicrobialMaterialIDValue
-    required: true
+    required: false
 
   labcas_operator:
     title: LabCAS-Operator
@@ -1079,7 +1122,7 @@ slots:
     deprecated: (2024 June) this is too specific, use operator_id instead
     deprecated_element_has_exact_replacement: operator_id
     range: LabCASOperatorValue
-    required: true
+    required: false
 
   labcas_project:
     title: LabCAS-Project
@@ -1087,49 +1130,55 @@ slots:
     deprecated: (2024 June) this is too specific, use project_id instead
     deprecated_element_has_exact_replacement: project_id
     range: LabCASProjectValue
-    required: true
+    required: false
 
   library_prep:
     title: LibraryPrep
     description: The name of a specific kit used for sequencing preparation steps
     range: StringValue
-    required: true
+    required: false
 
   microbial_material_id:
     title: MicrobialMaterialID
     description: Cell material(s) used in experiment as named in the eLabFTW database (linked items)
     range: MicrobialMaterialIDValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   modalities:
     title: Modalities
     description: The type (modality) of a microscopy acquisition experiment
     range: ModalitiesValue
-    required: true
+    required: false
 
   nucleic_acid_type:
     title: NucleicAcidType
     description: The type of nucleic acid used in an extraction experiment
     range: NucleicAcidTypeValue
-    required: true
+    required: false
 
   objective:
     title: Objective
     description: The microscope objectives used in a microscopy acquisition experiment
     range: ObjectivesValue
-    required: true
+    required: false
 
   operator_id:
     title: OperatorID
     description: Instrument operator during an experiment (a linked item from ELabFTW)
     range: OperatorIDValue
     required: true
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   passed_volume_calibration:
     title: PassedVolumeCalibration
     description: (?) The volume that is passed during a volume calibration
     range: BooleanValue
-    required: true
+    required: false
     todos:
       - double check description
 
@@ -1137,50 +1186,61 @@ slots:
     title: PercentVolumeDeviation
     description: The volume deviation (measured volume divided by target volume) from a calibration experiment
     range: UnitlessValue
-    required: true
+    required: false
   
   project_id:
     title: ProjectID
     description: The project that an experiment supports (link to an ELabFTW item)
     range: ELabItemValue
     required: true
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   qc_reagent_lot_number:
     title: QCReagentLotNumber
     description: The lot number for a QC reagent (link to an ELabFTW item)
     deprecated: (2024 June) this metadata term was determined to be unneeded, do not use
-    range: ELabItemValue
-    required: true
+    range: StringValue
+    required: false
 
   sample_purpose_codes:
     title: SamplePurposeCodes
     description: The types of samples acquired in an experiment (from a controlled list)
     range: SamplePurposeCodesValue
-    required: true
+    required: false
+    annotations:
+      elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   series_image_types:
     title: SeriesImageTypes
     description: The types of series images acquired in an experiment
     range: SeriesImageTypesValue
-    required: true
+    required: false
 
   series_images:
     title: SeriesImages
     description: Whether series images were acquired in an experiment
     range: BooleanValue
-    required: true
+    required: false
 
   single_images:
     title: SingleImages
     description: Whether single images were acquired in an experiment
     range: BooleanValue
-    required: true
+    required: false
 
   specific_data_path:
     title: SpecificDataPath
     required: true
-    description: Portion of the data pathway specific to data from a given experimental record (should be a sub-path of the location specified by `CoreDataPath`)
+    description: >
+      Portion of the data pathway specific to data from a given experimental record 
+      (should be a sub-path of the location specified by `CoreDataPath`)
     range: UriValue
+    annotations:
+      elabftw_group: LabCAS
+      elabftw_user_input: true
 
   status_title:
     title: StatusTitle
@@ -1192,6 +1252,10 @@ slots:
     required: true
     description: The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.
     range: StringValue
+    annotations:
+      elabftw_group: LabCAS
+      read_only: true
+      elabftw_user_input: true
 
   transmission_mode:
     title: TransmissionMode
@@ -1199,7 +1263,7 @@ slots:
     deprecated: (2024 June) this is too specific, use modalities instead
     deprecated_element_has_exact_replacement: modalities
     range: TransmissionModeValue
-    required: true
+    required: false
 
 # optional: schema type extensions
 # types:
