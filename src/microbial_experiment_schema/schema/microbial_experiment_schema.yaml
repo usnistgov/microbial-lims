@@ -912,6 +912,7 @@ slots:
       generate experimental records (should be network-resolvable)
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   coulter_aperture_size:
     title: CoulterApertureSize
@@ -927,6 +928,7 @@ slots:
     description: Date on which data were acquired according to eLabFTW record
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   diluent_name:
     title: DiluentName
@@ -948,6 +950,8 @@ slots:
     required: true
     range: ELabExperiment
     inlined_as_list: true
+    annotations:
+      elabftw_user_input: false
 
   error_flag:
     title: ErrorFlag
@@ -970,6 +974,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_acquisition_threshold_value:
     title: FCAcquisitionThresholdValue
@@ -978,6 +983,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_fluorescent_channels:
     title: FCFluorescentChannels
@@ -993,6 +999,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fc_injection_mode:
     title: FCInjectionMode
@@ -1001,6 +1008,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Fluorescence FC
+      elabftw_user_input: true
 
   fixation_method:
     title: FixationMethod
@@ -1009,6 +1017,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
   
   fluorescent_probe:
     title: FluorescentProbe
@@ -1017,6 +1026,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   growth_duration:
     title: GrowthDuration
@@ -1038,6 +1048,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_atmosphere:
     title: IncubationAtmosphere
@@ -1046,6 +1057,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_duration:
     title: IncubationDuration
@@ -1054,6 +1066,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   incubation_temperature:
     title: IncubationTemperature
@@ -1062,6 +1075,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
   
   instrument_id:
     title: InstrumentID
@@ -1070,6 +1084,7 @@ slots:
     required: false
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   kit_lot_number:
     title: KitLotNumber
@@ -1130,6 +1145,7 @@ slots:
     required: false
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   modalities:
     title: Modalities
@@ -1156,6 +1172,7 @@ slots:
     required: true
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   passed_volume_calibration:
     title: PassedVolumeCalibration
@@ -1178,6 +1195,7 @@ slots:
     required: true
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   qc_reagent_lot_number:
     title: QCReagentLotNumber
@@ -1193,6 +1211,7 @@ slots:
     required: false
     annotations:
       elabftw_group: Generic Microbial
+      elabftw_user_input: true
 
   series_image_types:
     title: SeriesImageTypes
@@ -1221,6 +1240,7 @@ slots:
     range: UriValue
     annotations:
       elabftw_group: LabCAS
+      elabftw_user_input: true
 
   status_title:
     title: StatusTitle
@@ -1235,6 +1255,7 @@ slots:
     annotations:
       elabftw_group: LabCAS
       read_only: true
+      elabftw_user_input: true
 
   transmission_mode:
     title: TransmissionMode
