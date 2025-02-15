@@ -330,17 +330,28 @@ class Experiment(ConfiguredBaseModel):
          'tree_root': True})
 
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -355,24 +366,39 @@ class ExperimentWithData(Experiment):
 
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -386,28 +412,45 @@ class ExperimentWithInstrument(ExperimentWithData):
          'title': 'Experiment with Instrument'})
 
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -421,20 +464,33 @@ class ExperimentWithInstrumentNoData(Experiment):
          'title': 'Experiment with Instrument and No Data'})
 
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -450,33 +506,43 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
 
     fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -488,14 +554,18 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'CFU']} })
     fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -505,7 +575,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -516,7 +588,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -527,7 +601,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -537,7 +613,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -552,7 +630,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -566,28 +646,45 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: CytoFLEXAcquisitionTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -606,7 +703,9 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -625,7 +724,9 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                        'GenericTemplate']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -639,28 +740,45 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: NucleicAcidExtractionTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -682,7 +800,9 @@ class CellCultureInBroth(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -692,7 +812,9 @@ class CellCultureInBroth(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -703,7 +825,9 @@ class CellCultureInBroth(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -714,7 +838,9 @@ class CellCultureInBroth(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -724,7 +850,9 @@ class CellCultureInBroth(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -739,7 +867,9 @@ class CellCultureInBroth(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -753,17 +883,28 @@ class CellCultureInBroth(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: CellCultureInBrothTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -779,14 +920,18 @@ class CytoFLEXVolumeCalibration(ExperimentWithInstrumentNoData):
 
     fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
@@ -797,20 +942,33 @@ class CytoFLEXVolumeCalibration(ExperimentWithInstrumentNoData):
     percent_volume_deviation: Optional[UnitlessValue] = Field(None, title="PercentVolumeDeviation", description="""The volume deviation (measured volume divided by target volume) from a calibration experiment""", json_schema_extra = { "linkml_meta": {'alias': 'percent_volume_deviation',
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: CytoFLEXVolumeCalibrationTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -860,19 +1018,25 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'domain_of': ['GenericTemplateDeprecated']} })
     fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
@@ -882,14 +1046,18 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'domain_of': ['GenericTemplateDeprecated']} })
     fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -901,7 +1069,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'CFU']} })
     fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
@@ -917,7 +1087,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -927,7 +1099,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -938,7 +1112,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -949,7 +1125,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -987,7 +1165,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
     library_prep: Optional[StringValue] = Field(None, title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1014,7 +1194,9 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'domain_of': ['GenericTemplateDeprecated']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1032,28 +1214,45 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
          'deprecated_element_has_exact_replacement': 'modalities',
          'domain_of': ['GenericTemplateDeprecated']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1069,7 +1268,9 @@ class FormaldehydeFixation(Experiment):
 
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1081,7 +1282,9 @@ class FormaldehydeFixation(Experiment):
                        'CFU']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1091,7 +1294,9 @@ class FormaldehydeFixation(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1102,7 +1307,9 @@ class FormaldehydeFixation(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1113,7 +1320,9 @@ class FormaldehydeFixation(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1123,7 +1332,9 @@ class FormaldehydeFixation(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1138,7 +1349,9 @@ class FormaldehydeFixation(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1152,17 +1365,28 @@ class FormaldehydeFixation(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: FormaldehydeFixationTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1178,7 +1402,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
 
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1190,14 +1416,18 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'CFU']} })
     fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
                        'GenericTemplate']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1207,7 +1437,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1218,7 +1450,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1229,7 +1463,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1239,7 +1475,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1260,7 +1498,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'GenericTemplate']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1280,28 +1520,45 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
     single_images: Optional[BooleanValue] = Field(None, title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: MicroscopyAcquisitionTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1318,33 +1575,43 @@ class GenericTemplate(ExperimentWithInstrument):
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate', 'CFU']} })
     fc_acquisition_threshold_channel: Optional[StringValue] = Field(None, title="FCAcquisitionThresholdChannel", description="""Which channel as named by the manufacturer was used to threshold the data acquisition""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_channel',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_acquisition_threshold_value: Optional[NumberValue] = Field(None, title="FCAcquisitionThresholdValue", description="""Threshold value in arbitrary units that defines the lower limit of data acquisition in flow cytometry""", json_schema_extra = { "linkml_meta": {'alias': 'fc_acquisition_threshold_value',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_flow_rate_setting: Optional[FlowRateValue] = Field(None, title="FCFlowRateSetting", description="""Set flow rate of data acquisition on flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_flow_rate_setting',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fc_injection_mode: Optional[FCInjectionModeValue] = Field(None, title="FCInjectionMode", description="""Sample acquisition format in flow cytometer""", json_schema_extra = { "linkml_meta": {'alias': 'fc_injection_mode',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Fluorescence FC'}},
+                                           'value': 'Fluorescence FC'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CytoFLEXVolumeCalibration',
                        'GenericTemplateDeprecated',
                        'GenericTemplate']} })
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1356,7 +1623,9 @@ class GenericTemplate(ExperimentWithInstrument):
                        'CFU']} })
     fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'MicroscopyAcquisition',
@@ -1369,7 +1638,9 @@ class GenericTemplate(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1379,7 +1650,9 @@ class GenericTemplate(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1390,7 +1663,9 @@ class GenericTemplate(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1401,7 +1676,9 @@ class GenericTemplate(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1417,7 +1694,9 @@ class GenericTemplate(ExperimentWithInstrument):
     library_prep: Optional[StringValue] = Field(None, title="LibraryPrep", description="""The name of a specific kit used for sequencing preparation steps""", json_schema_extra = { "linkml_meta": {'alias': 'library_prep',
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1447,7 +1726,9 @@ class GenericTemplate(ExperimentWithInstrument):
          'domain_of': ['CytoFLEXVolumeCalibration', 'GenericTemplate']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1467,28 +1748,45 @@ class GenericTemplate(ExperimentWithInstrument):
     single_images: Optional[BooleanValue] = Field(None, title="SingleImages", description="""Whether single images were acquired in an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'single_images',
          'domain_of': ['MicroscopyAcquisition', 'GenericTemplate']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: StringValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1504,7 +1802,9 @@ class CoulterAcquisition(ExperimentWithInstrument):
 
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1515,7 +1815,9 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1530,7 +1832,9 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1544,28 +1848,45 @@ class CoulterAcquisition(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: CoulterAcquisitionTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1581,7 +1902,9 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
 
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1592,7 +1915,9 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'LogCOMETSamplePrep',
                        'CFU']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1607,7 +1932,9 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1621,28 +1948,45 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     instrument_id: Optional[ELabItemValue] = Field(None, title="InstrumentID", description="""The instrument used to acquire the data in an experiment (linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'instrument_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithInstrument', 'ExperimentWithInstrumentNoData']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: BactoBoxAcquisitionTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1658,7 +2002,9 @@ class LogCOMETSamplePrep(Experiment):
 
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1669,7 +2015,9 @@ class LogCOMETSamplePrep(Experiment):
                        'LogCOMETSamplePrep',
                        'CFU']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1684,7 +2032,9 @@ class LogCOMETSamplePrep(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1698,17 +2048,28 @@ class LogCOMETSamplePrep(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: LogCOMETSamplePrepTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1726,7 +2087,9 @@ class CFU(ExperimentWithData):
          'domain_of': ['GenericTemplateDeprecated', 'GenericTemplate', 'CFU']} })
     fixation_method: Optional[FixationMethodValue] = Field(None, title="FixationMethod", description="""Specific treatment applied to cells to prevent future changes""", json_schema_extra = { "linkml_meta": {'alias': 'fixation_method',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'GenericTemplateDeprecated',
                        'FormaldehydeFixation',
@@ -1744,7 +2107,9 @@ class CFU(ExperimentWithData):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1755,7 +2120,9 @@ class CFU(ExperimentWithData):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1766,7 +2133,9 @@ class CFU(ExperimentWithData):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1776,7 +2145,9 @@ class CFU(ExperimentWithData):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1791,7 +2162,9 @@ class CFU(ExperimentWithData):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1806,24 +2179,39 @@ class CFU(ExperimentWithData):
                        'InitiateGrowthOfBSpizizenii']} })
     core_data_path: UriValue = Field(..., title="CoreDataPath", description="""Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['ExperimentWithData']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: CFUTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1838,17 +2226,28 @@ class DifcoAmendedSporulationAgarProtocol(Experiment):
          'title': 'Difco Amended Sporulation Agar (ASA) Protocol'})
 
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: DifcoAmendedSporulationAgarProtocolTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1870,7 +2269,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_agitation: Optional[AgitationValue] = Field(None, title="IncubationAgitation", description="""Speed of agitation that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_agitation',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1880,7 +2281,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_atmosphere: Optional[IncubationAtmosphereValue] = Field(None, title="IncubationAtmosphere", description="""Atmosphere that cells were incubated in to encourage growth""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_atmosphere',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1891,7 +2294,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_duration: Optional[DurationValue] = Field(None, title="IncubationDuration", description="""Length of time that cells were incubated during an experiment""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_duration',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1902,7 +2307,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     incubation_temperature: Optional[TemperatureValue] = Field(None, title="IncubationTemperature", description="""Temperature at which cells were incubated during an experiment or culture""", json_schema_extra = { "linkml_meta": {'alias': 'incubation_temperature',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'CellCultureInBroth',
                        'GenericTemplateDeprecated',
@@ -1912,7 +2319,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     microbial_material_id: Optional[MicrobialMaterialIDValue] = Field(None, title="MicrobialMaterialID", description="""Cell material(s) used in experiment as named in the eLabFTW database (linked items)""", json_schema_extra = { "linkml_meta": {'alias': 'microbial_material_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1927,7 +2336,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'InitiateGrowthOfBSpizizenii']} })
     sample_purpose_codes: Optional[SamplePurposeCodesValue] = Field(None, title="SamplePurposeCodes", description="""The types of samples acquired in an experiment (from a controlled list)""", json_schema_extra = { "linkml_meta": {'alias': 'sample_purpose_codes',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
-                                           'value': 'Generic Microbial'}},
+                                           'value': 'Generic Microbial'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['CytoFLEXAcquisition',
                        'NucleicAcidExtraction',
                        'CellCultureInBroth',
@@ -1941,17 +2352,28 @@ class InitiateGrowthOfBSpizizenii(Experiment):
                        'CFU',
                        'InitiateGrowthOfBSpizizenii']} })
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: InitiateGrowthOfBSpizizeniiTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 
@@ -1966,17 +2388,28 @@ class SlideCleaning(Experiment):
          'title': 'SlideCleaning'})
 
     data_acquisition_date: DateValue = Field(..., title="DataAcquisitionDate", description="""Date on which data were acquired according to eLabFTW record""", json_schema_extra = { "linkml_meta": {'alias': 'data_acquisition_date',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
-    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment', 'domain_of': ['Experiment']} })
+    elab_experiment: ELabExperiment = Field(..., title="ELabFTW Experiment", description="""A self-reference to this experiment record""", json_schema_extra = { "linkml_meta": {'alias': 'elab_experiment',
+         'annotations': {'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': False}},
+         'domain_of': ['Experiment']} })
     operator_id: OperatorIDValue = Field(..., title="OperatorID", description="""Instrument operator during an experiment (a linked item from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'operator_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     project_id: ELabItemValue = Field(..., title="ProjectID", description="""The project that an experiment supports (link to an ELabFTW item)""", json_schema_extra = { "linkml_meta": {'alias': 'project_id',
-         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'}},
+         'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True}},
          'domain_of': ['Experiment']} })
     template_name: SlideCleaningTemplateNameValue = Field(..., title="TemplateName", description="""The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.""", json_schema_extra = { "linkml_meta": {'alias': 'template_name',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
+                         'elabftw_user_input': {'tag': 'elabftw_user_input',
+                                                'value': True},
                          'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['Experiment']} })
 

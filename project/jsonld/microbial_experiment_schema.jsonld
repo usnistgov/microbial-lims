@@ -937,6 +937,11 @@
           "tag": "elabftw_group",
           "value": "LabCAS",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n",
@@ -975,6 +980,11 @@
         {
           "tag": "elabftw_group",
           "value": "LabCAS",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1026,6 +1036,12 @@
     {
       "name": "elab_experiment",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/elab_experiment",
+      "annotations": [
+        {
+          "tag": "elabftw_user_input",
+          "@type": "Annotation"
+        }
+      ],
       "description": "A self-reference to this experiment record",
       "title": "ELabFTW Experiment",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -1080,6 +1096,11 @@
           "tag": "elabftw_group",
           "value": "Fluorescence FC",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Which channel as named by the manufacturer was used to threshold the data acquisition",
@@ -1103,6 +1124,11 @@
         {
           "tag": "elabftw_group",
           "value": "Fluorescence FC",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1144,6 +1170,11 @@
           "tag": "elabftw_group",
           "value": "Fluorescence FC",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Set flow rate of data acquisition on flow cytometer",
@@ -1169,6 +1200,11 @@
           "tag": "elabftw_group",
           "value": "Fluorescence FC",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Sample acquisition format in flow cytometer",
@@ -1193,6 +1229,11 @@
         {
           "tag": "elabftw_group",
           "value": "Generic Microbial",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1223,6 +1264,11 @@
         {
           "tag": "elabftw_group",
           "value": "Generic Microbial",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1284,6 +1330,11 @@
           "tag": "elabftw_group",
           "value": "Generic Microbial",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Speed of agitation that cells were incubated during an experiment",
@@ -1311,6 +1362,11 @@
         {
           "tag": "elabftw_group",
           "value": "Generic Microbial",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1341,6 +1397,11 @@
           "tag": "elabftw_group",
           "value": "Generic Microbial",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Length of time that cells were incubated during an experiment",
@@ -1370,6 +1431,11 @@
           "tag": "elabftw_group",
           "value": "Generic Microbial",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Temperature at which cells were incubated during an experiment or culture",
@@ -1398,6 +1464,11 @@
         {
           "tag": "elabftw_group",
           "value": "LabCAS",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1540,6 +1611,11 @@
           "tag": "elabftw_group",
           "value": "LabCAS",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Cell material(s) used in experiment as named in the eLabFTW database (linked items)",
@@ -1623,6 +1699,11 @@
           "tag": "elabftw_group",
           "value": "LabCAS",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Instrument operator during an experiment (a linked item from ELabFTW)",
@@ -1681,6 +1762,11 @@
           "tag": "elabftw_group",
           "value": "LabCAS",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "The project that an experiment supports (link to an ELabFTW item)",
@@ -1719,6 +1805,11 @@
         {
           "tag": "elabftw_group",
           "value": "Generic Microbial",
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
           "@type": "Annotation"
         }
       ],
@@ -1801,6 +1892,11 @@
           "tag": "elabftw_group",
           "value": "LabCAS",
           "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)\n",
@@ -1842,6 +1938,11 @@
         },
         {
           "tag": "read_only",
+          "value": true,
+          "@type": "Annotation"
+        },
+        {
+          "tag": "elabftw_user_input",
           "value": true,
           "@type": "Annotation"
         }
@@ -2129,6 +2230,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2161,6 +2268,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -2199,6 +2312,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2231,6 +2350,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -2269,6 +2394,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2301,6 +2432,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -2339,6 +2476,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2371,6 +2514,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -2409,6 +2558,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2441,6 +2596,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -2479,6 +2640,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2514,6 +2681,12 @@
           "value": true,
           "extensions": {},
           "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
         }
       },
       "description": "The name of the template used to collect metadata for an experiment in ELabFTW. This value controls what specific metadata fields are allowed.",
@@ -2546,6 +2719,12 @@
         },
         "read_only": {
           "tag": "read_only",
+          "value": true,
+          "extensions": {},
+          "annotations": {}
+        },
+        "elabftw_user_input": {
+          "tag": "elabftw_user_input",
           "value": true,
           "extensions": {},
           "annotations": {}
@@ -4821,9 +5000,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2025-02-14T13:09:34",
-  "source_file_size": 47074,
-  "generation_date": "2025-02-14T13:09:40",
+  "source_file_date": "2025-02-14T15:46:18",
+  "source_file_size": 47712,
+  "generation_date": "2025-02-14T17:28:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",
