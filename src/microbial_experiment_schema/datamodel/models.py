@@ -368,7 +368,8 @@ class ExperimentWithData(Experiment):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -420,7 +421,8 @@ class ExperimentWithInstrument(ExperimentWithData):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -499,7 +501,9 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
     """
     Metadata describing a data acquisition using the CytoFLEX instrument
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'CytoFLEXAcquisitionTemplateNameValue'}},
          'title': 'CytoFLEX_Acquisition'})
@@ -552,7 +556,7 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
                                            'value': 'Generic Microbial'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
@@ -654,7 +658,8 @@ class CytoFLEXAcquisition(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -693,7 +698,9 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
     """
     Metadata describing a nucleic acid extraction experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'NucleicAcidExtractionTemplateNameValue'}},
          'title': 'NucleicAcidExtraction'})
@@ -748,7 +755,8 @@ class NucleicAcidExtraction(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -787,7 +795,9 @@ class CellCultureInBroth(Experiment):
     """
     Metadata describing a cell culture experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'CellCultureInBrothTemplateNameValue'}},
          'title': 'Cell Culture in Broth'})
@@ -913,7 +923,9 @@ class CytoFLEXVolumeCalibration(ExperimentWithInstrumentNoData):
     """
     Metadata describing a volume calibration using the CytoFLEX instrument
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'CytoFLEXVolumeCalibrationTemplateNameValue'}},
          'title': 'CytoFLEX_VolumeCalibration'})
@@ -1067,7 +1079,7 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
                                            'value': 'Generic Microbial'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
@@ -1222,7 +1234,8 @@ class GenericTemplateDeprecated(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -1261,7 +1274,9 @@ class FormaldehydeFixation(Experiment):
     """
     Metadata describing a formaldehyde fixation experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'FormaldehydeFixationTemplateNameValue'}},
          'title': 'FormaldehydeFixation'})
@@ -1395,7 +1410,9 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
     """
     Metadata describing a microscopy acquisition experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'MicroscopyAcquisitionTemplateNameValue'}},
          'title': 'Microscopy_Acquisition'})
@@ -1414,7 +1431,7 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
                                            'value': 'Generic Microbial'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
@@ -1528,7 +1545,8 @@ class MicroscopyAcquisition(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -1621,7 +1639,7 @@ class GenericTemplate(ExperimentWithInstrument):
                        'BactoBoxAcquisition',
                        'LogCOMETSamplePrep',
                        'CFU']} })
-    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
+    fluorescent_probe: Optional[FluorescentProbeValue] = Field(None, title="FluorescentProbe", description="""Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW""", json_schema_extra = { "linkml_meta": {'alias': 'fluorescent_probe',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group',
                                            'value': 'Generic Microbial'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
@@ -1756,7 +1774,8 @@ class GenericTemplate(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -1795,7 +1814,9 @@ class CoulterAcquisition(ExperimentWithInstrument):
     """
     Metadata describing a Coulter counter acquisition experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'CoulterAcquisitionTemplateNameValue'}},
          'title': 'Coulter_Acquisition'})
@@ -1856,7 +1877,8 @@ class CoulterAcquisition(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -1895,7 +1917,9 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
     """
     Metadata describing a data acquisition experiment using the BactoBox
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'BactoBoxAcquisitionTemplateNameValue'}},
          'title': 'BactoBox_Acquisition'})
@@ -1956,7 +1980,8 @@ class BactoBoxAcquisition(ExperimentWithInstrument):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -1995,7 +2020,9 @@ class LogCOMETSamplePrep(Experiment):
     """
     Metadata describing a sample preparation process for a LOGComet experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'LogCOMETSamplePrepTemplateNameValue'}},
          'title': 'LogCOMET_SamplePrep'})
@@ -2078,7 +2105,9 @@ class CFU(ExperimentWithData):
     """
     Metadata describing a colony forming unit counting experiment
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'CFUTemplateNameValue'}},
          'title': 'CFU'})
@@ -2181,7 +2210,8 @@ class CFU(ExperimentWithData):
 """, json_schema_extra = { "linkml_meta": {'alias': 'core_data_path',
          'annotations': {'elabftw_group': {'tag': 'elabftw_group', 'value': 'LabCAS'},
                          'elabftw_user_input': {'tag': 'elabftw_user_input',
-                                                'value': True}},
+                                                'value': True},
+                         'read_only': {'tag': 'read_only', 'value': True}},
          'domain_of': ['ExperimentWithData']} })
     specific_data_path: UriValue = Field(..., title="SpecificDataPath", description="""Portion of the data pathway specific to data from a given experimental record  (should be a sub-path of the location specified by `CoreDataPath`)
 """, json_schema_extra = { "linkml_meta": {'alias': 'specific_data_path',
@@ -2220,7 +2250,9 @@ class DifcoAmendedSporulationAgarProtocol(Experiment):
     """
     Metadata describing the preparation process for amended sporulation agar
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'DifcoAmendedSporulationAgarProtocolTemplateNameValue'}},
          'title': 'Difco Amended Sporulation Agar (ASA) Protocol'})
@@ -2256,7 +2288,9 @@ class InitiateGrowthOfBSpizizenii(Experiment):
     """
     Metadata describing an initiate growth experiment of B. spizizenii
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'InitiateGrowthOfBSpizizeniiTemplateNameValue'}},
          'title': 'Initiate Growth of B. spizizenii'})
@@ -2382,7 +2416,9 @@ class SlideCleaning(Experiment):
     """
     Metadata describing an experiment preparing microscopy slides for microbial work
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'elabftw_template': {'tag': 'elabftw_template',
+                                              'value': True}},
+         'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'slot_usage': {'template_name': {'name': 'template_name',
                                           'range': 'SlideCleaningTemplateNameValue'}},
          'title': 'SlideCleaning'})
@@ -2948,7 +2984,7 @@ class IncubationAtmosphereValue(StringValue):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/usnistgov/microbial-experiment-schema',
          'title': 'Incubation Atmosphere Value'})
 
-    value: Optional[str] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'value',
+    value: Optional[str] = Field("Atmospheric", json_schema_extra = { "linkml_meta": {'alias': 'value',
          'domain_of': ['BooleanValue',
                        'NumberValue',
                        'StringValue',
@@ -2957,7 +2993,8 @@ class IncubationAtmosphereValue(StringValue):
                        'ArrayValue',
                        'ELabItemValue',
                        'FCInjectionModeValue',
-                       'IncubationAtmosphereValue']} })
+                       'IncubationAtmosphereValue'],
+         'ifabsent': 'Atmospheric'} })
 
 
 class InstrumentIDValue(ELabItemValue):

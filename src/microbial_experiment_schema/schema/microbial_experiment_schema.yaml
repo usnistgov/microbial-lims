@@ -89,6 +89,8 @@ classes:
     slot_usage:
       template_name:
         range: CytoFLEXAcquisitionTemplateNameValue
+    annotations:
+      elabftw_template: true
   
   NucleicAcidExtraction:
     is_a: ExperimentWithInstrument
@@ -102,7 +104,9 @@ classes:
     slot_usage:
       template_name:
         range: NucleicAcidExtractionTemplateNameValue
-  
+    annotations:
+      elabftw_template: true
+
   CellCultureInBroth:
     is_a: Experiment
     title: Cell Culture in Broth
@@ -118,6 +122,8 @@ classes:
     slot_usage:
       template_name:
         range: CellCultureInBrothTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   CytoFLEXVolumeCalibration:
     is_a: ExperimentWithInstrumentNoData
@@ -131,6 +137,8 @@ classes:
     slot_usage:
       template_name:
         range: CytoFLEXVolumeCalibrationTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   GenericTemplateDeprecated:
     is_a: ExperimentWithInstrument
@@ -194,6 +202,8 @@ classes:
     slot_usage:
       template_name:
         range: FormaldehydeFixationTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   MicroscopyAcquisition:
     is_a: ExperimentWithInstrument
@@ -217,6 +227,8 @@ classes:
     slot_usage:
       template_name:
         range: MicroscopyAcquisitionTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   GenericTemplate:
     is_a: ExperimentWithInstrument
@@ -261,6 +273,8 @@ classes:
     slot_usage:
       template_name:
         range: CoulterAcquisitionTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   BactoBoxAcquisition:
     is_a: ExperimentWithInstrument
@@ -273,6 +287,8 @@ classes:
     slot_usage:
       template_name:
         range: BactoBoxAcquisitionTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   LogCOMETSamplePrep:
     is_a: Experiment
@@ -289,6 +305,8 @@ classes:
     slot_usage:
       template_name:
         range: LogCOMETSamplePrepTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   CFU:
     is_a: ExperimentWithData
@@ -307,6 +325,8 @@ classes:
     slot_usage:
       template_name:
         range: CFUTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   DifcoAmendedSporulationAgarProtocol:
     is_a: Experiment
@@ -315,6 +335,8 @@ classes:
     slot_usage:
       template_name:
         range: DifcoAmendedSporulationAgarProtocolTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   InitiateGrowthOfBSpizizenii:
     is_a: Experiment
@@ -331,6 +353,8 @@ classes:
     slot_usage:
       template_name:
         range: InitiateGrowthOfBSpizizeniiTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   SlideCleaning:
     is_a: Experiment
@@ -340,6 +364,8 @@ classes:
     slot_usage:
       template_name:
         range: SlideCleaningTemplateNameValue
+    annotations:
+      elabftw_template: true
 
   # base data-holding classes:
   BooleanValue:
@@ -622,6 +648,7 @@ classes:
     attributes:
       value:
         range: IncubationAtmosphereEnum
+        ifabsent: "Atmospheric"
 
   InstrumentIDValue:
     title: Instrument ID Value
@@ -913,6 +940,7 @@ slots:
     annotations:
       elabftw_group: LabCAS
       elabftw_user_input: true
+      read_only: true
 
   coulter_aperture_size:
     title: CoulterApertureSize
@@ -1021,7 +1049,7 @@ slots:
   
   fluorescent_probe:
     title: FluorescentProbe
-    description: Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)
+    description: Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW
     range: FluorescentProbeValue
     required: false
     annotations:

@@ -942,6 +942,11 @@
           "tag": "elabftw_user_input",
           "value": true,
           "@type": "Annotation"
+        },
+        {
+          "tag": "read_only",
+          "value": true,
+          "@type": "Annotation"
         }
       ],
       "description": "Portion of the data pathway that will not change as the template is used to generate experimental records (should be network-resolvable)\n",
@@ -1272,7 +1277,7 @@
           "@type": "Annotation"
         }
       ],
-      "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)",
+      "description": "Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW",
       "title": "FluorescentProbe",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/fluorescent_probe",
@@ -2207,6 +2212,7 @@
       "name": "incubationAtmosphereValue__value",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
       "slot_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/value",
+      "ifabsent": "Atmospheric",
       "alias": "value",
       "owner": "IncubationAtmosphereValue",
       "domain_of": [
@@ -3686,6 +3692,13 @@
     {
       "name": "CytoFLEXAcquisition",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXAcquisition",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a data acquisition using the CytoFLEX instrument",
       "title": "CytoFLEX_Acquisition",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3719,6 +3732,13 @@
     {
       "name": "NucleicAcidExtraction",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/NucleicAcidExtraction",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a nucleic acid extraction experiment",
       "title": "NucleicAcidExtraction",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3744,6 +3764,13 @@
     {
       "name": "CellCultureInBroth",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CellCultureInBroth",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a cell culture experiment",
       "title": "Cell Culture in Broth",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3769,6 +3796,13 @@
     {
       "name": "CytoFLEXVolumeCalibration",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CytoFLEXVolumeCalibration",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a volume calibration using the CytoFLEX instrument",
       "title": "CytoFLEX_VolumeCalibration",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3853,6 +3887,13 @@
     {
       "name": "FormaldehydeFixation",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/FormaldehydeFixation",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a formaldehyde fixation experiment",
       "title": "FormaldehydeFixation",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3878,6 +3919,13 @@
     {
       "name": "MicroscopyAcquisition",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/MicroscopyAcquisition",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a microscopy acquisition experiment",
       "title": "Microscopy_Acquisition",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3958,6 +4006,13 @@
     {
       "name": "CoulterAcquisition",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CoulterAcquisition",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a Coulter counter acquisition experiment",
       "title": "Coulter_Acquisition",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -3982,6 +4037,13 @@
     {
       "name": "BactoBoxAcquisition",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/BactoBoxAcquisition",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a data acquisition experiment using the BactoBox",
       "title": "BactoBox_Acquisition",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4006,6 +4068,13 @@
     {
       "name": "LogCOMETSamplePrep",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/LogCOMETSamplePrep",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a sample preparation process for a LOGComet experiment",
       "title": "LogCOMET_SamplePrep",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4027,6 +4096,13 @@
     {
       "name": "CFU",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/CFU",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing a colony forming unit counting experiment",
       "title": "CFU",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4055,6 +4131,13 @@
     {
       "name": "DifcoAmendedSporulationAgarProtocol",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/DifcoAmendedSporulationAgarProtocol",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing the preparation process for amended sporulation agar",
       "title": "Difco Amended Sporulation Agar (ASA) Protocol",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4073,6 +4156,13 @@
     {
       "name": "InitiateGrowthOfBSpizizenii",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/InitiateGrowthOfBSpizizenii",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing an initiate growth experiment of B. spizizenii",
       "title": "Initiate Growth of B. spizizenii",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4098,6 +4188,13 @@
     {
       "name": "SlideCleaning",
       "definition_uri": "https://w3id.org/usnistgov/microbial-experiment-schema/SlideCleaning",
+      "annotations": [
+        {
+          "tag": "elabftw_template",
+          "value": true,
+          "@type": "Annotation"
+        }
+      ],
       "description": "Metadata describing an experiment preparing microscopy slides for microbial work",
       "title": "SlideCleaning",
       "from_schema": "https://w3id.org/usnistgov/microbial-experiment-schema",
@@ -4602,6 +4699,7 @@
       "attributes": [
         {
           "name": "value",
+          "ifabsent": "Atmospheric",
           "range": "IncubationAtmosphereEnum",
           "@type": "SlotDefinition"
         }
@@ -5000,9 +5098,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microbial_experiment_schema.yaml",
-  "source_file_date": "2025-02-14T15:46:18",
-  "source_file_size": 47712,
-  "generation_date": "2025-02-14T17:28:33",
+  "source_file_date": "2025-02-18T15:29:24",
+  "source_file_size": 48361,
+  "generation_date": "2025-02-18T15:29:31",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microbial_experiment_schema.context.jsonld",

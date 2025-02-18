@@ -687,7 +687,7 @@
                             "type": "null"
                         }
                     ],
-                    "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
+                    "description": "Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW"
                 },
                 "incubation_agitation": {
                     "anyOf": [
@@ -1826,7 +1826,7 @@
                             "type": "null"
                         }
                     ],
-                    "description": "Fluorescent probe(s) used in the experiment as (linked item(s) from ELabFTW)"
+                    "description": "Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW"
                 },
                 "incubation_agitation": {
                     "anyOf": [
