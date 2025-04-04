@@ -19,7 +19,7 @@ In particular, the following people have contributed to the project:
 	- [Stephanie Servetas](https://www.nist.gov/people/stephanie-servetas) has provided
 	  additional microbial domain expertise in template and metadata design
 - ODI:
-	- [Josh Taillon](https://www.nist.gov/people/joshua-taillon) has provided the
+	- [Josh Taillon](https://orcid.org/0000-0002-5185-4503) has provided the
       majority of the technical implementation for ELabFTW and the original LinkML 
       schema implementation
 	- [Arlin Stoltzfus](https://www.nist.gov/people/arlin-b-stoltzfus) has provided

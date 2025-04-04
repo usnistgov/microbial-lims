@@ -69,9 +69,9 @@ $ linkml generate doc microbial_experiment.yaml -d docs --template-directory doc
 ## Contributors:
 
 - ODI (641):
-	- Josh Taillon (joshua.taillon@nist.gov)
-	- Arlin Stoltzfus (arlin.stoltzfus@nist.gov)
+	- [Josh Taillon](https://orcid.org/0000-0002-5185-4503) (joshua.taillon@nist.gov)
+	- [Arlin Stoltzfus](https://orcid.org/0000-0002-0963-1357) (arlin.stoltzfus@nist.gov)
 - BBD (644):
-	- Kirsten Parratt (kirsten.parratt@nist.gov)
-	- Stephanie Servetas (stephanie.servetas@nist.gov)
-	- Sierra Miller (sierra.miller@nist.gov) 
+	- [Kirsten Parratt](https://orcid.org/0000-0002-2640-3276) (kirsten.parratt@nist.gov)
+	- [Stephanie Servetas](https://orcid.org/0000-0002-4924-4511) (stephanie.servetas@nist.gov)
+	- [Sierra Miller](https://orcid.org/0000-0002-3200-428X) (sierra.miller@nist.gov) 
