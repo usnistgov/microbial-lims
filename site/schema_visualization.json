@@ -1,0 +1,720 @@
+[
+    {
+        "name": "Experiment",
+        "parent": null,
+        "children": [
+            {
+                "name": "CellCultureInBroth",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "growth_media_name",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "incubation_agitation",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "incubation_atmosphere",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "incubation_duration",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "incubation_temperature",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "microbial_material_id",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "sample_purpose_codes",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "CellCultureInBroth"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "CellCultureInBroth"
+                    }
+                ]
+            },
+            {
+                "name": "DifcoAmendedSporulationAgarProtocol",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "DifcoAmendedSporulationAgarProtocol"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "DifcoAmendedSporulationAgarProtocol"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "DifcoAmendedSporulationAgarProtocol"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "DifcoAmendedSporulationAgarProtocol"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "DifcoAmendedSporulationAgarProtocol"
+                    }
+                ]
+            },
+            {
+                "name": "ExperimentWithData",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "CFU",
+                        "parent": "ExperimentWithData",
+                        "children": [
+                            {
+                                "name": "cfu_method",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "fixation_method",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "growth_media_name",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "incubation_atmosphere",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "incubation_duration",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "incubation_temperature",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "microbial_material_id",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "sample_purpose_codes",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "core_data_path (ExperimentWithData)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "specific_data_path (ExperimentWithData)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "data_acquisition_date (Experiment)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "elab_experiment (Experiment)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "operator_id (Experiment)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "project_id (Experiment)",
+                                "parent": "CFU"
+                            },
+                            {
+                                "name": "template_name (Experiment)",
+                                "parent": "CFU"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ExperimentWithInstrument",
+                        "parent": "ExperimentWithData",
+                        "children": [
+                            {
+                                "name": "BactoBoxAcquisition",
+                                "parent": "ExperimentWithInstrument",
+                                "children": [
+                                    {
+                                        "name": "fixation_method",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "microbial_material_id",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "sample_purpose_codes",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "instrument_id (ExperimentWithInstrument)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "core_data_path (ExperimentWithData)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "specific_data_path (ExperimentWithData)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "data_acquisition_date (Experiment)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "elab_experiment (Experiment)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "operator_id (Experiment)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "project_id (Experiment)",
+                                        "parent": "BactoBoxAcquisition"
+                                    },
+                                    {
+                                        "name": "template_name (Experiment)",
+                                        "parent": "BactoBoxAcquisition"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "CoulterAcquisition",
+                                "parent": "ExperimentWithInstrument",
+                                "children": [
+                                    {
+                                        "name": "fixation_method",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "microbial_material_id",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "sample_purpose_codes",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "instrument_id (ExperimentWithInstrument)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "core_data_path (ExperimentWithData)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "specific_data_path (ExperimentWithData)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "data_acquisition_date (Experiment)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "elab_experiment (Experiment)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "operator_id (Experiment)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "project_id (Experiment)",
+                                        "parent": "CoulterAcquisition"
+                                    },
+                                    {
+                                        "name": "template_name (Experiment)",
+                                        "parent": "CoulterAcquisition"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "CytoFLEXAcquisition",
+                                "parent": "ExperimentWithInstrument",
+                                "children": [
+                                    {
+                                        "name": "fc_acquisition_threshold_channel",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "fc_acquisition_threshold_value",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "fc_flow_rate_setting",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "fc_injection_mode",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "fixation_method",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "fluorescent_probe",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_agitation",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_atmosphere",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_duration",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_temperature",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "microbial_material_id",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "sample_purpose_codes",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "instrument_id (ExperimentWithInstrument)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "core_data_path (ExperimentWithData)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "specific_data_path (ExperimentWithData)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "data_acquisition_date (Experiment)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "elab_experiment (Experiment)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "operator_id (Experiment)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "project_id (Experiment)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    },
+                                    {
+                                        "name": "template_name (Experiment)",
+                                        "parent": "CytoFLEXAcquisition"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "MicroscopyAcquisition",
+                                "parent": "ExperimentWithInstrument",
+                                "children": [
+                                    {
+                                        "name": "fixation_method",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "fluorescent_probe",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_agitation",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_atmosphere",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_duration",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "incubation_temperature",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "microbial_material_id",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "modalities",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "objective",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "sample_purpose_codes",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "series_image_types",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "series_images",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "single_images",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "instrument_id (ExperimentWithInstrument)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "core_data_path (ExperimentWithData)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "specific_data_path (ExperimentWithData)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "data_acquisition_date (Experiment)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "elab_experiment (Experiment)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "operator_id (Experiment)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "project_id (Experiment)",
+                                        "parent": "MicroscopyAcquisition"
+                                    },
+                                    {
+                                        "name": "template_name (Experiment)",
+                                        "parent": "MicroscopyAcquisition"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "NucleicAcidExtraction",
+                                "parent": "ExperimentWithInstrument",
+                                "children": [
+                                    {
+                                        "name": "kit_lot_number",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "microbial_material_id",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "nucleic_acid_type",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "sample_purpose_codes",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "instrument_id (ExperimentWithInstrument)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "core_data_path (ExperimentWithData)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "specific_data_path (ExperimentWithData)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "data_acquisition_date (Experiment)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "elab_experiment (Experiment)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "operator_id (Experiment)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "project_id (Experiment)",
+                                        "parent": "NucleicAcidExtraction"
+                                    },
+                                    {
+                                        "name": "template_name (Experiment)",
+                                        "parent": "NucleicAcidExtraction"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "ExperimentWithInstrumentNoData",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "CytoFLEXVolumeCalibration",
+                        "parent": "ExperimentWithInstrumentNoData",
+                        "children": [
+                            {
+                                "name": "fc_flow_rate_setting",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "fc_injection_mode",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "passed_volume_calibration",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "percent_volume_deviation",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "instrument_id (ExperimentWithInstrumentNoData)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "data_acquisition_date (Experiment)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "elab_experiment (Experiment)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "operator_id (Experiment)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "project_id (Experiment)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            },
+                            {
+                                "name": "template_name (Experiment)",
+                                "parent": "CytoFLEXVolumeCalibration"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "FormaldehydeFixation",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "fixation_method",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "incubation_agitation",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "incubation_atmosphere",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "incubation_duration",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "incubation_temperature",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "microbial_material_id",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "sample_purpose_codes",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "FormaldehydeFixation"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "FormaldehydeFixation"
+                    }
+                ]
+            },
+            {
+                "name": "InitiateGrowthOfBSpizizenii",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "growth_media_name",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "incubation_agitation",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "incubation_atmosphere",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "incubation_duration",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "incubation_temperature",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "microbial_material_id",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "sample_purpose_codes",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "InitiateGrowthOfBSpizizenii"
+                    }
+                ]
+            },
+            {
+                "name": "LogCOMETSamplePrep",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "fixation_method",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "microbial_material_id",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "sample_purpose_codes",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "LogCOMETSamplePrep"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "LogCOMETSamplePrep"
+                    }
+                ]
+            },
+            {
+                "name": "SlideCleaning",
+                "parent": "Experiment",
+                "children": [
+                    {
+                        "name": "data_acquisition_date (Experiment)",
+                        "parent": "SlideCleaning"
+                    },
+                    {
+                        "name": "elab_experiment (Experiment)",
+                        "parent": "SlideCleaning"
+                    },
+                    {
+                        "name": "operator_id (Experiment)",
+                        "parent": "SlideCleaning"
+                    },
+                    {
+                        "name": "project_id (Experiment)",
+                        "parent": "SlideCleaning"
+                    },
+                    {
+                        "name": "template_name (Experiment)",
+                        "parent": "SlideCleaning"
+                    }
+                ]
+            }
+        ]
+    }
+]

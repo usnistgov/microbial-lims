@@ -1,0 +1,1908 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://pages.nist.gov/microbial-lims/GenericTemplateDeprecated/" rel="canonical"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.34" name="generator"/>
+<title>Class: GenericTemplate_Deprecated (GenericTemplateDeprecated) (DEPRECATED) (Abstract) - Microbial Experiment Schema</title>
+<link href="../assets/stylesheets/main.35f28582.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-generictemplate_deprecated-generictemplatedeprecated-deprecated-abstract">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Microbial Experiment Schema" class="md-header__button md-logo" data-md-component="logo" href=".." title="Microbial Experiment Schema">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Microbial Experiment Schema
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: GenericTemplate_Deprecated (GenericTemplateDeprecated) (DEPRECATED) (Abstract)
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference theme" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="light-blue" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/usnistgov/microbial-lims" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Microbial Experiment Schema" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Microbial Experiment Schema">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Microbial Experiment Schema
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/usnistgov/microbial-lims" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../schema_visualization/">
+<span class="md-ellipsis">
+    Schema Visualization
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../credits/">
+<span class="md-ellipsis">
+    Credits, Authorship, etc.
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+<span class="md-ellipsis">
+      Inheritance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      Slots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      Schema Source
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      Mappings
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      LinkML Source
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      Direct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      Induced
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="class-generictemplate_deprecated-generictemplatedeprecated-deprecated-abstract">Class: <del>GenericTemplate_Deprecated (GenericTemplateDeprecated)</del><span style="color: #ff5252;"><strong> (DEPRECATED) </strong></span> <span style="color: pink;"><strong><small> (Abstract) </small></strong></span></h1>
+<p><em>A retired version of a generic experiment template used to create other templates</em></p>
+<ul>
+<li>
+<p><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</p>
+</li>
+<li>
+<p><strong>NOTE</strong> this element has been deprecated with the following note:</p>
+<ul>
+<li><em>(2024 June) this is no longer used, use GenericTemplate instead</em></li>
+<li>Element has been replaced by <a href="../GenericTemplate/">GenericTemplate</a></li>
+</ul>
+</li>
+</ul>
+<p>URI: <a href="https://w3id.org/usnistgov/microbial-experiment-schema/GenericTemplateDeprecated">microbial_experiment_schema:GenericTemplateDeprecated</a></p>
+<div class="mermaid"> classDiagram
+    class GenericTemplateDeprecated
+    click GenericTemplateDeprecated href "../GenericTemplateDeprecated"
+      ExperimentWithInstrument &lt;|-- GenericTemplateDeprecated
+        click ExperimentWithInstrument href "../ExperimentWithInstrument"
+
+      GenericTemplateDeprecated : acquisition_time
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" DurationValue : acquisition_time
+    click DurationValue href "../DurationValue"
+
+
+      GenericTemplateDeprecated : acquisition_volume
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" VolumeValue : acquisition_volume
+    click VolumeValue href "../VolumeValue"
+
+
+      GenericTemplateDeprecated : bead_lot_number_concentration_qc
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : bead_lot_number_concentration_qc
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : bead_lot_number_size_qc
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : bead_lot_number_size_qc
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : cell_volume
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" VolumeValue : cell_volume
+    click VolumeValue href "../VolumeValue"
+
+
+      GenericTemplateDeprecated : cfu_method
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" CFUMethodValue : cfu_method
+    click CFUMethodValue href "../CFUMethodValue"
+
+
+      GenericTemplateDeprecated : core_data_path
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" StringValue : core_data_path
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : coulter_aperture_size
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" LengthValue : coulter_aperture_size
+    click LengthValue href "../LengthValue"
+
+
+      GenericTemplateDeprecated : data_acquisition_date
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" DateValue : data_acquisition_date
+    click DateValue href "../DateValue"
+
+
+      GenericTemplateDeprecated : diluent_name
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" ELabItemValue : diluent_name
+    click ELabItemValue href "../ELabItemValue"
+
+
+      GenericTemplateDeprecated : diluent_volume
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" VolumeValue : diluent_volume
+    click VolumeValue href "../VolumeValue"
+
+
+      GenericTemplateDeprecated : elab_experiment
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" ELabExperiment : elab_experiment
+    click ELabExperiment href "../ELabExperiment"
+
+
+      GenericTemplateDeprecated : error_flag
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" BooleanValue : error_flag
+    click BooleanValue href "../BooleanValue"
+
+
+      GenericTemplateDeprecated : fc_acquisition_count_target
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" CountValue : fc_acquisition_count_target
+    click CountValue href "../CountValue"
+
+
+      GenericTemplateDeprecated : fc_acquisition_threshold_channel
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : fc_acquisition_threshold_channel
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : fc_acquisition_threshold_value
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" NumberValue : fc_acquisition_threshold_value
+    click NumberValue href "../NumberValue"
+
+
+      GenericTemplateDeprecated : fc_flow_rate_setting
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" FlowRateValue : fc_flow_rate_setting
+    click FlowRateValue href "../FlowRateValue"
+
+
+      GenericTemplateDeprecated : fc_fluorescent_channels
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : fc_fluorescent_channels
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : fc_injection_mode
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" FCInjectionModeValue : fc_injection_mode
+    click FCInjectionModeValue href "../FCInjectionModeValue"
+
+
+      GenericTemplateDeprecated : fixation_method
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" FixationMethodValue : fixation_method
+    click FixationMethodValue href "../FixationMethodValue"
+
+
+      GenericTemplateDeprecated : fluorescent_probe
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" FluorescentProbeValue : fluorescent_probe
+    click FluorescentProbeValue href "../FluorescentProbeValue"
+
+
+      GenericTemplateDeprecated : growth_duration
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" DurationValue : growth_duration
+    click DurationValue href "../DurationValue"
+
+
+      GenericTemplateDeprecated : growth_media_name
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" ELabItemValue : growth_media_name
+    click ELabItemValue href "../ELabItemValue"
+
+
+      GenericTemplateDeprecated : incubation_agitation
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" AgitationValue : incubation_agitation
+    click AgitationValue href "../AgitationValue"
+
+
+      GenericTemplateDeprecated : incubation_atmosphere
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" IncubationAtmosphereValue : incubation_atmosphere
+    click IncubationAtmosphereValue href "../IncubationAtmosphereValue"
+
+
+      GenericTemplateDeprecated : incubation_duration
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" DurationValue : incubation_duration
+    click DurationValue href "../DurationValue"
+
+
+      GenericTemplateDeprecated : incubation_temperature
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" TemperatureValue : incubation_temperature
+    click TemperatureValue href "../TemperatureValue"
+
+
+      GenericTemplateDeprecated : instrument_id
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" ELabItemValue : instrument_id
+    click ELabItemValue href "../ELabItemValue"
+
+
+      GenericTemplateDeprecated : kit_lot_number
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" ELabItemValue : kit_lot_number
+    click ELabItemValue href "../ELabItemValue"
+
+
+      GenericTemplateDeprecated : labcas_data_acquisition_date
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" DateValue : labcas_data_acquisition_date
+    click DateValue href "../DateValue"
+
+
+      GenericTemplateDeprecated : labcas_instrument
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" LabCASInstrumentValue : labcas_instrument
+    click LabCASInstrumentValue href "../LabCASInstrumentValue"
+
+
+      GenericTemplateDeprecated : labcas_microbial_material_id
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" LabCASMicrobialMaterialIDValue : labcas_microbial_material_id
+    click LabCASMicrobialMaterialIDValue href "../LabCASMicrobialMaterialIDValue"
+
+
+      GenericTemplateDeprecated : labcas_operator
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" LabCASOperatorValue : labcas_operator
+    click LabCASOperatorValue href "../LabCASOperatorValue"
+
+
+      GenericTemplateDeprecated : labcas_project
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" LabCASProjectValue : labcas_project
+    click LabCASProjectValue href "../LabCASProjectValue"
+
+
+      GenericTemplateDeprecated : library_prep
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : library_prep
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : microbial_material_id
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" MicrobialMaterialIDValue : microbial_material_id
+    click MicrobialMaterialIDValue href "../MicrobialMaterialIDValue"
+
+
+      GenericTemplateDeprecated : nucleic_acid_type
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" NucleicAcidTypeValue : nucleic_acid_type
+    click NucleicAcidTypeValue href "../NucleicAcidTypeValue"
+
+
+      GenericTemplateDeprecated : objective
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" ObjectivesValue : objective
+    click ObjectivesValue href "../ObjectivesValue"
+
+
+      GenericTemplateDeprecated : operator_id
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" OperatorIDValue : operator_id
+    click OperatorIDValue href "../OperatorIDValue"
+
+
+      GenericTemplateDeprecated : project_id
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" ELabItemValue : project_id
+    click ELabItemValue href "../ELabItemValue"
+
+
+      GenericTemplateDeprecated : qc_reagent_lot_number
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" StringValue : qc_reagent_lot_number
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : sample_purpose_codes
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" SamplePurposeCodesValue : sample_purpose_codes
+    click SamplePurposeCodesValue href "../SamplePurposeCodesValue"
+
+
+      GenericTemplateDeprecated : specific_data_path
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" StringValue : specific_data_path
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : template_name
+
+
+
+
+    GenericTemplateDeprecated --&gt; "1" StringValue : template_name
+    click StringValue href "../StringValue"
+
+
+      GenericTemplateDeprecated : transmission_mode
+
+
+
+
+    GenericTemplateDeprecated --&gt; "0..1" TransmissionModeValue : transmission_mode
+    click TransmissionModeValue href "../TransmissionModeValue"
+
+
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../Experiment/">Experiment</a><ul>
+<li><a href="../ExperimentWithData/">ExperimentWithData</a><ul>
+<li><a href="../ExperimentWithInstrument/">ExperimentWithInstrument</a><ul>
+<li><strong>GenericTemplateDeprecated</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del><a href="../acquisition_time/">acquisition_time</a></del></td>
+<td>0..1 <br/> <a href="../DurationValue/">DurationValue</a></td>
+<td>Data acquisition time as set by instrument</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../acquisition_volume/">acquisition_volume</a></del></td>
+<td>0..1 <br/> <a href="../VolumeValue/">VolumeValue</a></td>
+<td>Data acquisition volume as set by instrument</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../bead_lot_number_concentration_qc/">bead_lot_number_concentration_qc</a></del></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>Lot number of beads used for quality control of concentration measurements</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../bead_lot_number_size_qc/">bead_lot_number_size_qc</a></del></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>Lot number of beads used for quality control of size measurements</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../cell_volume/">cell_volume</a></del></td>
+<td>0..1 <br/> <a href="../VolumeValue/">VolumeValue</a></td>
+<td>Volume of cell stock added to acquisition vessel</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../cfu_method/">cfu_method</a></td>
+<td>0..1 <br/> <a href="../CFUMethodValue/">CFUMethodValue</a></td>
+<td>Describes deposition format of cells on agar plate</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../coulter_aperture_size/">coulter_aperture_size</a></del></td>
+<td>0..1 <br/> <a href="../LengthValue/">LengthValue</a></td>
+<td>Aperture installed on Coulter counter during measurement</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../diluent_name/">diluent_name</a></del></td>
+<td>0..1 <br/> <a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>Which diluent was used to suspend cells for acquisition (linked item)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../diluent_volume/">diluent_volume</a></del></td>
+<td>0..1 <br/> <a href="../VolumeValue/">VolumeValue</a></td>
+<td>Volume of diluent added to acquisition vessel</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../error_flag/">error_flag</a></del></td>
+<td>0..1 <br/> <a href="../BooleanValue/">BooleanValue</a></td>
+<td>Indicates if a known error appears in the dataset</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../fc_acquisition_count_target/">fc_acquisition_count_target</a></del></td>
+<td>0..1 <br/> <a href="../CountValue/">CountValue</a></td>
+<td>Set number of events to acquire in a particular gate on flow cytometer</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fc_acquisition_threshold_channel/">fc_acquisition_threshold_channel</a></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>Which channel as named by the manufacturer was used to threshold the data acq...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fc_acquisition_threshold_value/">fc_acquisition_threshold_value</a></td>
+<td>0..1 <br/> <a href="../NumberValue/">NumberValue</a></td>
+<td>Threshold value in arbitrary units that defines the lower limit of data acqui...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fc_flow_rate_setting/">fc_flow_rate_setting</a></td>
+<td>0..1 <br/> <a href="../FlowRateValue/">FlowRateValue</a></td>
+<td>Set flow rate of data acquisition on flow cytometer</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../fc_fluorescent_channels/">fc_fluorescent_channels</a></del></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>List of fluorescent channels acquired during a flow cytometry experiment as n...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fc_injection_mode/">fc_injection_mode</a></td>
+<td>0..1 <br/> <a href="../FCInjectionModeValue/">FCInjectionModeValue</a></td>
+<td>Sample acquisition format in flow cytometer</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fixation_method/">fixation_method</a></td>
+<td>0..1 <br/> <a href="../FixationMethodValue/">FixationMethodValue</a></td>
+<td>Specific treatment applied to cells to prevent future changes</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fluorescent_probe/">fluorescent_probe</a></td>
+<td>0..1 <br/> <a href="../FluorescentProbeValue/">FluorescentProbeValue</a></td>
+<td>Fluorescent probe(s) used in the experiment, as linked item(s) from ELabFTW</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../growth_duration/">growth_duration</a></del></td>
+<td>0..1 <br/> <a href="../DurationValue/">DurationValue</a></td>
+<td>Time that cells were incubated to encourage growth</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../growth_media_name/">growth_media_name</a></td>
+<td>0..1 <br/> <a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>Name of media used to culture cells (linked item from ELabFTW)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../incubation_agitation/">incubation_agitation</a></td>
+<td>0..1 <br/> <a href="../AgitationValue/">AgitationValue</a></td>
+<td>Speed of agitation that cells were incubated during an experiment</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../incubation_atmosphere/">incubation_atmosphere</a></td>
+<td>0..1 <br/> <a href="../IncubationAtmosphereValue/">IncubationAtmosphereValue</a></td>
+<td>Atmosphere that cells were incubated in to encourage growth</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../incubation_duration/">incubation_duration</a></td>
+<td>0..1 <br/> <a href="../DurationValue/">DurationValue</a></td>
+<td>Length of time that cells were incubated during an experiment</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../incubation_temperature/">incubation_temperature</a></td>
+<td>0..1 <br/> <a href="../TemperatureValue/">TemperatureValue</a></td>
+<td>Temperature at which cells were incubated during an experiment or culture</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../kit_lot_number/">kit_lot_number</a></td>
+<td>0..1 <br/> <a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>The lot number of any relevant kits (linked item from ELabFTW)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../labcas_data_acquisition_date/">labcas_data_acquisition_date</a></del></td>
+<td>0..1 <br/> <a href="../DateValue/">DateValue</a></td>
+<td>Date on which data were acquired according to eLabFTW record</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../labcas_instrument/">labcas_instrument</a></del></td>
+<td>0..1 <br/> <a href="../LabCASInstrumentValue/">LabCASInstrumentValue</a></td>
+<td>Date on which data were acquired according to eLabFTW record</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../labcas_microbial_material_id/">labcas_microbial_material_id</a></del></td>
+<td>0..1 <br/> <a href="../LabCASMicrobialMaterialIDValue/">LabCASMicrobialMaterialIDValue</a></td>
+<td>Cell material(s) used in experiment as named in the eLabFTW database (linked ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../labcas_operator/">labcas_operator</a></del></td>
+<td>0..1 <br/> <a href="../LabCASOperatorValue/">LabCASOperatorValue</a></td>
+<td>Instrument operator during an experiment (a linked item from ELabFTW)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../labcas_project/">labcas_project</a></del></td>
+<td>0..1 <br/> <a href="../LabCASProjectValue/">LabCASProjectValue</a></td>
+<td>The project that an experiment supports (link to an ELabFTW item)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../library_prep/">library_prep</a></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>The name of a specific kit used for sequencing preparation steps</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../microbial_material_id/">microbial_material_id</a></td>
+<td>0..1 <br/> <a href="../MicrobialMaterialIDValue/">MicrobialMaterialIDValue</a></td>
+<td>Cell material(s) used in experiment as named in the eLabFTW database (linked ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../nucleic_acid_type/">nucleic_acid_type</a></td>
+<td>0..1 <br/> <a href="../NucleicAcidTypeValue/">NucleicAcidTypeValue</a></td>
+<td>The type of nucleic acid used in an extraction experiment</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../objective/">objective</a></td>
+<td>0..1 <br/> <a href="../ObjectivesValue/">ObjectivesValue</a></td>
+<td>The microscope objectives used in a microscopy acquisition experiment</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../qc_reagent_lot_number/">qc_reagent_lot_number</a></del></td>
+<td>0..1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>The lot number for a QC reagent (link to an ELabFTW item)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_purpose_codes/">sample_purpose_codes</a></td>
+<td>0..1 <br/> <a href="../SamplePurposeCodesValue/">SamplePurposeCodesValue</a></td>
+<td>The types of samples acquired in an experiment (from a controlled list)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><del><a href="../transmission_mode/">transmission_mode</a></del></td>
+<td>0..1 <br/> <a href="../TransmissionModeValue/">TransmissionModeValue</a></td>
+<td>The type (modality) of a microscopy acquisition experiment</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../instrument_id/">instrument_id</a></td>
+<td>1 <br/> <a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>The instrument used to acquire the data in an experiment (linked item from EL...</td>
+<td><a href="../ExperimentWithInstrument/">ExperimentWithInstrument</a></td>
+</tr>
+<tr>
+<td><a href="../core_data_path/">core_data_path</a></td>
+<td>1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>Portion of the data pathway that will not change as the template is used to g...</td>
+<td><a href="../ExperimentWithData/">ExperimentWithData</a></td>
+</tr>
+<tr>
+<td><a href="../specific_data_path/">specific_data_path</a></td>
+<td>1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>Portion of the data pathway specific to data from a given experimental record...</td>
+<td><a href="../ExperimentWithData/">ExperimentWithData</a></td>
+</tr>
+<tr>
+<td><a href="../data_acquisition_date/">data_acquisition_date</a></td>
+<td>1 <br/> <a href="../DateValue/">DateValue</a></td>
+<td>Date on which data were acquired according to eLabFTW record</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../elab_experiment/">elab_experiment</a></td>
+<td>1 <br/> <a href="../ELabExperiment/">ELabExperiment</a></td>
+<td>A self-reference to this experiment record</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../operator_id/">operator_id</a></td>
+<td>1 <br/> <a href="../OperatorIDValue/">OperatorIDValue</a></td>
+<td>Instrument operator during an experiment (a linked item from ELabFTW)</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../project_id/">project_id</a></td>
+<td>1 <br/> <a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>The project that an experiment supports (link to an ELabFTW item)</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+<tr>
+<td><a href="../template_name/">template_name</a></td>
+<td>1 <br/> <a href="../StringValue/">StringValue</a></td>
+<td>The name of the template used to collect metadata for an experiment in ELabFT...</td>
+<td><a href="../Experiment/">Experiment</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://w3id.org/usnistgov/microbial-experiment-schema</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>microbial_experiment_schema:GenericTemplateDeprecated</td>
+</tr>
+<tr>
+<td>native</td>
+<td>microbial_experiment_schema:GenericTemplateDeprecated</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: GenericTemplateDeprecated
+description: A retired version of a generic experiment template used to create other
+  templates
+title: GenericTemplate_Deprecated
+deprecated: (2024 June) this is no longer used, use GenericTemplate instead
+from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+deprecated_element_has_exact_replacement: GenericTemplate
+is_a: ExperimentWithInstrument
+abstract: true
+slots:
+- acquisition_time
+- acquisition_volume
+- bead_lot_number_concentration_qc
+- bead_lot_number_size_qc
+- cell_volume
+- cfu_method
+- coulter_aperture_size
+- diluent_name
+- diluent_volume
+- error_flag
+- fc_acquisition_count_target
+- fc_acquisition_threshold_channel
+- fc_acquisition_threshold_value
+- fc_flow_rate_setting
+- fc_fluorescent_channels
+- fc_injection_mode
+- fixation_method
+- fluorescent_probe
+- growth_duration
+- growth_media_name
+- incubation_agitation
+- incubation_atmosphere
+- incubation_duration
+- incubation_temperature
+- kit_lot_number
+- labcas_data_acquisition_date
+- labcas_instrument
+- labcas_microbial_material_id
+- labcas_operator
+- labcas_project
+- library_prep
+- microbial_material_id
+- nucleic_acid_type
+- objective
+- qc_reagent_lot_number
+- sample_purpose_codes
+- transmission_mode
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: GenericTemplateDeprecated
+description: A retired version of a generic experiment template used to create other
+  templates
+title: GenericTemplate_Deprecated
+deprecated: (2024 June) this is no longer used, use GenericTemplate instead
+from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+deprecated_element_has_exact_replacement: GenericTemplate
+is_a: ExperimentWithInstrument
+abstract: true
+attributes:
+  acquisition_time:
+    name: acquisition_time
+    description: Data acquisition time as set by instrument
+    title: AcquisitionTime
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: acquisition_time
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: DurationValue
+    required: false
+  acquisition_volume:
+    name: acquisition_volume
+    description: Data acquisition volume as set by instrument
+    title: AcquisitionVolume
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: acquisition_volume
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: VolumeValue
+    required: false
+  bead_lot_number_concentration_qc:
+    name: bead_lot_number_concentration_qc
+    description: Lot number of beads used for quality control of concentration measurements
+    title: BeadLotNumber_ConcentrationQC
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: bead_lot_number_concentration_qc
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: StringValue
+    required: false
+  bead_lot_number_size_qc:
+    name: bead_lot_number_size_qc
+    description: Lot number of beads used for quality control of size measurements
+    title: BeadLotNumber_SizeQC
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: bead_lot_number_size_qc
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: StringValue
+    required: false
+  cell_volume:
+    name: cell_volume
+    description: Volume of cell stock added to acquisition vessel
+    title: CellVolume
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: cell_volume
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: VolumeValue
+    required: false
+  cfu_method:
+    name: cfu_method
+    description: Describes deposition format of cells on agar plate
+    title: CFUMethod
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: cfu_method
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    - CFU
+    range: CFUMethodValue
+    required: false
+  coulter_aperture_size:
+    name: coulter_aperture_size
+    description: Aperture installed on Coulter counter during measurement
+    title: CoulterApertureSize
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: coulter_aperture_size
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: LengthValue
+    required: false
+  diluent_name:
+    name: diluent_name
+    description: Which diluent was used to suspend cells for acquisition (linked item)
+    title: DiluentName
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: diluent_name
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: ELabItemValue
+    required: false
+  diluent_volume:
+    name: diluent_volume
+    description: Volume of diluent added to acquisition vessel
+    title: DiluentVolume
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: diluent_volume
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: VolumeValue
+    required: false
+  error_flag:
+    name: error_flag
+    description: Indicates if a known error appears in the dataset
+    title: ErrorFlag
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: error_flag
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: BooleanValue
+    required: false
+  fc_acquisition_count_target:
+    name: fc_acquisition_count_target
+    description: Set number of events to acquire in a particular gate on flow cytometer
+    title: FCAcquisitionCountTarget
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fc_acquisition_count_target
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: CountValue
+    required: false
+  fc_acquisition_threshold_channel:
+    name: fc_acquisition_threshold_channel
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Fluorescence FC
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Which channel as named by the manufacturer was used to threshold
+      the data acquisition
+    title: FCAcquisitionThresholdChannel
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fc_acquisition_threshold_channel
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: StringValue
+    required: false
+  fc_acquisition_threshold_value:
+    name: fc_acquisition_threshold_value
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Fluorescence FC
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Threshold value in arbitrary units that defines the lower limit of
+      data acquisition in flow cytometry
+    title: FCAcquisitionThresholdValue
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fc_acquisition_threshold_value
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: NumberValue
+    required: false
+  fc_flow_rate_setting:
+    name: fc_flow_rate_setting
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Fluorescence FC
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+      elabftw_default_unit:
+        tag: elabftw_default_unit
+        value: µL/min
+    description: Set flow rate of data acquisition on flow cytometer
+    title: FCFlowRateSetting
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fc_flow_rate_setting
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CytoFLEXVolumeCalibration
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: FlowRateValue
+    required: false
+  fc_fluorescent_channels:
+    name: fc_fluorescent_channels
+    description: List of fluorescent channels acquired during a flow cytometry experiment
+      as named by the manufacturer (separated by semicolons)
+    title: FCFluorescentChannels
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fc_fluorescent_channels
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: StringValue
+    required: false
+  fc_injection_mode:
+    name: fc_injection_mode
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Fluorescence FC
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Sample acquisition format in flow cytometer
+    title: FCInjectionMode
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    ifabsent: Tube
+    alias: fc_injection_mode
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CytoFLEXVolumeCalibration
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: FCInjectionModeValue
+    required: false
+  fixation_method:
+    name: fixation_method
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Specific treatment applied to cells to prevent future changes
+    title: FixationMethod
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    ifabsent: None
+    alias: fixation_method
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CoulterAcquisition
+    - BactoBoxAcquisition
+    - LogCOMETSamplePrep
+    - CFU
+    range: FixationMethodValue
+    required: false
+  fluorescent_probe:
+    name: fluorescent_probe
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Fluorescent probe(s) used in the experiment, as linked item(s) from
+      ELabFTW
+    title: FluorescentProbe
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: fluorescent_probe
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - GenericTemplateDeprecated
+    - MicroscopyAcquisition
+    - GenericTemplate
+    range: FluorescentProbeValue
+    required: false
+  growth_duration:
+    name: growth_duration
+    description: Time that cells were incubated to encourage growth
+    title: GrowthDuration
+    deprecated: (2024 June) unnecessary and unused
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: growth_duration
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: DurationValue
+    required: false
+  growth_media_name:
+    name: growth_media_name
+    description: Name of media used to culture cells (linked item from ELabFTW)
+    title: GrowthMediaName
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: growth_media_name
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: ELabItemValue
+    required: false
+  incubation_agitation:
+    name: incubation_agitation
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+      elabftw_default_unit:
+        tag: elabftw_default_unit
+        value: rpm
+    description: Speed of agitation that cells were incubated during an experiment
+    title: IncubationAgitation
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: incubation_agitation
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - InitiateGrowthOfBSpizizenii
+    range: AgitationValue
+    required: false
+  incubation_atmosphere:
+    name: incubation_atmosphere
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Atmosphere that cells were incubated in to encourage growth
+    title: IncubationAtmosphere
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: incubation_atmosphere
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: IncubationAtmosphereValue
+    required: false
+  incubation_duration:
+    name: incubation_duration
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+      elabftw_default_unit:
+        tag: elabftw_default_unit
+        value: hr
+    description: Length of time that cells were incubated during an experiment
+    title: IncubationDuration
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: incubation_duration
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: DurationValue
+    required: false
+  incubation_temperature:
+    name: incubation_temperature
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+      elabftw_default_unit:
+        tag: elabftw_default_unit
+        value: oC
+    description: Temperature at which cells were incubated during an experiment or
+      culture
+    title: IncubationTemperature
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: incubation_temperature
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: TemperatureValue
+    required: false
+  kit_lot_number:
+    name: kit_lot_number
+    description: The lot number of any relevant kits (linked item from ELabFTW)
+    title: KitLotNumber
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: kit_lot_number
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - NucleicAcidExtraction
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: ELabItemValue
+    required: false
+  labcas_data_acquisition_date:
+    name: labcas_data_acquisition_date
+    description: Date on which data were acquired according to eLabFTW record
+    title: LabCAS-DataAcquisitionDate
+    deprecated: (2024 June) this is too specific, use data_acquisition_date instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: data_acquisition_date
+    rank: 1000
+    alias: labcas_data_acquisition_date
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: DateValue
+    required: false
+  labcas_instrument:
+    name: labcas_instrument
+    description: Date on which data were acquired according to eLabFTW record
+    title: LabCAS-Instrument
+    deprecated: (2024 June) this is too specific, use instrument_id instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: instrument_id
+    rank: 1000
+    alias: labcas_instrument
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: LabCASInstrumentValue
+    required: false
+  labcas_microbial_material_id:
+    name: labcas_microbial_material_id
+    description: Cell material(s) used in experiment as named in the eLabFTW database
+      (linked items)
+    title: LabCAS-MicrobialMaterialID
+    deprecated: (2024 June) this is too specific, use microbial_material_id instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: microbial_material_id
+    rank: 1000
+    alias: labcas_microbial_material_id
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: LabCASMicrobialMaterialIDValue
+    required: false
+  labcas_operator:
+    name: labcas_operator
+    description: Instrument operator during an experiment (a linked item from ELabFTW)
+    title: LabCAS-Operator
+    deprecated: (2024 June) this is too specific, use operator_id instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: operator_id
+    rank: 1000
+    alias: labcas_operator
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: LabCASOperatorValue
+    required: false
+  labcas_project:
+    name: labcas_project
+    description: The project that an experiment supports (link to an ELabFTW item)
+    title: LabCAS-Project
+    deprecated: (2024 June) this is too specific, use project_id instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: project_id
+    rank: 1000
+    alias: labcas_project
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: LabCASProjectValue
+    required: false
+  library_prep:
+    name: library_prep
+    description: The name of a specific kit used for sequencing preparation steps
+    title: LibraryPrep
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: library_prep
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: StringValue
+    required: false
+  microbial_material_id:
+    name: microbial_material_id
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Cell material(s) used in experiment as named in the eLabFTW database
+      (linked items)
+    title: MicrobialMaterialID
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: microbial_material_id
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - NucleicAcidExtraction
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CoulterAcquisition
+    - BactoBoxAcquisition
+    - LogCOMETSamplePrep
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: MicrobialMaterialIDValue
+    required: false
+  nucleic_acid_type:
+    name: nucleic_acid_type
+    description: The type of nucleic acid used in an extraction experiment
+    title: NucleicAcidType
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: nucleic_acid_type
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - NucleicAcidExtraction
+    - GenericTemplateDeprecated
+    - GenericTemplate
+    range: NucleicAcidTypeValue
+    required: false
+  objective:
+    name: objective
+    description: The microscope objectives used in a microscopy acquisition experiment
+    title: Objective
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: objective
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    - MicroscopyAcquisition
+    - GenericTemplate
+    range: ObjectivesValue
+    required: false
+  qc_reagent_lot_number:
+    name: qc_reagent_lot_number
+    description: The lot number for a QC reagent (link to an ELabFTW item)
+    title: QCReagentLotNumber
+    deprecated: (2024 June) this metadata term was determined to be unneeded, do not
+      use
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: qc_reagent_lot_number
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: StringValue
+    required: false
+  sample_purpose_codes:
+    name: sample_purpose_codes
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: Generic Microbial
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: The types of samples acquired in an experiment (from a controlled
+      list)
+    title: SamplePurposeCodes
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    ifabsent: Positive control
+    alias: sample_purpose_codes
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - CytoFLEXAcquisition
+    - NucleicAcidExtraction
+    - CellCultureInBroth
+    - GenericTemplateDeprecated
+    - FormaldehydeFixation
+    - MicroscopyAcquisition
+    - GenericTemplate
+    - CoulterAcquisition
+    - BactoBoxAcquisition
+    - LogCOMETSamplePrep
+    - CFU
+    - InitiateGrowthOfBSpizizenii
+    range: SamplePurposeCodesValue
+    required: false
+  transmission_mode:
+    name: transmission_mode
+    description: The type (modality) of a microscopy acquisition experiment
+    title: TransmissionMode
+    deprecated: (2024 June) this is too specific, use modalities instead
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    deprecated_element_has_exact_replacement: modalities
+    rank: 1000
+    alias: transmission_mode
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - GenericTemplateDeprecated
+    range: TransmissionModeValue
+    required: false
+  instrument_id:
+    name: instrument_id
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: The instrument used to acquire the data in an experiment (linked
+      item from ELabFTW)
+    title: InstrumentID
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: instrument_id
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - ExperimentWithInstrument
+    - ExperimentWithInstrumentNoData
+    range: ELabItemValue
+    required: true
+  core_data_path:
+    name: core_data_path
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+      read_only:
+        tag: read_only
+        value: true
+    description: Portion of the data pathway that will not change as the template
+      is used to generate experimental records (should be network-resolvable)
+    title: CoreDataPath
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: core_data_path
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - ExperimentWithData
+    range: StringValue
+    required: true
+  specific_data_path:
+    name: specific_data_path
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Portion of the data pathway specific to data from a given experimental
+      record  (should be a sub-path of the location specified by `CoreDataPath`)
+    title: SpecificDataPath
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: specific_data_path
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - ExperimentWithData
+    range: StringValue
+    required: true
+  data_acquisition_date:
+    name: data_acquisition_date
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Date on which data were acquired according to eLabFTW record
+    title: DataAcquisitionDate
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: data_acquisition_date
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - Experiment
+    range: DateValue
+    required: true
+  elab_experiment:
+    name: elab_experiment
+    annotations:
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: false
+    description: A self-reference to this experiment record
+    title: ELabFTW Experiment
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: elab_experiment
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - Experiment
+    range: ELabExperiment
+    required: true
+    inlined: true
+    inlined_as_list: true
+  operator_id:
+    name: operator_id
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: Instrument operator during an experiment (a linked item from ELabFTW)
+    title: OperatorID
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: operator_id
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - Experiment
+    range: OperatorIDValue
+    required: true
+  project_id:
+    name: project_id
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: The project that an experiment supports (link to an ELabFTW item)
+    title: ProjectID
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: project_id
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - Experiment
+    range: ELabItemValue
+    required: true
+  template_name:
+    name: template_name
+    annotations:
+      elabftw_group:
+        tag: elabftw_group
+        value: LabCAS
+      read_only:
+        tag: read_only
+        value: true
+      elabftw_user_input:
+        tag: elabftw_user_input
+        value: true
+    description: The name of the template used to collect metadata for an experiment
+      in ELabFTW. This value controls what specific metadata fields are allowed.
+    title: TemplateName
+    from_schema: https://w3id.org/usnistgov/microbial-experiment-schema
+    rank: 1000
+    alias: template_name
+    owner: GenericTemplateDeprecated
+    domain_of:
+    - Experiment
+    range: StringValue
+    required: true
+
+</code></pre>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
