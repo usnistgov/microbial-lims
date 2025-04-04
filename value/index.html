@@ -432,18 +432,88 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../NucleicAcidTypeValue/">NucleicAcidTypeValue</a></td>
-<td>An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum</td>
+<td><a href="../MicrobialMaterialIDValue/">MicrobialMaterialIDValue</a></td>
+<td>A named sub-class of ArrayValue to hold a list of microbial material links</td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../VolumeValue/">VolumeValue</a></td>
-<td>A class to hold a numerical value representing a volumetric measurement</td>
+<td><a href="../ELabItemValue/">ELabItemValue</a></td>
+<td>A class to hold a reference to an item record in ELabFTW</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../LogCOMETSamplePrepTemplateNameValue/">LogCOMETSamplePrepTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../MicroscopyAcquisitionTemplateNameValue/">MicroscopyAcquisitionTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../LengthValue/">LengthValue</a></td>
+<td>A class to hold a numerical value representing a linear measurement</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../LabCASMicrobialMaterialIDValue/">LabCASMicrobialMaterialIDValue</a></td>
-<td>A named sub-class of ArrayValue to hold a list of microbial material links</td>
+<td><a href="../InstrumentIDValue/">InstrumentIDValue</a></td>
+<td>A named sub-class of ELabItemValue to hold an instrument identifier value</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../BactoBoxAcquisitionTemplateNameValue/">BactoBoxAcquisitionTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../SamplePurposeCodesValue/">SamplePurposeCodesValue</a></td>
+<td>An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../UnitlessValue/">UnitlessValue</a></td>
+<td>A class to hold an explicitly unitless numerical value</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ModalitiesValue/">ModalitiesValue</a></td>
+<td>A named sub-class of ArrayValue to hold a list of modality types</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../DateValue/">DateValue</a></td>
+<td>A class to hold a date value</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../InitiateGrowthOfBSpizizeniiTemplateNameValue/">InitiateGrowthOfBSpizizeniiTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../OperatorIDValue/">OperatorIDValue</a></td>
+<td>A named sub-class of ELabItemValue to hold an operator identifier value</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ProjectIDValue/">ProjectIDValue</a></td>
+<td>A named sub-class of ELabItemValue to hold a project identifier value</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ArrayValue/">ArrayValue</a></td>
+<td>A class to hold an array of values</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CytoFLEXVolumeCalibrationTemplateNameValue/">CytoFLEXVolumeCalibrationTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../FixationMethodValue/">FixationMethodValue</a></td>
+<td>An override of ArrayValue allowing only values from the FixationMethodEnum enum</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -452,13 +522,128 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../LabCASProjectValue/">LabCASProjectValue</a></td>
+<td>A named sub-class of ELabItemValue to hold the project identifier</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../StringValue/">StringValue</a></td>
+<td>A class to hold a string value</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../VolumeValue/">VolumeValue</a></td>
+<td>A class to hold a numerical value representing a volumetric measurement</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../NucleicAcidExtractionTemplateNameValue/">NucleicAcidExtractionTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CountValue/">CountValue</a></td>
+<td>A class to hold a numerical value representing a counting measurement</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../LabCASMicrobialMaterialIDValue/">LabCASMicrobialMaterialIDValue</a></td>
+<td>A named sub-class of ArrayValue to hold a list of microbial material links</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ObjectivesValue/">ObjectivesValue</a></td>
+<td>An override of ArrayValue allowing only values from the ObjectivesEnum enum</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../LabCASOperatorValue/">LabCASOperatorValue</a></td>
+<td>A named sub-class of ELabItemValue to hold the operator identifier</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FormaldehydeFixationTemplateNameValue/">FormaldehydeFixationTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../CFUTemplateNameValue/">CFUTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a CFU experiment</td>
+<td>yes</td>
+</tr>
+<tr>
 <td><a href="../LabCASInstrumentValue/">LabCASInstrumentValue</a></td>
 <td>A named sub-class of ELabItemValue to hold the instrument identifier</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../CFUTemplateNameValue/">CFUTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a CFU experiment</td>
+<td><a href="../DifcoAmendedSporulationAgarProtocolTemplateNameValue/">DifcoAmendedSporulationAgarProtocolTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../UriValue/">UriValue</a></td>
+<td>A class to hold a string value that is a URI</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../FluorescentProbeValue/">FluorescentProbeValue</a></td>
+<td>An override of ArrayValue allowing only ELabItem values</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../IncubationAtmosphereValue/">IncubationAtmosphereValue</a></td>
+<td>An override of StringValue allowing only values from the IncubationAtmosphereEnum enum</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../NumberValue/">NumberValue</a></td>
+<td>A class to hold a numerical value with a free-text string as a unit</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../TemperatureValue/">TemperatureValue</a></td>
+<td>A class to hold a numerical value representing a temperature measurement</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CellCultureInBrothTemplateNameValue/">CellCultureInBrothTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../SeriesImageTypesValue/">SeriesImageTypesValue</a></td>
+<td>An override of ArrayValue allowing only values from the ImageTypeEnum enum</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../NucleicAcidTypeValue/">NucleicAcidTypeValue</a></td>
+<td>An override of StringValue allowing only a value from the NucleicAcidTypeEnum enum</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../AgitationValue/">AgitationValue</a></td>
+<td>A class to hold a numerical value representing an agitation speed</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CoulterAcquisitionTemplateNameValue/">CoulterAcquisitionTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../SlideCleaningTemplateNameValue/">SlideCleaningTemplateNameValue</a></td>
+<td>An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../FCInjectionModeValue/">FCInjectionModeValue</a></td>
+<td>An override of StringValue allowing only values from the FCInjectionModeEnum enum</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../CFUMethodValue/">CFUMethodValue</a></td>
+<td>An override of ArrayValue allowing only values from the CFUMethodEnum enum</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -472,198 +657,13 @@
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../CountValue/">CountValue</a></td>
-<td>A class to hold a numerical value representing a counting measurement</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../CytoFLEXVolumeCalibrationTemplateNameValue/">CytoFLEXVolumeCalibrationTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a CytoFLEX_VolumeCalibration experiment</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../DurationValue/">DurationValue</a></td>
 <td>A class to hold a numerical value representing a time duration measurement</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ArrayValue/">ArrayValue</a></td>
-<td>A class to hold an array of values</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../LabCASOperatorValue/">LabCASOperatorValue</a></td>
-<td>A named sub-class of ELabItemValue to hold the operator identifier</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../AgitationValue/">AgitationValue</a></td>
-<td>A class to hold a numerical value representing an agitation speed</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FormaldehydeFixationTemplateNameValue/">FormaldehydeFixationTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a FormaldehydeFixation experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../CoulterAcquisitionTemplateNameValue/">CoulterAcquisitionTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Coulter_Acquisition experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../OperatorIDValue/">OperatorIDValue</a></td>
-<td>A named sub-class of ELabItemValue to hold an operator identifier value</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../NucleicAcidExtractionTemplateNameValue/">NucleicAcidExtractionTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Nucleic Acid Extraction experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../CellCultureInBrothTemplateNameValue/">CellCultureInBrothTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Cell Culture in Broth experiment</td>
-<td>yes</td>
-</tr>
-<tr>
 <td><a href="../CytoFLEXAcquisitionTemplateNameValue/">CytoFLEXAcquisitionTemplateNameValue</a></td>
 <td>An override of StringValue specified an allowed value for the template_name for a CytoFLEX_Acquisition experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../MicroscopyAcquisitionTemplateNameValue/">MicroscopyAcquisitionTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Microscopy_Acquisition experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../IncubationAtmosphereValue/">IncubationAtmosphereValue</a></td>
-<td>An override of StringValue allowing only values from the IncubationAtmosphereEnum enum</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../UnitlessValue/">UnitlessValue</a></td>
-<td>A class to hold an explicitly unitless numerical value</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FixationMethodValue/">FixationMethodValue</a></td>
-<td>An override of ArrayValue allowing only values from the FixationMethodEnum enum</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../MicrobialMaterialIDValue/">MicrobialMaterialIDValue</a></td>
-<td>A named sub-class of ArrayValue to hold a list of microbial material links</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../SeriesImageTypesValue/">SeriesImageTypesValue</a></td>
-<td>An override of ArrayValue allowing only values from the ImageTypeEnum enum</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ELabItemValue/">ELabItemValue</a></td>
-<td>A class to hold a reference to an item record in ELabFTW</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../SlideCleaningTemplateNameValue/">SlideCleaningTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a SlideCleaning experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../LogCOMETSamplePrepTemplateNameValue/">LogCOMETSamplePrepTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a LogCOMET_SamplePrep experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../LengthValue/">LengthValue</a></td>
-<td>A class to hold a numerical value representing a linear measurement</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../CFUMethodValue/">CFUMethodValue</a></td>
-<td>An override of ArrayValue allowing only values from the CFUMethodEnum enum</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../InitiateGrowthOfBSpizizeniiTemplateNameValue/">InitiateGrowthOfBSpizizeniiTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Initiate Growth of B spizizenii experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../BactoBoxAcquisitionTemplateNameValue/">BactoBoxAcquisitionTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a BactoBox_Acquisition experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../DateValue/">DateValue</a></td>
-<td>A class to hold a date value</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../LabCASProjectValue/">LabCASProjectValue</a></td>
-<td>A named sub-class of ELabItemValue to hold the project identifier</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../DifcoAmendedSporulationAgarProtocolTemplateNameValue/">DifcoAmendedSporulationAgarProtocolTemplateNameValue</a></td>
-<td>An override of StringValue specified an allowed value for the template_name for a Difco Amended Sporulation Agar Protocol experiment</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ObjectivesValue/">ObjectivesValue</a></td>
-<td>An override of ArrayValue allowing only values from the ObjectivesEnum enum</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../InstrumentIDValue/">InstrumentIDValue</a></td>
-<td>A named sub-class of ELabItemValue to hold an instrument identifier value</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../SamplePurposeCodesValue/">SamplePurposeCodesValue</a></td>
-<td>An override of ArrayValue allowing only values from the SamplePurposeCodeEnum enum</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../FluorescentProbeValue/">FluorescentProbeValue</a></td>
-<td>An override of ArrayValue allowing only ELabItem values</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../FCInjectionModeValue/">FCInjectionModeValue</a></td>
-<td>An override of StringValue allowing only values from the FCInjectionModeEnum enum</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ProjectIDValue/">ProjectIDValue</a></td>
-<td>A named sub-class of ELabItemValue to hold a project identifier value</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../UriValue/">UriValue</a></td>
-<td>A class to hold a string value that is a URI</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../StringValue/">StringValue</a></td>
-<td>A class to hold a string value</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../NumberValue/">NumberValue</a></td>
-<td>A class to hold a numerical value with a free-text string as a unit</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../TemperatureValue/">TemperatureValue</a></td>
-<td>A class to hold a numerical value representing a temperature measurement</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ModalitiesValue/">ModalitiesValue</a></td>
-<td>A named sub-class of ArrayValue to hold a list of modality types</td>
 <td>yes</td>
 </tr>
 </tbody>
