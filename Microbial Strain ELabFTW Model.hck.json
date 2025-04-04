@@ -148,7 +148,7 @@
                     "GUID": "0496587a-5b6d-4a8a-ad46-e3f2c58f6749",
                     "name": "CoreDataPath",
                     "type": "reference",
-                    "$ref": "#/definitions/***REMOVED***CorePath",
+                    "$ref": "#/definitions/**REMOVED**CorePath",
                     "refType": "internal",
                     "ref": "38da3ef0-eaf9-4a5e-a9dc-622179fd634b",
                     "refIdPath": [
@@ -173,7 +173,7 @@
                     "GUID": "849b6e22-f571-49bc-a69b-0785d77ccab5",
                     "name": "SpecificDataPath",
                     "type": "reference",
-                    "$ref": "#/definitions/***REMOVED***SpecificPath",
+                    "$ref": "#/definitions/**REMOVED**SpecificPath",
                     "refType": "internal",
                     "ref": "e243db22-8322-4096-8776-8246af35ce8c",
                     "refIdPath": [
@@ -4097,7 +4097,7 @@
                                     ]
                                 },
                                 "examples": [
-                                    "\\\\***REMOVED***.nist.gov\\***REMOVED***\\InstrumentData\\CytoFLEX"
+                                    "\\\\**REMOVED**.nist.gov\\**REMOVED**\\InstrumentData\\CytoFLEX"
                                 ]
                             }
                         ],

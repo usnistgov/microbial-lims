@@ -1,6 +1,6 @@
 {
     "core_data_path": {
-      "value": "//***REMOVED***.nist.gov/InstrumentData"
+      "value": "//**REMOVED**.nist.gov/InstrumentData"
     },
     "data_acquisition_date": {
       "value": "2024-08-21"
@@ -9,8 +9,8 @@
         "id": 1,
         "type": "experiments",
         "elabid": "testid",
-        "url": "https://elab.nist.gov/items/1",
-        "api_url": "https://elab.nist.gov/api/items/1",
+        "url": "https://**REMOVED**.nist.gov/items/1",
+        "api_url": "https://**REMOVED**.nist.gov/api/items/1",
         "title": "A test item",
         "category_title": "The Category",
         "status_title": "the status"

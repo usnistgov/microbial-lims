@@ -3,7 +3,7 @@
   "description": "Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project",
   "title": "Microbial Experiment Schema",
   "see_also": [
-    "https://mml-lims.***REMOVED***.nist.gov/microbial-experiment-schema"
+    "https://pages.nist.gov/microbial-experiment-schema"
   ],
   "id": "https://w3id.org/usnistgov/microbial-experiment-schema",
   "version": "2025.02.14",

@@ -75,7 +75,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'microbial_experiment_schema',
                            'prefix_reference': 'http://qudt.org/schema/qudt/'},
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'}},
-     'see_also': ['https://mml-lims.***REMOVED***.nist.gov/microbial-experiment-schema'],
+     'see_also': ['https://pages.nist.gov/microbial-experiment-schema'],
      'source_file': 'src/microbial_experiment_schema/schema/microbial_experiment_schema.yaml',
      'title': 'Microbial Experiment Schema'} )
 

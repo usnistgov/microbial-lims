@@ -33,8 +33,8 @@ nav:
   - Home: index.md
   - Schema Visualization: schema_visualization.md
   - Credits, Authorship, etc.: credits.md
-site_url: https://mml-lims.***REMOVED***.nist.gov/microbial-lims
-repo_url: https://***REMOVED***/mml-lims/microbial-lims
+site_url: https://pages.nist.gov/microbial-lims
+repo_url: https://github.com/usnistgov/microbial-lims
 
 markdown_extensions:
   - pymdownx.tilde
