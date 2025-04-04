@@ -34,3 +34,10 @@ jobs:
       - name: Build documentation.
         run: |
           make build-site
+          touch site/.nojekyll
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-site
+          path: site
+          include-hidden-files: true
