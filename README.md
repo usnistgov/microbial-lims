@@ -2,14 +2,14 @@
 
 This repository holds files that define a metadata schema for the terms collected during
 various research tasks in the Microbial Strain team. The primary use case for these schemata
-are to validate the metadata entered into eLabFTW (https://elab.nist.gov) experiment records
+are to validate the metadata entered into eLabFTW experiment records
 and prepare bundles for export into LabCAS. In the future, they may be used to programmatically
 generate the ["extra fields" definitions](https://doc.elabftw.net/metadata.html) of eLabFTW
 experiment templates.
 
 ## Implementation
 
-Currently, @jat is using [LinkML](https://linkml.io/) to implement the data model in the file
+Currently, we are using [LinkML](https://linkml.io/) to implement the data model in the file
 [`microbial_experiment.yaml`](microbial_experiment.yaml), which allows for validation and
 generation of JSONSchema outputs via that tool's ["generators"](https://linkml.io/linkml/generators/json-schema.html)
 feature. There is no GUI for this directly, but @jat uses Visual Studio Code with the following
@@ -20,12 +20,12 @@ directive at the top of the file to make use of VSCode's YAML validation feature
 ```
 
 The resulting schema will be used with the work in the 
-[ELabFTW Python API](https://***REMOVED***/gitlab/mml-lims/elabftw-python-api) and the scripts
+[ELabFTW Python API](https://github.com/usnistgov/elabftw-python-api) and the scripts
 in the `validation` folder to validate and export experiments generated in ELabFTW (still a WIP). 
 
 ## Website/Documentation (WIP)
 
-[https://mml-lims.***REMOVED***.nist.gov/microbial-lims](https://mml-lims.***REMOVED***.nist.gov/microbial-lims)
+[https://pages.nist.gov/microbial-lims](https://pages.nist.gov/microbial-lims)
 
 ## Repository Structure
 
@@ -69,9 +69,9 @@ $ linkml generate doc microbial_experiment.yaml -d docs --template-directory doc
 ## Contributors:
 
 - ODI (641):
-	- Josh Taillon (@jat)
-	- Arlin Stoltzfus (@arlin)
+	- Josh Taillon (joshua.taillon@nist.gov)
+	- Arlin Stoltzfus (arlin.stoltzfus@nist.gov)
 - BBD (644):
-	- Kirsten Parratt (@khp)
-	- Stephanie Servetas (@sls8)
-	- Sierra Miller (@sdm8) 
+	- Kirsten Parratt (kirsten.parratt@nist.gov)
+	- Stephanie Servetas (stephanie.servetas@nist.gov)
+	- Sierra Miller (sierra.miller@nist.gov) 

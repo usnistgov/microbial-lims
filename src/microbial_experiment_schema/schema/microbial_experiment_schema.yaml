@@ -11,7 +11,7 @@ version: "2025.02.14"
 description: Metadata schemas for validation of ELN data entries as part of the Microbial LIMS project
 license: NIST Public License
 see_also:
-  - https://mml-lims.***REMOVED***.nist.gov/microbial-experiment-schema
+  - https://pages.nist.gov/microbial-experiment-schema
 
 prefixes:
   microbial_experiment_schema: https://w3id.org/usnistgov/microbial-experiment-schema/
