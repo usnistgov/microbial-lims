@@ -42,13 +42,22 @@ jobs:
           path: site
           include-hidden-files: true
 
-      - name: Deploy to nist-pages branch
+      - name: Deploy to nist-pages branch (1/2)
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Github Actions"
           git switch nist-pages
-          git pull origin nist-pages
-          cp -rT ./site .  # Copy your artifact to the root (or desired location)
+          git reset --hard origin/nist-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - uses: actions/download-artifact@v4
+        with:
+          name: built-site
+      
+      - name: Deploy to nist-pages branch (2/2)
+        run: |
+          ls -lah
           git add --all
           git commit -m "Deploy built documentation"
           git push origin nist-pages
