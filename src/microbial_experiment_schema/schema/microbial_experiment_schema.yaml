@@ -88,6 +88,7 @@ classes:
       - sample_purpose_codes
     slot_usage:
       template_name:
+        ifabsent: CytoFLEX_Acquisition
         range: CytoFLEXAcquisitionTemplateNameValue
     annotations:
       elabftw_template: true
@@ -933,8 +934,8 @@ slots:
   core_data_path:
     title: CoreDataPath
     required: true
-    range: UriValue
-    description: >
+    range: StringValue
+    description: >-
       Portion of the data pathway that will not change as the template is used to
       generate experimental records (should be network-resolvable)
     annotations:
@@ -1028,12 +1029,14 @@ slots:
     annotations:
       elabftw_group: Fluorescence FC
       elabftw_user_input: true
-
+      elabftw_default_unit: µL/min
+      
   fc_injection_mode:
     title: FCInjectionMode
     range: FCInjectionModeValue
     description: Sample acquisition format in flow cytometer
     required: false
+    ifabsent: Tube
     annotations:
       elabftw_group: Fluorescence FC
       elabftw_user_input: true
@@ -1042,6 +1045,7 @@ slots:
     title: FixationMethod
     description: Specific treatment applied to cells to prevent future changes
     range: FixationMethodValue
+    ifabsent: None
     required: false
     annotations:
       elabftw_group: Generic Microbial
@@ -1077,6 +1081,7 @@ slots:
     annotations:
       elabftw_group: Generic Microbial
       elabftw_user_input: true
+      elabftw_default_unit: rpm
 
   incubation_atmosphere:
     title: IncubationAtmosphere
@@ -1095,6 +1100,7 @@ slots:
     annotations:
       elabftw_group: Generic Microbial
       elabftw_user_input: true
+      elabftw_default_unit: hr
 
   incubation_temperature:
     title: IncubationTemperature
@@ -1104,12 +1110,13 @@ slots:
     annotations:
       elabftw_group: Generic Microbial
       elabftw_user_input: true
+      elabftw_default_unit: oC
   
   instrument_id:
     title: InstrumentID
     description: The instrument used to acquire the data in an experiment (linked item from ELabFTW)
     range: ELabItemValue
-    required: false
+    required: true
     annotations:
       elabftw_group: LabCAS
       elabftw_user_input: true
@@ -1237,6 +1244,8 @@ slots:
     description: The types of samples acquired in an experiment (from a controlled list)
     range: SamplePurposeCodesValue
     required: false
+    # this will be converted into a list by the template generator
+    ifabsent: Positive control
     annotations:
       elabftw_group: Generic Microbial
       elabftw_user_input: true
@@ -1262,10 +1271,10 @@ slots:
   specific_data_path:
     title: SpecificDataPath
     required: true
-    description: >
+    description: >-
       Portion of the data pathway specific to data from a given experimental record 
       (should be a sub-path of the location specified by `CoreDataPath`)
-    range: UriValue
+    range: StringValue
     annotations:
       elabftw_group: LabCAS
       elabftw_user_input: true
